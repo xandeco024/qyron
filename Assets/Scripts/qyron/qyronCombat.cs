@@ -6,12 +6,11 @@ using UnityEngine;
 public class qyronCombat : MonoBehaviour
 {
     [SerializeField] private float maxHealth;
-    private float health;
+    [SerializeField] private float health;
     [SerializeField] private Color damageColor, originalColor;
 
     [SerializeField] private float attackDamage;
     [SerializeField] private bool isAttacking;
-    [SerializeField] private float attackRange = 2;
 
     private LayerMask enemyLayer;
 
@@ -21,6 +20,7 @@ public class qyronCombat : MonoBehaviour
     private BoxCollider2D qyronCol;
     private qyronMovement qyronMovement;
     private qyronSFX qyronSFX;
+    private Animator qyronAnimator;
 
 
     void Start()
@@ -32,17 +32,27 @@ public class qyronCombat : MonoBehaviour
         qyronSR = GetComponent<SpriteRenderer>();
         qyronRB = GetComponent<Rigidbody2D>();
         qyronSFX = GetComponent<qyronSFX>();
+        qyronAnimator = GetComponent<Animator>();
+
+        health = maxHealth;
     }
 
     void Update()
     {
-        Vector2 attackDirection = new Vector2(transform.localScale.x, 0);
+        if(Time.timeScale == 0)
+        {
+            return;
+        }
 
-        Debug.DrawRay(transform.position, attackDirection * 1, Color.red);
+        else
 
-        if (Input.GetButtonDown("Fire1") && !isAttacking) StartCoroutine(BasicAttack());
+        {
+            Vector2 attackDirection = new Vector2(transform.localScale.x, 0);
 
-        
+            Debug.DrawRay(transform.position, attackDirection * 1, Color.red);
+
+            if (Input.GetButtonDown("Fire1") && !isAttacking) StartCoroutine(BasicAttack());
+        }
     }
 
     public void TakeDamage(float damage, bool takeKnockBack, float knockBackForce)
@@ -71,6 +81,7 @@ public class qyronCombat : MonoBehaviour
         Debug.Log("bateu msm");
 
         isAttacking = true;
+        qyronAnimator.SetTrigger("Attack 1");
 
         Vector3 attackDirection = new Vector2(transform.localScale.x, 0);
 
@@ -81,7 +92,15 @@ public class qyronCombat : MonoBehaviour
         {
             qyronSFX.PlayAttackSFX(Random.Range(0, 2));
 
-            BasicAttackRaycast.collider.gameObject.GetComponent<enemyCombat>().TakeDamage(attackDamage);
+            if(BasicAttackRaycast.collider.CompareTag("Dummy"))
+            {
+                BasicAttackRaycast.collider.GetComponent<dummy>().TakeDamage(attackDamage);
+            }
+
+            else if(BasicAttackRaycast.collider.CompareTag("Enemy"))
+            {
+                BasicAttackRaycast.collider.GetComponent<enemyCombat>().TakeDamage(attackDamage);
+            }
         }
 
         else
@@ -90,8 +109,18 @@ public class qyronCombat : MonoBehaviour
             qyronSFX.PlayMissSFX(Random.Range(0,2));
         }
 
-        yield return new WaitForSeconds(.15f);
+        yield return new WaitForSeconds(.4f);
 
         isAttacking = false;
+    }
+
+    public float GetCurrentHealth()
+    {
+        return health;
+    }
+
+    public float GetMaxHealth()
+    {
+        return maxHealth;
     }
 }

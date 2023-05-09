@@ -42,44 +42,52 @@ public class qyronMovement : MonoBehaviour
 
     void Update()
     {
-        // Movimento horizontal
-       if(!isDashing)
+        if(Time.timeScale == 0)
         {
-            float x = Input.GetAxisRaw("Horizontal");
-            qyronRB.velocity = new Vector2(x * speed, qyronRB.velocity.y);
-
-            if (x < 0)
-            {
-                transform.localScale = new Vector3(-1, 1, 1);
-            }
-            else if (x > 0)
-            {
-                transform.localScale = new Vector3(1, 1, 1);
-            }
-
-            // Pulo
-            if (Input.GetButtonDown("Jump") && jumps < maxJumps)
-            {
-                qyronRB.velocity = new Vector2(qyronRB.velocity.x, jumpForce);
-                jumps++;
-            }
-
-            // Dash
-            if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
-            {
-                StartCoroutine(Dash());
-            }
+            return;
         }
 
-        // Verifica se o personagem está no chão
-        isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 1.5f, groundLayer).collider != null;
-        Debug.DrawRay(transform.position, Vector2.down * 1.5f, Color.green);
+        else
 
-        if(isGrounded)
         {
-            jumps = 0; 
-        }
+            // Movimento horizontal
+            if (!isDashing)
+            {
+                float x = Input.GetAxisRaw("Horizontal");
+                qyronRB.velocity = new Vector2(x * speed, qyronRB.velocity.y);
 
+                if (x < 0)
+                {
+                    transform.localScale = new Vector3(-1, 1, 1);
+                }
+                else if (x > 0)
+                {
+                    transform.localScale = new Vector3(1, 1, 1);
+                }
+
+                // Pulo
+                if (Input.GetButtonDown("Jump") && jumps < maxJumps)
+                {
+                    qyronRB.velocity = new Vector2(qyronRB.velocity.x, jumpForce);
+                    jumps++;
+                }
+
+                // Dash
+                if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+                {
+                    StartCoroutine(Dash());
+                }
+            }
+
+            // Verifica se o personagem está no chão
+            isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 1.5f, groundLayer).collider != null;
+            Debug.DrawRay(transform.position, Vector2.down * 1.5f, Color.green);
+
+            if (isGrounded)
+            {
+                jumps = 0;
+            }
+        }
     }
 
     void FixedUpdate()
