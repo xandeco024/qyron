@@ -17,21 +17,26 @@ public class pombo1 : MonoBehaviour
     private GameObject qyron;
     private Rigidbody2D pigeonRB;
     private BoxCollider2D pigeonCOL;
+    private enemyCombat pigeonCombat;
     private LayerMask playerLayer;
+    private LayerMask groundLayer;
 
     [Header("State")]
     private bool playerInAttackRange;
     private bool isFollowing;
     private bool isAttacking;
     private bool wasHit;
+    private bool isGrounded;
 
     void Start()
     {
         qyron = GameObject.FindWithTag("Player");
 
+        groundLayer = LayerMask.GetMask("Ground");
         playerLayer = LayerMask.GetMask("Player");
         pigeonRB = GetComponent<Rigidbody2D>();
         pigeonCOL = GetComponent<BoxCollider2D>();
+        pigeonCombat = GetComponent<enemyCombat>();
 
         Physics2D.IgnoreCollision(pigeonCOL, qyron.GetComponent<BoxCollider2D>());
     }
@@ -40,53 +45,57 @@ public class pombo1 : MonoBehaviour
     {
         direction = (qyron.transform.position - transform.position).normalized;
 
-        FollowPlayer();
-
-        Vector3 attackDirection = new Vector2(transform.localScale.x, 0);
-        RaycastHit2D AttackRaycast = Physics2D.Raycast(transform.position, attackDirection, 2, playerLayer);
-        Debug.DrawRay(transform.position, attackDirection * 1, Color.red);
-
-        if(AttackRaycast.collider != null)
+        if(!pigeonCombat.isTakingDamage)
         {
-            if(AttackRaycast.collider.gameObject.CompareTag("Player"))
+            Flip();
+            FollowPlayer();
+
+            Vector3 attackDirection = new Vector2(transform.localScale.x, 0);
+            RaycastHit2D AttackRaycast = Physics2D.Raycast(transform.position, attackDirection, 2, playerLayer);
+            Debug.DrawRay(transform.position, attackDirection * 1, Color.red);
+
+            if (AttackRaycast.collider != null)
             {
-                if(!wasHit)
+                if (AttackRaycast.collider.gameObject.CompareTag("Player"))
                 {
-                    Debug.Log("entrou no range");
-                    playerInAttackRange = true;
+                    if (!wasHit)
+                    {
+                        //Debug.Log("entrou no range");
+                        playerInAttackRange = true;
+                    }
+
+                    wasHit = true;
+                }
+            }
+
+            else
+
+            {
+                if (wasHit)
+                {
+                    //Debug.Log("saiu do range");
+                    playerInAttackRange = false;
                 }
 
-                wasHit = true;
+                wasHit = false;
             }
-        }
 
-        else
-
-        {
-            if(wasHit)
+            if (!isAttacking && playerInAttackRange)
             {
-                Debug.Log("saiu do range");
-                playerInAttackRange = false;
+                StartCoroutine(Attack());
             }
-
-            wasHit = false;
         }
 
-        if(!isAttacking && playerInAttackRange)
-        {
-            StartCoroutine(Attack());
-        }
-
-        Flip();
+        
     }
 
     private IEnumerator Attack()
     {
-        Debug.Log("#carregando"); 
+       // Debug.Log("#carregando"); 
         isAttacking = true;
 
         yield return new WaitForSeconds(.1f);
-        Debug.Log("#atacando");
+       //Debug.Log("#atacando");
 
         Vector3 attackDirection = new Vector2(transform.localScale.x, 0);
         RaycastHit2D AttackRaycast = Physics2D.Raycast(transform.position, attackDirection, 2, playerLayer);
@@ -96,8 +105,8 @@ public class pombo1 : MonoBehaviour
         {
             if (AttackRaycast.collider.gameObject.CompareTag("Player"))
             {
-                Debug.Log("bateu");
-                AttackRaycast.collider.gameObject.GetComponent<qyronCombat>().TakeDamage(pigeonDamage, true, 2);
+                //Debug.Log("bateu");
+                StartCoroutine(AttackRaycast.collider.gameObject.GetComponent<qyronCombat>().TakeDamage(pigeonDamage, true, new Vector2(4,2)));
             }
         }
 

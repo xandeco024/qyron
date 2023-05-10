@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Dummy
   - Enemy
+  - GameOverPanel
+  - PausePanel
+  - CMMainCamera
   layers:
   - Default
   - TransparentFX

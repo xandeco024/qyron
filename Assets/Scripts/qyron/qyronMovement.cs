@@ -11,6 +11,8 @@ public class qyronMovement : MonoBehaviour
     [SerializeField] private float jumpForce;
     [SerializeField] private int jumps = 0;
     [SerializeField] private int maxJumps;
+    private bool _canMove = true;
+    public bool canMove {get { return _canMove;} set { _canMove = value; } }
 
 
 
@@ -42,12 +44,12 @@ public class qyronMovement : MonoBehaviour
 
     void Update()
     {
-        if(Time.timeScale == 0)
+        if (Time.timeScale == 0)
         {
             return;
         }
 
-        else
+        else if (_canMove)
 
         {
             // Movimento horizontal
@@ -108,4 +110,6 @@ public class qyronMovement : MonoBehaviour
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
     }
+
+    
 }

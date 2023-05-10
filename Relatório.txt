@@ -1,0 +1,12 @@
+- knockback inimigo
+- chute
+- luz
+- ficar em guarda dps do ataque
+
+questionamentos:
+
+- vc acha melhor poder andar enquanto ataca ou não? ou só em alguns ataques? quais? sexo
+
+- alguma coisa no retrato / hud nao me agrada, ql a sua opiniao?
+
+- sugestoes de ataques

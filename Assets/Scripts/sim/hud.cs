@@ -27,7 +27,11 @@ public class hud : MonoBehaviour
         health = qyronCombat.GetCurrentHealth();
         maxHealth = qyronCombat.GetMaxHealth();
 
+        stamina = qyronCombat.GetCurrentStamina();
+        maxStamina = qyronCombat.GetMaxStamina();
+
         HealthHandler();
+        StaminaHandler();
     }
 
     private void HealthHandler()
@@ -41,6 +45,7 @@ public class hud : MonoBehaviour
 
     private void StaminaHandler()
     {
-        //staminaText.text = stami
+        staminaText.text = stamina.ToString();
+        staminaBar.fillAmount = Mathf.Lerp(staminaBar.fillAmount, (stamina / maxStamina), 3 * Time.deltaTime);
     }
 }
