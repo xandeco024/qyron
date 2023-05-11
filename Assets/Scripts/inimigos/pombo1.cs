@@ -15,8 +15,8 @@ public class pombo1 : MonoBehaviour
  
     [Header("Components")]
     private GameObject qyron;
-    private Rigidbody2D pigeonRB;
-    private BoxCollider2D pigeonCOL;
+    private Rigidbody pigeonRB;
+    private BoxCollider pigeonCOL;
     private enemyCombat pigeonCombat;
     private LayerMask playerLayer;
     private LayerMask groundLayer;
@@ -34,11 +34,11 @@ public class pombo1 : MonoBehaviour
 
         groundLayer = LayerMask.GetMask("Ground");
         playerLayer = LayerMask.GetMask("Player");
-        pigeonRB = GetComponent<Rigidbody2D>();
-        pigeonCOL = GetComponent<BoxCollider2D>();
+        pigeonRB = GetComponent<Rigidbody>();
+        pigeonCOL = GetComponent<BoxCollider>();
         pigeonCombat = GetComponent<enemyCombat>();
 
-        Physics2D.IgnoreCollision(pigeonCOL, qyron.GetComponent<BoxCollider2D>());
+        Physics.IgnoreCollision(pigeonCOL, qyron.GetComponent<BoxCollider>());
     }
 
     void Update()
@@ -86,7 +86,7 @@ public class pombo1 : MonoBehaviour
             }
         }
 
-        
+        Limit();
     }
 
     private IEnumerator Attack()
@@ -138,5 +138,11 @@ public class pombo1 : MonoBehaviour
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
+    }
+
+    private void Limit()
+    {
+        if (transform.position.z >= 2.5f) transform.position = new Vector3(transform.position.x, transform.position.y, 2.5f);
+        if (transform.position.z <= -2.5f) transform.position = new Vector3(transform.position.x, transform.position.y, -2.5f);
     }
 }

@@ -17,9 +17,9 @@ public class qyronCombat : MonoBehaviour
     private LayerMask enemyLayer;
 
     [Header("Qyron")]
-    private Rigidbody2D qyronRB;
+    private Rigidbody qyronRB;
     private SpriteRenderer qyronSR;
-    private BoxCollider2D qyronCol;
+    private BoxCollider qyronCol;
     private qyronMovement qyronMovement;
     private qyronSFX qyronSFX;
     private Animator qyronAnimator;
@@ -36,15 +36,20 @@ public class qyronCombat : MonoBehaviour
     [SerializeField] private float invincibilityTime;
     private bool isInvincible = false;
 
+    private Ray CombatRaycast;
+    private RaycastHit CombatRaycastHit;
+
+    [SerializeField] Vector3 CombatRaycastSize;
+
 
     void Start()
     {
         enemyLayer = LayerMask.GetMask("Enemy");
 
         qyronMovement = GetComponent<qyronMovement>();
-        qyronCol = GetComponent<BoxCollider2D>();
+        qyronCol = GetComponent<BoxCollider>();
         qyronSR = GetComponent<SpriteRenderer>();
-        qyronRB = GetComponent<Rigidbody2D>();
+        qyronRB = GetComponent<Rigidbody>();
         qyronSFX = GetComponent<qyronSFX>();
         qyronAnimator = GetComponent<Animator>();
 
@@ -73,10 +78,6 @@ public class qyronCombat : MonoBehaviour
                 }
             }
 
-            Vector2 attackDirection = new Vector2(transform.localScale.x, 0);
-
-            Debug.DrawRay(transform.position, attackDirection * 1, Color.red);
-
             if (Input.GetButtonDown("Fire1") && !isAttacking && currentStamina >= 3) StartCoroutine(BasicAttack());
 
             if(Time.time - timeLastHit >= 2)
@@ -95,7 +96,7 @@ public class qyronCombat : MonoBehaviour
         }
     }
 
-    public IEnumerator TakeDamage(float damage, bool takeKnockBack, Vector2 knockBackForce)
+    public IEnumerator TakeDamage(float damage, bool takeKnockBack, Vector3 knockBackForce)
     {
         if(!isInvincible)
         {
@@ -105,7 +106,7 @@ public class qyronCombat : MonoBehaviour
             StartCoroutine(FlashRed());
             if (takeKnockBack)
             {
-                qyronRB.AddForce(new Vector2(knockBackForce.x * -transform.localScale.x, knockBackForce.y), ForceMode2D.Impulse);
+                qyronRB.AddForce(new Vector3(knockBackForce.x * -transform.localScale.x, knockBackForce.y, 0), ForceMode.Impulse);
             }
 
             StartCoroutine(ScreenShake(2f, 1f, 0.2f));
@@ -153,23 +154,24 @@ public class qyronCombat : MonoBehaviour
         combo.Add("basicAttack");
 
 
-        Vector3 attackDirection = new Vector2(transform.localScale.x, 0);
+        Vector3 attackDirection = new Vector3(transform.localScale.x, 0, 0);
 
-        RaycastHit2D BasicAttackRaycast = Physics2D.Raycast(transform.position, attackDirection, 2, enemyLayer);
+        CombatRaycast = new Ray(transform.position, attackDirection);
+        Physics.BoxCast(transform.position, CombatRaycastSize, attackDirection, out CombatRaycastHit, transform.rotation, 1);
 
 
-        if (BasicAttackRaycast.collider != null)
+        if (CombatRaycastHit.collider != null)
         {
             qyronSFX.PlayAttackSFX(1);
 
-            if(BasicAttackRaycast.collider.CompareTag("Dummy"))
+            if(CombatRaycastHit.collider.CompareTag("Dummy"))
             {
-                BasicAttackRaycast.collider.GetComponent<dummy>().TakeDamage(attackDamage);
+                CombatRaycastHit.collider.GetComponent<dummy>().TakeDamage(attackDamage);
             }
 
-            else if(BasicAttackRaycast.collider.CompareTag("Enemy"))
+            else if(CombatRaycastHit.collider.CompareTag("Enemy"))
             {
-                StartCoroutine(BasicAttackRaycast.collider.GetComponent<enemyCombat>().TakeDamage(attackDamage, true, new Vector2(0,2), 0.5f));
+                StartCoroutine(CombatRaycastHit.collider.GetComponent<enemyCombat>().TakeDamage(attackDamage, true, new Vector3(0,2,0), 0.5f));
             }
 
             StartCoroutine(ScreenShake(1f, 0.5f, 0.1f));

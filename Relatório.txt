@@ -2,6 +2,7 @@
 - chute
 - luz
 - ficar em guarda dps do ataque
+- sombra
 
 questionamentos:
 
@@ -10,3 +11,8 @@ questionamentos:
 - alguma coisa no retrato / hud nao me agrada, ql a sua opiniao?
 
 - sugestoes de ataques
+
+Patch Notes:
+
+- Combo system
+- 3d falso (virou verdadeiro LOL)

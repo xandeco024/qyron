@@ -50,7 +50,7 @@ public class enemyCombat : MonoBehaviour
 
         if (takeKnockBack)
         {
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(knockBackForce.x * -transform.localScale.x, knockBackForce.y), ForceMode2D.Impulse);
+            GetComponent<Rigidbody>().AddForce(new Vector2(knockBackForce.x * -transform.localScale.x, knockBackForce.y), ForceMode.Impulse);
         }
 
         yield return null;

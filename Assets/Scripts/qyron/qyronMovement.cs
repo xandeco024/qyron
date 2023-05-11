@@ -27,19 +27,22 @@ public class qyronMovement : MonoBehaviour
     private bool canDash = true;
 
     [Header("Qyron")]
-    private Rigidbody2D qyronRB;
+    private Rigidbody qyronRB;
     private SpriteRenderer qyronSR;
-    private BoxCollider2D qyronCol;
+    private BoxCollider qyronCol;
     private qyronCombat qyronCombat;
+
+    private Ray GroundedRaycast;
+    private RaycastHit GroundedRaycastHit;
 
     void Start()
     {
         groundLayer = LayerMask.GetMask("Ground");
 
         qyronCombat = GetComponent<qyronCombat>();
-        qyronCol = GetComponent<BoxCollider2D>();
+        qyronCol = GetComponent<BoxCollider>();
         qyronSR = GetComponent<SpriteRenderer>();
-        qyronRB = GetComponent<Rigidbody2D>();
+        qyronRB = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -52,11 +55,11 @@ public class qyronMovement : MonoBehaviour
         else if (_canMove)
 
         {
-            // Movimento horizontal
             if (!isDashing)
             {
                 float x = Input.GetAxisRaw("Horizontal");
-                qyronRB.velocity = new Vector2(x * speed, qyronRB.velocity.y);
+                float z = Input.GetAxisRaw("Vertical");
+                qyronRB.velocity = new Vector3(x * speed, qyronRB.velocity.y ,z * speed);
 
                 if (x < 0)
                 {
@@ -67,29 +70,38 @@ public class qyronMovement : MonoBehaviour
                     transform.localScale = new Vector3(1, 1, 1);
                 }
 
-                // Pulo
                 if (Input.GetButtonDown("Jump") && jumps < maxJumps)
                 {
                     qyronRB.velocity = new Vector2(qyronRB.velocity.x, jumpForce);
                     jumps++;
                 }
 
-                // Dash
                 if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
                 {
                     StartCoroutine(Dash());
                 }
             }
 
-            // Verifica se o personagem está no chão
-            isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 1.5f, groundLayer).collider != null;
-            Debug.DrawRay(transform.position, Vector2.down * 1.5f, Color.green);
+            GroundedRaycast = new Ray(transform.position, Vector3.down);
+            bool isGrounded = false;
+
+            Physics.Raycast(GroundedRaycast, out GroundedRaycastHit, 1.1f, groundLayer);
+            Debug.DrawRay(transform.position, Vector3.down, Color.green);
+
+            if(GroundedRaycastHit.collider != null)
+            {
+                isGrounded = true;
+            }
 
             if (isGrounded)
             {
                 jumps = 0;
             }
+
+            Debug.Log(isGrounded);
         }
+
+        Limit();
     }
 
     void FixedUpdate()
@@ -100,15 +112,22 @@ public class qyronMovement : MonoBehaviour
     {   
         canDash = false;
         isDashing = true;
-        float originalGravity = qyronRB.gravityScale;
-        qyronRB.gravityScale = 0;
+        //float originalGravity = qyronRB.grav;
+        qyronRB.useGravity = false;
         if(isGrounded) qyronRB.velocity = new Vector2(dashForce * transform.localScale.x, qyronRB.velocity.y);
         else qyronRB.velocity = new Vector2(dashForce * transform.localScale.x, dashForce/10 * transform.localScale.y);
         yield return new WaitForSeconds(dashDuration);
-        qyronRB.gravityScale = originalGravity;
+        //qyronRB.gravityScale = originalGravity;
+        qyronRB.useGravity = true;
         isDashing = false;
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
+    }
+
+    private void Limit()
+    {
+        if (transform.position.z >= 2.5f) transform.position = new Vector3(transform.position.x, transform.position.y, 2.5f);
+        if (transform.position.z <= -2.5f) transform.position = new Vector3(transform.position.x, transform.position.y, -2.5f);
     }
 
     
