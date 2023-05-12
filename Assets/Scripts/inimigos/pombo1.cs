@@ -51,10 +51,10 @@ public class pombo1 : MonoBehaviour
             FollowPlayer();
 
             Vector3 attackDirection = new Vector2(transform.localScale.x, 0);
-            RaycastHit2D AttackRaycast = Physics2D.Raycast(transform.position, attackDirection, 2, playerLayer);
-            Debug.DrawRay(transform.position, attackDirection * 1, Color.red);
+            //RaycastHit2D AttackRaycast = Physics2D.Raycast(transform.position, attackDirection, 2, playerLayer);
+            //Debug.DrawRay(transform.position, attackDirection * 1, Color.red);
 
-            if (AttackRaycast.collider != null)
+            /*if (AttackRaycast.collider != null)
             {
                 if (AttackRaycast.collider.gameObject.CompareTag("Player"))
                 {
@@ -83,7 +83,7 @@ public class pombo1 : MonoBehaviour
             if (!isAttacking && playerInAttackRange)
             {
                 StartCoroutine(Attack());
-            }
+            }*/
         }
 
         Limit();

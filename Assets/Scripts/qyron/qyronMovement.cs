@@ -98,7 +98,7 @@ public class qyronMovement : MonoBehaviour
                 jumps = 0;
             }
 
-            Debug.Log(isGrounded);
+            //Debug.Log(isGrounded);
         }
 
         Limit();

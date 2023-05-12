@@ -16,3 +16,6 @@ Patch Notes:
 
 - Combo system
 - 3d falso (virou verdadeiro LOL)
+- Hitbox de ataque arrumada
+- Idle normal e Idle em guarda
+- chute 1 e 2

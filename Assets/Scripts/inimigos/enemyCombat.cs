@@ -32,16 +32,16 @@ public class enemyCombat : MonoBehaviour
         if (health <= 0) Destroy(gameObject);
 
 
-        isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 1.3f, groundLayer).collider != null;
-        Debug.DrawRay(transform.position, Vector2.down * 1.3f, Color.green);
+        //isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 1.3f, groundLayer).collider != null;
+        //Debug.DrawRay(transform.position, Vector2.down * 1.3f, Color.green);
 
-        if (isGrounded)
-        {
-            GetComponent<Animator>().SetBool("Grounded", true);
-        }
+        //if (isGrounded)
+        //{
+        //    GetComponent<Animator>().SetBool("Grounded", true);
+        //}
     }
 
-    public IEnumerator TakeDamage(float damage,bool takeKnockBack, Vector2 knockBackForce, float knockBackTime)
+    public IEnumerator TakeDamage(float damage,bool takeKnockBack, Vector3 knockBackForce, float knockBackTime)
     {
         GetComponent<Animator>().SetTrigger("Damage");
 
@@ -50,7 +50,7 @@ public class enemyCombat : MonoBehaviour
 
         if (takeKnockBack)
         {
-            GetComponent<Rigidbody>().AddForce(new Vector2(knockBackForce.x * -transform.localScale.x, knockBackForce.y), ForceMode.Impulse);
+            GetComponent<Rigidbody>().AddForce(new Vector3(knockBackForce.x * -transform.localScale.x, knockBackForce.y, knockBackForce.z), ForceMode.Impulse);
         }
 
         yield return null;
@@ -65,10 +65,5 @@ public class enemyCombat : MonoBehaviour
             qyronSR.color = originalColor;
             yield return new WaitForSeconds(0.1f);
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        
     }
 }
