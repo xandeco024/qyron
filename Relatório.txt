@@ -1,7 +1,6 @@
 - knockback inimigo
 - chute
 - luz
-- ficar em guarda dps do ataque
 - sombra
 
 questionamentos:

@@ -37,6 +37,8 @@ public class qyronCombat : MonoBehaviour
 
     [SerializeField] Collider[] qyronHitCollision;
 
+    private int direction;
+
     [Header("Health & Stamina")]
     [SerializeField] private float maxHealth;
     private float health;
@@ -67,12 +69,14 @@ public class qyronCombat : MonoBehaviour
 
         health = maxHealth;
         currentStamina = maxStamina;
+        direction = GetDirection();
     }
 
     void Update()
     {
-        attackDirection = new Vector3(transform.localScale.x, 0, 0);
-        qyronHitCollision = Physics.OverlapBox(transform.position + CombatBoxOffset * transform.localScale.x, CombatRaycastSize / 2, transform.rotation, enemyLayer);
+        direction = GetDirection();
+        attackDirection = new Vector3(direction, 0, 0);
+        qyronHitCollision = Physics.OverlapBox(transform.position + CombatBoxOffset * direction, CombatRaycastSize / 2, transform.rotation, enemyLayer);
 
         if (Time.timeScale == 0)
         {
@@ -93,9 +97,10 @@ public class qyronCombat : MonoBehaviour
                 }
             }
 
-            if (Input.GetButtonDown("Fire1") && !isAttacking && currentStamina >= 3) StartCoroutine(BasicPunch(attackDamage, 3f));
+            if (Input.GetMouseButtonDown(0) && !isAttacking && currentStamina >= 3) StartCoroutine(BasicPunch(attackDamage, 3f));
+            if (Input.GetMouseButtonDown(1) && !isAttacking && currentStamina >= 3) StartCoroutine(KneeStike(attackDamage, 5f));
 
-            if(Time.time - timeLastHit >= 2)
+            if (Time.time - timeLastHit >= 2)
             {
                 qyronAnimator.SetTrigger("Idle 1");
                 combo.Clear();
@@ -123,7 +128,7 @@ public class qyronCombat : MonoBehaviour
             StartCoroutine(FlashRed());
             if (takeKnockBack)
             {
-                qyronRB.AddForce(new Vector3(knockBackForce.x * -transform.localScale.x, knockBackForce.y, knockBackForce.z), ForceMode.Impulse);
+                qyronRB.AddForce(new Vector3(knockBackForce.x * -direction, knockBackForce.y, knockBackForce.z), ForceMode.Impulse);
             }
 
             StartCoroutine(ScreenShake(2f, 1f, 0.2f));
@@ -192,12 +197,50 @@ public class qyronCombat : MonoBehaviour
         else
 
         {
-            qyronSFX.PlayMissSFX(1);
+            qyronSFX.PlayMissSFX(0);
         }
 
         yield return new WaitForSeconds(.2f);
 
         //qyronMovement.canMove = true;
+        isAttacking = false;
+    }
+
+    IEnumerator Combo1(float damage, float staminaCost)
+    {
+        isAttacking = true;
+        combo.Clear();
+        currentStamina -= staminaCost;
+        timeLastHit = Time.time;
+
+        qyronAnimator.SetTrigger("Combo 1");
+
+        if (qyronHitCollision.Length >= 1)
+        {
+            qyronSFX.PlayAttackSFX(2);
+
+            for (int i = 0; i < qyronHitCollision.Length; i++)
+            {
+                if (qyronHitCollision[i].tag == "Dummy")
+                {
+                    qyronHitCollision[i].GetComponent<dummy>().TakeDamage(damage);
+                }
+
+                else if (qyronHitCollision[i].tag == "Enemy")
+                {
+                    StartCoroutine(qyronHitCollision[i].GetComponent<enemyCombat>().TakeDamage(damage, true, new Vector3(1, 2, 0), 0.5f));
+                }
+            }
+
+            StartCoroutine(ScreenShake(2f, 0.5f, 0.1f));
+        }
+
+        else
+        {
+            qyronSFX.PlayMissSFX(1);
+        }
+
+        yield return new WaitForSeconds(.5f);
         isAttacking = false;
     }
 
@@ -214,15 +257,35 @@ public class qyronCombat : MonoBehaviour
             qyronAnimator.SetTrigger("Knee Strike 1");
         }
 
-        if (kneeStrikeAnimation == 0)
+        else if (kneeStrikeAnimation == 0)
         {
             kneeStrikeAnimation = 1;
             qyronAnimator.SetTrigger("Knee Strike 2");
         }
 
-        if(qyronHitCollision.Length >= 1)
+        if (qyronHitCollision.Length >= 1)
         {
+            qyronSFX.PlayAttackSFX(1);
 
+            for (int i = 0; i < qyronHitCollision.Length; i++)
+            {
+                if (qyronHitCollision[i].tag == "Dummy")
+                {
+                    qyronHitCollision[i].GetComponent<dummy>().TakeDamage(damage);
+                }
+
+                else if (qyronHitCollision[i].tag == "Enemy")
+                {
+                    StartCoroutine(qyronHitCollision[i].GetComponent<enemyCombat>().TakeDamage(damage, true, new Vector3(1, 2, 0), 0.5f));
+                }
+            }
+
+            StartCoroutine(ScreenShake(1f, 0.5f, 0.1f));   
+        }
+
+        else
+        {
+            qyronSFX.PlayMissSFX(0);
         }
 
         yield return new WaitForSeconds(.5f);
@@ -270,6 +333,16 @@ public class qyronCombat : MonoBehaviour
         yield return null;
     }
 
+    private int GetDirection()
+    {
+        if (qyronSR.flipX)
+        {
+            return -1;
+        }
+
+        else return 1;
+    }
+
     private void OnDrawGizmos()
     {
         if(qyronHitCollision.Length >= 1)
@@ -283,6 +356,6 @@ public class qyronCombat : MonoBehaviour
             Gizmos.color = Color.yellow;
         }
 
-        Gizmos.DrawWireCube(transform.position + CombatBoxOffset * transform.localScale.x, CombatRaycastSize);
+        Gizmos.DrawWireCube(transform.position + CombatBoxOffset * direction, CombatRaycastSize);
     }
 }

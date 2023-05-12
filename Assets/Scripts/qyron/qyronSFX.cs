@@ -8,6 +8,7 @@ public class qyronSFX : MonoBehaviour
 
     [SerializeField] private AudioClip[] ataques;
     [SerializeField] private AudioClip[] miss;
+    [SerializeField] private AudioClip[] movement;
 
     void Start()
     {
@@ -30,4 +31,8 @@ public class qyronSFX : MonoBehaviour
         qyronAudioSource.PlayOneShot(miss[missionSFXIndex]);
     }
 
+    public void PlayMovementSFX(int movementSFXIndex) 
+    {
+        qyronAudioSource.PlayOneShot(movement[movementSFXIndex]);
+    }
 }

@@ -452,6 +452,132 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Qyron Attack 1_16
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d88460413487f324d8a0daa29b079ba7
+      internalID: -177423718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Qyron Attack 1_17
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00dcbbaf02498404bb1e4f760449f26a
+      internalID: 481889439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Qyron Attack 1_18
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed714821c91f8634aa230f562b8e1685
+      internalID: 766385130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Qyron Attack 1_19
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b3b4af26cadf5446a961576788bbf9c
+      internalID: 109385377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Qyron Attack 1_20
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a63a98c512d2984bb3ae92136109581
+      internalID: -1967292752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Qyron Attack 1_21
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd46799f93b17714bb32c57a6b5604cd
+      internalID: 1950585748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -465,19 +591,25 @@ TextureImporter:
     nameFileIdTable:
       Qyron Attack 1_5: -111131738
       Qyron Attack 1_15: 1796727451
+      Qyron Attack 1_19: 109385377
       Qyron Attack 1_13: -504223979
       Qyron Attack 1_6: -835090127
       Qyron Attack 1_8: -180677733
       Qyron Attack 1_12: 770224871
       Qyron Attack 1_11: 805945928
       Qyron Attack 1_14: 334004165
+      Qyron Attack 1_18: 766385130
       Qyron Attack 1_2: -487224673
       Qyron Attack 1_4: -1640112436
       Qyron Attack 1_1: -1153366928
+      Qyron Attack 1_21: 1950585748
       Qyron Attack 1_7: 1797137662
       Qyron Attack 1_9: 2058863922
       Qyron Attack 1_0: -474923186
+      Qyron Attack 1_17: 481889439
       Qyron Attack 1_10: -891459533
+      Qyron Attack 1_16: -177423718
+      Qyron Attack 1_20: -1967292752
       Qyron Attack 1_3: 1480499794
   spritePackingTag: 
   pSDRemoveMatte: 0

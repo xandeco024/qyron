@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UIElements.Experimental;
 
@@ -13,9 +14,6 @@ public class qyronMovement : MonoBehaviour
     [SerializeField] private int maxJumps;
     private bool _canMove = true;
     public bool canMove {get { return _canMove;} set { _canMove = value; } }
-
-
-
     private bool isGrounded = true; 
     int groundLayer;
 
@@ -31,9 +29,12 @@ public class qyronMovement : MonoBehaviour
     private SpriteRenderer qyronSR;
     private BoxCollider qyronCol;
     private qyronCombat qyronCombat;
+    private qyronSFX qyronSFX;
 
     private Ray GroundedRaycast;
     private RaycastHit GroundedRaycastHit;
+
+    private int direction;
 
     void Start()
     {
@@ -43,6 +44,7 @@ public class qyronMovement : MonoBehaviour
         qyronCol = GetComponent<BoxCollider>();
         qyronSR = GetComponent<SpriteRenderer>();
         qyronRB = GetComponent<Rigidbody>();
+        qyronSFX = GetComponent<qyronSFX>();
     }
 
     void Update()
@@ -51,6 +53,8 @@ public class qyronMovement : MonoBehaviour
         {
             return;
         }
+
+
 
         else if (_canMove)
 
@@ -61,17 +65,13 @@ public class qyronMovement : MonoBehaviour
                 float z = Input.GetAxisRaw("Vertical");
                 qyronRB.velocity = new Vector3(x * speed, qyronRB.velocity.y ,z * speed);
 
-                if (x < 0)
-                {
-                    transform.localScale = new Vector3(-1, 1, 1);
-                }
-                else if (x > 0)
-                {
-                    transform.localScale = new Vector3(1, 1, 1);
-                }
+                FlipSprite(x);
 
                 if (Input.GetButtonDown("Jump") && jumps < maxJumps)
                 {
+
+                    
+                    qyronSFX.PlayMovementSFX(UnityEngine.Random.Range(7,10));
                     qyronRB.velocity = new Vector2(qyronRB.velocity.x, jumpForce);
                     jumps++;
                 }
@@ -112,12 +112,11 @@ public class qyronMovement : MonoBehaviour
     {   
         canDash = false;
         isDashing = true;
-        //float originalGravity = qyronRB.grav;
         qyronRB.useGravity = false;
-        if(isGrounded) qyronRB.velocity = new Vector2(dashForce * transform.localScale.x, qyronRB.velocity.y);
-        else qyronRB.velocity = new Vector2(dashForce * transform.localScale.x, dashForce/10 * transform.localScale.y);
+        qyronSFX.PlayMovementSFX(5);
+        if (isGrounded) qyronRB.velocity = new Vector3(dashForce * direction, qyronRB.velocity.y, 0);
+        else qyronRB.velocity = new Vector3(dashForce * direction, dashForce/10, 0);
         yield return new WaitForSeconds(dashDuration);
-        //qyronRB.gravityScale = originalGravity;
         qyronRB.useGravity = true;
         isDashing = false;
         yield return new WaitForSeconds(dashCooldown);
@@ -130,5 +129,17 @@ public class qyronMovement : MonoBehaviour
         if (transform.position.z <= -2.5f) transform.position = new Vector3(transform.position.x, transform.position.y, -2.5f);
     }
 
-    
+    private void FlipSprite(float x)
+    {
+        if (x < 0)
+        {
+            qyronSR.flipX = true;
+            direction = -1;
+        }
+        else if (x > 0)
+        {
+            qyronSR.flipX = false;
+            direction = 1;
+        }
+    }
 }
