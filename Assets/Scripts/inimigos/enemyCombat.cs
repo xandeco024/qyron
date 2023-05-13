@@ -6,64 +6,56 @@ using UnityEngine.Video;
 
 public class enemyCombat : MonoBehaviour
 {
-    [SerializeField] float damage;
-    [SerializeField] float maxHealth;
-
-    private float health;
-    private SpriteRenderer qyronSR;
-
+    [Header("Enemy Stats")]
     [SerializeField] private Color damageColor, originalColor;
-
-    private bool isGrounded;
-    private LayerMask groundLayer;
-
-    private bool _isTakingDamage;
-    public bool isTakingDamage { get { return _isTakingDamage;} }
+    private float enemyHealth;
+    [SerializeField] float enemyMaxHealth;
+    private bool _isTakingDamage = false;
+    public bool isTakingDamage { get { return _isTakingDamage; } }
+    private SpriteRenderer enemySR;
+    private int direction = 1;
 
     void Start()
     {
-        qyronSR = GetComponent<SpriteRenderer>();
-        health = maxHealth;
-        groundLayer = LayerMask.GetMask("Ground");
+        enemySR = GetComponent<SpriteRenderer>();
+        enemyHealth = enemyMaxHealth;
     }
 
     void Update()
     {
-        if (health <= 0) Destroy(gameObject);
-
-
-        //isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 1.3f, groundLayer).collider != null;
-        //Debug.DrawRay(transform.position, Vector2.down * 1.3f, Color.green);
-
-        //if (isGrounded)
-        //{
-        //    GetComponent<Animator>().SetBool("Grounded", true);
-        //}
+        if (enemyHealth <= 0) Destroy(gameObject);
+        if (!enemySR.flipX) direction = 1;
+        else if (enemySR.flipX) direction = -1;
     }
 
     public IEnumerator TakeDamage(float damage,bool takeKnockBack, Vector3 knockBackForce, float knockBackTime)
     {
-        GetComponent<Animator>().SetTrigger("Damage");
+        _isTakingDamage = true;
+        GetComponent<Animator>().SetBool("isTakingDamage", true);
 
-        health -= damage;
+        enemyHealth -= damage;
         StartCoroutine(FlashRed());
 
         if (takeKnockBack)
         {
-            GetComponent<Rigidbody>().AddForce(new Vector3(knockBackForce.x * -transform.localScale.x, knockBackForce.y, knockBackForce.z), ForceMode.Impulse);
+            GetComponent<Rigidbody>().AddForce(new Vector3(knockBackForce.x * -direction, knockBackForce.y, knockBackForce.z), ForceMode.Impulse);
         }
 
-        yield return null;
+        yield return new WaitForSeconds(knockBackTime);
+        _isTakingDamage = false;
+        GetComponent<Animator>().SetBool("isTakingDamage", false);
     }
 
     IEnumerator FlashRed()
     {
         for (int i = 0; i < 3; i++)
         {
-            qyronSR.color = damageColor;
+            enemySR.color = damageColor;
             yield return new WaitForSeconds(0.1f);
-            qyronSR.color = originalColor;
+            enemySR.color = originalColor;
             yield return new WaitForSeconds(0.1f);
         }
     }
+
+
 }

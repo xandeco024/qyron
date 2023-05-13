@@ -19,11 +19,19 @@ public class gameManager : MonoBehaviour
     [Header("Manager")]
     private bool isDead = false;
 
+    [SerializeField] private List<AudioClip> musicList;
+    private int currentMusicIndex = 0;
+
+    private AudioSource gameManagerAudioSource;
+
     void Start()
     {
         qyron = GameObject.FindWithTag("Player");
         qyronMovement = qyron.GetComponent<qyronMovement>();
         qyronCombat = qyron.GetComponent<qyronCombat>();
+
+        gameManagerAudioSource = GetComponent<AudioSource>();
+        PlayMusic();
     }
 
 
@@ -32,6 +40,17 @@ public class gameManager : MonoBehaviour
         if (qyronCombat.GetCurrentHealth() <= 0)
         {
             isDead = true;
+            gameManagerAudioSource.Stop();
+        }
+
+        if (!gameManagerAudioSource.isPlaying && !isDead)
+        {
+            currentMusicIndex++;
+            if (currentMusicIndex >= musicList.Count)
+            {
+                currentMusicIndex = 0;
+            }
+            PlayMusic();
         }
     }
 
@@ -39,4 +58,11 @@ public class gameManager : MonoBehaviour
     {
         return isDead;
     }
+
+    void PlayMusic()
+    {
+        gameManagerAudioSource.clip = musicList[currentMusicIndex];
+        gameManagerAudioSource.Play();
+    }
+
 }

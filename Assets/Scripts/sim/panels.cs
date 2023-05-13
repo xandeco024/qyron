@@ -17,7 +17,7 @@ public class panels : MonoBehaviour
 
     void Start()
     {
-        //currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         pausePanel = GameObject.FindWithTag("PausePanel");
         gameOverPanel = GameObject.FindWithTag("GameOverPanel");
     }

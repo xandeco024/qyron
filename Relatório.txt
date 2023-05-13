@@ -1,13 +1,9 @@
 - knockback inimigo
-- chute
 - luz
 - sombra
+- script só de animação, pensei em um script que recebe informacoes de todos os outros, tipo "Correndo" "atacando" e seta a animação pra cada condição, até atacando correndo ao mesmo tempo tlg pica ne gostou gostei.
 
 questionamentos:
-
-- vc acha melhor poder andar enquanto ataca ou não? ou só em alguns ataques? quais? sexo
-
-- alguma coisa no retrato / hud nao me agrada, ql a sua opiniao?
 
 - sugestoes de ataques
 
@@ -18,3 +14,7 @@ Patch Notes:
 - Hitbox de ataque arrumada
 - Idle normal e Idle em guarda
 - chute 1 e 2
+- combo soco soco soco = soco forte
+- combo chute chute chute = chute forte
+- knockback e animação de dano
+- Correndo

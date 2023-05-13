@@ -30,11 +30,22 @@ public class qyronMovement : MonoBehaviour
     private BoxCollider qyronCol;
     private qyronCombat qyronCombat;
     private qyronSFX qyronSFX;
+    private Animator qyronAnimator;
 
     private Ray GroundedRaycast;
     private RaycastHit GroundedRaycastHit;
 
     private int direction;
+
+    private Vector3 movementInput;
+
+    [SerializeField] private GameObject dashTrail;
+    private float startTimeBetweenDashTrailInstance = 0.020f;
+    private float timeBetweenDashTrailInstance = 0;
+
+    [Header("Movement Triggers")]
+    private bool jumpTrigger;
+    private bool dashTrigger;
 
     void Start()
     {
@@ -45,6 +56,10 @@ public class qyronMovement : MonoBehaviour
         qyronSR = GetComponent<SpriteRenderer>();
         qyronRB = GetComponent<Rigidbody>();
         qyronSFX = GetComponent<qyronSFX>();
+        qyronAnimator = GetComponent<Animator>();
+
+        dashTrigger = false;
+        jumpTrigger = false;
     }
 
     void Update()
@@ -54,32 +69,30 @@ public class qyronMovement : MonoBehaviour
             return;
         }
 
-
-
-        else if (_canMove)
+        else
 
         {
-            if (!isDashing)
+            movementInput.x = Input.GetAxisRaw("Horizontal");
+            movementInput.z = Input.GetAxisRaw("Vertical");
+
+            if (!qyronCombat.GetAttacking())
             {
-                float x = Input.GetAxisRaw("Horizontal");
-                float z = Input.GetAxisRaw("Vertical");
-                qyronRB.velocity = new Vector3(x * speed, qyronRB.velocity.y ,z * speed);
-
-                FlipSprite(x);
-
-                if (Input.GetButtonDown("Jump") && jumps < maxJumps)
+                if (movementInput.x != 0 || movementInput.z != 0)
                 {
-
-                    
-                    qyronSFX.PlayMovementSFX(UnityEngine.Random.Range(7,10));
-                    qyronRB.velocity = new Vector2(qyronRB.velocity.x, jumpForce);
-                    jumps++;
+                    qyronAnimator.SetBool("isRunning", true);
                 }
 
-                if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+                else
+
                 {
-                    StartCoroutine(Dash());
+                    qyronAnimator.SetBool("isRunning", false);
                 }
+            }
+
+            else
+
+            {
+                qyronAnimator.SetBool("isRunning", false);
             }
 
             GroundedRaycast = new Ray(transform.position, Vector3.down);
@@ -98,29 +111,103 @@ public class qyronMovement : MonoBehaviour
                 jumps = 0;
             }
 
-            //Debug.Log(isGrounded);
-        }
+            if(_canMove && !isDashing) 
+            {
+                if (Input.GetKeyDown(KeyCode.LeftShift) && canDash && !dashTrigger)
+                {
+                    dashTrigger = true;
+                }
 
-        Limit();
+                if (Input.GetButtonDown("Jump") && jumps < maxJumps && !jumpTrigger)
+                {
+                    jumpTrigger = true;
+                }
+            }
+
+        }
     }
 
     void FixedUpdate()
     {
+        if(Time.timeScale == 0)
+        {
+            return;
+        }
+
+        else
+
+        {
+            DashTrail();
+            Limit();
+            if (jumpTrigger) Jump();
+            if(dashTrigger) StartCoroutine(Dash());
+
+            if (_canMove && !isDashing)
+            {
+                FlipSprite(movementInput.x);
+                Movement(movementInput.x,movementInput.z);
+            }
+        }
+    }
+
+    private void Movement(float inputX, float inputZ)
+    {
+        qyronRB.velocity = new Vector3(inputX * speed, qyronRB.velocity.y, inputZ * speed);
+    }
+
+    private void Jump()
+    {
+        jumpTrigger = false;
+        qyronSFX.PlayMovementSFX("pulando 1");
+        qyronRB.velocity = new Vector2(qyronRB.velocity.x, jumpForce);
+        jumps++;
     }
 
     private IEnumerator Dash()
-    {   
+    {
+        dashTrigger = false;
         canDash = false;
         isDashing = true;
+        qyronAnimator.SetBool("isDashing", true);
+        qyronCombat.SetInvincible(true);
         qyronRB.useGravity = false;
-        qyronSFX.PlayMovementSFX(5);
+        qyronSFX.PlayMovementSFX("dash 1");
         if (isGrounded) qyronRB.velocity = new Vector3(dashForce * direction, qyronRB.velocity.y, 0);
-        else qyronRB.velocity = new Vector3(dashForce * direction, dashForce/10, 0);
+        else qyronRB.velocity = new Vector3(dashForce * direction, dashForce/5, 0);
         yield return new WaitForSeconds(dashDuration);
         qyronRB.useGravity = true;
         isDashing = false;
+        qyronCombat.SetInvincible(false);
+        qyronAnimator.SetBool("isDashing", false);
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
+    }
+
+    void DashTrail()
+    {
+        if (isDashing)
+        {
+            if (timeBetweenDashTrailInstance <= 0)
+            {
+                if (direction == 1)
+                {
+                    GameObject dashTrailIstance = GameObject.Instantiate(dashTrail, transform.position, Quaternion.identity);
+                    Destroy(dashTrailIstance, 0.4f);
+                    timeBetweenDashTrailInstance = startTimeBetweenDashTrailInstance;
+                }
+
+                else if(direction == -1) 
+                {
+                    GameObject dashTrailIstance = GameObject.Instantiate(dashTrail, transform.position, new Quaternion(0, -180, 0, 0));
+                    Destroy(dashTrailIstance, 0.4f);
+                    timeBetweenDashTrailInstance = startTimeBetweenDashTrailInstance;
+                }
+            }
+            else
+            {
+                timeBetweenDashTrailInstance -= Time.deltaTime;
+            }
+        }
     }
 
     private void Limit()

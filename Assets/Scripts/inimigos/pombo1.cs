@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class pombo1 : MonoBehaviour
 {
-    private Vector3 direction;
-
- 
+    private Vector3 playerDirection;
 
     [Header("Pigeon")]
     [SerializeField] private float pigeonDamage;
@@ -15,100 +13,109 @@ public class pombo1 : MonoBehaviour
  
     [Header("Components")]
     private GameObject qyron;
+    private qyronCombat qyronCombat;
     private Rigidbody pigeonRB;
+    private SpriteRenderer pigeonSR;
     private BoxCollider pigeonCOL;
     private enemyCombat pigeonCombat;
-    private LayerMask playerLayer;
     private LayerMask groundLayer;
 
     [Header("State")]
-    private bool playerInAttackRange;
+    private bool playerInAttackRange = false;
     private bool isFollowing;
     private bool isAttacking;
     private bool wasHit;
     private bool isGrounded;
 
+    [Header("Combat Hitbox")]
+    [SerializeField] Vector3 CombatRaycastSize;
+    [SerializeField] Vector3 CombatBoxOffset;
+    [SerializeField] bool pigeonHitCollision;
+    private LayerMask playerLayer;
+    private int pigeonSpriteDirection = 1;
+
     void Start()
     {
         qyron = GameObject.FindWithTag("Player");
-
+        qyronCombat = qyron.GetComponent<qyronCombat>();
+            
         groundLayer = LayerMask.GetMask("Ground");
         playerLayer = LayerMask.GetMask("Player");
         pigeonRB = GetComponent<Rigidbody>();
         pigeonCOL = GetComponent<BoxCollider>();
         pigeonCombat = GetComponent<enemyCombat>();
+        pigeonSR = GetComponent<SpriteRenderer>();
 
         Physics.IgnoreCollision(pigeonCOL, qyron.GetComponent<BoxCollider>());
     }
 
     void Update()
     {
-        direction = (qyron.transform.position - transform.position).normalized;
+        //pigeonHitCollision = Physics.OverlapBox(transform.position + CombatBoxOffset * pigeonSpriteDirection, CombatRaycastSize / 2, transform.rotation, playerLayer);
+        pigeonHitCollision = Physics.CheckBox(transform.position + CombatBoxOffset * pigeonSpriteDirection, CombatRaycastSize / 2, transform.rotation, playerLayer);
+
+        playerDirection = (qyron.transform.position - transform.position).normalized;
 
         if(!pigeonCombat.isTakingDamage)
         {
-            Flip();
-            FollowPlayer();
+            FlipSprite();
 
-            Vector3 attackDirection = new Vector2(transform.localScale.x, 0);
-            //RaycastHit2D AttackRaycast = Physics2D.Raycast(transform.position, attackDirection, 2, playerLayer);
-            //Debug.DrawRay(transform.position, attackDirection * 1, Color.red);
-
-            /*if (AttackRaycast.collider != null)
+            /*if(pigeonHitCollision.Length >= 1)
             {
-                if (AttackRaycast.collider.gameObject.CompareTag("Player"))
+                for( int i = 0; i < pigeonHitCollision.Length; i++)
                 {
-                    if (!wasHit)
-                    {
-                        //Debug.Log("entrou no range");
-                        playerInAttackRange = true;
-                    }
+                    playerInAttackRange = true;
 
-                    wasHit = true;
+                    if (!isAttacking)
+                    {
+                        StartCoroutine(Attack());
+                    }
+                }
+            }*/
+
+            if(pigeonHitCollision)
+            {
+                playerInAttackRange = true;
+                
+                if(!isAttacking)
+                {
+                    StartCoroutine (Attack());
                 }
             }
 
             else
 
             {
-                if (wasHit)
-                {
-                    //Debug.Log("saiu do range");
-                    playerInAttackRange = false;
-                }
-
-                wasHit = false;
+                playerInAttackRange = false;
             }
-
-            if (!isAttacking && playerInAttackRange)
-            {
-                StartCoroutine(Attack());
-            }*/
         }
 
         Limit();
     }
 
-    private IEnumerator Attack()
+    private void FixedUpdate()
     {
-       // Debug.Log("#carregando"); 
-        isAttacking = true;
-
-        yield return new WaitForSeconds(.1f);
-       //Debug.Log("#atacando");
-
-        Vector3 attackDirection = new Vector2(transform.localScale.x, 0);
-        RaycastHit2D AttackRaycast = Physics2D.Raycast(transform.position, attackDirection, 2, playerLayer);
-        Debug.DrawRay(transform.position, attackDirection * 1, Color.blue);
-
-        if (AttackRaycast.collider != null)
+        if(!pigeonCombat.isTakingDamage && !playerInAttackRange)
         {
-            if (AttackRaycast.collider.gameObject.CompareTag("Player"))
+            if(Vector3.Distance(transform.position, qyron.transform.position) <= 10)
             {
-                //Debug.Log("bateu");
-                StartCoroutine(AttackRaycast.collider.gameObject.GetComponent<qyronCombat>().TakeDamage(pigeonDamage, true, new Vector2(4,2)));
+                FollowPlayer();
             }
         }
+    }
+
+    private IEnumerator Attack()
+    {
+        Debug.Log("#carregando"); 
+        isAttacking = true;
+
+        if(playerInAttackRange)
+        {
+            StartCoroutine(qyronCombat.TakeDamage(pigeonDamage, true, new Vector3(1, 1, 0)));
+        }
+
+        yield return new WaitForSeconds(.1f);
+        Debug.Log("#atacando");
 
         yield return new WaitForSeconds(attackCD);
         isAttacking = false;
@@ -116,27 +123,21 @@ public class pombo1 : MonoBehaviour
 
     private void FollowPlayer()
     {
-        if (Vector3.Distance(qyron.transform.position, transform.position) <= 10)
-        {
-            isFollowing = true;
-        }
-
-        if (!playerInAttackRange && isFollowing)
-        {
-            pigeonRB.velocity = new Vector2(direction.x * moveSpeed, pigeonRB.velocity.y);
-        }
+        pigeonRB.velocity = new Vector3(playerDirection.x * moveSpeed, pigeonRB.velocity.y, playerDirection.z * moveSpeed);
     }
 
-    private void Flip()
+    private void FlipSprite()
     {
         if(pigeonRB.velocity.x > 0)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            pigeonSR.flipX = false;
+            pigeonSpriteDirection = 1;
         }
 
         else if(pigeonRB.velocity.x < 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            pigeonSR.flipX = true;
+            pigeonSpriteDirection = -1;
         }
     }
 
@@ -144,5 +145,21 @@ public class pombo1 : MonoBehaviour
     {
         if (transform.position.z >= 2.5f) transform.position = new Vector3(transform.position.x, transform.position.y, 2.5f);
         if (transform.position.z <= -2.5f) transform.position = new Vector3(transform.position.x, transform.position.y, -2.5f);
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (pigeonHitCollision)
+        {
+            Gizmos.color = Color.red;
+        }
+
+        else
+
+        {
+            Gizmos.color = Color.yellow;
+        }
+
+        Gizmos.DrawWireCube(transform.position + CombatBoxOffset * pigeonSpriteDirection, CombatRaycastSize);
     }
 }

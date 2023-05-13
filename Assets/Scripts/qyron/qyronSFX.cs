@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using UnityEngine;
 
 public class qyronSFX : MonoBehaviour
 {
     private AudioSource qyronAudioSource;
 
-    [SerializeField] private AudioClip[] ataques;
-    [SerializeField] private AudioClip[] miss;
-    [SerializeField] private AudioClip[] movement;
+    [SerializeField] private List<AudioClip> qyronSFXClips;
+
+    private void Awake()
+    {
+
+    }
 
     void Start()
     {
@@ -21,18 +26,42 @@ public class qyronSFX : MonoBehaviour
         
     }
 
-    public void PlayAttackSFX(int attackSFXIndex)
+    public void PlayAttackSFX(string attackSFXIndex)
     {
-        qyronAudioSource.PlayOneShot(ataques[attackSFXIndex]);
+        foreach (AudioClip sfx in qyronSFXClips)
+        {
+            if (sfx.name == attackSFXIndex)
+            {
+                qyronAudioSource.PlayOneShot(sfx);
+                return;
+            }
+        }
+        Debug.LogWarning("AudioClip " + attackSFXIndex + " not found in the audio list.");
     }
 
-    public void PlayMissSFX(int missionSFXIndex)
+    public void PlayMissSFX(string missSFXIndex)
     {
-        qyronAudioSource.PlayOneShot(miss[missionSFXIndex]);
+        foreach (AudioClip sfx in qyronSFXClips)
+        {
+            if (sfx.name == missSFXIndex)
+            {
+                qyronAudioSource.PlayOneShot(sfx);
+                return;
+            }
+        }
+        Debug.LogWarning("AudioClip " + missSFXIndex + " not found in the audio list.");
     }
 
-    public void PlayMovementSFX(int movementSFXIndex) 
+    public void PlayMovementSFX(string movementSFXIndex) 
     {
-        qyronAudioSource.PlayOneShot(movement[movementSFXIndex]);
+        foreach (AudioClip sfx in qyronSFXClips)
+        {
+            if (sfx.name == movementSFXIndex)
+            {
+                qyronAudioSource.PlayOneShot(sfx);
+                return;
+            }
+        }
+        Debug.LogWarning("AudioClip " + movementSFXIndex + " not found in the audio list.");
     }
 }
