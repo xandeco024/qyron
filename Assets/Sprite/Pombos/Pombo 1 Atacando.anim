@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Pombo 1 Levando Dano
+  m_Name: Pombo 1 Atacando
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,9 +20,13 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 992305489, guid: bec90068078dc8c47adc9e77bff0921d, type: 3}
+      value: {fileID: -1954448518, guid: bec90068078dc8c47adc9e77bff0921d, type: 3}
     - time: 0.071428575
-      value: {fileID: 992305489, guid: bec90068078dc8c47adc9e77bff0921d, type: 3}
+      value: {fileID: 789736964, guid: bec90068078dc8c47adc9e77bff0921d, type: 3}
+    - time: 0.14285715
+      value: {fileID: 216093574, guid: bec90068078dc8c47adc9e77bff0921d, type: 3}
+    - time: 0.21428572
+      value: {fileID: -1489312765, guid: bec90068078dc8c47adc9e77bff0921d, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -42,14 +46,16 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 992305489, guid: bec90068078dc8c47adc9e77bff0921d, type: 3}
-    - {fileID: 992305489, guid: bec90068078dc8c47adc9e77bff0921d, type: 3}
+    - {fileID: -1954448518, guid: bec90068078dc8c47adc9e77bff0921d, type: 3}
+    - {fileID: 789736964, guid: bec90068078dc8c47adc9e77bff0921d, type: 3}
+    - {fileID: 216093574, guid: bec90068078dc8c47adc9e77bff0921d, type: 3}
+    - {fileID: -1489312765, guid: bec90068078dc8c47adc9e77bff0921d, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.14285715
+    m_StopTime: 0.2857143
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

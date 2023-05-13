@@ -18,6 +18,7 @@ public class pombo1 : MonoBehaviour
     private SpriteRenderer pigeonSR;
     private BoxCollider pigeonCOL;
     private enemyCombat pigeonCombat;
+    private Animator pigeonAnimator;
     private LayerMask groundLayer;
 
     [Header("State")]
@@ -34,6 +35,15 @@ public class pombo1 : MonoBehaviour
     private LayerMask playerLayer;
     private int pigeonSpriteDirection = 1;
 
+    [Header("Livre arbitrio falso")]
+    private Vector3 destination;
+    private float idleTime;
+    private float startIdleTime;
+    private float moveTime;
+    private float startMoveTime;
+    private bool isIdle;
+    private bool isMoving;
+
     void Start()
     {
         qyron = GameObject.FindWithTag("Player");
@@ -45,13 +55,13 @@ public class pombo1 : MonoBehaviour
         pigeonCOL = GetComponent<BoxCollider>();
         pigeonCombat = GetComponent<enemyCombat>();
         pigeonSR = GetComponent<SpriteRenderer>();
+        pigeonAnimator = GetComponent<Animator>();
 
         Physics.IgnoreCollision(pigeonCOL, qyron.GetComponent<BoxCollider>());
     }
 
     void Update()
     {
-        //pigeonHitCollision = Physics.OverlapBox(transform.position + CombatBoxOffset * pigeonSpriteDirection, CombatRaycastSize / 2, transform.rotation, playerLayer);
         pigeonHitCollision = Physics.CheckBox(transform.position + CombatBoxOffset * pigeonSpriteDirection, CombatRaycastSize / 2, transform.rotation, playerLayer);
 
         playerDirection = (qyron.transform.position - transform.position).normalized;
@@ -59,19 +69,6 @@ public class pombo1 : MonoBehaviour
         if(!pigeonCombat.isTakingDamage)
         {
             FlipSprite();
-
-            /*if(pigeonHitCollision.Length >= 1)
-            {
-                for( int i = 0; i < pigeonHitCollision.Length; i++)
-                {
-                    playerInAttackRange = true;
-
-                    if (!isAttacking)
-                    {
-                        StartCoroutine(Attack());
-                    }
-                }
-            }*/
 
             if(pigeonHitCollision)
             {
@@ -97,9 +94,20 @@ public class pombo1 : MonoBehaviour
     {
         if(!pigeonCombat.isTakingDamage && !playerInAttackRange)
         {
-            if(Vector3.Distance(transform.position, qyron.transform.position) <= 10)
+            if(Vector3.Distance(transform.position, qyron.transform.position) <= 5)
             {
                 FollowPlayer();
+            }
+        }
+    }
+
+    private void FreeMove()
+    {
+        if(!playerInAttackRange)
+        {
+            if(transform.position == destination)
+            {
+                isIdle = true
             }
         }
     }
@@ -108,6 +116,7 @@ public class pombo1 : MonoBehaviour
     {
         Debug.Log("#carregando"); 
         isAttacking = true;
+        pigeonAnimator.SetTrigger("Attack");
 
         if(playerInAttackRange)
         {
