@@ -88,4 +88,9 @@ public class panels : MonoBehaviour
     {
         SceneManager.LoadScene(currentSceneIndex);
     }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

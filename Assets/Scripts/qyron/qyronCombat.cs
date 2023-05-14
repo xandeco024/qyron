@@ -44,6 +44,7 @@ public class qyronCombat : MonoBehaviour
     private float currentStamina;
     [SerializeField] private float staminaRecoveryRate;
     private float lastStaminaRecoveryTime;
+    private bool isTakingDamage;
 
     [Header("Attack Animations")]
     private int basicPunchAnimation = 1;
@@ -68,11 +69,11 @@ public class qyronCombat : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.K))
+        /*if(Input.GetKeyDown(KeyCode.K))
         {
             Debug.Log("danos");
             StartCoroutine(TakeDamage(1, true, new Vector3(2, 1, 0)));
-        }
+        }*/
 
         direction = GetDirection();
         qyronHitCollision = Physics.OverlapBox(transform.position + CombatBoxOffset * direction, CombatRaycastSize / 2, transform.rotation, enemyLayer);
@@ -87,7 +88,7 @@ public class qyronCombat : MonoBehaviour
         {
             HealthStaminaRecoveryHandler();
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !isTakingDamage)
             {
                 if(!isAttacking && combo.Skip(combo.Count - 3).SequenceEqual(new List<string> { "basicPunch", "basicPunch", "basicPunch"}))
                 {
@@ -101,7 +102,7 @@ public class qyronCombat : MonoBehaviour
 
             }
 
-            if(Input.GetMouseButtonDown(1))
+            if(Input.GetMouseButtonDown(1) && !isTakingDamage)
             {
                 if (!isAttacking && combo.Skip(combo.Count - 3).SequenceEqual(new List<string> { "kneeStrike", "kneeStrike", "kneeStrike" }))
                 {
@@ -127,6 +128,7 @@ public class qyronCombat : MonoBehaviour
         if(!isInvincible && !isAttacking)
         {
             isInvincible = true;
+            isTakingDamage = true;
             qyronMovement.canMove = false;
             currentHealth -= damage;
             qyronAnimator.SetBool("isTakingDamage", true);
@@ -141,6 +143,7 @@ public class qyronCombat : MonoBehaviour
             qyronAnimator.SetBool("isTakingDamage", false);
             isInvincible = false;
             qyronMovement.canMove = true;
+            isTakingDamage = false;
         }
         else
         {

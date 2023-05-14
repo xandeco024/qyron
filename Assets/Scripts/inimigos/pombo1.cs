@@ -66,7 +66,7 @@ public class pombo1 : MonoBehaviour
 
         playerDirection = (qyron.transform.position - transform.position).normalized;
 
-        if(!pigeonCombat.isTakingDamage)
+        if(!pigeonCombat.isTakingDamage && pigeonCombat.enemyHealth > 1)
         {
             FlipSprite();
 
@@ -101,16 +101,16 @@ public class pombo1 : MonoBehaviour
         }
     }
 
-    private void FreeMove()
+    /*private void FreeMove()
     {
         if(!playerInAttackRange)
         {
             if(transform.position == destination)
             {
-                isIdle = true
+                isIdle = true;
             }
         }
-    }
+    }*/
 
     private IEnumerator Attack()
     {

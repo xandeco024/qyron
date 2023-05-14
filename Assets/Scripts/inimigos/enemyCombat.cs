@@ -8,7 +8,7 @@ public class enemyCombat : MonoBehaviour
 {
     [Header("Enemy Stats")]
     [SerializeField] private Color damageColor, originalColor;
-    private float enemyHealth;
+    public float enemyHealth;
     [SerializeField] float enemyMaxHealth;
     private bool _isTakingDamage = false;
     public bool isTakingDamage { get { return _isTakingDamage; } }
@@ -41,7 +41,7 @@ public class enemyCombat : MonoBehaviour
             GetComponent<Rigidbody>().AddForce(new Vector3(knockBackForce.x * -direction, knockBackForce.y, knockBackForce.z), ForceMode.Impulse);
         }
 
-        yield return new WaitForSeconds(knockBackTime);
+        if(enemyHealth > 0) yield return new WaitForSeconds(knockBackTime);
         _isTakingDamage = false;
         GetComponent<Animator>().SetBool("isTakingDamage", false);
     }
