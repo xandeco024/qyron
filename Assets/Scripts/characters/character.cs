@@ -17,12 +17,18 @@ public class Character : MonoBehaviour {
         bc = GetComponent<BoxCollider>();
     }
 
-
     [Header("Character Stats")]
-    private int maxHealth;
+    [SerializeField] private int maxHealth;
     private int currentHealth;
-    private int baseDamage;
-    private float speed;
+    public int CurrentHealth {
+        get { return currentHealth; } 
+        set { if (value > maxHealth) currentHealth = maxHealth;
+        else if (value < 0) currentHealth = 0; 
+        else currentHealth = value; }
+        }
+        
+    [SerializeField] private int baseDamage;
+    [SerializeField] private float moveSpeed;
 
     void Start()
     {
