@@ -2,10 +2,7 @@ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.Burst.CompilerServices;
-using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEngine.UI.Image;
 
 public class qyronCombat : MonoBehaviour
 {

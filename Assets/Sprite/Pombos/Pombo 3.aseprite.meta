@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 59e91c62ae223114eb83a11582e291bc
+guid: a344cd2826c2f964fb8fb071e0e42365
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,18 +119,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Qyron Dashing_Frame_2
+  - name: Pombo 3_Frame_0
     originalName: 
-    pivot: {x: 0.5, y: -0.34210527}
+    pivot: {x: 0.5344828, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 128
-      y: 4
-      width: 80
-      height: 38
-    spriteID: c48c342157719824b860811ce60e4e00
+      x: 88
+      y: 144
+      width: 58
+      height: 66
+    spriteID: 9fc551ebc17841c4cbe1e69516085fd6
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -138,19 +138,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 128, y: 4}
-  - name: Qyron Dashing_Frame_3
+    uvTransform: {x: 88, y: 144}
+  - name: Pombo 3_Frame_1
     originalName: 
-    pivot: {x: 0.5, y: -0.34210527}
+    pivot: {x: 0.45070425, y: -0.058823533}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 66
-      y: 70
-      width: 80
-      height: 38
-    spriteID: 361d8ee0f9ba5d645be375ddb0534edb
+      x: 4
+      y: 157
+      width: 71
+      height: 68
+    spriteID: 418577a31723058409aea037e2802677
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -158,19 +158,39 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 66, y: 70}
-  - name: Qyron Dashing_Frame_0
+    uvTransform: {x: 4, y: 157}
+  - name: Pombo 3_Frame_2
     originalName: 
-    pivot: {x: 0.7407407, y: 0}
+    pivot: {x: 0.5344828, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 88
+      y: 68
+      width: 58
+      height: 68
+    spriteID: 68739b96106be0e41ab3f12f3551dd33
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 88, y: 68}
+  - name: Pombo 3_Frame_3
+    originalName: 
+    pivot: {x: 0.47368422, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 54
-      height: 58
-    spriteID: 218841f51f5fc554d83386f4b9397acb
+      width: 76
+      height: 73
+    spriteID: b0b84d4954351a04da94ffe36db3f97b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -179,18 +199,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: Qyron Dashing_Frame_1
+  - name: Pombo 3_Frame_4
     originalName: 
-    pivot: {x: 0.7407407, y: 0}
+    pivot: {x: 0.47368422, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 66
-      y: 4
-      width: 54
-      height: 58
-    spriteID: 0c958db00e585104a98cb501207d4c3a
+      x: 4
+      y: 85
+      width: 76
+      height: 64
+    spriteID: 5fe8382e4fd844e4ab7dd715f81e9426
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -198,51 +218,87 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 66, y: 4}
+    uvTransform: {x: 4, y: 85}
+  - name: Pombo 3_Frame_5
+    originalName: 
+    pivot: {x: 0.47368422, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 88
+      y: 4
+      width: 76
+      height: 56
+    spriteID: 3316961a1101b744db066fce64a21915
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 88, y: 4}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1485282831
-    name: Qyron Dashing
+    guid: -2047649604
+    name: Pombo 3
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Qyron Dashing_Frame_2
-      frameIndex: 2
-      cellRect:
-        x: 0
-        y: 13
-        width: 80
-        height: 38
-      spriteId: c48c342157719824b860811ce60e4e00
-    - name: Qyron Dashing_Frame_3
-      frameIndex: 3
-      cellRect:
-        x: 0
-        y: 13
-        width: 80
-        height: 38
-      spriteId: 361d8ee0f9ba5d645be375ddb0534edb
-    - name: Qyron Dashing_Frame_0
+    - name: Pombo 3_Frame_0
       frameIndex: 0
       cellRect:
-        x: 0
+        x: 9
         y: 0
-        width: 54
-        height: 58
-      spriteId: 218841f51f5fc554d83386f4b9397acb
-    - name: Qyron Dashing_Frame_1
+        width: 58
+        height: 66
+      spriteId: 9fc551ebc17841c4cbe1e69516085fd6
+    - name: Pombo 3_Frame_1
       frameIndex: 1
       cellRect:
-        x: 0
+        x: 8
+        y: 4
+        width: 71
+        height: 68
+      spriteId: 418577a31723058409aea037e2802677
+    - name: Pombo 3_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 9
         y: 0
-        width: 54
-        height: 58
-      spriteId: 0c958db00e585104a98cb501207d4c3a
+        width: 58
+        height: 68
+      spriteId: 68739b96106be0e41ab3f12f3551dd33
+    - name: Pombo 3_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 4
+        y: 0
+        width: 76
+        height: 73
+      spriteId: b0b84d4954351a04da94ffe36db3f97b
+    - name: Pombo 3_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 4
+        y: 0
+        width: 76
+        height: 64
+      spriteId: 5fe8382e4fd844e4ab7dd715f81e9426
+    - name: Pombo 3_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 4
+        y: 0
+        width: 76
+        height: 56
+      spriteId: 3316961a1101b744db066fce64a21915
     linkedCells: []
     parentIndex: -1
   platformSettings: []
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 80, y: 64}
+  canvasSize: {x: 80, y: 80}
