@@ -198,6 +198,11 @@ public class qyronCombat : MonoBehaviour
                         StartCoroutine(qyronHitCollision[i].GetComponent<enemyCombat>().TakeDamage(damage, true, new Vector3(1, 2, 0), 0.5f));
                     }
                 }
+
+                if (qyronHitCollision[i].GetComponent<Character>() != null)
+                {
+                    qyronHitCollision[i].GetComponent<Character>().TakeDamage(damage, false, 0);
+                }
             }
 
             StartCoroutine(ScreenShake(0.5f, 0.25f, 0.1f));
