@@ -23,7 +23,12 @@ public class enemyCombat : MonoBehaviour
 
     void Update()
     {
-        if (enemyHealth <= 0) Destroy(gameObject);
+        if (enemyHealth <= 0) 
+        {
+            StopAllCoroutines();    
+            Destroy(gameObject);
+        }
+
         if (!enemySR.flipX) direction = 1;
         else if (enemySR.flipX) direction = -1;
     }

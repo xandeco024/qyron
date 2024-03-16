@@ -4,12 +4,12 @@ using System.Collections;
 public class Character : MonoBehaviour {
 
     [Header("Components")]
-    private Rigidbody rb;
-    private Animator anim;
-    private SpriteRenderer sr;
-    private BoxCollider bc;
+    protected Rigidbody rb;
+    protected Animator anim;
+    protected SpriteRenderer sr;
+    protected BoxCollider bc;
 
-    void GetComponentsOnCharacter()
+    protected virtual void GetComponentsOnCharacter()
     {
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
@@ -18,8 +18,8 @@ public class Character : MonoBehaviour {
     }
 
     [Header("Character Stats")]
-    [SerializeField] private float maxHealth;
-    private float currentHealth;
+    [SerializeField] protected float maxHealth;
+    protected float currentHealth;
     public float CurrentHealth {
         get { return currentHealth; } 
         set { if (value > maxHealth) currentHealth = maxHealth;
@@ -27,26 +27,36 @@ public class Character : MonoBehaviour {
         else currentHealth = value; }
         }
 
-    [SerializeField] private bool invincible;
+    [SerializeField] protected bool invincible;
+    [SerializeField] protected bool hitKillProtected;
         
-    [SerializeField] private float baseDamage;
-    [SerializeField] private float moveSpeed;
+    [SerializeField] protected float baseDamage;
+    [SerializeField] protected float moveSpeed;
+    protected int facingDirection;
 
-    void Start()
+    #region Movement
+
+    protected void LimitZ()
     {
-        GetComponentsOnCharacter();
-        
-        currentHealth = maxHealth;
-
+        if (transform.position.z >= 2.5f) transform.position = new Vector3(transform.position.x, transform.position.y, 2.5f);
+        if (transform.position.z <= -2.5f) transform.position = new Vector3(transform.position.x, transform.position.y, -2.5f);
     }
 
-    void Update()
+    protected void Flip()
     {
-        if(!invincible && currentHealth <= 0)
+        if (rb.velocity.x > 0.1f) 
         {
-            Die();
+            facingDirection = 1;
+            sr.flipX = false;
+        }
+        else if (rb.velocity.x < -0.1f) 
+        {
+            facingDirection = -1;
+            sr.flipX = true;
         }
     }
+
+    #endregion
 
     public void TakeDamage(float damage, bool flash, int flashTimes)
     {
@@ -55,20 +65,28 @@ public class Character : MonoBehaviour {
             StartCoroutine(FlashRed(flashTimes));
         }
 
-        currentHealth -= damage;
+        if (hitKillProtected && currentHealth - damage <= 0)
+        {
+            currentHealth = 1;
+        }
+        else
+        {
+            currentHealth -= damage;
+        }
     }
 
-    public void Die()
+    protected void Die()
     {
         // Play death animation
         // Disable movement
         // Disable combat
         // Disable collision
         // Disable this script
+        StopAllCoroutines(); // ver se acaba o bug dos pombo (nao acabou...)
         Destroy(gameObject);
     }
 
-    IEnumerator FlashRed(int timesToFlash)
+    protected IEnumerator FlashRed(int timesToFlash)
     {
         for (int i = 0; i < timesToFlash; i++)
         {
