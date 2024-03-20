@@ -32,6 +32,7 @@ public class Character : MonoBehaviour {
         
     [SerializeField] protected float baseDamage;
     [SerializeField] protected float moveSpeed;
+    [SerializeField] protected float jumpForce;
     protected int facingDirection;
 
     #region Movement
