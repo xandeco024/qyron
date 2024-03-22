@@ -1,0 +1,948 @@
+fileFormatVersion: 2
+guid: 66c1563a5732ed54d9321cb6db5f0ab3
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Qyron Attack 1_Frame_0
+    originalName: 
+    pivot: {x: 0.4166667, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 139
+      y: 4
+      width: 48
+      height: 58
+    spriteID: 5d391609554eb4243b77fe9f5b6d581d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 139, y: 4}
+  - name: Qyron Attack 1_Frame_1
+    originalName: 
+    pivot: {x: 0.3846154, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 353
+      width: 52
+      height: 57
+    spriteID: 8691f6dfb8518fa4ab4f3c32124d0e80
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 353}
+  - name: Qyron Attack 1_Frame_2
+    originalName: 
+    pivot: {x: 0.39999998, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 71
+      y: 274
+      width: 50
+      height: 57
+    spriteID: 13729719580af6b44b46131d1131d079
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 71, y: 274}
+  - name: Qyron Attack 1_Frame_3
+    originalName: 
+    pivot: {x: 0.47619048, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 195
+      y: 69
+      width: 42
+      height: 58
+    spriteID: 201404e96ee3ae24492afaa9b469a9fa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 195, y: 69}
+  - name: Qyron Attack 1_Frame_4
+    originalName: 
+    pivot: {x: 0.47368422, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 195
+      y: 201
+      width: 38
+      height: 58
+    spriteID: 664025108bb0b4b448f2d10de85f0e04
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 195, y: 201}
+  - name: Qyron Attack 1_Frame_5
+    originalName: 
+    pivot: {x: 0.4864865, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 195
+      y: 333
+      width: 37
+      height: 58
+    spriteID: 9c03e7af9c5ea84418c0b44f02565d3d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 195, y: 333}
+  - name: Qyron Attack 1_Frame_6
+    originalName: 
+    pivot: {x: 0.39999998, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 71
+      y: 208
+      width: 50
+      height: 58
+    spriteID: aeefb81f6d7026c4a9227d9cc4260af3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 71, y: 208}
+  - name: Qyron Attack 1_Frame_7
+    originalName: 
+    pivot: {x: 0.3846154, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 418
+      width: 52
+      height: 57
+    spriteID: f3e5564f01a90054db7166c3e36da145
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 418}
+  - name: Qyron Attack 1_Frame_8
+    originalName: 
+    pivot: {x: 0.39999998, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 71
+      y: 339
+      width: 50
+      height: 57
+    spriteID: 8155918324879ff4f95b74cca753f2d4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 71, y: 339}
+  - name: Qyron Attack 1_Frame_9
+    originalName: 
+    pivot: {x: 0.46511626, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 139
+      y: 339
+      width: 43
+      height: 58
+    spriteID: 634fa0f6aed788f4dafed0234aee88a3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 139, y: 339}
+  - name: Qyron Attack 1_Frame_10
+    originalName: 
+    pivot: {x: 0.47368422, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 195
+      y: 267
+      width: 38
+      height: 58
+    spriteID: c779d1fbe78912140a29312d19206441
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 195, y: 267}
+  - name: Qyron Attack 1_Frame_11
+    originalName: 
+    pivot: {x: 0.4864865, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 195
+      y: 399
+      width: 37
+      height: 58
+    spriteID: a190aa350614c55429815803b6706f86
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 195, y: 399}
+  - name: Qyron Attack 1_Frame_12
+    originalName: 
+    pivot: {x: 0.64285713, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 139
+      y: 138
+      width: 42
+      height: 60
+    spriteID: c04adae91bd59d843a1d154a2d2dfc3c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 139, y: 138}
+  - name: Qyron Attack 1_Frame_13
+    originalName: 
+    pivot: {x: 0.64285713, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 195
+      y: 135
+      width: 42
+      height: 58
+    spriteID: 1d14743bef4f385498d805db9965053b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 195, y: 135}
+  - name: Qyron Attack 1_Frame_14
+    originalName: 
+    pivot: {x: 0.45762712, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 59
+      height: 63
+    spriteID: 90ead71296acd6644ab3efe31738b924
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Qyron Attack 1_Frame_15
+    originalName: 
+    pivot: {x: 0.45762712, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 75
+      width: 59
+      height: 63
+    spriteID: 5d9555655fbefa0479e36bfd68b6c0c8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 75}
+  - name: Qyron Attack 1_Frame_16
+    originalName: 
+    pivot: {x: 0.509434, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 282
+      width: 53
+      height: 63
+    spriteID: 8019f5cd4a8926f4896ebbf23017a674
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 282}
+  - name: Qyron Attack 1_Frame_18
+    originalName: 
+    pivot: {x: 0.5227273, y: -0.03508772}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 139
+      y: 274
+      width: 44
+      height: 57
+    spriteID: 45bf16952b4fed44e95ce5eb16c3441f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 139, y: 274}
+  - name: Qyron Attack 1_Frame_19
+    originalName: 
+    pivot: {x: 0.53488374, y: -0.03508772}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 139
+      y: 405
+      width: 43
+      height: 57
+    spriteID: 359e6871d3fbaaa43b8a973b2b48ddca
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 139, y: 405}
+  - name: Qyron Attack 1_Frame_20
+    originalName: 
+    pivot: {x: 0.53488374, y: -0.03508772}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 195
+      y: 4
+      width: 43
+      height: 57
+    spriteID: 142031d22f3191d41b5d3f6fba456e46
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 195, y: 4}
+  - name: Qyron Attack 1_Frame_21
+    originalName: 
+    pivot: {x: 0.5510204, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 71
+      y: 72
+      width: 49
+      height: 60
+    spriteID: 7ecd64eb8c7ce7040be075f2729f3c28
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 71, y: 72}
+  - name: Qyron Attack 1_Frame_22
+    originalName: 
+    pivot: {x: 0.5510204, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 71
+      y: 140
+      width: 49
+      height: 60
+    spriteID: 9c64f67c9715ffc4f8ea7fbb33fedbe4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 71, y: 140}
+  - name: Qyron Attack 1_Frame_23
+    originalName: 
+    pivot: {x: 0.58695656, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 139
+      y: 70
+      width: 46
+      height: 60
+    spriteID: 9e68900d797df904eac8f1b2349b227a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 139, y: 70}
+  - name: Qyron Attack 1_Frame_24
+    originalName: 
+    pivot: {x: 0.64285713, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 139
+      y: 206
+      width: 42
+      height: 60
+    spriteID: ffaf90d96d26e6f438fa97fab8e7bd30
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 139, y: 206}
+  - name: Qyron Attack 1_Frame_25
+    originalName: 
+    pivot: {x: 0.4666667, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 71
+      y: 4
+      width: 60
+      height: 60
+    spriteID: 56db080586d2a3e4099a823c7354691f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 71, y: 4}
+  - name: Qyron Attack 1_Frame_26
+    originalName: 
+    pivot: {x: 0.45762712, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 146
+      width: 59
+      height: 60
+    spriteID: cbbcafaf20566614e8fe7fc2cbd64844
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 146}
+  - name: Qyron Attack 1_Frame_27
+    originalName: 
+    pivot: {x: 0.45762712, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 214
+      width: 59
+      height: 60
+    spriteID: fbb378990ef70a949a450df2625177ed
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 214}
+  - name: Qyron Attack 1_Frame_28
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 246
+      y: 4
+      width: 34
+      height: 58
+    spriteID: 663ead70f975c7c4a8812f74edc7ca59
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 246, y: 4}
+  - name: Qyron Attack 1_Frame_17
+    originalName: 
+    pivot: {x: 0.45999998, y: -0.071428575}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 71
+      y: 404
+      width: 50
+      height: 56
+    spriteID: 5443c6f7f42f9e348b819c865935d09a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 71, y: 404}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -799260638
+    name: Qyron Attack 1
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Qyron Attack 1_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 12
+        y: 0
+        width: 48
+        height: 58
+      spriteId: 5d391609554eb4243b77fe9f5b6d581d
+    - name: Qyron Attack 1_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 12
+        y: 0
+        width: 52
+        height: 57
+      spriteId: 8691f6dfb8518fa4ab4f3c32124d0e80
+    - name: Qyron Attack 1_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 12
+        y: 0
+        width: 50
+        height: 57
+      spriteId: 13729719580af6b44b46131d1131d079
+    - name: Qyron Attack 1_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 12
+        y: 0
+        width: 42
+        height: 58
+      spriteId: 201404e96ee3ae24492afaa9b469a9fa
+    - name: Qyron Attack 1_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 14
+        y: 0
+        width: 38
+        height: 58
+      spriteId: 664025108bb0b4b448f2d10de85f0e04
+    - name: Qyron Attack 1_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 14
+        y: 0
+        width: 37
+        height: 58
+      spriteId: 9c03e7af9c5ea84418c0b44f02565d3d
+    - name: Qyron Attack 1_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 12
+        y: 0
+        width: 50
+        height: 58
+      spriteId: aeefb81f6d7026c4a9227d9cc4260af3
+    - name: Qyron Attack 1_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 12
+        y: 0
+        width: 52
+        height: 57
+      spriteId: f3e5564f01a90054db7166c3e36da145
+    - name: Qyron Attack 1_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 12
+        y: 0
+        width: 50
+        height: 57
+      spriteId: 8155918324879ff4f95b74cca753f2d4
+    - name: Qyron Attack 1_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 12
+        y: 0
+        width: 43
+        height: 58
+      spriteId: 634fa0f6aed788f4dafed0234aee88a3
+    - name: Qyron Attack 1_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 14
+        y: 0
+        width: 38
+        height: 58
+      spriteId: c779d1fbe78912140a29312d19206441
+    - name: Qyron Attack 1_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 14
+        y: 0
+        width: 37
+        height: 58
+      spriteId: a190aa350614c55429815803b6706f86
+    - name: Qyron Attack 1_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 5
+        y: 0
+        width: 42
+        height: 60
+      spriteId: c04adae91bd59d843a1d154a2d2dfc3c
+    - name: Qyron Attack 1_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 5
+        y: 0
+        width: 42
+        height: 58
+      spriteId: 1d14743bef4f385498d805db9965053b
+    - name: Qyron Attack 1_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 5
+        y: 0
+        width: 59
+        height: 63
+      spriteId: 90ead71296acd6644ab3efe31738b924
+    - name: Qyron Attack 1_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 5
+        y: 0
+        width: 59
+        height: 63
+      spriteId: 5d9555655fbefa0479e36bfd68b6c0c8
+    - name: Qyron Attack 1_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 5
+        y: 0
+        width: 53
+        height: 63
+      spriteId: 8019f5cd4a8926f4896ebbf23017a674
+    - name: Qyron Attack 1_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 9
+        y: 2
+        width: 44
+        height: 57
+      spriteId: 45bf16952b4fed44e95ce5eb16c3441f
+    - name: Qyron Attack 1_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 9
+        y: 2
+        width: 43
+        height: 57
+      spriteId: 359e6871d3fbaaa43b8a973b2b48ddca
+    - name: Qyron Attack 1_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 9
+        y: 2
+        width: 43
+        height: 57
+      spriteId: 142031d22f3191d41b5d3f6fba456e46
+    - name: Qyron Attack 1_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 5
+        y: 0
+        width: 49
+        height: 60
+      spriteId: 7ecd64eb8c7ce7040be075f2729f3c28
+    - name: Qyron Attack 1_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 5
+        y: 0
+        width: 49
+        height: 60
+      spriteId: 9c64f67c9715ffc4f8ea7fbb33fedbe4
+    - name: Qyron Attack 1_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 5
+        y: 0
+        width: 46
+        height: 60
+      spriteId: 9e68900d797df904eac8f1b2349b227a
+    - name: Qyron Attack 1_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: 5
+        y: 0
+        width: 42
+        height: 60
+      spriteId: ffaf90d96d26e6f438fa97fab8e7bd30
+    - name: Qyron Attack 1_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: 4
+        y: 0
+        width: 60
+        height: 60
+      spriteId: 56db080586d2a3e4099a823c7354691f
+    - name: Qyron Attack 1_Frame_26
+      frameIndex: 26
+      cellRect:
+        x: 5
+        y: 0
+        width: 59
+        height: 60
+      spriteId: cbbcafaf20566614e8fe7fc2cbd64844
+    - name: Qyron Attack 1_Frame_27
+      frameIndex: 27
+      cellRect:
+        x: 5
+        y: 0
+        width: 59
+        height: 60
+      spriteId: fbb378990ef70a949a450df2625177ed
+    - name: Qyron Attack 1_Frame_28
+      frameIndex: 28
+      cellRect:
+        x: 15
+        y: 0
+        width: 34
+        height: 58
+      spriteId: 663ead70f975c7c4a8812f74edc7ca59
+    - name: Qyron Attack 1_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 9
+        y: 4
+        width: 50
+        height: 56
+      spriteId: 5443c6f7f42f9e348b819c865935d09a
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 64, y: 64}

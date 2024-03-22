@@ -3,7 +3,10 @@ using UnityEngine;
 
 public class Qyron : Character {
 
+    [Header("Movement")]
+    [SerializeField] private bool limitZ;
     private Vector3 movementInput;
+
 
     [Header("Jump Settings")]
     private bool isGrounded;
@@ -58,8 +61,10 @@ public class Qyron : Character {
     void FixedUpdate()
     {
         ApplyMovement();
-        LimitZ();
+        HandleJump();
+        if (limitZ) LimitZ();
         Flip();
+
     }
 
     #region Movement
@@ -75,10 +80,13 @@ public class Qyron : Character {
     void ApplyMovement() //HANDLE X,Z MOVEMENT, JUMPING AND DASHING
     {
         rb.velocity = new Vector3(movementInput.x * moveSpeed, rb.velocity.y, movementInput.z * moveSpeed);
+    }
 
-        //HANDLE JUMPING
+    void HandleJump()
+    {
         if (jumpTrigger && jumps > 0)
         {
+            Debug.Log("Pulou");
             jumps--;
             jumpTrigger = false;
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
