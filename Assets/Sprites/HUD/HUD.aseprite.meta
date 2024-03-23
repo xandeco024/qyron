@@ -121,15 +121,15 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: HUD_Frame_0
     originalName: 
-    pivot: {x: 0.5795455, y: -1.3181819}
+    pivot: {x: 0.4375, y: 0.25}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 88
-      height: 22
+      width: 128
+      height: 64
     spriteID: 9ee2ae8606f6ced44a99b3332252f145
     spriteBone: []
     spriteOutline: []
@@ -141,15 +141,15 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: HUD_Frame_1
     originalName: 
-    pivot: {x: 0.5795455, y: -1.3181819}
+    pivot: {x: 0.4375, y: 0.25}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 34
-      width: 88
-      height: 22
+      x: 140
+      y: 4
+      width: 128
+      height: 64
     spriteID: c61174fb7c15be541b5e0320433c5901
     spriteBone: []
     spriteOutline: []
@@ -158,18 +158,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 34}
+    uvTransform: {x: 140, y: 4}
   - name: HUD_Frame_2
     originalName: 
-    pivot: {x: 0.5795455, y: -1.3181819}
+    pivot: {x: 0.4375, y: 0.25}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 64
-      width: 88
-      height: 22
+      x: 276
+      y: 4
+      width: 128
+      height: 64
     spriteID: 68150d050b706c547822ae7cafb29ea2
     spriteBone: []
     spriteOutline: []
@@ -178,18 +178,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 64}
+    uvTransform: {x: 276, y: 4}
   - name: HUD_Frame_3
     originalName: 
-    pivot: {x: 0.5795455, y: -1.3181819}
+    pivot: {x: 0.4375, y: 0.25}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 94
-      width: 88
-      height: 22
+      y: 76
+      width: 128
+      height: 64
     spriteID: 442e9238273c77948b6f40f483d50a4d
     spriteBone: []
     spriteOutline: []
@@ -198,7 +198,87 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 94}
+    uvTransform: {x: 4, y: 76}
+  - name: HUD_Frame_0
+    originalName: 
+    pivot: {x: 0.4375, y: 0.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 140
+      y: 76
+      width: 128
+      height: 64
+    spriteID: 8ac88ce773bbfa649bf2385fec3f99cb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 140, y: 76}
+  - name: HUD_Frame_1
+    originalName: 
+    pivot: {x: 0.4375, y: 0.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 276
+      y: 76
+      width: 128
+      height: 64
+    spriteID: e503f2e985fc42c42a4752ca08bd1732
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 276, y: 76}
+  - name: HUD_Frame_2
+    originalName: 
+    pivot: {x: 0.4375, y: 0.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 148
+      width: 128
+      height: 64
+    spriteID: 37f5d912600ee184fa84239357c47af5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 148}
+  - name: HUD_Frame_3
+    originalName: 
+    pivot: {x: 0.4375, y: 0.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 140
+      y: 148
+      width: 128
+      height: 64
+    spriteID: 0845efd533dc46149ab3091c5d8f1627
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 140, y: 148}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -211,38 +291,70 @@ ScriptedImporter:
     - name: HUD_Frame_0
       frameIndex: 0
       cellRect:
-        x: 13
-        y: 29
-        width: 88
-        height: 22
+        x: 0
+        y: -16
+        width: 128
+        height: 64
       spriteId: 9ee2ae8606f6ced44a99b3332252f145
     - name: HUD_Frame_1
       frameIndex: 1
       cellRect:
-        x: 13
-        y: 29
-        width: 88
-        height: 22
+        x: 0
+        y: -16
+        width: 128
+        height: 64
       spriteId: c61174fb7c15be541b5e0320433c5901
     - name: HUD_Frame_2
       frameIndex: 2
       cellRect:
-        x: 13
-        y: 29
-        width: 88
-        height: 22
+        x: 0
+        y: -16
+        width: 128
+        height: 64
       spriteId: 68150d050b706c547822ae7cafb29ea2
     - name: HUD_Frame_3
       frameIndex: 3
       cellRect:
-        x: 13
-        y: 29
-        width: 88
-        height: 22
+        x: 0
+        y: -16
+        width: 128
+        height: 64
       spriteId: 442e9238273c77948b6f40f483d50a4d
+    - name: HUD_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 0
+        y: -16
+        width: 128
+        height: 64
+      spriteId: 8ac88ce773bbfa649bf2385fec3f99cb
+    - name: HUD_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 0
+        y: -16
+        width: 128
+        height: 64
+      spriteId: e503f2e985fc42c42a4752ca08bd1732
+    - name: HUD_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 0
+        y: -16
+        width: 128
+        height: 64
+      spriteId: 37f5d912600ee184fa84239357c47af5
+    - name: HUD_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 0
+        y: -16
+        width: 128
+        height: 64
+      spriteId: 0845efd533dc46149ab3091c5d8f1627
     linkedCells: []
     parentIndex: -1
   platformSettings: []
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 128, y: 64}
+  canvasSize: {x: 112, y: 48}

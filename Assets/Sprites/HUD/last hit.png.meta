@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4291708e4617d6843a365af9796736f3
+guid: c0638e8e420d59b448d5d170580c84e2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HUD_0
+      name: last hit_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 112
-        height: 48
+        width: 7
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c222f54337ea9f94c94957bf57f8c1e5
-      internalID: -901432986
+      spriteID: 80ee27deb88057c4e9e35ac0a46867f5
+      internalID: 65797903
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HUD_1
+      name: last hit_1
       rect:
         serializedVersion: 2
-        x: 112
+        x: 7
         y: 0
-        width: 112
-        height: 48
+        width: 7
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf3beb23066d81c49abe7abd653d61b0
-      internalID: 609909191
+      spriteID: d3af66faa31641446a42f39662111097
+      internalID: 559652427
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HUD_2
+      name: last hit_2
       rect:
         serializedVersion: 2
-        x: 224
+        x: 14
         y: 0
-        width: 112
-        height: 48
+        width: 7
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,29 +179,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 855b42893711bd640a46c0ac21d159b9
-      internalID: 141030769
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HUD_3
-      rect:
-        serializedVersion: 2
-        x: 336
-        y: 0
-        width: 112
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: db64b1cdf282b034fba1e97956ec4151
-      internalID: 100747240
+      spriteID: 7af84a17f3bc13a429fe528f059079c8
+      internalID: 291449214
       vertices: []
       indices: 
       edges: []
@@ -217,10 +196,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      HUD_0: -901432986
-      HUD_1: 609909191
-      HUD_2: 141030769
-      HUD_3: 100747240
+      last hit_0: 65797903
+      last hit_1: 559652427
+      last hit_2: 291449214
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
