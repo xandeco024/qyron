@@ -19,6 +19,7 @@ public class Character : MonoBehaviour {
 
     [Header("Character Stats")]
     [SerializeField] protected float maxHealth;
+    public float MaxHealth { get { return maxHealth; } }
     protected float currentHealth;
     public float CurrentHealth {
         get { return currentHealth; } 
