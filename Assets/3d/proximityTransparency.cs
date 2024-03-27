@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class proximityTransparency : MonoBehaviour
 {
-    private Qyron qyron;
+    private PlayableCharacter[] players = new PlayableCharacter[4];
 
     [SerializeField] float distance;    
     [SerializeField] private Material normalMaterial;
@@ -13,19 +13,26 @@ public class proximityTransparency : MonoBehaviour
 
     void Start()
     {
-        qyron = FindObjectOfType<Qyron>();
-        Debug.Log(qyron.gameObject.name);
+        players = FindObjectsOfType<PlayableCharacter>();
     }
 
     void Update()
     {
-        if (Vector3.Distance(transform.position, qyron.transform.position) < distance)
+
+    }
+
+    private void ProximityTransparencyHandler()
+    {
+        foreach (PlayableCharacter player in players)
         {
-            GetComponent<Renderer>().material = transparentMaterial;
-        }
-        else
-        {
-            GetComponent<Renderer>().material = normalMaterial;
+            if (Vector3.Distance(player.transform.position, transform.position) < distance)
+            {
+                GetComponent<Renderer>().material = transparentMaterial;
+            }
+            else
+            {
+                GetComponent<Renderer>().material = normalMaterial;
+            }
         }
     }
 }

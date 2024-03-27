@@ -44,7 +44,7 @@ public class Character : MonoBehaviour {
         if (transform.position.z <= -2.5f) transform.position = new Vector3(transform.position.x, transform.position.y, -2.5f);
     }
 
-    protected void Flip()
+    protected void FlipSprite()
     {
         if (rb.velocity.x > 0.1f) 
         {
@@ -90,12 +90,33 @@ public class Character : MonoBehaviour {
 
     protected IEnumerator FlashRed(int timesToFlash)
     {
-        for (int i = 0; i < timesToFlash; i++)
+        if (GetComponent<SpriteRenderer>() != null)
         {
-            sr.color = new Color(0.5f,0.2f,0.2f,1);
-            yield return new WaitForSeconds(0.1f);
-            sr.color = new Color(1,1,1,1);
-            yield return new WaitForSeconds(0.1f);
+            for (int i = 0; i < timesToFlash; i++)
+            {
+                sr.color = new Color(0.5f,0.2f,0.2f,1);
+                yield return new WaitForSeconds(0.1f);
+                sr.color = new Color(1,1,1,1);
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
+
+        // if isnt a sprite, change material color
+
+        else if (GetComponent<Renderer>() != null)
+        {
+            for (int i = 0; i < timesToFlash; i++)
+            {
+                GetComponent<Renderer>().material.color = new Color(0.5f,0.2f,0.2f,1);
+                yield return new WaitForSeconds(0.1f);
+                GetComponent<Renderer>().material.color = new Color(1,1,1,1);
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
+
+        else
+        {
+            Debug.LogError("No SpriteRenderer or Renderer found on this object");
         }
     }
 }

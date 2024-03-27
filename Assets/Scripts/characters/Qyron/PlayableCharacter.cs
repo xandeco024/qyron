@@ -4,11 +4,13 @@ using UnityEngine;
 public class PlayableCharacter : Character {
 
     [Header("Character Stats")]
-    private int level;
+
+    [SerializeField] private bool debug;
+    private int level = 1;
     public int Level { get { return level; } }
-    private int exP;
+    private int exP = 50;
     public int ExP { get { return exP; } }
-    private int nextLevelExP;
+    private int nextLevelExP = 100;
     public int NextLevelExP { get { return nextLevelExP; } }
     private int coins;
     public int Coins { get { return coins; } }
@@ -73,7 +75,7 @@ public class PlayableCharacter : Character {
         ApplyMovement();
         HandleJump();
         if (limitZ) LimitZ();
-        Flip();
+        FlipSprite();
 
     }
 
@@ -119,4 +121,26 @@ public class PlayableCharacter : Character {
 
     #endregion
 
+    #region Debug
+
+    private void DebugHandler()
+    {
+        if (debug)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                TakeDamage(10, true, 3);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                exP += 10;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                coins += 10;
+            }
+        }
+    }
 }
