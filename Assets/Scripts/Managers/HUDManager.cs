@@ -6,9 +6,12 @@ using UnityEngine.UI;
 
 public class HUDManager : MonoBehaviour
 {
+    [SerializeField] private bool debug;
+
     [Header("HUD")]
     [SerializeField] private GameObject[] hudObject = new GameObject[4];
     [SerializeField] private Image[] hudImage = new Image[4];
+    [SerializeField] private Image[] damageBar = new Image[4];
     [SerializeField] private Image[] healthBar = new Image[4];
     [SerializeField] private TextMeshProUGUI[] healthText = new TextMeshProUGUI[4];
     [SerializeField] private Image[] xpBar = new Image[4];
@@ -59,14 +62,14 @@ public class HUDManager : MonoBehaviour
         {
             hudObject[hudIndex].SetActive(true);
             //TROCA A IMAGEM DA HUD, PRO PERSONAGEM QUE ESTIVER JOGANDO
-            Debug.Log("HUD INDEX: " + hudIndex + "ACTIVE PLAYER: " + players[hudIndex].name);
+            if (debug) Debug.Log("HUD INDEX: " + hudIndex + "ACTIVE PLAYER: " + players[hudIndex].name);
         }
 
         else
         {
             hudObject[hudIndex].SetActive(false);
 
-            Debug.Log("HUD INDEX: " + hudIndex + "NO PLAYER FOUND! DEACTIVATING HUD!");
+            if (debug) Debug.Log("HUD INDEX: " + hudIndex + "NO PLAYER FOUND! DEACTIVATING HUD!");
         }
     }
 
@@ -74,10 +77,12 @@ public class HUDManager : MonoBehaviour
     {
         if (players[hudIndex] != null)
         {
-            healthBar[hudIndex].fillAmount = Mathf.Lerp(healthBar[hudIndex].fillAmount, (players[hudIndex].CurrentHealth / players[hudIndex].MaxHealth), 3 * Time.deltaTime);
+            damageBar[hudIndex].fillAmount = Mathf.Lerp(damageBar[hudIndex].fillAmount, (players[hudIndex].CurrentHealth / players[hudIndex].MaxHealth), 2.5f * Time.deltaTime);
+            healthBar[hudIndex].fillAmount = players[hudIndex].CurrentHealth / players[hudIndex].MaxHealth;
             healthText[hudIndex].text = players[hudIndex].CurrentHealth.ToString();
 
-            xpBar[hudIndex].fillAmount = Mathf.Lerp(xpBar[hudIndex].fillAmount, (players[hudIndex].ExP / players[hudIndex].NextLevelExP), 3 * Time.deltaTime);
+            //xpBar[hudIndex].fillAmount = Mathf.Lerp(xpBar[hudIndex].fillAmount, (players[hudIndex].ExP / players[hudIndex].NextLevelExP), 3 * Time.deltaTime);
+            xpBar[hudIndex].fillAmount = Mathf.Lerp(xpBar[hudIndex].fillAmount, ((float)players[hudIndex].ExP / (float)players[hudIndex].NextLevelExP), 3 * Time.deltaTime);
             levelText[hudIndex].text = players[hudIndex].Level.ToString();
 
             coinsText[hudIndex].text = players[hudIndex].Coins.ToString();

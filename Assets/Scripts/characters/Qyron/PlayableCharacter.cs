@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayableCharacter : Character {
@@ -8,7 +7,7 @@ public class PlayableCharacter : Character {
     [SerializeField] private bool debug;
     private int level = 1;
     public int Level { get { return level; } }
-    private int exP = 50;
+    private int exP = 0;
     public int ExP { get { return exP; } }
     private int nextLevelExP = 100;
     public int NextLevelExP { get { return nextLevelExP; } }
@@ -27,7 +26,6 @@ public class PlayableCharacter : Character {
     private int jumps;
     [SerializeField] float raycastDistance;
     [SerializeField] private Vector3 raycastOffset;
-    private RaycastHit groundRaycastHit;
     [SerializeField] private LayerMask groundLayer;
 
     void Awake()
@@ -49,6 +47,8 @@ public class PlayableCharacter : Character {
 
         DetectMovementInput();
 
+        RaycastHit groundRaycastHit;
+
         Ray groundRay = new Ray(transform.position + raycastOffset, Vector3.down);
         Debug.DrawRay(transform.position + raycastOffset, Vector3.down * raycastDistance, Color.green);
 
@@ -64,10 +64,14 @@ public class PlayableCharacter : Character {
             isGrounded = false;
         }
 
+        Debug.Log(isGrounded);
+
         if (isGrounded)
         {
             jumps = maxJumps;
         }
+
+        DebugHandler();
     }
 
     void FixedUpdate()
@@ -107,16 +111,39 @@ public class PlayableCharacter : Character {
 
     #endregion
 
-    #region Combat
+    #region ???
+
+    public void Heal(float amount)
+    {
+        currentHealth += amount;
+        if (currentHealth > maxHealth) currentHealth = maxHealth;
+    }
 
     private void HandleLevel()
     {
         if (exP >= nextLevelExP)
         {
+            if(debug) Debug.Log("Level Up");
             level++;
             exP = 0;
             nextLevelExP = 100 * level; //CHANGE THIS TO A FORMULA
         }
+    }
+
+    public void AddExP(int amount)
+    {
+        exP += amount;
+        HandleLevel();
+    }
+
+    public void AddCoins(int amount)
+    {
+        coins += amount;
+    }
+
+    public void RemoveCoins(int amount)
+    {
+        coins -= amount;
     }
 
     #endregion
@@ -129,18 +156,35 @@ public class PlayableCharacter : Character {
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                TakeDamage(10, true, 3);
+                Debug.Log("Tomou 10 de dano");
+                TakeDamage(2, true, 3);
             }
 
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-                exP += 10;
+                Debug.Log("Curou 10 de vida");
+                Heal(2);
             }
 
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
-                coins += 10;
+                Debug.Log("Adicionou 50 moedas");
+                AddCoins(50);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                Debug.Log("Gastou 50 moedas");
+                RemoveCoins(50);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha5))
+            {
+                Debug.Log("Adicionou 50 de experiencia");
+                AddExP(50);
             }
         }
     }
+
+    #endregion
 }

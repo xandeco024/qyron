@@ -30,6 +30,7 @@ public class Character : MonoBehaviour {
 
     [SerializeField] protected bool invincible;
     [SerializeField] protected bool hitKillProtected;
+    private bool wasProtected = true;
         
     [SerializeField] protected float baseDamage;
     [SerializeField] protected float moveSpeed;
@@ -67,10 +68,12 @@ public class Character : MonoBehaviour {
             StartCoroutine(FlashRed(flashTimes));
         }
 
-        if (hitKillProtected && currentHealth - damage <= 0)
+        if (hitKillProtected && currentHealth - damage <= 0 && !wasProtected)
         {
+            wasProtected = true;
             currentHealth = 1;
         }
+
         else
         {
             currentHealth -= damage;
