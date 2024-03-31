@@ -4147,7 +4147,7 @@ MonoBehaviour:
   hitKillProtected: 1
   baseDamage: 0
   moveSpeed: 5
-  jumpForce: 12
+  jumpForce: 6
   debug: 1
   limitZ: 1
   maxJumps: 2
@@ -4156,6 +4156,9 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  dashForce: 2
+  dashDuration: 1
+  dashCooldown: 1
 --- !u!1 &351057916
 GameObject:
   m_ObjectHideFlags: 0

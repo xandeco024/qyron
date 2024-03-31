@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayableCharacter : Character {
@@ -17,16 +18,22 @@ public class PlayableCharacter : Character {
     [Header("Movement")]
     [SerializeField] private bool limitZ;
     private Vector3 movementInput;
+    private bool canMove = true;
 
 
     [Header("Jump Settings")]
     private bool isGrounded;
-    private bool jumpTrigger;
     [SerializeField] private int maxJumps;
     private int jumps;
     [SerializeField] float raycastDistance;
     [SerializeField] private Vector3 raycastOffset;
     [SerializeField] private LayerMask groundLayer;
+
+    [Header("Dash Settings")]
+    [SerializeField] private float dashForce;
+    [SerializeField] private float dashDuration;
+    [SerializeField] private float dashCooldown;
+    private bool canDash = true;
 
     void Awake()
     {
@@ -46,29 +53,11 @@ public class PlayableCharacter : Character {
         }
 
         DetectMovementInput();
+        DetectGround();
 
-        RaycastHit groundRaycastHit;
-
-        Ray groundRay = new Ray(transform.position + raycastOffset, Vector3.down);
-        Debug.DrawRay(transform.position + raycastOffset, Vector3.down * raycastDistance, Color.green);
-
-        Physics.Raycast(groundRay, out groundRaycastHit, raycastDistance, groundLayer);
-
-        if(groundRaycastHit.collider != null)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            isGrounded = true;
-        }
-            
-        else
-        {
-            isGrounded = false;
-        }
-
-        Debug.Log(isGrounded);
-
-        if (isGrounded)
-        {
-            jumps = maxJumps;
+            Jump();
         }
 
         DebugHandler();
@@ -76,11 +65,11 @@ public class PlayableCharacter : Character {
 
     void FixedUpdate()
     {
-        ApplyMovement();
-        HandleJump();
+        if (canMove) ApplyMovement();
+        if (jumpTrigger()) Jump();
+        if (DashTrigger()) StartCoroutine(Dash());
         if (limitZ) LimitZ();
         FlipSprite();
-
     }
 
     #region Movement
@@ -88,9 +77,23 @@ public class PlayableCharacter : Character {
     void DetectMovementInput()
     {
         movementInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+    }
 
-        if (Input.GetKeyDown(KeyCode.Space)) jumpTrigger = true;
-        else jumpTrigger = false;
+    void DetectGround()
+    {
+        RaycastHit hit;
+        Ray ray = new Ray(transform.position + raycastOffset, Vector3.down);
+        Debug.DrawRay(transform.position + raycastOffset, Vector3.down * raycastDistance, Color.green);
+
+        if (Physics.Raycast(ray, out hit, raycastDistance, groundLayer))
+        {
+            isGrounded = true;
+            jumps = maxJumps;
+        }
+        else
+        {
+            isGrounded = false;
+        }
     }
 
     void ApplyMovement() //HANDLE X,Z MOVEMENT, JUMPING AND DASHING
@@ -98,14 +101,38 @@ public class PlayableCharacter : Character {
         rb.velocity = new Vector3(movementInput.x * moveSpeed, rb.velocity.y, movementInput.z * moveSpeed);
     }
 
-    void HandleJump()
+    bool jumpTrigger() {
+        return Input.GetKeyDown(KeyCode.Space);
+    }
+
+    void Jump()
     {
-        if (jumpTrigger && jumps > 0)
+        if (jumps > 0)
         {
-            Debug.Log("Pulou");
-            jumps--;
-            jumpTrigger = false;
+            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            jumps--;
+        }
+    }
+
+    bool DashTrigger()
+    {
+        return Input.GetKeyDown(KeyCode.LeftShift);
+    }
+
+    IEnumerator Dash()
+    {
+        if (canDash)
+        {
+            canDash = false;
+            canMove = false;
+            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+            rb.AddForce(transform.forward * dashForce, ForceMode.Impulse);
+            yield return new WaitForSeconds(dashDuration);
+            rb.velocity = new Vector3(0, 0, 0);
+            yield return new WaitForSeconds(dashCooldown);
+            canMove = true;
+            canDash = true;
         }
     }
 
