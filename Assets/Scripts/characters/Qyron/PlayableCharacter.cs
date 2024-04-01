@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayableCharacter : Character {
@@ -18,10 +19,11 @@ public class PlayableCharacter : Character {
     [Header("Movement")]
     [SerializeField] private bool limitZ;
     private Vector3 movementInput;
-    private bool canMove = true;
+    private bool isMovingAllowed = true;
 
 
     [Header("Jump Settings")]
+    private bool jumpTrigger = false;
     private bool isGrounded;
     [SerializeField] private int maxJumps;
     private int jumps;
@@ -30,6 +32,7 @@ public class PlayableCharacter : Character {
     [SerializeField] private LayerMask groundLayer;
 
     [Header("Dash Settings")]
+    private bool dashTrigger = false;
     [SerializeField] private float dashForce;
     [SerializeField] private float dashDuration;
     [SerializeField] private float dashCooldown;
@@ -54,20 +57,14 @@ public class PlayableCharacter : Character {
 
         DetectMovementInput();
         DetectGround();
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Jump();
-        }
-
         DebugHandler();
     }
 
     void FixedUpdate()
     {
-        if (canMove) ApplyMovement();
-        if (jumpTrigger()) Jump();
-        if (DashTrigger()) StartCoroutine(Dash());
+        if (isMovingAllowed) ApplyMovement();
+        if (jumpTrigger) Jump();
+        if (dashTrigger) StartCoroutine(Dash());
         if (limitZ) LimitZ();
         FlipSprite();
     }
@@ -77,6 +74,16 @@ public class PlayableCharacter : Character {
     void DetectMovementInput()
     {
         movementInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+
+        if (Input.GetAxis("Jump") != 0)
+        {
+            jumpTrigger = true;
+        }
+
+        if (Input.GetAxis("Dash") != 0)
+        {
+            dashTrigger = true;
+        }
     }
 
     void DetectGround()
@@ -101,12 +108,11 @@ public class PlayableCharacter : Character {
         rb.velocity = new Vector3(movementInput.x * moveSpeed, rb.velocity.y, movementInput.z * moveSpeed);
     }
 
-    bool jumpTrigger() {
-        return Input.GetKeyDown(KeyCode.Space);
-    }
 
     void Jump()
     {
+        jumpTrigger = false;
+
         if (jumps > 0)
         {
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
@@ -115,24 +121,32 @@ public class PlayableCharacter : Character {
         }
     }
 
-    bool DashTrigger()
-    {
-        return Input.GetKeyDown(KeyCode.LeftShift);
-    }
 
     IEnumerator Dash()
     {
+        dashTrigger = false;
+
+        Debug.Log("tento dar dash");
         if (canDash)
         {
+            //Debug.Log("dei dash");
+
             canDash = false;
-            canMove = false;
-            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-            rb.AddForce(transform.forward * dashForce, ForceMode.Impulse);
+            isMovingAllowed = false;
+            rb.useGravity = false;
+            rb.velocity = new Vector3(dashForce * facingDirection, 0, rb.velocity.z);
+
             yield return new WaitForSeconds(dashDuration);
+            
+            rb.useGravity = true;
             rb.velocity = new Vector3(0, 0, 0);
+            //Debug.Log("acabou dash");
+            isMovingAllowed = true;
+            // para o dash
+
             yield return new WaitForSeconds(dashCooldown);
-            canMove = true;
             canDash = true;
+            //Debug.Log("Resetou o dash");
         }
     }
 
