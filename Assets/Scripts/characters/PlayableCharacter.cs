@@ -82,7 +82,6 @@ public class PlayableCharacter : Character {
             Die();
         }
 
-        DetectMovementInput();
         DetectGround();
         DebugHandler();
     }
@@ -95,11 +94,6 @@ public class PlayableCharacter : Character {
     }
 
     #region Movement
-
-    void DetectMovementInput()
-    {
-        
-    }
 
     void DetectGround()
     {
@@ -123,7 +117,8 @@ public class PlayableCharacter : Character {
 
     void ApplyMovement() //HANDLE X,Z MOVEMENT, JUMPING AND DASHING
     {
-        rb.velocity = new Vector3(movementInput.x * moveSpeed, rb.velocity.y, movementInput.z * moveSpeed);
+        Debug.Log(movementInput);
+        rb.velocity = new Vector3(movementInput.x * moveSpeed, rb.velocity.y, movementInput.y * moveSpeed);
     }
 
 
