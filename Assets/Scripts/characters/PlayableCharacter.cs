@@ -1,6 +1,6 @@
 using System.Collections;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayableCharacter : Character {
 
@@ -37,6 +37,10 @@ public class PlayableCharacter : Character {
     [SerializeField] private float dashDuration;
     [SerializeField] private float dashCooldown;
     private bool canDash = true;
+    [SerializeField] private GameObject dashCloneTrailPrefab;
+
+    [Header("Input")]
+    [SerializeField] private InputAction movementAction;
 
     void Awake()
     {
@@ -46,7 +50,19 @@ public class PlayableCharacter : Character {
     void Start()
     {
         currentHealth = maxHealth;
+
+        //movementAction = InputSystem.
     }   
+
+    void OnEnable()
+    {
+        movementAction.Enable();
+    }
+
+    void OnDisable()
+    {
+        movementAction.Disable();
+    }
 
     void Update()
     {
@@ -73,9 +89,9 @@ public class PlayableCharacter : Character {
 
     void DetectMovementInput()
     {
-        movementInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        movementInput = movementAction.ReadValue<Vector2>();
 
-        if (Input.GetAxis("Jump") != 0)
+        /*if (Input.GetAxis("Jump") != 0)
         {
             jumpTrigger = true;
         }
@@ -83,7 +99,7 @@ public class PlayableCharacter : Character {
         if (Input.GetAxis("Dash") != 0)
         {
             dashTrigger = true;
-        }
+        }*/
     }
 
     void DetectGround()
@@ -92,8 +108,21 @@ public class PlayableCharacter : Character {
         Ray ray = new Ray(transform.position + raycastOffset, Vector3.down);
         Debug.DrawRay(transform.position + raycastOffset, Vector3.down * raycastDistance, Color.green);
 
-        if (Physics.Raycast(ray, out hit, raycastDistance, groundLayer))
+        /*if (Physics.Raycast(ray, out hit, raycastDistance, groundLayer))
         {
+            isGrounded = true;
+            jumps = maxJumps;
+        }
+        else
+        {
+            isGrounded = false;
+        }*/
+
+        Physics.Raycast(ray, out hit, raycastDistance, groundLayer);
+
+        if (hit.collider != null)
+        {
+            Debug.Log(hit.collider.gameObject.name);
             isGrounded = true;
             jumps = maxJumps;
         }
@@ -136,6 +165,8 @@ public class PlayableCharacter : Character {
             rb.useGravity = false;
             rb.velocity = new Vector3(dashForce * facingDirection, 0, rb.velocity.z);
 
+            StartCoroutine(DashCloneTrail(dashDuration, 5, 0.5f));
+
             yield return new WaitForSeconds(dashDuration);
             
             rb.useGravity = true;
@@ -147,6 +178,16 @@ public class PlayableCharacter : Character {
             yield return new WaitForSeconds(dashCooldown);
             canDash = true;
             //Debug.Log("Resetou o dash");
+        }
+    }
+
+    IEnumerator DashCloneTrail(float dashDuration, int cloneAmount, float cloneDuration)
+    {
+        for (int i = 0; i < cloneAmount; i++)
+        {
+            yield return new WaitForSeconds(dashDuration / cloneAmount);
+            GameObject dashTrailIstance = GameObject.Instantiate(dashCloneTrailPrefab, transform.position, Quaternion.identity);
+            Destroy(dashTrailIstance, cloneDuration);
         }
     }
 
