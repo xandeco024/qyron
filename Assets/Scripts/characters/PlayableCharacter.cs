@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -38,31 +39,41 @@ public class PlayableCharacter : Character {
     [SerializeField] private float dashCooldown;
     private bool canDash = true;
     [SerializeField] private GameObject dashCloneTrailPrefab;
+    [SerializeField] private int dashCloneAmount;
 
     [Header("Input")]
-    [SerializeField] private InputAction movementAction;
+    private InputMaster inputMaster;
+    private InputAction yAxis;
 
     void Awake()
     {
         GetComponentsOnCharacter();
+
+        //moveAction = inputMaster.Player.Movement.ReadValue<"X Axis">();
+        inputMaster = new InputMaster();
+
+        inputMaster.Player.Movement.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
+        
+        inputMaster.Player.Jump.performed += Jump;
+        inputMaster.Player.Dash.performed += Dash;
+    }
+
+    private void OnEnable()
+    {
+        inputMaster.Enable();
+    }
+
+    private void OnDisable()
+    {
+        inputMaster.Disable();
     }
 
     void Start()
     {
         currentHealth = maxHealth;
 
-        //movementAction = InputSystem.
+        Debug.Log(InputSystem.version);
     }   
-
-    void OnEnable()
-    {
-        movementAction.Enable();
-    }
-
-    void OnDisable()
-    {
-        movementAction.Disable();
-    }
 
     void Update()
     {
@@ -79,8 +90,6 @@ public class PlayableCharacter : Character {
     void FixedUpdate()
     {
         if (isMovingAllowed) ApplyMovement();
-        if (jumpTrigger) Jump();
-        if (dashTrigger) StartCoroutine(Dash());
         if (limitZ) LimitZ();
         FlipSprite();
     }
@@ -89,17 +98,7 @@ public class PlayableCharacter : Character {
 
     void DetectMovementInput()
     {
-        movementInput = movementAction.ReadValue<Vector2>();
-
-        /*if (Input.GetAxis("Jump") != 0)
-        {
-            jumpTrigger = true;
-        }
-
-        if (Input.GetAxis("Dash") != 0)
-        {
-            dashTrigger = true;
-        }*/
+        
     }
 
     void DetectGround()
@@ -108,21 +107,11 @@ public class PlayableCharacter : Character {
         Ray ray = new Ray(transform.position + raycastOffset, Vector3.down);
         Debug.DrawRay(transform.position + raycastOffset, Vector3.down * raycastDistance, Color.green);
 
-        /*if (Physics.Raycast(ray, out hit, raycastDistance, groundLayer))
-        {
-            isGrounded = true;
-            jumps = maxJumps;
-        }
-        else
-        {
-            isGrounded = false;
-        }*/
 
         Physics.Raycast(ray, out hit, raycastDistance, groundLayer);
 
         if (hit.collider != null)
         {
-            Debug.Log(hit.collider.gameObject.name);
             isGrounded = true;
             jumps = maxJumps;
         }
@@ -138,10 +127,8 @@ public class PlayableCharacter : Character {
     }
 
 
-    void Jump()
+    void Jump(InputAction.CallbackContext ctx)
     {
-        jumpTrigger = false;
-
         if (jumps > 0)
         {
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
@@ -150,35 +137,36 @@ public class PlayableCharacter : Character {
         }
     }
 
-
-    IEnumerator Dash()
+    private void Dash(InputAction.CallbackContext ctx)
     {
-        dashTrigger = false;
-
-        Debug.Log("tento dar dash");
         if (canDash)
         {
-            //Debug.Log("dei dash");
-
-            canDash = false;
-            isMovingAllowed = false;
-            rb.useGravity = false;
-            rb.velocity = new Vector3(dashForce * facingDirection, 0, rb.velocity.z);
-
-            StartCoroutine(DashCloneTrail(dashDuration, 5, 0.5f));
-
-            yield return new WaitForSeconds(dashDuration);
-            
-            rb.useGravity = true;
-            rb.velocity = new Vector3(0, 0, 0);
-            //Debug.Log("acabou dash");
-            isMovingAllowed = true;
-            // para o dash
-
-            yield return new WaitForSeconds(dashCooldown);
-            canDash = true;
-            //Debug.Log("Resetou o dash");
+            StartCoroutine(DashCoroutine());
         }
+    }
+
+    IEnumerator DashCoroutine()
+    {
+        //Debug.Log("dei dash");
+
+        canDash = false;
+        isMovingAllowed = false;
+        rb.useGravity = false;
+        rb.velocity = new Vector3(dashForce * facingDirection, 0, rb.velocity.z);
+
+        StartCoroutine(DashCloneTrail(dashDuration, dashCloneAmount, 0.5f));
+
+        yield return new WaitForSeconds(dashDuration);
+        
+        rb.useGravity = true;
+        rb.velocity = new Vector3(0, 0, 0);
+        //Debug.Log("acabou dash");
+        isMovingAllowed = true;
+        // para o dash
+
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true;
+        //Debug.Log("Resetou o dash");
     }
 
     IEnumerator DashCloneTrail(float dashDuration, int cloneAmount, float cloneDuration)
