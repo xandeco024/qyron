@@ -24,7 +24,6 @@ public class PlayableCharacter : Character {
 
 
     [Header("Jump Settings")]
-    private bool jumpTrigger = false;
     private bool isGrounded;
     [SerializeField] private int maxJumps;
     private int jumps;
@@ -33,7 +32,6 @@ public class PlayableCharacter : Character {
     [SerializeField] private LayerMask groundLayer;
 
     [Header("Dash Settings")]
-    private bool dashTrigger = false;
     [SerializeField] private float dashForce;
     [SerializeField] private float dashDuration;
     [SerializeField] private float dashCooldown;
@@ -43,19 +41,12 @@ public class PlayableCharacter : Character {
 
     [Header("Input")]
     private InputMaster inputMaster;
-    private InputAction yAxis;
 
     void Awake()
     {
         GetComponentsOnCharacter();
 
-        //moveAction = inputMaster.Player.Movement.ReadValue<"X Axis">();
-        inputMaster = new InputMaster();
-
-        inputMaster.Player.Movement.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
-        
-        inputMaster.Player.Jump.performed += Jump;
-        inputMaster.Player.Dash.performed += Dash;
+        Controls();
     }
 
     private void OnEnable()
@@ -71,8 +62,6 @@ public class PlayableCharacter : Character {
     void Start()
     {
         currentHealth = maxHealth;
-
-        Debug.Log(InputSystem.version);
     }   
 
     void Update()
@@ -81,17 +70,40 @@ public class PlayableCharacter : Character {
         {
             Die();
         }
-
         DetectGround();
+        Animation();
+
         DebugHandler();
     }
 
     void FixedUpdate()
     {
-        if (isMovingAllowed) ApplyMovement();
-        if (limitZ) LimitZ();
+        ApplyMovement();
         FlipSprite();
     }
+
+    void Controls()
+    {
+        inputMaster = new InputMaster();
+        inputMaster.Player.Movement.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
+        inputMaster.Player.Movement.canceled += ctx => movementInput = Vector2.zero;
+
+        inputMaster.Player.Jump.performed += Jump;
+        inputMaster.Player.Dash.performed += Dash;
+    }
+
+    void Animation()
+    {
+        if (movementInput.x != 0 || movementInput.y != 0)
+        {
+            animator.SetBool("isRunning", true);
+        }
+        else
+        {
+            animator.SetBool("isRunning", false);
+        }
+    }
+
 
     #region Movement
 
@@ -117,8 +129,15 @@ public class PlayableCharacter : Character {
 
     void ApplyMovement() //HANDLE X,Z MOVEMENT, JUMPING AND DASHING
     {
-        Debug.Log(movementInput);
-        rb.velocity = new Vector3(movementInput.x * moveSpeed, rb.velocity.y, movementInput.y * moveSpeed);
+        if (isMovingAllowed)
+        {
+            rb.velocity = new Vector3(movementInput.x * moveSpeed, rb.velocity.y, movementInput.y * moveSpeed);
+        }
+
+        if (limitZ)
+        {
+            LimitZ();
+        }
     }
 
 
@@ -142,26 +161,21 @@ public class PlayableCharacter : Character {
 
     IEnumerator DashCoroutine()
     {
-        //Debug.Log("dei dash");
-
         canDash = false;
         isMovingAllowed = false;
         rb.useGravity = false;
         rb.velocity = new Vector3(dashForce * facingDirection, 0, rb.velocity.z);
-
         StartCoroutine(DashCloneTrail(dashDuration, dashCloneAmount, 0.5f));
 
         yield return new WaitForSeconds(dashDuration);
         
         rb.useGravity = true;
         rb.velocity = new Vector3(0, 0, 0);
-        //Debug.Log("acabou dash");
         isMovingAllowed = true;
-        // para o dash
 
         yield return new WaitForSeconds(dashCooldown);
+
         canDash = true;
-        //Debug.Log("Resetou o dash");
     }
 
     IEnumerator DashCloneTrail(float dashDuration, int cloneAmount, float cloneDuration)
@@ -169,7 +183,7 @@ public class PlayableCharacter : Character {
         for (int i = 0; i < cloneAmount; i++)
         {
             yield return new WaitForSeconds(dashDuration / cloneAmount);
-            GameObject dashTrailIstance = GameObject.Instantiate(dashCloneTrailPrefab, transform.position, Quaternion.identity);
+            GameObject dashTrailIstance = GameObject.Instantiate(dashCloneTrailPrefab, transform.position, Quaternion.Euler(0, facingDirection == 1 ? 0 : 180, 0));
             Destroy(dashTrailIstance, cloneDuration);
         }
     }

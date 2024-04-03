@@ -5,14 +5,14 @@ public class Character : MonoBehaviour {
 
     [Header("Components")]
     protected Rigidbody rb;
-    protected Animator anim;
+    protected Animator animator;
     protected SpriteRenderer sr;
     protected BoxCollider bc;
 
     protected virtual void GetComponentsOnCharacter()
     {
         rb = GetComponent<Rigidbody>();
-        anim = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
         bc = GetComponent<BoxCollider>();
     }

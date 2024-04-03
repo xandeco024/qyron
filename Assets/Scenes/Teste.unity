@@ -716,7 +716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7fffb85c2d7df04a85d5234b655fd51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeDistance: 10
+  fadeDistance: 20
   movementSpeed: 0.5
   movementAmplitude: 0.2
   isText: 1
@@ -4146,22 +4146,21 @@ MonoBehaviour:
   invincible: 0
   hitKillProtected: 1
   baseDamage: 0
-  moveSpeed: 7
-  jumpForce: 9.5
+  moveSpeed: 8
+  jumpForce: 10
   debug: 0
   limitZ: 1
-  maxJumps: 2
+  maxJumps: 1
   raycastDistance: 0.2
   raycastOffset: {x: 0, y: -0.9, z: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  dashForce: 12
+  dashForce: 15
   dashDuration: 0.25
   dashCooldown: 1
   dashCloneTrailPrefab: {fileID: 9032923264858484867, guid: e7e5684874c43bf4fae0d84937aabb9f, type: 3}
-  dashCloneAmount: 0
-  inputAsset: {fileID: -944628639613478452, guid: 9fb6ab75aa8a4e94da71a01956f478b8, type: 3}
+  dashCloneAmount: 8
 --- !u!1 &351057916
 GameObject:
   m_ObjectHideFlags: 0
@@ -14774,7 +14773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7fffb85c2d7df04a85d5234b655fd51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeDistance: 19
+  fadeDistance: 20
   movementSpeed: 0.5
   movementAmplitude: 0.2
   isText: 0
@@ -15154,7 +15153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7fffb85c2d7df04a85d5234b655fd51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeDistance: 10
+  fadeDistance: 20
   movementSpeed: 0.5
   movementAmplitude: 0.2
   isText: 0
@@ -28353,7 +28352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7fffb85c2d7df04a85d5234b655fd51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeDistance: 10
+  fadeDistance: 20
   movementSpeed: 0.5
   movementAmplitude: 0.2
   isText: 0
@@ -29067,7 +29066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7fffb85c2d7df04a85d5234b655fd51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeDistance: 10
+  fadeDistance: 20
   movementSpeed: 0.5
   movementAmplitude: 0.2
   isText: 1
@@ -30206,7 +30205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7fffb85c2d7df04a85d5234b655fd51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeDistance: 10
+  fadeDistance: 20
   movementSpeed: 0.5
   movementAmplitude: 0.2
   isText: 0
