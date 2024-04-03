@@ -126,11 +126,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 359
-      y: 182
+      x: 354
+      y: 449
       width: 35
       height: 58
-    spriteID: 6cda530cc1bebbb4abe701b3bf2d62b4
+    spriteID: a7603885b19680f4fbd923d46f186596
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -138,7 +138,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 359, y: 182}
+    uvTransform: {x: 354, y: 449}
   - name: Qyron_Frame_1
     originalName: 
     pivot: {x: 0.48571432, y: 0}
@@ -146,11 +146,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 359
-      y: 248
+      x: 311
+      y: 260
       width: 35
       height: 57
-    spriteID: 6ed3289ab49beb941af1072a6f57f98e
+    spriteID: e9cc7ad15eeb604438f1776d4ea4a317
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -158,7 +158,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 359, y: 248}
+    uvTransform: {x: 311, y: 260}
   - name: Qyron_Frame_2
     originalName: 
     pivot: {x: 0.48571432, y: 0}
@@ -166,11 +166,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 359
-      y: 378
+      x: 311
+      y: 390
       width: 35
       height: 56
-    spriteID: f89ed4983fdfd11418471cb4aee5e69a
+    spriteID: dd291da6e2667ca4a89482dfda44654b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -178,7 +178,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 359, y: 378}
+    uvTransform: {x: 311, y: 390}
   - name: Qyron_Frame_3
     originalName: 
     pivot: {x: 0.48571432, y: 0}
@@ -186,11 +186,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 359
-      y: 313
+      x: 311
+      y: 325
       width: 35
       height: 57
-    spriteID: 6cc3238e136b73a40b8da62c915f6dc1
+    spriteID: 49d58ea1492fd0a45a2fefe86cca16f1
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -198,7 +198,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 359, y: 313}
+    uvTransform: {x: 311, y: 325}
   - name: Qyron_Frame_4
     originalName: 
     pivot: {x: 0.50000006, y: 0}
@@ -206,11 +206,131 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 311
-      y: 50
+      x: 260
+      y: 312
       width: 40
       height: 58
-    spriteID: 77ca0ff8406092d438df76c208508f3e
+    spriteID: 97427574ebd781b4bbb1468490ea5b6f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 260, y: 312}
+  - name: Qyron_Frame_5
+    originalName: 
+    pivot: {x: 0.52500004, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 260
+      y: 378
+      width: 40
+      height: 57
+    spriteID: df64a4366cb40954aaaf7369e8a54e31
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 260, y: 378}
+  - name: Qyron_Frame_6
+    originalName: 
+    pivot: {x: 0.52500004, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 354
+      y: 50
+      width: 40
+      height: 56
+    spriteID: b281aea624147a24d95888ffc9a99d00
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 354, y: 50}
+  - name: Qyron_Frame_7
+    originalName: 
+    pivot: {x: 0.50000006, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 260
+      y: 443
+      width: 40
+      height: 57
+    spriteID: a14e375a804e74343a5cce2e7dfcae68
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 260, y: 443}
+  - name: Qyron_Frame_8
+    originalName: 
+    pivot: {x: 0.44117647, y: -0.06666667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 311
+      y: 192
+      width: 34
+      height: 60
+    spriteID: 18eb0b4194ec40d479ead4e9875c66e0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 311, y: 192}
+  - name: Qyron_Frame_9
+    originalName: 
+    pivot: {x: 0.44117647, y: -0.04918033}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 311
+      y: 123
+      width: 34
+      height: 61
+    spriteID: 89412bf7273161b4587c9084b987a675
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 311, y: 123}
+  - name: Qyron_Frame_10
+    originalName: 
+    pivot: {x: 0.40000004, y: -0.030769233}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 311
+      y: 50
+      width: 35
+      height: 65
+    spriteID: e53a9cf068f02fb4a8cfa0551e41a458
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -219,127 +339,27 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 311, y: 50}
-  - name: Qyron_Frame_5
-    originalName: 
-    pivot: {x: 0.52500004, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 311
-      y: 116
-      width: 40
-      height: 57
-    spriteID: b2c75516f636b3b4ea58a6e55fd80679
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 311, y: 116}
-  - name: Qyron_Frame_6
-    originalName: 
-    pivot: {x: 0.52500004, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 311
-      y: 319
-      width: 40
-      height: 56
-    spriteID: 5705ffc1a14b2a342a2979b0e3bfc5d4
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 311, y: 319}
-  - name: Qyron_Frame_7
-    originalName: 
-    pivot: {x: 0.50000006, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 311
-      y: 181
-      width: 40
-      height: 57
-    spriteID: 33efb85f764bc074ba33ac5534ca647b
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 311, y: 181}
-  - name: Qyron_Frame_8
-    originalName: 
-    pivot: {x: 0.48648646, y: -0.015151516}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 260
-      y: 180
-      width: 37
-      height: 66
-    spriteID: 599fb4634a73aee4d9f28087ab4d47b5
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 260, y: 180}
-  - name: Qyron_Frame_9
-    originalName: 
-    pivot: {x: 0.48648646, y: -0.015151516}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 260
-      y: 254
-      width: 37
-      height: 66
-    spriteID: 3438ee6510a37f942ad391039046964a
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 260, y: 254}
-  - name: Qyron_Frame_10
-    originalName: 
-    pivot: {x: 0.45714283, y: -0.015384616}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 311
-      y: 246
-      width: 35
-      height: 65
-    spriteID: 734b2d8b56123c54d93ed8492c5192c7
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 311, y: 246}
   - name: Qyron_Frame_11
+    originalName: 
+    pivot: {x: 0.38235292, y: -0.04761905}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 354
+      y: 378
+      width: 34
+      height: 63
+    spriteID: 2e963480b1fcbfa4b891f957c3d21f91
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 354, y: 378}
+  - name: Qyron_Frame_12
     originalName: 
     pivot: {x: 0.48275867, y: 0}
     alignment: 9
@@ -350,7 +370,7 @@ ScriptedImporter:
       y: 353
       width: 58
       height: 56
-    spriteID: 86bbeef972d2b054086225e7f9603b10
+    spriteID: e42a1da09687a9c4d83b7cf71a629644
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -359,7 +379,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 353}
-  - name: Qyron_Frame_12
+  - name: Qyron_Frame_13
     originalName: 
     pivot: {x: 0.5272727, y: 0}
     alignment: 9
@@ -370,7 +390,7 @@ ScriptedImporter:
       y: 270
       width: 55
       height: 54
-    spriteID: 98cbd7280a2906349993bf6d4f9f6bb7
+    spriteID: 84fabd9d2c0295f41b3451c3aed9bcbd
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -379,7 +399,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 71, y: 270}
-  - name: Qyron_Frame_13
+  - name: Qyron_Frame_14
     originalName: 
     pivot: {x: 0.5333333, y: 0}
     alignment: 9
@@ -390,7 +410,7 @@ ScriptedImporter:
       y: 138
       width: 60
       height: 58
-    spriteID: 8f2cf9ef34a061543b52d08ea326e864
+    spriteID: f50c8042e1ff4324fa5b327c7d59986e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -410,7 +430,7 @@ ScriptedImporter:
       y: 50
       width: 52
       height: 56
-    spriteID: eb31f63bceed2e947b6ec5b210d915d7
+    spriteID: 37b467bfa5120fa4cb0512dcb3600834
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -430,7 +450,7 @@ ScriptedImporter:
       y: 453
       width: 45
       height: 54
-    spriteID: e87dfcc43e7ef6d49b3ca12e7e59e991
+    spriteID: a3f601b068d61d543b2956c0f82b747c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -450,7 +470,7 @@ ScriptedImporter:
       y: 4
       width: 64
       height: 58
-    spriteID: 6f4477fc7e260524a8ab002015c7b506
+    spriteID: f62b72f94df178841a5caad81025429e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -459,7 +479,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 71, y: 4}
-  - name: Qyron_Frame_18
+  - name: Qyron_Frame_19
     originalName: 
     pivot: {x: 0.4, y: -0.34210527}
     alignment: 9
@@ -470,7 +490,7 @@ ScriptedImporter:
       y: 4
       width: 80
       height: 38
-    spriteID: 157fc913d6e88ed4db330f940e8d6714
+    spriteID: 0c98420e48298fa4cacc5531a2ec7309
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -479,7 +499,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 143, y: 4}
-  - name: Qyron_Frame_19
+  - name: Qyron_Frame_21
     originalName: 
     pivot: {x: 0.4, y: -0.34210527}
     alignment: 9
@@ -490,7 +510,7 @@ ScriptedImporter:
       y: 4
       width: 80
       height: 38
-    spriteID: 0dea6569c11088842a4b20d5cfea2b30
+    spriteID: 92a866231de34774f9390827caedcf50
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -499,7 +519,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 231, y: 4}
-  - name: Qyron_Frame_20
+  - name: Qyron_Frame_23
     originalName: 
     pivot: {x: 0.4166667, y: 0}
     alignment: 9
@@ -510,7 +530,7 @@ ScriptedImporter:
       y: 374
       width: 48
       height: 58
-    spriteID: 65f8a9cdb7f62b346a9719816c4d0157
+    spriteID: fe2e3f8982074cb4188ebbbc9e67e5f9
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -519,7 +539,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 200, y: 374}
-  - name: Qyron_Frame_21
+  - name: Qyron_Frame_24
     originalName: 
     pivot: {x: 0.3846154, y: 0}
     alignment: 9
@@ -530,7 +550,7 @@ ScriptedImporter:
       y: 332
       width: 52
       height: 57
-    spriteID: 7dff6c738ce306b4e815c608fe1c1d98
+    spriteID: 825bdffdb91db494d81d99ec64384ff3
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -539,7 +559,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 71, y: 332}
-  - name: Qyron_Frame_22
+  - name: Qyron_Frame_25
     originalName: 
     pivot: {x: 0.4, y: 0}
     alignment: 9
@@ -550,7 +570,7 @@ ScriptedImporter:
       y: 180
       width: 50
       height: 57
-    spriteID: 64a1424c8c523f74ba6e458269e0b8f5
+    spriteID: 6c51340191790d4469cb14321171bd11
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -559,7 +579,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 200, y: 180}
-  - name: Qyron_Frame_23
+  - name: Qyron_Frame_26
     originalName: 
     pivot: {x: 0.4761905, y: 0}
     alignment: 9
@@ -567,10 +587,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 260
-      y: 328
+      y: 180
       width: 42
       height: 58
-    spriteID: abb075fac598cbb41af5d174d4bded5f
+    spriteID: 10e5c91d6069d0445a53b6d226ef5e1b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -578,19 +598,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 260, y: 328}
-  - name: Qyron_Frame_24
+    uvTransform: {x: 260, y: 180}
+  - name: Qyron_Frame_27
     originalName: 
     pivot: {x: 0.4736842, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 311
-      y: 383
+      x: 354
+      y: 114
       width: 38
       height: 58
-    spriteID: fcd9508935a67784a883f397653b6c88
+    spriteID: d781cf441927f774eb62e5f7e1b8e0cf
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -598,19 +618,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 311, y: 383}
-  - name: Qyron_Frame_25
+    uvTransform: {x: 354, y: 114}
+  - name: Qyron_Frame_28
     originalName: 
     pivot: {x: 0.48648646, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 359
-      y: 50
+      x: 354
+      y: 246
       width: 37
       height: 58
-    spriteID: ffc96ee8daa51e946ae4c8e070e5ddb1
+    spriteID: c5bb3d03b80b92741bdb95e4a1f72db3
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -618,8 +638,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 359, y: 50}
-  - name: Qyron_Frame_26
+    uvTransform: {x: 354, y: 246}
+  - name: Qyron_Frame_29
     originalName: 
     pivot: {x: 0.4, y: 0}
     alignment: 9
@@ -630,7 +650,7 @@ ScriptedImporter:
       y: 114
       width: 50
       height: 58
-    spriteID: b63021c1733bbca44b0d5ec90259bcba
+    spriteID: 59c5ce4487a8c8840a928d7e15006362
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -639,7 +659,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 200, y: 114}
-  - name: Qyron_Frame_27
+  - name: Qyron_Frame_30
     originalName: 
     pivot: {x: 0.3846154, y: 0}
     alignment: 9
@@ -650,7 +670,7 @@ ScriptedImporter:
       y: 397
       width: 52
       height: 57
-    spriteID: b9169dcfe8ffc8141b7ee4da56a88331
+    spriteID: e55f73d214dce544d9ae31b4e9bb9543
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -659,7 +679,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 71, y: 397}
-  - name: Qyron_Frame_28
+  - name: Qyron_Frame_31
     originalName: 
     pivot: {x: 0.4, y: 0}
     alignment: 9
@@ -670,7 +690,7 @@ ScriptedImporter:
       y: 245
       width: 50
       height: 57
-    spriteID: da09686e8b68f714b89af5171364e2e4
+    spriteID: 5b46305d73c5cba42ae5eaece70d33ac
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -679,7 +699,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 200, y: 245}
-  - name: Qyron_Frame_29
+  - name: Qyron_Frame_32
     originalName: 
     pivot: {x: 0.46511632, y: 0}
     alignment: 9
@@ -690,7 +710,7 @@ ScriptedImporter:
       y: 387
       width: 43
       height: 58
-    spriteID: 006f279183d4da245a4b59824b1a5077
+    spriteID: 43f9632b5b6e77744bf4230fb66fc629
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -699,18 +719,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 143, y: 387}
-  - name: Qyron_Frame_30
+  - name: Qyron_Frame_33
     originalName: 
     pivot: {x: 0.4736842, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 311
-      y: 449
+      x: 354
+      y: 180
       width: 38
       height: 58
-    spriteID: 1b8dcf4027ca48c4f8ce876f49cb9b6c
+    spriteID: b2087aa50e6976a429d48413db90f686
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -718,19 +738,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 311, y: 449}
-  - name: Qyron_Frame_31
+    uvTransform: {x: 354, y: 180}
+  - name: Qyron_Frame_34
     originalName: 
     pivot: {x: 0.48648646, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 359
-      y: 116
+      x: 354
+      y: 312
       width: 37
       height: 58
-    spriteID: 992ecd2d2ebc94440a2940a9cc0326be
+    spriteID: 87f1f91302bee6e4b952c98000deea0f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -738,8 +758,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 359, y: 116}
-  - name: Qyron_Frame_32
+    uvTransform: {x: 354, y: 312}
+  - name: Qyron_Frame_35
     originalName: 
     pivot: {x: 0.6428572, y: 0}
     alignment: 9
@@ -750,7 +770,7 @@ ScriptedImporter:
       y: 186
       width: 42
       height: 60
-    spriteID: 6add03426daa5a0449979d6bacd7ef42
+    spriteID: c74866b97f1ec4c4e8db4adcb354a692
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -759,7 +779,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 143, y: 186}
-  - name: Qyron_Frame_33
+  - name: Qyron_Frame_36
     originalName: 
     pivot: {x: 0.6428572, y: 0}
     alignment: 9
@@ -767,10 +787,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 260
-      y: 394
+      y: 246
       width: 42
       height: 58
-    spriteID: a4573a73006e94c4d9815566d2f95dca
+    spriteID: ad1a92e934d32e74b9874fab0ef277e2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -778,8 +798,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 260, y: 394}
-  - name: Qyron_Frame_34
+    uvTransform: {x: 260, y: 246}
+  - name: Qyron_Frame_37
     originalName: 
     pivot: {x: 0.45762712, y: 0}
     alignment: 9
@@ -790,7 +810,7 @@ ScriptedImporter:
       y: 4
       width: 59
       height: 63
-    spriteID: 5be183461ff0d7b45b4e5d5637a11b24
+    spriteID: e13cb1d416ff6424bab85905134dcdec
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -799,7 +819,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: Qyron_Frame_35
+  - name: Qyron_Frame_38
     originalName: 
     pivot: {x: 0.45762712, y: 0}
     alignment: 9
@@ -810,7 +830,7 @@ ScriptedImporter:
       y: 75
       width: 59
       height: 63
-    spriteID: bc333bccbda96ab4cb028666e604ee0f
+    spriteID: a4f9afa7b6398474da7286bef7fcbb7b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -819,7 +839,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 75}
-  - name: Qyron_Frame_36
+  - name: Qyron_Frame_39
     originalName: 
     pivot: {x: 0.509434, y: 0}
     alignment: 9
@@ -830,7 +850,7 @@ ScriptedImporter:
       y: 282
       width: 53
       height: 63
-    spriteID: cce69187fcf98694c99c90046a02f88d
+    spriteID: 6731b8df3c992df4387d7b007e0c62b5
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -839,7 +859,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 282}
-  - name: Qyron_Frame_37
+  - name: Qyron_Frame_40
     originalName: 
     pivot: {x: 0.5227273, y: -0.03508772}
     alignment: 9
@@ -850,7 +870,7 @@ ScriptedImporter:
       y: 322
       width: 44
       height: 57
-    spriteID: ca25c14f01e95eb419488f9017d55733
+    spriteID: 5832678ed63adb84abeabad104e7ae58
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -859,7 +879,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 143, y: 322}
-  - name: Qyron_Frame_38
+  - name: Qyron_Frame_41
     originalName: 
     pivot: {x: 0.5348838, y: -0.03508772}
     alignment: 9
@@ -870,7 +890,7 @@ ScriptedImporter:
       y: 50
       width: 43
       height: 57
-    spriteID: dfe027ce9584de149a7faa6bc0247f82
+    spriteID: 8bec08639f5888c4d9b59def4fe5bb3e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -879,7 +899,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 260, y: 50}
-  - name: Qyron_Frame_39
+  - name: Qyron_Frame_42
     originalName: 
     pivot: {x: 0.5348838, y: -0.03508772}
     alignment: 9
@@ -890,7 +910,7 @@ ScriptedImporter:
       y: 115
       width: 43
       height: 57
-    spriteID: 091c6ab6b4c3c6042bde50875a8eef0a
+    spriteID: e340615b76ed9ac4aa4abe2faa591125
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -899,7 +919,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 260, y: 115}
-  - name: Qyron_Frame_40
+  - name: Qyron_Frame_43
     originalName: 
     pivot: {x: 0.5510204, y: 0}
     alignment: 9
@@ -910,7 +930,7 @@ ScriptedImporter:
       y: 50
       width: 49
       height: 60
-    spriteID: 972c4f2a6d9292242ad6abe8864e1bd5
+    spriteID: f292aabf5896d9a499b88fc6312f0914
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -919,7 +939,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 143, y: 50}
-  - name: Qyron_Frame_41
+  - name: Qyron_Frame_44
     originalName: 
     pivot: {x: 0.5510204, y: 0}
     alignment: 9
@@ -930,7 +950,7 @@ ScriptedImporter:
       y: 118
       width: 49
       height: 60
-    spriteID: c482650585a18834cab06339d255696c
+    spriteID: f3d952a4e41bbf748a84ba78fa464ac1
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -939,7 +959,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 143, y: 118}
-  - name: Qyron_Frame_14
+  - name: Qyron_Frame_45
     originalName: 
     pivot: {x: 0.5869565, y: 0}
     alignment: 9
@@ -950,7 +970,7 @@ ScriptedImporter:
       y: 440
       width: 46
       height: 60
-    spriteID: 35fc208f0a61d084490310d4d781b5c4
+    spriteID: 0b51ae5e17cdbf94dbec31624830ad45
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -959,7 +979,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 200, y: 440}
-  - name: Qyron_Frame_45
+  - name: Qyron_Frame_46
     originalName: 
     pivot: {x: 0.6428572, y: 0}
     alignment: 9
@@ -970,7 +990,7 @@ ScriptedImporter:
       y: 254
       width: 42
       height: 60
-    spriteID: c8268b0cdc58e6448909853017105484
+    spriteID: 1d408196cddaece42bee6abb6672571d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -979,7 +999,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 143, y: 254}
-  - name: Qyron_Frame_18
+  - name: Qyron_Frame_47
     originalName: 
     pivot: {x: 0.4666667, y: 0}
     alignment: 9
@@ -990,7 +1010,7 @@ ScriptedImporter:
       y: 70
       width: 60
       height: 60
-    spriteID: a0b485580689e4446aef44b2391f652a
+    spriteID: b529af01dda3acd46986c0126d4b5383
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -999,7 +1019,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 71, y: 70}
-  - name: Qyron_Frame_14
+  - name: Qyron_Frame_48
     originalName: 
     pivot: {x: 0.45762712, y: 0}
     alignment: 9
@@ -1010,7 +1030,7 @@ ScriptedImporter:
       y: 146
       width: 59
       height: 60
-    spriteID: 9a672f8c185e26f4999b8c500d8a54a1
+    spriteID: 8843ca95978d96d4cbb4ea25c97adbab
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1019,7 +1039,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 146}
-  - name: Qyron_Frame_16
+  - name: Qyron_Frame_49
     originalName: 
     pivot: {x: 0.45762712, y: 0}
     alignment: 9
@@ -1030,7 +1050,7 @@ ScriptedImporter:
       y: 214
       width: 59
       height: 60
-    spriteID: a9c9b24904919314898f8943dd53cde7
+    spriteID: ff1e3807d3042e64da08bdd80a4b6001
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1039,7 +1059,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 214}
-  - name: Qyron_Frame_21
+  - name: Qyron_Frame_22
     originalName: 
     pivot: {x: 0.46, y: -0.071428575}
     alignment: 9
@@ -1050,7 +1070,7 @@ ScriptedImporter:
       y: 310
       width: 50
       height: 56
-    spriteID: 3fb35f9c1aca39848849e0522ca726ff
+    spriteID: 988b57fdcc51bc54faaa1d47f1b380ca
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1059,7 +1079,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 200, y: 310}
-  - name: Qyron_Frame_17
+  - name: Qyron_Frame_18
     originalName: 
     pivot: {x: 0.59259254, y: 0}
     alignment: 9
@@ -1070,7 +1090,7 @@ ScriptedImporter:
       y: 417
       width: 54
       height: 58
-    spriteID: 29ca4d45a9707f640ae9d7ae8ad302c9
+    spriteID: 7a0fd8601cd23ec42a0028aff97faccd
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1079,7 +1099,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 417}
-  - name: Qyron_Frame_19
+  - name: Qyron_Frame_20
     originalName: 
     pivot: {x: 0.59259254, y: 0}
     alignment: 9
@@ -1090,7 +1110,7 @@ ScriptedImporter:
       y: 204
       width: 54
       height: 58
-    spriteID: 63a13c391aca1084db57cba20957c6bf
+    spriteID: 88a855bc4e381b94e8cd7e068f829cf1
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1099,26 +1119,6 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 71, y: 204}
-  - name: Qyron_Frame_8
-    originalName: 
-    pivot: {x: 0.21428572, y: -0.8285715}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 260
-      y: 460
-      width: 14
-      height: 35
-    spriteID: e70f9bcb12144534da9705f44e171b01
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 260, y: 460}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -1135,7 +1135,7 @@ ScriptedImporter:
         y: 0
         width: 35
         height: 58
-      spriteId: 6cda530cc1bebbb4abe701b3bf2d62b4
+      spriteId: a7603885b19680f4fbd923d46f186596
     - name: Qyron_Frame_1
       frameIndex: 1
       cellRect:
@@ -1143,7 +1143,7 @@ ScriptedImporter:
         y: 0
         width: 35
         height: 57
-      spriteId: 6ed3289ab49beb941af1072a6f57f98e
+      spriteId: e9cc7ad15eeb604438f1776d4ea4a317
     - name: Qyron_Frame_2
       frameIndex: 2
       cellRect:
@@ -1151,7 +1151,7 @@ ScriptedImporter:
         y: 0
         width: 35
         height: 56
-      spriteId: f89ed4983fdfd11418471cb4aee5e69a
+      spriteId: dd291da6e2667ca4a89482dfda44654b
     - name: Qyron_Frame_3
       frameIndex: 3
       cellRect:
@@ -1159,7 +1159,7 @@ ScriptedImporter:
         y: 0
         width: 35
         height: 57
-      spriteId: 6cc3238e136b73a40b8da62c915f6dc1
+      spriteId: 49d58ea1492fd0a45a2fefe86cca16f1
     - name: Qyron_Frame_4
       frameIndex: 4
       cellRect:
@@ -1167,7 +1167,7 @@ ScriptedImporter:
         y: 0
         width: 40
         height: 58
-      spriteId: 77ca0ff8406092d438df76c208508f3e
+      spriteId: 97427574ebd781b4bbb1468490ea5b6f
     - name: Qyron_Frame_5
       frameIndex: 5
       cellRect:
@@ -1175,7 +1175,7 @@ ScriptedImporter:
         y: 0
         width: 40
         height: 57
-      spriteId: b2c75516f636b3b4ea58a6e55fd80679
+      spriteId: df64a4366cb40954aaaf7369e8a54e31
     - name: Qyron_Frame_6
       frameIndex: 6
       cellRect:
@@ -1183,7 +1183,7 @@ ScriptedImporter:
         y: 0
         width: 40
         height: 56
-      spriteId: 5705ffc1a14b2a342a2979b0e3bfc5d4
+      spriteId: b281aea624147a24d95888ffc9a99d00
     - name: Qyron_Frame_7
       frameIndex: 7
       cellRect:
@@ -1191,31 +1191,39 @@ ScriptedImporter:
         y: 0
         width: 40
         height: 57
-      spriteId: 33efb85f764bc074ba33ac5534ca647b
+      spriteId: a14e375a804e74343a5cce2e7dfcae68
+    - name: Qyron_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 33
+        y: 4
+        width: 34
+        height: 60
+      spriteId: 18eb0b4194ec40d479ead4e9875c66e0
     - name: Qyron_Frame_9
       frameIndex: 9
       cellRect:
-        x: 30
-        y: 1
-        width: 37
-        height: 66
-      spriteId: 599fb4634a73aee4d9f28087ab4d47b5
+        x: 33
+        y: 3
+        width: 34
+        height: 61
+      spriteId: 89412bf7273161b4587c9084b987a675
     - name: Qyron_Frame_10
       frameIndex: 10
       cellRect:
-        x: 30
-        y: 1
-        width: 37
-        height: 66
-      spriteId: 3438ee6510a37f942ad391039046964a
+        x: 34
+        y: 2
+        width: 35
+        height: 65
+      spriteId: e53a9cf068f02fb4a8cfa0551e41a458
     - name: Qyron_Frame_11
       frameIndex: 11
       cellRect:
-        x: 32
-        y: 1
-        width: 35
-        height: 65
-      spriteId: 734b2d8b56123c54d93ed8492c5192c7
+        x: 35
+        y: 3
+        width: 34
+        height: 63
+      spriteId: 2e963480b1fcbfa4b891f957c3d21f91
     - name: Qyron_Frame_12
       frameIndex: 12
       cellRect:
@@ -1223,7 +1231,7 @@ ScriptedImporter:
         y: 0
         width: 58
         height: 56
-      spriteId: 86bbeef972d2b054086225e7f9603b10
+      spriteId: e42a1da09687a9c4d83b7cf71a629644
     - name: Qyron_Frame_13
       frameIndex: 13
       cellRect:
@@ -1231,7 +1239,7 @@ ScriptedImporter:
         y: 0
         width: 55
         height: 54
-      spriteId: 98cbd7280a2906349993bf6d4f9f6bb7
+      spriteId: 84fabd9d2c0295f41b3451c3aed9bcbd
     - name: Qyron_Frame_14
       frameIndex: 14
       cellRect:
@@ -1239,7 +1247,7 @@ ScriptedImporter:
         y: 0
         width: 60
         height: 58
-      spriteId: 8f2cf9ef34a061543b52d08ea326e864
+      spriteId: f50c8042e1ff4324fa5b327c7d59986e
     - name: Qyron_Frame_15
       frameIndex: 15
       cellRect:
@@ -1247,7 +1255,7 @@ ScriptedImporter:
         y: 0
         width: 52
         height: 56
-      spriteId: eb31f63bceed2e947b6ec5b210d915d7
+      spriteId: 37b467bfa5120fa4cb0512dcb3600834
     - name: Qyron_Frame_16
       frameIndex: 16
       cellRect:
@@ -1255,7 +1263,7 @@ ScriptedImporter:
         y: 0
         width: 45
         height: 54
-      spriteId: e87dfcc43e7ef6d49b3ca12e7e59e991
+      spriteId: a3f601b068d61d543b2956c0f82b747c
     - name: Qyron_Frame_17
       frameIndex: 17
       cellRect:
@@ -1263,7 +1271,7 @@ ScriptedImporter:
         y: 0
         width: 64
         height: 58
-      spriteId: 6f4477fc7e260524a8ab002015c7b506
+      spriteId: f62b72f94df178841a5caad81025429e
     - name: Qyron_Frame_19
       frameIndex: 19
       cellRect:
@@ -1271,7 +1279,7 @@ ScriptedImporter:
         y: 13
         width: 80
         height: 38
-      spriteId: 157fc913d6e88ed4db330f940e8d6714
+      spriteId: 0c98420e48298fa4cacc5531a2ec7309
     - name: Qyron_Frame_21
       frameIndex: 21
       cellRect:
@@ -1279,7 +1287,7 @@ ScriptedImporter:
         y: 13
         width: 80
         height: 38
-      spriteId: 0dea6569c11088842a4b20d5cfea2b30
+      spriteId: 92a866231de34774f9390827caedcf50
     - name: Qyron_Frame_23
       frameIndex: 23
       cellRect:
@@ -1287,7 +1295,7 @@ ScriptedImporter:
         y: 0
         width: 48
         height: 58
-      spriteId: 65f8a9cdb7f62b346a9719816c4d0157
+      spriteId: fe2e3f8982074cb4188ebbbc9e67e5f9
     - name: Qyron_Frame_24
       frameIndex: 24
       cellRect:
@@ -1295,7 +1303,7 @@ ScriptedImporter:
         y: 0
         width: 52
         height: 57
-      spriteId: 7dff6c738ce306b4e815c608fe1c1d98
+      spriteId: 825bdffdb91db494d81d99ec64384ff3
     - name: Qyron_Frame_25
       frameIndex: 25
       cellRect:
@@ -1303,7 +1311,7 @@ ScriptedImporter:
         y: 0
         width: 50
         height: 57
-      spriteId: 64a1424c8c523f74ba6e458269e0b8f5
+      spriteId: 6c51340191790d4469cb14321171bd11
     - name: Qyron_Frame_26
       frameIndex: 26
       cellRect:
@@ -1311,7 +1319,7 @@ ScriptedImporter:
         y: 0
         width: 42
         height: 58
-      spriteId: abb075fac598cbb41af5d174d4bded5f
+      spriteId: 10e5c91d6069d0445a53b6d226ef5e1b
     - name: Qyron_Frame_27
       frameIndex: 27
       cellRect:
@@ -1319,7 +1327,7 @@ ScriptedImporter:
         y: 0
         width: 38
         height: 58
-      spriteId: fcd9508935a67784a883f397653b6c88
+      spriteId: d781cf441927f774eb62e5f7e1b8e0cf
     - name: Qyron_Frame_28
       frameIndex: 28
       cellRect:
@@ -1327,7 +1335,7 @@ ScriptedImporter:
         y: 0
         width: 37
         height: 58
-      spriteId: ffc96ee8daa51e946ae4c8e070e5ddb1
+      spriteId: c5bb3d03b80b92741bdb95e4a1f72db3
     - name: Qyron_Frame_29
       frameIndex: 29
       cellRect:
@@ -1335,7 +1343,7 @@ ScriptedImporter:
         y: 0
         width: 50
         height: 58
-      spriteId: b63021c1733bbca44b0d5ec90259bcba
+      spriteId: 59c5ce4487a8c8840a928d7e15006362
     - name: Qyron_Frame_30
       frameIndex: 30
       cellRect:
@@ -1343,7 +1351,7 @@ ScriptedImporter:
         y: 0
         width: 52
         height: 57
-      spriteId: b9169dcfe8ffc8141b7ee4da56a88331
+      spriteId: e55f73d214dce544d9ae31b4e9bb9543
     - name: Qyron_Frame_31
       frameIndex: 31
       cellRect:
@@ -1351,7 +1359,7 @@ ScriptedImporter:
         y: 0
         width: 50
         height: 57
-      spriteId: da09686e8b68f714b89af5171364e2e4
+      spriteId: 5b46305d73c5cba42ae5eaece70d33ac
     - name: Qyron_Frame_32
       frameIndex: 32
       cellRect:
@@ -1359,7 +1367,7 @@ ScriptedImporter:
         y: 0
         width: 43
         height: 58
-      spriteId: 006f279183d4da245a4b59824b1a5077
+      spriteId: 43f9632b5b6e77744bf4230fb66fc629
     - name: Qyron_Frame_33
       frameIndex: 33
       cellRect:
@@ -1367,7 +1375,7 @@ ScriptedImporter:
         y: 0
         width: 38
         height: 58
-      spriteId: 1b8dcf4027ca48c4f8ce876f49cb9b6c
+      spriteId: b2087aa50e6976a429d48413db90f686
     - name: Qyron_Frame_34
       frameIndex: 34
       cellRect:
@@ -1375,7 +1383,7 @@ ScriptedImporter:
         y: 0
         width: 37
         height: 58
-      spriteId: 992ecd2d2ebc94440a2940a9cc0326be
+      spriteId: 87f1f91302bee6e4b952c98000deea0f
     - name: Qyron_Frame_35
       frameIndex: 35
       cellRect:
@@ -1383,7 +1391,7 @@ ScriptedImporter:
         y: 0
         width: 42
         height: 60
-      spriteId: 6add03426daa5a0449979d6bacd7ef42
+      spriteId: c74866b97f1ec4c4e8db4adcb354a692
     - name: Qyron_Frame_36
       frameIndex: 36
       cellRect:
@@ -1391,7 +1399,7 @@ ScriptedImporter:
         y: 0
         width: 42
         height: 58
-      spriteId: a4573a73006e94c4d9815566d2f95dca
+      spriteId: ad1a92e934d32e74b9874fab0ef277e2
     - name: Qyron_Frame_37
       frameIndex: 37
       cellRect:
@@ -1399,7 +1407,7 @@ ScriptedImporter:
         y: 0
         width: 59
         height: 63
-      spriteId: 5be183461ff0d7b45b4e5d5637a11b24
+      spriteId: e13cb1d416ff6424bab85905134dcdec
     - name: Qyron_Frame_38
       frameIndex: 38
       cellRect:
@@ -1407,7 +1415,7 @@ ScriptedImporter:
         y: 0
         width: 59
         height: 63
-      spriteId: bc333bccbda96ab4cb028666e604ee0f
+      spriteId: a4f9afa7b6398474da7286bef7fcbb7b
     - name: Qyron_Frame_39
       frameIndex: 39
       cellRect:
@@ -1415,7 +1423,7 @@ ScriptedImporter:
         y: 0
         width: 53
         height: 63
-      spriteId: cce69187fcf98694c99c90046a02f88d
+      spriteId: 6731b8df3c992df4387d7b007e0c62b5
     - name: Qyron_Frame_40
       frameIndex: 40
       cellRect:
@@ -1423,7 +1431,7 @@ ScriptedImporter:
         y: 2
         width: 44
         height: 57
-      spriteId: ca25c14f01e95eb419488f9017d55733
+      spriteId: 5832678ed63adb84abeabad104e7ae58
     - name: Qyron_Frame_41
       frameIndex: 41
       cellRect:
@@ -1431,7 +1439,7 @@ ScriptedImporter:
         y: 2
         width: 43
         height: 57
-      spriteId: dfe027ce9584de149a7faa6bc0247f82
+      spriteId: 8bec08639f5888c4d9b59def4fe5bb3e
     - name: Qyron_Frame_42
       frameIndex: 42
       cellRect:
@@ -1439,7 +1447,7 @@ ScriptedImporter:
         y: 2
         width: 43
         height: 57
-      spriteId: 091c6ab6b4c3c6042bde50875a8eef0a
+      spriteId: e340615b76ed9ac4aa4abe2faa591125
     - name: Qyron_Frame_43
       frameIndex: 43
       cellRect:
@@ -1447,7 +1455,7 @@ ScriptedImporter:
         y: 0
         width: 49
         height: 60
-      spriteId: 972c4f2a6d9292242ad6abe8864e1bd5
+      spriteId: f292aabf5896d9a499b88fc6312f0914
     - name: Qyron_Frame_44
       frameIndex: 44
       cellRect:
@@ -1455,7 +1463,7 @@ ScriptedImporter:
         y: 0
         width: 49
         height: 60
-      spriteId: c482650585a18834cab06339d255696c
+      spriteId: f3d952a4e41bbf748a84ba78fa464ac1
     - name: Qyron_Frame_45
       frameIndex: 45
       cellRect:
@@ -1463,7 +1471,7 @@ ScriptedImporter:
         y: 0
         width: 46
         height: 60
-      spriteId: 35fc208f0a61d084490310d4d781b5c4
+      spriteId: 0b51ae5e17cdbf94dbec31624830ad45
     - name: Qyron_Frame_46
       frameIndex: 46
       cellRect:
@@ -1471,7 +1479,7 @@ ScriptedImporter:
         y: 0
         width: 42
         height: 60
-      spriteId: c8268b0cdc58e6448909853017105484
+      spriteId: 1d408196cddaece42bee6abb6672571d
     - name: Qyron_Frame_47
       frameIndex: 47
       cellRect:
@@ -1479,7 +1487,7 @@ ScriptedImporter:
         y: 0
         width: 60
         height: 60
-      spriteId: a0b485580689e4446aef44b2391f652a
+      spriteId: b529af01dda3acd46986c0126d4b5383
     - name: Qyron_Frame_48
       frameIndex: 48
       cellRect:
@@ -1487,7 +1495,7 @@ ScriptedImporter:
         y: 0
         width: 59
         height: 60
-      spriteId: 9a672f8c185e26f4999b8c500d8a54a1
+      spriteId: 8843ca95978d96d4cbb4ea25c97adbab
     - name: Qyron_Frame_49
       frameIndex: 49
       cellRect:
@@ -1495,7 +1503,7 @@ ScriptedImporter:
         y: 0
         width: 59
         height: 60
-      spriteId: a9c9b24904919314898f8943dd53cde7
+      spriteId: ff1e3807d3042e64da08bdd80a4b6001
     - name: Qyron_Frame_22
       frameIndex: 22
       cellRect:
@@ -1503,7 +1511,7 @@ ScriptedImporter:
         y: 4
         width: 50
         height: 56
-      spriteId: 3fb35f9c1aca39848849e0522ca726ff
+      spriteId: 988b57fdcc51bc54faaa1d47f1b380ca
     - name: Qyron_Frame_18
       frameIndex: 18
       cellRect:
@@ -1511,7 +1519,7 @@ ScriptedImporter:
         y: 0
         width: 54
         height: 58
-      spriteId: 29ca4d45a9707f640ae9d7ae8ad302c9
+      spriteId: 7a0fd8601cd23ec42a0028aff97faccd
     - name: Qyron_Frame_20
       frameIndex: 20
       cellRect:
@@ -1519,15 +1527,7 @@ ScriptedImporter:
         y: 0
         width: 54
         height: 58
-      spriteId: 63a13c391aca1084db57cba20957c6bf
-    - name: Qyron_Frame_8
-      frameIndex: 8
-      cellRect:
-        x: 45
-        y: 29
-        width: 14
-        height: 35
-      spriteId: e70f9bcb12144534da9705f44e171b01
+      spriteId: 88a855bc4e381b94e8cd7e068f829cf1
     linkedCells: []
     parentIndex: -1
   platformSettings: []
