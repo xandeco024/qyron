@@ -29,13 +29,17 @@ public class Character : MonoBehaviour {
         }
 
     [SerializeField] protected bool invincible;
-    [SerializeField] protected bool hitKillProtected;
-    private bool wasProtected = true;
-        
     [SerializeField] protected float baseDamage;
     [SerializeField] protected float moveSpeed;
     [SerializeField] protected float jumpForce;
     protected int facingDirection = 1;
+
+    public bool isMovingAllowed = true;
+    public bool grabbable;
+
+    [Header("Animation")]
+    protected bool isTakingDamage;
+    protected bool isAttacking;
 
     #region Movement
 
@@ -61,23 +65,22 @@ public class Character : MonoBehaviour {
 
     #endregion
 
-    public void TakeDamage(float damage, bool flash, int flashTimes)
+    public void TakeDamage(float damage, Vector3 knockbackDir = default, float knockbackForce = 0)
     {
-        if (flash)
+        StartCoroutine(FlashRed(2));
+
+        if (knockbackForce > 0)
         {
-            StartCoroutine(FlashRed(flashTimes));
+            TakeKnockBack(knockbackDir, knockbackForce);
         }
 
-        if (hitKillProtected && currentHealth - damage <= 0 && !wasProtected)
-        {
-            wasProtected = true;
-            currentHealth = 1;
-        }
+        currentHealth -= damage;
+    }
 
-        else
-        {
-            currentHealth -= damage;
-        }
+    protected void TakeKnockBack(Vector3 knockbackDir, float knockbackForce)
+    {
+        rb.velocity = new Vector3(0, 0, 0);
+        rb.AddForce(knockbackDir * knockbackForce, ForceMode.Impulse);
     }
 
     protected void Die()

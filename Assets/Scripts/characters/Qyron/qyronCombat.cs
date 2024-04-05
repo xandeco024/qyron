@@ -201,7 +201,7 @@ public class qyronCombat : MonoBehaviour
 
                 if (qyronHitCollision[i].GetComponent<Character>() != null)
                 {
-                    qyronHitCollision[i].GetComponent<Character>().TakeDamage(damage, true, 2);
+                    qyronHitCollision[i].GetComponent<Character>().TakeDamage(damage);
                 }
             }
 

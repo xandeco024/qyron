@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -20,7 +19,6 @@ public class PlayableCharacter : Character {
     [Header("Movement")]
     [SerializeField] private bool limitZ;
     private Vector3 movementInput;
-    private bool isMovingAllowed = true;
 
 
     [Header("Jump Settings")]
@@ -42,10 +40,27 @@ public class PlayableCharacter : Character {
     [Header("Input")]
     private InputMaster inputMaster;
 
+    [Header("Animation")]
+    private int attackAnimationIndex = 1;
+    private bool fighting;
+
+    [Header("Combat")]
+    [SerializeField] private bool friendlyFire;
+    [SerializeField] private float lightAttackCD;
+    private bool canLightAttack = true;
+    [SerializeField] private float heavyAttackCD;
+    private bool canHeavyAttack = true;
+
+    [SerializeField] private float grabAttackCD;
+    private bool canGrabAttack = true;
+    [SerializeField] private Vector3 CombatBoxOffset;
+    [SerializeField] private Vector3 CombatRaycastSize;
+
+    [SerializeField] private Vector3 grabbedCharacterOffset;
+
     void Awake()
     {
         GetComponentsOnCharacter();
-
         Controls();
     }
 
@@ -71,8 +86,6 @@ public class PlayableCharacter : Character {
             Die();
         }
         DetectGround();
-        Animation();
-
         DebugHandler();
     }
 
@@ -90,61 +103,191 @@ public class PlayableCharacter : Character {
 
         inputMaster.Player.Jump.performed += Jump;
         inputMaster.Player.Dash.performed += Dash;
+
+        inputMaster.Player.LightAttack.performed += LightAttack;
+        inputMaster.Player.HeavyAttack.performed += HeavyAttack;
+        inputMaster.Player.GrabAttack.performed += GrabAttack;
     }
 
-    void Animation()
+    #region Combat
+
+    void LightAttack(InputAction.CallbackContext ctx)
     {
-        if (movementInput.x != 0 || movementInput.y != 0)
+        if (canLightAttack && !isAttacking)
         {
-            animator.SetBool("isRunning", true);
-        }
-        else
-        {
-            animator.SetBool("isRunning", false);
+            StartCoroutine(LightAttackCoroutine());
         }
     }
 
+    IEnumerator LightAttackCoroutine()
+    {
+        canLightAttack = false;
+        if (!isAttacking) isAttacking = true;
+        if (!fighting) fighting = true;
+
+        //logica para calcular dano que o hit vai dar.
+        float damage = baseDamage;
+
+        attackAnimationIndex = (attackAnimationIndex == 1) ? 2 : 1;
+
+        animator.SetTrigger("lightAttackTrigger");
+        animator.SetInteger("attackAnimationIndex", attackAnimationIndex);
+
+        Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
+
+        foreach (Collider hitCollider in hitColliders)
+        {
+            if (hitCollider.GetComponent<Character>() && hitCollider.GetComponent<Character>() != this)
+            {
+                hitCollider.GetComponent<Character>().TakeDamage(damage);
+            }
+        }
+
+        yield return new WaitForSeconds(0.2f);
+
+        isAttacking = false;
+
+        yield return new WaitForSeconds(lightAttackCD);
+
+        canLightAttack = true;
+    }
+
+    void HeavyAttack(InputAction.CallbackContext ctx)
+    {
+        if (canHeavyAttack && !isAttacking)
+        {
+            StartCoroutine(HeavyAttackCoroutine());
+        }
+    }
+
+    IEnumerator HeavyAttackCoroutine()
+    {
+        canHeavyAttack = false;
+        if (!isAttacking) isAttacking = true;
+        if (!fighting) fighting = true;
+
+        //logica para calcular dano que o hit vai dar.
+        float damage = baseDamage * 2;
+
+        attackAnimationIndex = (attackAnimationIndex == 1) ? 2 : 1;
+
+        animator.SetTrigger("heavyAttackTrigger");
+        animator.SetInteger("attackAnimationIndex", attackAnimationIndex);
+
+        Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
+
+        foreach (Collider hitCollider in hitColliders)
+        {
+            if (hitCollider.GetComponent<Character>() && hitCollider.GetComponent<Character>() != this)
+            {
+                hitCollider.GetComponent<Character>().TakeDamage(damage);
+            }
+        }
+
+        yield return new WaitForSeconds(0.3f);
+
+        isAttacking = false;
+
+        yield return new WaitForSeconds(heavyAttackCD);
+
+        canHeavyAttack = true;
+    }
+
+    void GrabAttack(InputAction.CallbackContext ctx)
+    {
+        if (canGrabAttack && !isAttacking)
+        {
+            StartCoroutine(GrabAttackCoroutine());
+        }
+    }
+
+    IEnumerator GrabAttackCoroutine()
+    {
+        canGrabAttack = false;
+        if (!isAttacking) isAttacking = true;
+        if (!fighting) fighting = true;
+
+        //logica para calcular dano que o hit vai dar.
+
+        animator.SetTrigger("grabAttackTrigger");
+        animator.SetBool("grabbing", true);
+
+        Debug.Log("Tentou grabar");
+
+        Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
+
+        foreach (Collider hitCollider in hitColliders)
+        {
+            if (hitCollider.GetComponent<Character>() && hitCollider.GetComponent<Character>() != this && hitCollider.GetComponent<Character>().grabbable)
+            {
+                Character grabbedCharacter = hitCollider.GetComponent<Character>();
+
+                Debug.Log("Grabou " + grabbedCharacter.gameObject.name);
+
+                grabbedCharacter.isMovingAllowed = false;
+
+                grabbedCharacter.transform.position = transform.position + new Vector3(grabbedCharacterOffset.x * facingDirection, grabbedCharacterOffset.y, grabbedCharacterOffset.z);
+
+                yield return new WaitForSeconds(2);
+
+                Debug.Log("Soltou " + grabbedCharacter.gameObject.name);
+
+                grabbedCharacter.isMovingAllowed = true;
+            }
+        }
+
+        isAttacking = false;
+        animator.SetBool("grabbing", false);
+
+        yield return new WaitForSeconds(grabAttackCD);
+
+        Debug.Log("Recarregou grab");
+
+        canGrabAttack = true;
+    }
+
+    #endregion
 
     #region Movement
 
-    void DetectGround()
+void DetectGround()
+{
+    RaycastHit hit;
+    bool hitGround = Physics.Raycast(transform.position + raycastOffset, Vector3.down, out hit, raycastDistance, groundLayer);
+    isGrounded = hitGround;
+    animator.SetBool("grounded", hitGround);
+
+    if (hitGround)
     {
-        RaycastHit hit;
-        Ray ray = new Ray(transform.position + raycastOffset, Vector3.down);
-        Debug.DrawRay(transform.position + raycastOffset, Vector3.down * raycastDistance, Color.green);
+        jumps = maxJumps;
+    }
+}
 
-
-        Physics.Raycast(ray, out hit, raycastDistance, groundLayer);
-
-        if (hit.collider != null)
-        {
-            isGrounded = true;
-            jumps = maxJumps;
-        }
-        else
-        {
-            isGrounded = false;
-        }
+void ApplyMovement()
+{
+    if (isMovingAllowed)
+    {
+        rb.velocity = new Vector3(movementInput.x * moveSpeed, rb.velocity.y, movementInput.y * moveSpeed);
     }
 
-    void ApplyMovement() //HANDLE X,Z MOVEMENT, JUMPING AND DASHING
+    if (limitZ)
     {
-        if (isMovingAllowed)
-        {
-            rb.velocity = new Vector3(movementInput.x * moveSpeed, rb.velocity.y, movementInput.y * moveSpeed);
-        }
-
-        if (limitZ)
-        {
-            LimitZ();
-        }
+        LimitZ();
     }
+
+    // Define o estado "running" diretamente com base na condição, sem verificar o estado atual
+    animator.SetBool("running", isGrounded && movementInput != Vector3.zero);
+
+    // Atualiza a velocidade Y no animator
+    animator.SetFloat("yVelocity", rb.velocity.y);
+}
 
 
     void Jump(InputAction.CallbackContext ctx)
     {
-        if (jumps > 0)
+        if (jumps > 0 && isMovingAllowed)
         {
+            animator.SetTrigger("jumpTrigger");
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             jumps--;
@@ -153,7 +296,7 @@ public class PlayableCharacter : Character {
 
     private void Dash(InputAction.CallbackContext ctx)
     {
-        if (canDash)
+        if (canDash && isMovingAllowed)
         {
             StartCoroutine(DashCoroutine());
         }
@@ -161,6 +304,7 @@ public class PlayableCharacter : Character {
 
     IEnumerator DashCoroutine()
     {
+        animator.SetBool("dashing", true);
         canDash = false;
         isMovingAllowed = false;
         rb.useGravity = false;
@@ -172,6 +316,7 @@ public class PlayableCharacter : Character {
         rb.useGravity = true;
         rb.velocity = new Vector3(0, 0, 0);
         isMovingAllowed = true;
+        animator.SetBool("dashing", false);
 
         yield return new WaitForSeconds(dashCooldown);
 
@@ -236,7 +381,7 @@ public class PlayableCharacter : Character {
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 Debug.Log("Tomou 10 de dano");
-                TakeDamage(2, true, 3);
+                TakeDamage(2);
             }
 
             if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -262,6 +407,23 @@ public class PlayableCharacter : Character {
                 Debug.Log("Adicionou 50 de experiencia");
                 AddExP(50);
             }
+        }
+    }
+
+    void OnDrawGizmos()
+    {
+        if(debug)
+        {
+            Collider[] hitColliders = Physics.OverlapBox(transform.position + CombatBoxOffset * facingDirection, CombatRaycastSize / 2, transform.rotation);
+
+            if (hitColliders.Length > 0)
+            {
+                Gizmos.color = Color.red;
+
+            Gizmos.DrawWireCube(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize);
+            }
+
+            Gizmos.DrawSphere(transform.position + new Vector3(grabbedCharacterOffset.x * facingDirection, grabbedCharacterOffset.y, grabbedCharacterOffset.z), 0.1f);
         }
     }
 
