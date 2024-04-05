@@ -125,4 +125,10 @@ public class Character : MonoBehaviour {
             Debug.LogError("No SpriteRenderer or Renderer found on this object");
         }
     }
+
+    public void SetGrabbed(bool grabbed)
+    {
+        bc.enabled = !grabbed;
+        rb.isKinematic = grabbed;
+    }
 }

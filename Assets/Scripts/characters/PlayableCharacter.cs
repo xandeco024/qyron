@@ -227,9 +227,12 @@ public class PlayableCharacter : Character {
                 grabbedCharacter.isMovingAllowed = false;
 
                 grabbedCharacter.transform.position = transform.position + new Vector3(grabbedCharacterOffset.x * facingDirection, grabbedCharacterOffset.y, grabbedCharacterOffset.z);
-
+                grabbedCharacter.transform.SetParent(transform);
+                grabbedCharacter.SetGrabbed(true);
                 yield return new WaitForSeconds(2);
 
+                grabbedCharacter.SetGrabbed(false);
+                grabbedCharacter.transform.SetParent(null);     
                 Debug.Log("Soltou " + grabbedCharacter.gameObject.name);
 
                 grabbedCharacter.isMovingAllowed = true;
