@@ -4072,8 +4072,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   invincible: 0
-  baseDamage: 0
-  moveSpeed: 8
+  baseDamage: 5
+  baseMoveSpeed: 8
   jumpForce: 12
   isMovingAllowed: 1
   grabbable: 0
@@ -14268,7 +14268,7 @@ MonoBehaviour:
   maxHealth: 0
   invincible: 1
   baseDamage: 0
-  moveSpeed: 0
+  baseMoveSpeed: 0
   jumpForce: 0
   isMovingAllowed: 1
   grabbable: 1
