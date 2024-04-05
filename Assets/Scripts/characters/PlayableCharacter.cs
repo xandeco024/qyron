@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -55,8 +56,9 @@ public class PlayableCharacter : Character {
     private bool canGrabAttack = true;
     [SerializeField] private Vector3 CombatBoxOffset;
     [SerializeField] private Vector3 CombatRaycastSize;
-
     [SerializeField] private Vector3 grabbedCharacterOffset;
+    private bool isGrabbing;
+    private Character grabbedCharacter;
 
     void Awake()
     {
@@ -77,6 +79,7 @@ public class PlayableCharacter : Character {
     void Start()
     {
         currentHealth = maxHealth;
+        moveSpeed = baseMoveSpeed;
     }   
 
     void Update()
@@ -195,19 +198,26 @@ public class PlayableCharacter : Character {
 
     void GrabAttack(InputAction.CallbackContext ctx)
     {
-        if (canGrabAttack && !isAttacking)
+        if (canGrabAttack && !isAttacking && !isGrabbing)
         {
             StartCoroutine(GrabAttackCoroutine());
+        }
+
+        else if (isGrabbing)
+        {
+            Ungrab();
+            StopCoroutine(GrabAttackCoroutine());
         }
     }
 
     IEnumerator GrabAttackCoroutine()
     {
+        isGrabbing = true;
         canGrabAttack = false;
         if (!isAttacking) isAttacking = true;
         if (!fighting) fighting = true;
 
-        //logica para calcular dano que o hit vai dar.
+        moveSpeed = baseMoveSpeed / 4;
 
         animator.SetTrigger("grabAttackTrigger");
         animator.SetBool("grabbing", true);
@@ -220,33 +230,40 @@ public class PlayableCharacter : Character {
         {
             if (hitCollider.GetComponent<Character>() && hitCollider.GetComponent<Character>() != this && hitCollider.GetComponent<Character>().grabbable)
             {
-                Character grabbedCharacter = hitCollider.GetComponent<Character>();
+                grabbedCharacter = hitCollider.GetComponent<Character>();
 
                 Debug.Log("Grabou " + grabbedCharacter.gameObject.name);
-
-                grabbedCharacter.isMovingAllowed = false;
 
                 grabbedCharacter.transform.position = transform.position + new Vector3(grabbedCharacterOffset.x * facingDirection, grabbedCharacterOffset.y, grabbedCharacterOffset.z);
                 grabbedCharacter.transform.SetParent(transform);
                 grabbedCharacter.SetGrabbed(true);
+
                 yield return new WaitForSeconds(2);
 
-                grabbedCharacter.SetGrabbed(false);
-                grabbedCharacter.transform.SetParent(null);     
-                Debug.Log("Soltou " + grabbedCharacter.gameObject.name);
-
-                grabbedCharacter.isMovingAllowed = true;
             }
         }
 
-        isAttacking = false;
-        animator.SetBool("grabbing", false);
+        Ungrab();
 
         yield return new WaitForSeconds(grabAttackCD);
 
         Debug.Log("Recarregou grab");
 
         canGrabAttack = true;
+    }
+
+    private void Ungrab()
+    {
+        isGrabbing = false;
+        isAttacking = false;
+        animator.SetBool("grabbing", false);
+        if (grabbedCharacter != null)
+        {
+            grabbedCharacter.SetGrabbed(false);
+            grabbedCharacter.transform.SetParent(null);
+            grabbedCharacter = null;
+        }
+        moveSpeed = baseMoveSpeed;
     }
 
     #endregion
@@ -288,7 +305,7 @@ void ApplyMovement()
 
     void Jump(InputAction.CallbackContext ctx)
     {
-        if (jumps > 0 && isMovingAllowed)
+        if (jumps > 0 && isMovingAllowed && !isGrabbing)
         {
             animator.SetTrigger("jumpTrigger");
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
@@ -299,7 +316,7 @@ void ApplyMovement()
 
     private void Dash(InputAction.CallbackContext ctx)
     {
-        if (canDash && isMovingAllowed)
+        if (canDash && isMovingAllowed && !isGrabbing)
         {
             StartCoroutine(DashCoroutine());
         }

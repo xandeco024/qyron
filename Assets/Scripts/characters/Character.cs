@@ -30,7 +30,8 @@ public class Character : MonoBehaviour {
 
     [SerializeField] protected bool invincible;
     [SerializeField] protected float baseDamage;
-    [SerializeField] protected float moveSpeed;
+    [SerializeField] protected float baseMoveSpeed;
+    protected float moveSpeed;
     [SerializeField] protected float jumpForce;
     protected int facingDirection = 1;
 
@@ -54,12 +55,14 @@ public class Character : MonoBehaviour {
         if (rb.velocity.x > 0.1f) 
         {
             facingDirection = 1;
-            sr.flipX = false;
+            //sr.flipX = false;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else if (rb.velocity.x < -0.1f) 
         {
             facingDirection = -1;
-            sr.flipX = true;
+            //sr.flipX = true;
+            transform.rotation = Quaternion.Euler(0, 180, 0);
         }
     }
 
@@ -128,6 +131,7 @@ public class Character : MonoBehaviour {
 
     public void SetGrabbed(bool grabbed)
     {
+        isMovingAllowed = !grabbed;
         bc.enabled = !grabbed;
         rb.isKinematic = grabbed;
     }
