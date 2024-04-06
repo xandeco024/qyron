@@ -117,7 +117,7 @@ public class PlayableCharacter : Character {
     void LightAttack(InputAction.CallbackContext ctx)
     {
         if (canLightAttack && !isAttacking)
-        {
+        {                                                                               
             StartCoroutine(LightAttackCoroutine());
         }
     }
@@ -137,14 +137,7 @@ public class PlayableCharacter : Character {
         animator.SetInteger("attackAnimationIndex", attackAnimationIndex);
 
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
-
-        foreach (Collider hitCollider in hitColliders)
-        {
-            if (hitCollider.GetComponent<Character>() && hitCollider.GetComponent<Character>() != this)
-            {
-                hitCollider.GetComponent<Character>().TakeDamage(damage);
-            }
-        }
+        DealDamage(hitColliders, damage);
 
         yield return new WaitForSeconds(0.2f);
 
@@ -178,14 +171,7 @@ public class PlayableCharacter : Character {
         animator.SetInteger("attackAnimationIndex", attackAnimationIndex);
 
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
-
-        foreach (Collider hitCollider in hitColliders)
-        {
-            if (hitCollider.GetComponent<Character>() && hitCollider.GetComponent<Character>() != this)
-            {
-                hitCollider.GetComponent<Character>().TakeDamage(damage);
-            }
-        }
+        DealDamage(hitColliders, damage);
 
         yield return new WaitForSeconds(0.3f);
 
@@ -205,15 +191,15 @@ public class PlayableCharacter : Character {
 
         else if (isGrabbing)
         {
-            Ungrab();
+            CancelGrab();
             StopCoroutine(GrabAttackCoroutine());
         }
     }
 
     IEnumerator GrabAttackCoroutine()
     {
-        isGrabbing = true;
-        canGrabAttack = false;
+        if (canGrabAttack) canGrabAttack = false;
+        if (!isGrabbing) isGrabbing = true;
         if (!isAttacking) isAttacking = true;
         if (!fighting) fighting = true;
 
@@ -240,19 +226,18 @@ public class PlayableCharacter : Character {
 
                 yield return new WaitForSeconds(2);
 
+                continue;
             }
         }
 
-        Ungrab();
+        CancelGrab();
 
         yield return new WaitForSeconds(grabAttackCD);
-
         Debug.Log("Recarregou grab");
-
         canGrabAttack = true;
     }
 
-    private void Ungrab()
+    private void CancelGrab()
     {
         isGrabbing = false;
         isAttacking = false;
@@ -264,6 +249,18 @@ public class PlayableCharacter : Character {
             grabbedCharacter = null;
         }
         moveSpeed = baseMoveSpeed;
+    }
+
+    public override void TakeDamage(float damage, Vector3 knockbackDir = default, float knockbackForce = 0)
+    {
+        base.TakeDamage(damage, knockbackDir, knockbackForce);
+
+        animator.SetTrigger("damageTrigger");
+
+        if (isGrabbing)
+        {
+            CancelGrab();
+        }
     }
 
     #endregion

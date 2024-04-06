@@ -68,7 +68,18 @@ public class Character : MonoBehaviour {
 
     #endregion
 
-    public void TakeDamage(float damage, Vector3 knockbackDir = default, float knockbackForce = 0)
+    protected void DealDamage(Collider[] hitColliders, float damage, Vector3 knockbackDir = default, float knockbackForce = 0)
+    {
+        foreach(Collider hitCollider in hitColliders)
+        {
+            if (hitCollider.GetComponent<Character>() && hitCollider.GetComponent<Character>() != this)
+            {
+                hitCollider.GetComponent<Character>().TakeDamage(damage, knockbackDir, knockbackForce);
+            }
+        }
+    }
+
+    public virtual void TakeDamage(float damage, Vector3 knockbackDir = default, float knockbackForce = 0)
     {
         StartCoroutine(FlashRed(2));
 
