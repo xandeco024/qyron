@@ -33,6 +33,15 @@ public class Character : MonoBehaviour {
     [SerializeField] protected float baseMoveSpeed;
     protected float moveSpeed;
     [SerializeField] protected float jumpForce;
+
+    [SerializeField] float raycastDistance;
+    [SerializeField] private Vector3 raycastOffset;
+    [SerializeField] private LayerMask groundLayer;
+    protected bool isGrounded() {
+        RaycastHit hit;
+        bool hitGround = Physics.Raycast(transform.position + raycastOffset, Vector3.down, out hit, raycastDistance, groundLayer);
+        return hitGround;
+    }
     protected int facingDirection = 1;
 
     public bool isMovingAllowed = true;
@@ -114,7 +123,7 @@ public class Character : MonoBehaviour {
         {
             for (int i = 0; i < timesToFlash; i++)
             {
-                sr.color = new Color(0.5f,0.2f,0.2f,1);
+                sr.color = new Color(1,0.5f,0.5f,1);
                 yield return new WaitForSeconds(0.1f);
                 sr.color = new Color(1,1,1,1);
                 yield return new WaitForSeconds(0.1f);

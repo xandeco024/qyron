@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Linq.Expressions;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -23,12 +23,8 @@ public class PlayableCharacter : Character {
 
 
     [Header("Jump Settings")]
-    private bool isGrounded;
     [SerializeField] private int maxJumps;
     private int jumps;
-    [SerializeField] float raycastDistance;
-    [SerializeField] private Vector3 raycastOffset;
-    [SerializeField] private LayerMask groundLayer;
 
     [Header("Dash Settings")]
     [SerializeField] private float dashForce;
@@ -46,6 +42,7 @@ public class PlayableCharacter : Character {
     private bool fighting;
 
     [Header("Combat")]
+    [SerializeField] private List<string> combo = new List<string>();
     [SerializeField] private bool friendlyFire;
     [SerializeField] private float lightAttackCD;
     private bool canLightAttack = true;
@@ -121,12 +118,15 @@ public class PlayableCharacter : Character {
             StartCoroutine(LightAttackCoroutine());
         }
     }
-
     IEnumerator LightAttackCoroutine()
     {
         canLightAttack = false;
+        isMovingAllowed = false;
+        rb.velocity = new Vector3(0, rb.velocity.y, 0);
         if (!isAttacking) isAttacking = true;
         if (!fighting) fighting = true;
+
+        combo.Add("L");
 
         //logica para calcular dano que o hit vai dar.
         float damage = baseDamage;
@@ -141,6 +141,7 @@ public class PlayableCharacter : Character {
 
         yield return new WaitForSeconds(0.2f);
 
+        isMovingAllowed = true;
         isAttacking = false;
 
         yield return new WaitForSeconds(lightAttackCD);
@@ -159,8 +160,12 @@ public class PlayableCharacter : Character {
     IEnumerator HeavyAttackCoroutine()
     {
         canHeavyAttack = false;
+        isMovingAllowed = false;
+        rb.velocity = new Vector3(0, rb.velocity.y, 0);
         if (!isAttacking) isAttacking = true;
         if (!fighting) fighting = true;
+
+        combo.Add("H");
 
         //logica para calcular dano que o hit vai dar.
         float damage = baseDamage * 2;
@@ -175,6 +180,7 @@ public class PlayableCharacter : Character {
 
         yield return new WaitForSeconds(0.3f);
 
+        isMovingAllowed = true;
         isAttacking = false;
 
         yield return new WaitForSeconds(heavyAttackCD);
@@ -202,6 +208,8 @@ public class PlayableCharacter : Character {
         if (!isGrabbing) isGrabbing = true;
         if (!isAttacking) isAttacking = true;
         if (!fighting) fighting = true;
+
+        combo.Add("G");
 
         moveSpeed = baseMoveSpeed / 4;
 
@@ -268,13 +276,11 @@ public class PlayableCharacter : Character {
     #region Movement
 
 void DetectGround()
-{
-    RaycastHit hit;
-    bool hitGround = Physics.Raycast(transform.position + raycastOffset, Vector3.down, out hit, raycastDistance, groundLayer);
-    isGrounded = hitGround;
-    animator.SetBool("grounded", hitGround);
+{   
+    bool grounded = isGrounded();
+    animator.SetBool("grounded", grounded);
 
-    if (hitGround)
+    if (grounded)
     {
         jumps = maxJumps;
     }
@@ -293,7 +299,7 @@ void ApplyMovement()
     }
 
     // Define o estado "running" diretamente com base na condição, sem verificar o estado atual
-    animator.SetBool("running", isGrounded && movementInput != Vector3.zero);
+    animator.SetBool("running", isGrounded() && movementInput != Vector3.zero);
 
     // Atualiza a velocidade Y no animator
     animator.SetFloat("yVelocity", rb.velocity.y);
