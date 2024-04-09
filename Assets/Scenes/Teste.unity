@@ -4075,21 +4075,22 @@ MonoBehaviour:
   baseDamage: 5
   baseMoveSpeed: 8
   jumpForce: 12
-  isMovingAllowed: 1
-  grabbable: 0
-  debug: 1
-  limitZ: 1
-  maxJumps: 1
   raycastDistance: 0.2
   raycastOffset: {x: 0, y: -1.4, z: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  isMovingAllowed: 1
+  grabbable: 0
+  debug: 1
+  limitZ: 1
+  maxJumps: 1
   dashForce: 15
   dashDuration: 0.25
   dashCooldown: 1
   dashCloneTrailPrefab: {fileID: 9032923264858484867, guid: e7e5684874c43bf4fae0d84937aabb9f, type: 3}
   dashCloneAmount: 8
+  combo: []
   friendlyFire: 0
   lightAttackCD: 0.1
   heavyAttackCD: 0.3
@@ -14270,6 +14271,11 @@ MonoBehaviour:
   baseDamage: 0
   baseMoveSpeed: 0
   jumpForce: 0
+  raycastDistance: 0
+  raycastOffset: {x: 0, y: 0, z: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
   isMovingAllowed: 1
   grabbable: 1
   damageTaken: 0
@@ -25584,6 +25590,11 @@ MonoBehaviour:
   baseDamage: 0
   baseMoveSpeed: 0
   jumpForce: 0
+  raycastDistance: 0
+  raycastOffset: {x: 0, y: 0, z: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
   isMovingAllowed: 1
   grabbable: 1
   damageTaken: 0
@@ -42030,15 +42041,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7944451231823083720, guid: 2e228a176fd0ed042842c23db272053d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.883608
+      value: 27.57
       objectReference: {fileID: 0}
     - target: {fileID: 7944451231823083720, guid: 2e228a176fd0ed042842c23db272053d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -14.3214655
+      value: -14.31
       objectReference: {fileID: 0}
     - target: {fileID: 7944451231823083720, guid: 2e228a176fd0ed042842c23db272053d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0254083
+      value: 0.285
       objectReference: {fileID: 0}
     - target: {fileID: 7944451231823083720, guid: 2e228a176fd0ed042842c23db272053d, type: 3}
       propertyPath: m_LocalRotation.w
