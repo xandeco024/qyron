@@ -88,6 +88,74 @@ public class HUDManager : MonoBehaviour
             coinsText[hudIndex].text = players[hudIndex].Coins.ToString();
 
             //logica pros hits
+            if (players[hudIndex].Combo.Count > 0)
+            {
+                lastHits[hudIndex].gameObject.SetActive(true);
+
+                if (players[hudIndex].Combo[players[hudIndex].Combo.Count -1] == "L")
+                {
+                    lastHits[hudIndex].GetComponent<Animator>().SetTrigger("L");
+                }
+                else if (players[hudIndex].Combo[players[hudIndex].Combo.Count -1] == "H")
+                {
+                    lastHits[hudIndex].GetComponent<Animator>().SetTrigger("H");
+                }
+                else if (players[hudIndex].Combo[players[hudIndex].Combo.Count -1] == "G")
+                {
+                    lastHits[hudIndex].GetComponent<Animator>().SetTrigger("G");
+                }
+            }
+
+            else
+            {
+                lastHits[hudIndex].gameObject.SetActive(false);
+            }
+
+            if (players[hudIndex].Combo.Count > 1)
+            {
+                hits0[hudIndex].gameObject.SetActive(true);
+
+                if (players[hudIndex].Combo[players[hudIndex].Combo.Count -2] == "L")
+                {
+                    hits0[hudIndex].GetComponent<Animator>().SetTrigger("L");
+                }
+                else if (players[hudIndex].Combo[players[hudIndex].Combo.Count -2] == "H")
+                {
+                    hits0[hudIndex].GetComponent<Animator>().SetTrigger("H");
+                }
+                else if (players[hudIndex].Combo[players[hudIndex].Combo.Count -2] == "G")
+                {
+                    hits0[hudIndex].GetComponent<Animator>().SetTrigger("G");
+                }
+            }
+
+            else
+            {
+                hits0[hudIndex].gameObject.SetActive(false);
+            }
+
+            if (players[hudIndex].Combo.Count > 2)
+            {
+                hits1[hudIndex].gameObject.SetActive(true);
+
+                if (players[hudIndex].Combo[players[hudIndex].Combo.Count -3] == "L")
+                {
+                    hits1[hudIndex].GetComponent<Animator>().SetTrigger("L");
+                }
+                else if (players[hudIndex].Combo[players[hudIndex].Combo.Count -3] == "H")
+                {
+                    hits1[hudIndex].GetComponent<Animator>().SetTrigger("H");
+                }
+                else if (players[hudIndex].Combo[players[hudIndex].Combo.Count -3] == "G")
+                {
+                    hits1[hudIndex].GetComponent<Animator>().SetTrigger("G");
+                }
+            }
+
+            else
+            {
+                hits1[hudIndex].gameObject.SetActive(false);
+            }
         }
     }
 }

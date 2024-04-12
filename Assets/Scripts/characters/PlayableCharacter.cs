@@ -42,7 +42,9 @@ public class PlayableCharacter : Character {
     private bool fighting;
 
     [Header("Combat")]
-    [SerializeField] private List<string> combo = new List<string>();
+    private List<string> combo = new List<string>();
+    private List<string> validCombos = new List<string>() {"LLL", "HHH"};
+    public List<string> Combo { get { return combo; } }
     [SerializeField] private bool friendlyFire;
     [SerializeField] private float lightAttackCD;
     private bool canLightAttack = true;
@@ -87,6 +89,13 @@ public class PlayableCharacter : Character {
         }
         DetectGround();
         DebugHandler();
+
+        //qual foi o ultimo hit
+        string lastHit = combo.Count > 0 ? combo[combo.Count - 1] : "";
+        Debug.Log("Last Hit: " + lastHit);
+
+        string penultimoHit = combo.Count > 1 ? combo[combo.Count - 2] : "";
+        Debug.Log("Penultimo Hit: " + penultimoHit);
     }
 
     void FixedUpdate()
@@ -111,11 +120,58 @@ public class PlayableCharacter : Character {
 
     #region Combat
 
+    bool ComboCheck()
+    {
+        if (combo.Count >= 3)
+        {
+            if (validCombos.Contains(string.Join("", combo.GetRange(combo.Count - 3, 3))))
+            {
+                return true;
+            }
+            else
+            {
+                combo.Clear();
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    void LightComboHandler()
+    {
+        if (string.Join("", combo.GetRange(combo.Count - 3, 3)) == "LLL")
+        {
+            combo.Clear();
+            Debug.Log("Combo LLL Realizado");
+            StartCoroutine(LLLCombo());
+        }
+    }
+
+    void HeavyComboHandler()
+    {
+        if (string.Join("", combo.GetRange(combo.Count - 3, 3)) == "HHH")
+        {
+            combo.Clear();
+            Debug.Log("Combo HHH Realizado");
+            StartCoroutine(HHHCombo());
+        }
+    }
+
     void LightAttack(InputAction.CallbackContext ctx)
     {
         if (canLightAttack && !isAttacking)
-        {                                                                               
-            StartCoroutine(LightAttackCoroutine());
+        {
+            if (ComboCheck())
+            {
+                LightComboHandler();
+            }
+            else
+            {
+                StartCoroutine(LightAttackCoroutine());
+            }
         }
     }
     IEnumerator LightAttackCoroutine()
@@ -153,7 +209,14 @@ public class PlayableCharacter : Character {
     {
         if (canHeavyAttack && !isAttacking)
         {
-            StartCoroutine(HeavyAttackCoroutine());
+            if (ComboCheck())
+            {
+                HeavyComboHandler();
+            }
+            else
+            {
+                StartCoroutine(HeavyAttackCoroutine());
+            }
         }
     }
 
@@ -257,6 +320,58 @@ public class PlayableCharacter : Character {
             grabbedCharacter = null;
         }
         moveSpeed = baseMoveSpeed;
+    }
+
+    IEnumerator LLLCombo()
+    {
+        canLightAttack = false;
+        isMovingAllowed = false;
+        rb.velocity = new Vector3(0, rb.velocity.y, 0);
+        if (!isAttacking) isAttacking = true;
+        if (!fighting) fighting = true;
+
+        //logica para calcular dano que o hit vai dar.
+        float damage = baseDamage * 3;
+
+        animator.SetTrigger("LLLTrigger");
+
+        Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
+        DealDamage(hitColliders, damage, new Vector3(1 * facingDirection,1,0), 2.5f);
+
+        yield return new WaitForSeconds(0.3f);
+
+        isMovingAllowed = true;
+        isAttacking = false;
+
+        yield return new WaitForSeconds(lightAttackCD);
+
+        canLightAttack = true;
+    }
+
+    IEnumerator HHHCombo()
+    {
+        canHeavyAttack = false;
+        isMovingAllowed = false;
+        rb.velocity = new Vector3(0, rb.velocity.y, 0);
+        if (!isAttacking) isAttacking = true;
+        if (!fighting) fighting = true;
+
+        //logica para calcular dano que o hit vai dar.
+        float damage = baseDamage * 6;
+
+        animator.SetTrigger("HHHTrigger");
+
+        Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
+        DealDamage(hitColliders, damage, new Vector3(1 * facingDirection,.5f,0), 5);
+
+        yield return new WaitForSeconds(0.3f);
+
+        isMovingAllowed = true;
+        isAttacking = false;
+
+        yield return new WaitForSeconds(heavyAttackCD);
+
+        canHeavyAttack = true;
     }
 
     public override void TakeDamage(float damage, Vector3 knockbackDir = default, float knockbackForce = 0)

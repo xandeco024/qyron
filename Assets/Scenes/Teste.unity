@@ -4075,16 +4075,16 @@ MonoBehaviour:
   baseDamage: 5
   baseMoveSpeed: 8
   jumpForce: 12
-  isMovingAllowed: 1
-  grabbable: 0
-  debug: 1
-  limitZ: 1
-  maxJumps: 1
   raycastDistance: 0.2
   raycastOffset: {x: 0, y: -1.4, z: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  isMovingAllowed: 1
+  grabbable: 0
+  debug: 1
+  limitZ: 1
+  maxJumps: 1
   dashForce: 15
   dashDuration: 0.25
   dashCooldown: 1
@@ -4092,7 +4092,7 @@ MonoBehaviour:
   dashCloneAmount: 8
   friendlyFire: 0
   lightAttackCD: 0.1
-  heavyAttackCD: 0.3
+  heavyAttackCD: 0.2
   grabAttackCD: 0.5
   CombatBoxOffset: {x: 0.25, y: -0.5, z: 0}
   CombatRaycastSize: {x: 1.5, y: 2, z: 1}
@@ -14270,6 +14270,11 @@ MonoBehaviour:
   baseDamage: 0
   baseMoveSpeed: 0
   jumpForce: 0
+  raycastDistance: 0
+  raycastOffset: {x: 0, y: 0, z: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
   isMovingAllowed: 1
   grabbable: 1
   damageTaken: 0
@@ -25584,6 +25589,11 @@ MonoBehaviour:
   baseDamage: 0
   baseMoveSpeed: 0
   jumpForce: 0
+  raycastDistance: 0
+  raycastOffset: {x: 0, y: 0, z: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
   isMovingAllowed: 1
   grabbable: 1
   damageTaken: 0
