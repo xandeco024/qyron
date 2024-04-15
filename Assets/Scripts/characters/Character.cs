@@ -29,6 +29,8 @@ public class Character : MonoBehaviour {
         }
 
     [SerializeField] protected bool invincible;
+    protected bool fallDamage;
+    [SerializeField] protected bool fallDamageEnabled;
     [SerializeField] protected float baseDamage;
     [SerializeField] protected float baseMoveSpeed;
     protected float moveSpeed;
@@ -76,6 +78,20 @@ public class Character : MonoBehaviour {
     }
 
     #endregion
+
+    protected void FallDetect()
+    {
+        if (rb.velocity.y < -10)
+        {
+            fallDamage = true;
+        }
+
+        if (isGrounded() && fallDamage)
+        {
+            TakeDamage(10);
+            fallDamage = false;
+        }
+    }
 
     protected void DealDamage(Collider[] hitColliders, float damage, Vector3 knockbackDir = default, float knockbackForce = 0)
     {

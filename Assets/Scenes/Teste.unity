@@ -4072,10 +4072,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   invincible: 0
+  fallDamageEnabled: 0
   baseDamage: 5
   baseMoveSpeed: 8
   jumpForce: 12
-  raycastDistance: 0.2
+  raycastDistance: 0.4
   raycastOffset: {x: 0, y: -1.4, z: 0}
   groundLayer:
     serializedVersion: 2
@@ -4092,7 +4093,7 @@ MonoBehaviour:
   dashCloneAmount: 8
   friendlyFire: 0
   lightAttackCD: 0.1
-  heavyAttackCD: 0.2
+  heavyAttackCD: 0.15
   grabAttackCD: 0.5
   CombatBoxOffset: {x: 0.25, y: -0.5, z: 0}
   CombatRaycastSize: {x: 1.5, y: 2, z: 1}
@@ -14267,6 +14268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 0
   invincible: 1
+  fallDamageEnabled: 0
   baseDamage: 0
   baseMoveSpeed: 0
   jumpForce: 0
@@ -25586,6 +25588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 0
   invincible: 1
+  fallDamageEnabled: 0
   baseDamage: 0
   baseMoveSpeed: 0
   jumpForce: 0

@@ -25,6 +25,7 @@ public class dummy : Character
 
         if (lastDamageTaken != damageTaken && damageTaken != 0) damageText.SetText(damageTaken.ToString());
         if (Time.time - timeLastHit >= 2.5) damageTaken = 0;
+        LimitZ();
     }
 
     void LateUpdate()

@@ -45,6 +45,7 @@ public class PlayableCharacter : Character {
     private List<string> combo = new List<string>();
     private List<string> validCombos = new List<string>() {"LLL", "HHH"};
     public List<string> Combo { get { return combo; } }
+    private float lastAttackTime;
     [SerializeField] private bool friendlyFire;
     [SerializeField] private float lightAttackCD;
     private bool canLightAttack = true;
@@ -52,7 +53,7 @@ public class PlayableCharacter : Character {
     private bool canHeavyAttack = true;
 
     [SerializeField] private float grabAttackCD;
-    private bool canGrabAttack = true;
+    private bool canGrab = true;
     [SerializeField] private Vector3 CombatBoxOffset;
     [SerializeField] private Vector3 CombatRaycastSize;
     [SerializeField] private Vector3 grabbedCharacterOffset;
@@ -88,20 +89,14 @@ public class PlayableCharacter : Character {
             Die();
         }
         DetectGround();
-        DebugHandler();
+        DebugHandler(); 
 
-        //qual foi o ultimo hit
-        string lastHit = combo.Count > 0 ? combo[combo.Count - 1] : "";
-        Debug.Log("Last Hit: " + lastHit);
-
-        string penultimoHit = combo.Count > 1 ? combo[combo.Count - 2] : "";
-        Debug.Log("Penultimo Hit: " + penultimoHit);
+        CombatHandler();
     }
 
     void FixedUpdate()
     {
         ApplyMovement();
-        FlipSprite();
     }
 
     void Controls()
@@ -120,55 +115,77 @@ public class PlayableCharacter : Character {
 
     #region Combat
 
-    bool ComboCheck()
+    void CombatHandler()
     {
-        if (combo.Count >= 3)
+        lastAttackTime += Time.deltaTime;
+
+        if (lastAttackTime > 3)
         {
-            if (validCombos.Contains(string.Join("", combo.GetRange(combo.Count - 3, 3))))
-            {
-                return true;
-            }
-            else
-            {
-                combo.Clear();
-                return false;
-            }
+            fighting = false;
+            combo.Clear();
         }
-        else
+
+        if (combo.Count > 3)
         {
-            return false;
+            combo.Clear();  
         }
+
+        animator.SetBool("fighting", fighting);
     }
 
     void LightComboHandler()
     {
-        if (string.Join("", combo.GetRange(combo.Count - 3, 3)) == "LLL")
+        if (validCombos.Contains(string.Join("", combo.GetRange(combo.Count - 3, 3))))
         {
+            if(string.Join("", combo.GetRange(combo.Count - 3, 3)) == "LLL")
+            {
+                Debug.Log("Combo LLL Realizado");
+                combo.Clear();
+                StartCoroutine(LLLCombo());
+            }
+        }
+        else
+        {
+            Debug.Log("Combo invalido" + string.Join("", combo.GetRange(combo.Count - 3, 3)));
             combo.Clear();
-            Debug.Log("Combo LLL Realizado");
-            StartCoroutine(LLLCombo());
         }
     }
 
     void HeavyComboHandler()
     {
-        if (string.Join("", combo.GetRange(combo.Count - 3, 3)) == "HHH")
+        if (validCombos.Contains(string.Join("", combo.GetRange(combo.Count - 3, 3))))
         {
+            if(string.Join("", combo.GetRange(combo.Count - 3, 3)) == "HHH")
+            {
+                Debug.Log("Combo HHH Realizado");
+                combo.Clear();
+                StartCoroutine(HHHCombo());
+            }
+        }
+        else
+        {
+            Debug.Log("Combo invalido" + string.Join("", combo.GetRange(combo.Count - 3, 3)));
             combo.Clear();
-            Debug.Log("Combo HHH Realizado");
-            StartCoroutine(HHHCombo());
         }
     }
 
     void LightAttack(InputAction.CallbackContext ctx)
     {
-        if (canLightAttack && !isAttacking)
+        if (canLightAttack)
         {
-            if (ComboCheck())
+            if(isGrabbing) // se estiver grebbando então faz o combo de grab
+            { 
+                CancelGrab();
+                Debug.Log("Light Grab Attack " + combo);
+                combo.Clear();
+            }
+
+            else if (combo.Count == 3 && !isAttacking)
             {
                 LightComboHandler();
             }
-            else
+
+            else if (!isAttacking)
             {
                 StartCoroutine(LightAttackCoroutine());
             }
@@ -181,6 +198,8 @@ public class PlayableCharacter : Character {
         rb.velocity = new Vector3(0, rb.velocity.y, 0);
         if (!isAttacking) isAttacking = true;
         if (!fighting) fighting = true;
+
+        lastAttackTime = 0;
 
         combo.Add("L");
 
@@ -207,13 +226,21 @@ public class PlayableCharacter : Character {
 
     void HeavyAttack(InputAction.CallbackContext ctx)
     {
-        if (canHeavyAttack && !isAttacking)
+        if (canHeavyAttack)
         {
-            if (ComboCheck())
+            if(isGrabbing) // se estiver grebbando então faz o combo de grab
+            { 
+                CancelGrab();
+                Debug.Log("Heavy Grab Attack " + combo);
+                combo.Clear();
+            }
+
+            else if (combo.Count == 3 && !isAttacking)
             {
                 HeavyComboHandler();
             }
-            else
+
+            else if (!isAttacking)
             {
                 StartCoroutine(HeavyAttackCoroutine());
             }
@@ -227,6 +254,8 @@ public class PlayableCharacter : Character {
         rb.velocity = new Vector3(0, rb.velocity.y, 0);
         if (!isAttacking) isAttacking = true;
         if (!fighting) fighting = true;
+
+        lastAttackTime = 0;
 
         combo.Add("H");
 
@@ -253,9 +282,22 @@ public class PlayableCharacter : Character {
 
     void GrabAttack(InputAction.CallbackContext ctx)
     {
-        if (canGrabAttack && !isAttacking && !isGrabbing)
+        if (canGrab && !isAttacking && !isGrabbing)
         {
-            StartCoroutine(GrabAttackCoroutine());
+            if (combo.Count > 0)
+            {
+                // só vai grabar se no combo não houver um outro grab
+                if (combo.Contains("G")) return;
+                else
+                {
+                    StartCoroutine(GrabAttackCoroutine());
+                }
+            }
+
+            else
+            {
+                StartCoroutine(GrabAttackCoroutine());
+            }
         }
 
         else if (isGrabbing)
@@ -267,35 +309,33 @@ public class PlayableCharacter : Character {
 
     IEnumerator GrabAttackCoroutine()
     {
-        if (canGrabAttack) canGrabAttack = false;
+        if (canGrab) canGrab = false;
         if (!isGrabbing) isGrabbing = true;
         if (!isAttacking) isAttacking = true;
         if (!fighting) fighting = true;
 
-        combo.Add("G");
+        lastAttackTime = 0;
 
         moveSpeed = baseMoveSpeed / 4;
 
         animator.SetTrigger("grabAttackTrigger");
         animator.SetBool("grabbing", true);
 
-        Debug.Log("Tentou grabar");
-
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
 
-        foreach (Collider hitCollider in hitColliders)
+        foreach (Collider collider in hitColliders)
         {
-            if (hitCollider.GetComponent<Character>() && hitCollider.GetComponent<Character>() != this && hitCollider.GetComponent<Character>().grabbable)
+            if (collider.GetComponent<Character>() && collider.GetComponent<Character>() != this && collider.GetComponent<Character>().grabbable)
             {
-                grabbedCharacter = hitCollider.GetComponent<Character>();
+                combo.Add("G");
 
-                Debug.Log("Grabou " + grabbedCharacter.gameObject.name);
+                grabbedCharacter = collider.GetComponent<Character>();
 
                 grabbedCharacter.transform.position = transform.position + new Vector3(grabbedCharacterOffset.x * facingDirection, grabbedCharacterOffset.y, grabbedCharacterOffset.z);
                 grabbedCharacter.transform.SetParent(transform);
                 grabbedCharacter.SetGrabbed(true);
 
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(3);
 
                 continue;
             }
@@ -304,8 +344,7 @@ public class PlayableCharacter : Character {
         CancelGrab();
 
         yield return new WaitForSeconds(grabAttackCD);
-        Debug.Log("Recarregou grab");
-        canGrabAttack = true;
+        canGrab = true;
     }
 
     private void CancelGrab()
@@ -329,6 +368,8 @@ public class PlayableCharacter : Character {
         rb.velocity = new Vector3(0, rb.velocity.y, 0);
         if (!isAttacking) isAttacking = true;
         if (!fighting) fighting = true;
+
+        lastAttackTime = 0;
 
         //logica para calcular dano que o hit vai dar.
         float damage = baseDamage * 3;
@@ -355,6 +396,8 @@ public class PlayableCharacter : Character {
         rb.velocity = new Vector3(0, rb.velocity.y, 0);
         if (!isAttacking) isAttacking = true;
         if (!fighting) fighting = true;
+
+        lastAttackTime = 0;
 
         //logica para calcular dano que o hit vai dar.
         float damage = baseDamage * 6;
@@ -406,6 +449,12 @@ void ApplyMovement()
     if (isMovingAllowed)
     {
         rb.velocity = new Vector3(movementInput.x * moveSpeed, rb.velocity.y, movementInput.y * moveSpeed);
+
+        if (movementInput.x != 0)
+        {
+            facingDirection = movementInput.x > 0 ? 1 : -1;
+            transform.rotation = Quaternion.Euler(0, facingDirection == 1 ? 0 : 180, 0);
+        }
     }
 
     if (limitZ)
