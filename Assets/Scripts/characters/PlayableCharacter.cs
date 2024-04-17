@@ -43,7 +43,7 @@ public class PlayableCharacter : Character {
 
     [Header("Combat")]
     private List<string> combo = new List<string>();
-    private List<string> validCombos = new List<string>() {"LLL", "HHH"};
+    private List<string> validCombos = new List<string>() {"LLL", "HHH", "LLH"};
     public List<string> Combo { get { return combo; } }
     private float lastAttackTime;
     [SerializeField] private bool friendlyFire;
@@ -160,6 +160,12 @@ public class PlayableCharacter : Character {
                 Debug.Log("Combo HHH Realizado");
                 combo.Clear();
                 StartCoroutine(HHHCombo());
+            }
+            else if(string.Join("", combo.GetRange(combo.Count - 3, 3)) == "LLH")
+            {
+                Debug.Log("Combo LLH Realizado");
+                combo.Clear();
+                StartCoroutine(LLHCombo());
             }
         }
         else
@@ -377,7 +383,7 @@ public class PlayableCharacter : Character {
         animator.SetTrigger("LLLTrigger");
 
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
-        DealDamage(hitColliders, damage, false, new Vector3(1 * facingDirection,1,0), 2.5f);
+        DealDamage(hitColliders, damage, false, new Vector3(1 * facingDirection,1,0), 1f);
 
         yield return new WaitForSeconds(0.3f);
 
@@ -387,6 +393,38 @@ public class PlayableCharacter : Character {
         yield return new WaitForSeconds(lightAttackCD);
 
         canLightAttack = true;
+    }
+
+    IEnumerator LLHCombo()
+    {
+        canHeavyAttack = false;
+        isMovingAllowed = false;
+        rb.velocity = new Vector3(0, rb.velocity.y, 0);
+        if (!isAttacking) isAttacking = true;
+        if (!fighting) fighting = true;
+
+        lastAttackTime = 0;
+
+        //logica para calcular dano que o hit vai dar.
+        float damage = baseDamage * 3;
+
+        Debug.Log("Deu o combo LLH");
+
+        yield return new WaitForSeconds(0.5f);
+
+        Debug.Log("Terminou de girar");
+
+        Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
+        DealDamage(hitColliders, damage, false, new Vector3(0,1,-1), 4f);
+
+        yield return new WaitForSeconds(0.3f);
+
+        isMovingAllowed = true;
+        isAttacking = false;
+
+        yield return new WaitForSeconds(heavyAttackCD);
+
+        canHeavyAttack = true;
     }
 
     IEnumerator HHHCombo()
@@ -405,7 +443,7 @@ public class PlayableCharacter : Character {
         animator.SetTrigger("HHHTrigger");
 
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
-        DealDamage(hitColliders, damage, false, new Vector3(1 * facingDirection,.5f,0), 5);
+        DealDamage(hitColliders, damage, false, new Vector3(1 * facingDirection,.5f,0), 4);
 
         yield return new WaitForSeconds(0.3f);
 
