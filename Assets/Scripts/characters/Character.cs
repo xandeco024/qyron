@@ -4,6 +4,7 @@ using System.Collections;
 public class Character : MonoBehaviour {
 
     [Header("Components")]
+    [SerializeField] protected GameObject damageTextPrefab;
     protected Rigidbody rb;
     protected Animator animator;
     protected SpriteRenderer sr;
@@ -44,6 +45,8 @@ public class Character : MonoBehaviour {
         bool hitGround = Physics.Raycast(transform.position + raycastOffset, Vector3.down, out hit, raycastDistance, groundLayer);
         return hitGround;
     }
+    
+    public int FacingDirection { get { return facingDirection; } }
     protected int facingDirection = 1;
 
     public bool isMovingAllowed = true;
@@ -93,27 +96,29 @@ public class Character : MonoBehaviour {
         }
     }
 
-    protected void DealDamage(Collider[] hitColliders, float damage, Vector3 knockbackDir = default, float knockbackForce = 0)
+    protected void DealDamage(Collider[] hitColliders, float damage, bool critical = false, Vector3 knockbackDir = default, float knockbackForce = 0)
     {
         foreach(Collider hitCollider in hitColliders)
         {
             if (hitCollider.GetComponent<Character>() && hitCollider.GetComponent<Character>() != this)
             {
-                hitCollider.GetComponent<Character>().TakeDamage(damage, knockbackDir, knockbackForce);
+                hitCollider.GetComponent<Character>().TakeDamage(damage, critical, knockbackDir, knockbackForce);
             }
         }
     }
 
-    public virtual void TakeDamage(float damage, Vector3 knockbackDir = default, float knockbackForce = 0)
+    public virtual void TakeDamage(float damage, bool critical = false, Vector3 knockbackDir = default, float knockbackForce = 0)
     {
         StartCoroutine(FlashRed(2));
+        currentHealth -= damage;
+        
+        Vector3 damageTextPosition = transform.position + new Vector3(facingDirection, 0f, -1f);
+        Instantiate(damageTextPrefab, damageTextPosition, Quaternion.identity).GetComponent<damageText>().SetText(damage.ToString(), critical);
 
         if (knockbackForce > 0)
         {
             TakeKnockBack(knockbackDir, knockbackForce);
         }
-
-        currentHealth -= damage;
     }
 
     protected void TakeKnockBack(Vector3 knockbackDir, float knockbackForce)

@@ -214,7 +214,7 @@ public class PlayableCharacter : Character {
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
         DealDamage(hitColliders, damage);
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.3f);
 
         isMovingAllowed = true;
         isAttacking = false;
@@ -268,7 +268,7 @@ public class PlayableCharacter : Character {
         animator.SetInteger("attackAnimationIndex", attackAnimationIndex);
 
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
-        DealDamage(hitColliders, damage);
+        DealDamage(hitColliders, damage, true);
 
         yield return new WaitForSeconds(0.3f);
 
@@ -377,7 +377,7 @@ public class PlayableCharacter : Character {
         animator.SetTrigger("LLLTrigger");
 
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
-        DealDamage(hitColliders, damage, new Vector3(1 * facingDirection,1,0), 2.5f);
+        DealDamage(hitColliders, damage, false, new Vector3(1 * facingDirection,1,0), 2.5f);
 
         yield return new WaitForSeconds(0.3f);
 
@@ -405,7 +405,7 @@ public class PlayableCharacter : Character {
         animator.SetTrigger("HHHTrigger");
 
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
-        DealDamage(hitColliders, damage, new Vector3(1 * facingDirection,.5f,0), 5);
+        DealDamage(hitColliders, damage, false, new Vector3(1 * facingDirection,.5f,0), 5);
 
         yield return new WaitForSeconds(0.3f);
 
@@ -417,9 +417,9 @@ public class PlayableCharacter : Character {
         canHeavyAttack = true;
     }
 
-    public override void TakeDamage(float damage, Vector3 knockbackDir = default, float knockbackForce = 0)
+    public override void TakeDamage(float damage, bool critical = false, Vector3 knockbackDir = default, float knockbackForce = 0)
     {
-        base.TakeDamage(damage, knockbackDir, knockbackForce);
+        base.TakeDamage(damage, critical, knockbackDir, knockbackForce);
 
         animator.SetTrigger("damageTrigger");
 

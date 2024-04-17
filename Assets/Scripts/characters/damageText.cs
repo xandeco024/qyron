@@ -5,32 +5,30 @@ using UnityEngine;
 
 public class damageText : MonoBehaviour
 {
-    private float timeLastText;
-    private Animator damageTextAnimator;
-    private TextMeshPro damageTextMesh;
+    [SerializeField] private TextMeshPro textTMPRO;
 
     private void Start()
     {
-        damageTextAnimator = GetComponent<Animator>();
-        damageTextMesh = GetComponent<TextMeshPro>();
+        //textTMPRO = GetComponent<TextMeshPro>();
+        Invoke("DestroyText", 0.5f);
     }
 
-    private void Update()
+    public void SetText(string text, bool critical = false)
     {
-        if(Time.time - timeLastText >= .3)
+        if (critical)
         {
-            damageTextAnimator.SetBool("fade", true);
+            textTMPRO.color = Color.red;
+            textTMPRO.fontSize = 7;
+            textTMPRO.text = text + "!";
         }
-
         else
         {
-            damageTextAnimator.SetBool("fade", false);
+            textTMPRO.text = text;
         }
     }
 
-    public void SetText(string text)
+    private void DestroyText()
     {
-        timeLastText = Time.time;
-        damageTextMesh.text = text;
+        Destroy(gameObject);
     }
 }

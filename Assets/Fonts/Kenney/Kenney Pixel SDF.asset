@@ -90,18 +90,95 @@ MonoBehaviour:
     m_StrikethroughOffset: 13.6
     m_StrikethroughThickness: 4.482422
     m_TabWidth: 11
-  m_GlyphTable: []
-  m_CharacterTable: []
+  m_GlyphTable:
+  - m_Index: 28
+    m_Metrics:
+      m_Width: 28.125
+      m_Height: 39.375
+      m_HorizontalBearingX: 0
+      m_HorizontalBearingY: 39.375
+      m_HorizontalAdvance: 33.75
+    m_GlyphRect:
+      m_X: 106
+      m_Y: 10
+      m_Width: 29
+      m_Height: 40
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+  - m_Index: 66
+    m_Metrics:
+      m_Width: 28.125
+      m_Height: 5.625
+      m_HorizontalBearingX: 0
+      m_HorizontalBearingY: 5.625
+      m_HorizontalAdvance: 33.75
+    m_GlyphRect:
+      m_X: 58
+      m_Y: 10
+      m_Width: 29
+      m_Height: 6
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+  - m_Index: 205
+    m_Metrics:
+      m_Width: 28.125
+      m_Height: 5.625
+      m_HorizontalBearingX: 0
+      m_HorizontalBearingY: 5.625
+      m_HorizontalAdvance: 33.75
+    m_GlyphRect:
+      m_X: 10
+      m_Y: 10
+      m_Width: 29
+      m_Height: 6
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+  m_CharacterTable:
+  - m_ElementType: 1
+    m_Unicode: 57
+    m_GlyphIndex: 28
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 95
+    m_GlyphIndex: 66
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 8230
+    m_GlyphIndex: 205
+    m_Scale: 1
   m_AtlasTextures:
   - {fileID: -2331511291792752123}
   m_AtlasTextureIndex: 0
   m_IsMultiAtlasTexturesEnabled: 0
   m_ClearDynamicDataOnBuild: 0
-  m_UsedGlyphRects: []
-  m_FreeGlyphRects:
+  m_UsedGlyphRects:
   - m_X: 0
     m_Y: 0
+    m_Width: 48
+    m_Height: 25
+  - m_X: 48
+    m_Y: 0
+    m_Width: 48
+    m_Height: 25
+  - m_X: 96
+    m_Y: 0
+    m_Width: 48
+    m_Height: 59
+  m_FreeGlyphRects:
+  - m_X: 0
+    m_Y: 59
     m_Width: 1023
+    m_Height: 964
+  - m_X: 0
+    m_Y: 25
+    m_Width: 96
+    m_Height: 998
+  - m_X: 144
+    m_Y: 0
+    m_Width: 879
     m_Height: 1023
   m_fontInfo:
     Name: 
