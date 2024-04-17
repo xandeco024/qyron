@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal;
 
 public class PlayableCharacter : Character {
 
@@ -43,7 +44,8 @@ public class PlayableCharacter : Character {
 
     [Header("Combat")]
     private List<string> combo = new List<string>();
-    private List<string> validCombos = new List<string>() {"LLL", "HHH", "LLH"};
+    private List<string> validLightCombos = new List<string>() {"LLL"};
+    private List<string> validHeavyCombos = new List<string>() {"HHH", "LLH"};
     public List<string> Combo { get { return combo; } }
     private float lastAttackTime;
     [SerializeField] private bool friendlyFire;
@@ -78,8 +80,12 @@ public class PlayableCharacter : Character {
 
     void Start()
     {
+        maxHealth = baseMaxHealth;
         currentHealth = maxHealth;
         moveSpeed = baseMoveSpeed;
+        attackDamage = baseAttackDamage;
+        criticalChance = baseCriticalChance;
+        jumpForce = baseJumpForce;
     }   
 
     void Update()
@@ -135,43 +141,38 @@ public class PlayableCharacter : Character {
 
     void LightComboHandler()
     {
-        if (validCombos.Contains(string.Join("", combo.GetRange(combo.Count - 3, 3))))
+        switch (string.Join("", combo.GetRange(combo.Count - 3, 3)))
         {
-            if(string.Join("", combo.GetRange(combo.Count - 3, 3)) == "LLL")
-            {
+            case "LLL":
                 Debug.Log("Combo LLL Realizado");
                 combo.Clear();
                 StartCoroutine(LLLCombo());
-            }
-        }
-        else
-        {
-            Debug.Log("Combo invalido" + string.Join("", combo.GetRange(combo.Count - 3, 3)));
-            combo.Clear();
+                break;
+            default:
+                Debug.Log("Combo invalido" + string.Join("", combo.GetRange(combo.Count - 3, 3)));
+                combo.Clear();
+                break;
         }
     }
 
     void HeavyComboHandler()
     {
-        if (validCombos.Contains(string.Join("", combo.GetRange(combo.Count - 3, 3))))
+        switch (string.Join("", combo.GetRange(combo.Count - 3, 3)))
         {
-            if(string.Join("", combo.GetRange(combo.Count - 3, 3)) == "HHH")
-            {
-                Debug.Log("Combo HHH Realizado");
-                combo.Clear();
-                StartCoroutine(HHHCombo());
-            }
-            else if(string.Join("", combo.GetRange(combo.Count - 3, 3)) == "LLH")
-            {
+            case "LLH":
                 Debug.Log("Combo LLH Realizado");
                 combo.Clear();
                 StartCoroutine(LLHCombo());
-            }
-        }
-        else
-        {
-            Debug.Log("Combo invalido" + string.Join("", combo.GetRange(combo.Count - 3, 3)));
-            combo.Clear();
+                break;
+            case "HHH":
+                Debug.Log("Combo HHH Realizado");
+                combo.Clear();
+                StartCoroutine(HHHCombo());
+                break;
+            default:
+                Debug.Log("Combo invalido" + string.Join("", combo.GetRange(combo.Count - 3, 3)));
+                combo.Clear();
+                break;
         }
     }
 
@@ -186,7 +187,7 @@ public class PlayableCharacter : Character {
                 combo.Clear();
             }
 
-            else if (combo.Count == 3 && !isAttacking)
+            else if (combo.Count == 3 && !isAttacking && validLightCombos.Contains(string.Join("", combo.GetRange(combo.Count - 3, 3)))) // se o combo for valido e tiver 3 ataques
             {
                 LightComboHandler();
             }
@@ -210,7 +211,10 @@ public class PlayableCharacter : Character {
         combo.Add("L");
 
         //logica para calcular dano que o hit vai dar.
-        float damage = baseDamage;
+        //calcula se vai dar critico ou não
+        bool critical = Random.Range(0, 100) < criticalChance;
+        Debug.Log(critical);
+        float damage = baseAttackDamage * (critical? 2f : 1f);
 
         attackAnimationIndex = (attackAnimationIndex == 1) ? 2 : 1;
 
@@ -218,7 +222,7 @@ public class PlayableCharacter : Character {
         animator.SetInteger("attackAnimationIndex", attackAnimationIndex);
 
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
-        DealDamage(hitColliders, damage);
+        DealDamage(hitColliders, damage, critical);
 
         yield return new WaitForSeconds(0.3f);
 
@@ -241,7 +245,7 @@ public class PlayableCharacter : Character {
                 combo.Clear();
             }
 
-            else if (combo.Count == 3 && !isAttacking)
+            else if (combo.Count == 3 && !isAttacking && validHeavyCombos.Contains(string.Join("", combo.GetRange(combo.Count - 3, 3)))) // se o combo for valido e tiver 3 ataques
             {
                 HeavyComboHandler();
             }
@@ -266,7 +270,8 @@ public class PlayableCharacter : Character {
         combo.Add("H");
 
         //logica para calcular dano que o hit vai dar.
-        float damage = baseDamage * 2;
+        bool critical = Random.Range(0, 100) < criticalChance;
+        float damage = baseAttackDamage * 1.25f * (critical? 2f : 1f);
 
         attackAnimationIndex = (attackAnimationIndex == 1) ? 2 : 1;
 
@@ -274,7 +279,7 @@ public class PlayableCharacter : Character {
         animator.SetInteger("attackAnimationIndex", attackAnimationIndex);
 
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
-        DealDamage(hitColliders, damage, true);
+        DealDamage(hitColliders, damage, critical);
 
         yield return new WaitForSeconds(0.3f);
 
@@ -378,12 +383,13 @@ public class PlayableCharacter : Character {
         lastAttackTime = 0;
 
         //logica para calcular dano que o hit vai dar.
-        float damage = baseDamage * 3;
+        bool critical = Random.Range(0, 100) < criticalChance;
+        float damage = baseAttackDamage * 2 * (critical? 2f : 1f);
 
         animator.SetTrigger("LLLTrigger");
 
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
-        DealDamage(hitColliders, damage, false, new Vector3(1 * facingDirection,1,0), 1f);
+        DealDamage(hitColliders, damage, critical, new Vector3(1 * facingDirection,1,0), 1f);
 
         yield return new WaitForSeconds(0.3f);
 
@@ -406,7 +412,8 @@ public class PlayableCharacter : Character {
         lastAttackTime = 0;
 
         //logica para calcular dano que o hit vai dar.
-        float damage = baseDamage * 3;
+        bool critical = Random.Range(0, 100) < criticalChance;
+        float damage = baseAttackDamage * 2.5f * (critical? 2f : 1f);
 
         Debug.Log("Deu o combo LLH");
 
@@ -415,7 +422,7 @@ public class PlayableCharacter : Character {
         Debug.Log("Terminou de girar");
 
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
-        DealDamage(hitColliders, damage, false, new Vector3(0,1,-1), 4f);
+        DealDamage(hitColliders, damage, critical, new Vector3(0,1,-1), 4f);
 
         yield return new WaitForSeconds(0.3f);
 
@@ -438,12 +445,13 @@ public class PlayableCharacter : Character {
         lastAttackTime = 0;
 
         //logica para calcular dano que o hit vai dar.
-        float damage = baseDamage * 6;
+        bool critical = Random.Range(0, 100) < criticalChance;
+        float damage = baseAttackDamage * 2.5f * (critical? 2f : 1f);
 
         animator.SetTrigger("HHHTrigger");
 
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
-        DealDamage(hitColliders, damage, false, new Vector3(1 * facingDirection,.5f,0), 4);
+        DealDamage(hitColliders, damage, critical, new Vector3(1 * facingDirection,.5f,0), 4);
 
         yield return new WaitForSeconds(0.3f);
 
@@ -566,6 +574,61 @@ void ApplyMovement()
     {
         currentHealth += amount;
         if (currentHealth > maxHealth) currentHealth = maxHealth;
+    }
+
+    public IEnumerator BuffMaxHealth(float amount, bool overrideStat = false, float time = 0)
+    {
+        if (overrideStat) maxHealth = amount;
+        else maxHealth += amount;
+
+        yield return new WaitForSeconds(time);
+
+        if (overrideStat) maxHealth = baseMaxHealth;
+        else maxHealth -= amount;
+    }
+
+    public IEnumerator BuffAttackDamage(float amount, bool overrideStat = false, float time = 0)
+    {
+        if (overrideStat) attackDamage = amount;
+        else attackDamage += amount;
+
+        yield return new WaitForSeconds(time);
+
+        if (overrideStat) attackDamage = baseAttackDamage;
+        else attackDamage -= amount;
+    }
+
+    public IEnumerator BuffCriticalChance(float amount, bool overrideStat = false, float time = 0)
+    {
+        if (overrideStat) criticalChance = amount;
+        else criticalChance += amount;
+
+        yield return new WaitForSeconds(time);
+
+        if (overrideStat) criticalChance = baseCriticalChance;
+        else criticalChance -= amount;
+    }
+
+    public IEnumerator BuffMoveSpeed(float amount, bool overrideStat = false, float time = 0)
+    {
+        if (overrideStat) moveSpeed = amount;
+        else moveSpeed += amount;
+
+        yield return new WaitForSeconds(time);
+
+        if (overrideStat) moveSpeed = baseMoveSpeed;
+        else moveSpeed -= amount;
+    }
+
+    public IEnumerator BuffJumpForce(float amount, bool overrideStat = false, float time = 0)
+    {
+        if (overrideStat) jumpForce = amount;
+        else jumpForce += amount;
+
+        yield return new WaitForSeconds(time);
+
+        if (overrideStat) jumpForce = baseJumpForce;
+        else jumpForce -= amount;
     }
 
     private void HandleLevel()

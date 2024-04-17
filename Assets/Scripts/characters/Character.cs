@@ -19,24 +19,29 @@ public class Character : MonoBehaviour {
     }
 
     [Header("Character Stats")]
-    [SerializeField] protected float maxHealth;
+    [SerializeField] protected float baseMaxHealth;
+    protected float maxHealth;
     public float MaxHealth { get { return maxHealth; } }
     protected float currentHealth;
-    public float CurrentHealth {
-        get { return currentHealth; } 
-        set { if (value > maxHealth) currentHealth = maxHealth;
-        else if (value < 0) currentHealth = 0; 
-        else currentHealth = value; }
-        }
-
-    [SerializeField] protected bool invincible;
-    protected bool fallDamage;
-    [SerializeField] protected bool fallDamageEnabled;
-    [SerializeField] protected float baseDamage;
+    public float CurrentHealth { get { return currentHealth; } }
+    [SerializeField] protected float baseAttackDamage;
+    protected float attackDamage;
+    public float AttackDamage { get { return attackDamage; } }
+    [SerializeField] protected float baseCriticalChance;
+    protected float criticalChance;
+    public float CriticalChance { get { return criticalChance; } }
     [SerializeField] protected float baseMoveSpeed;
     protected float moveSpeed;
-    [SerializeField] protected float jumpForce;
+    public float MoveSpeed { get { return moveSpeed; } }
+    [SerializeField] protected float baseJumpForce;
+    protected float jumpForce;
+    public float JumpForce { get { return jumpForce; } }
 
+
+    [Header("Character Behaviour")]
+    protected bool invincible;
+    protected bool fallDamage;
+    [SerializeField] protected bool fallDamageEnabled;
     [SerializeField] float raycastDistance;
     [SerializeField] private Vector3 raycastOffset;
     [SerializeField] private LayerMask groundLayer;
