@@ -45,7 +45,7 @@ public class PlayableCharacter : Character {
     [Header("Combat")]
     private List<string> combo = new List<string>();
     private List<string> validLightCombos = new List<string>() {"LLL"};
-    private List<string> validHeavyCombos = new List<string>() {"HHH", "LLH"};
+    private List<string> validHeavyCombos = new List<string>() {"HHH", "LLH", "LLL"};
     public List<string> Combo { get { return combo; } }
     private float lastAttackTime;
     [SerializeField] private bool friendlyFire;
@@ -125,7 +125,7 @@ public class PlayableCharacter : Character {
     {
         lastAttackTime += Time.deltaTime;
 
-        if (lastAttackTime > 3)
+        if (lastAttackTime > 1.5f)
         {
             fighting = false;
             combo.Clear();
@@ -144,9 +144,9 @@ public class PlayableCharacter : Character {
         switch (string.Join("", combo.GetRange(combo.Count - 3, 3)))
         {
             case "LLL":
-                Debug.Log("Combo LLL Realizado");
+                Debug.Log("Combo LLLL Realizado");
                 combo.Clear();
-                StartCoroutine(LLLCombo());
+                StartCoroutine(LLLLCombo());
                 break;
             default:
                 Debug.Log("Combo invalido" + string.Join("", combo.GetRange(combo.Count - 3, 3)));
@@ -160,14 +160,20 @@ public class PlayableCharacter : Character {
         switch (string.Join("", combo.GetRange(combo.Count - 3, 3)))
         {
             case "LLH":
-                Debug.Log("Combo LLH Realizado");
+                Debug.Log("Combo LLHH Realizado");
                 combo.Clear();
-                StartCoroutine(LLHCombo());
+                StartCoroutine(LLHHCombo());
                 break;
             case "HHH":
-                Debug.Log("Combo HHH Realizado");
+                Debug.Log("Combo HHHH Realizado");
                 combo.Clear();
-                StartCoroutine(HHHCombo());
+                StartCoroutine(HHHHCombo());
+                break;
+
+            case "LLL":
+                Debug.Log("Combo LLLH Realizado");
+                combo.Clear();
+                StartCoroutine(LLLHCombo());
                 break;
             default:
                 Debug.Log("Combo invalido" + string.Join("", combo.GetRange(combo.Count - 3, 3)));
@@ -372,7 +378,7 @@ public class PlayableCharacter : Character {
         moveSpeed = baseMoveSpeed;
     }
 
-    IEnumerator LLLCombo()
+    IEnumerator LLLLCombo()
     {
         canLightAttack = false;
         isMovingAllowed = false;
@@ -401,7 +407,40 @@ public class PlayableCharacter : Character {
         canLightAttack = true;
     }
 
-    IEnumerator LLHCombo()
+    IEnumerator LLLHCombo()
+    {
+        canHeavyAttack = false;
+        isMovingAllowed = false;
+        rb.velocity = new Vector3(0, rb.velocity.y, 0);
+        if (!isAttacking) isAttacking = true;
+        if (!fighting) fighting = true;
+
+        lastAttackTime = 0;
+
+        //logica para calcular dano que o hit vai dar.
+        bool critical = Random.Range(0, 100) < criticalChance;
+        float damage = baseAttackDamage * 2.5f * (critical? 2f : 1f);
+
+        Debug.Log("Deu o combo LLH");
+
+        yield return new WaitForSeconds(0.27f);
+
+        Debug.Log("Terminou de girar");
+
+        Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
+        DealDamage(hitColliders, damage, critical, new Vector3(0,1,1), 2.5f);
+
+        yield return new WaitForSeconds(0.3f);
+
+        isMovingAllowed = true;
+        isAttacking = false;
+
+        yield return new WaitForSeconds(heavyAttackCD);
+
+        canHeavyAttack = true;
+    }
+
+    IEnumerator LLHHCombo()
     {
         canHeavyAttack = false;
         isMovingAllowed = false;
@@ -434,7 +473,7 @@ public class PlayableCharacter : Character {
         canHeavyAttack = true;
     }
 
-    IEnumerator HHHCombo()
+    IEnumerator HHHHCombo()
     {
         canHeavyAttack = false;
         isMovingAllowed = false;
