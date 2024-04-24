@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class pombo1 : MonoBehaviour
+public class Pigeon : Enemy
 {
     private Vector3 playerDirection;
 
@@ -17,7 +17,6 @@ public class pombo1 : MonoBehaviour
     private Rigidbody pigeonRB;
     private SpriteRenderer pigeonSR;
     private BoxCollider pigeonCOL;
-    private enemyCombat pigeonCombat;
     private Animator pigeonAnimator;
     private LayerMask groundLayer;
 
@@ -53,7 +52,6 @@ public class pombo1 : MonoBehaviour
         playerLayer = LayerMask.GetMask("Player");
         pigeonRB = GetComponent<Rigidbody>();
         pigeonCOL = GetComponent<BoxCollider>();
-        pigeonCombat = GetComponent<enemyCombat>();
         pigeonSR = GetComponent<SpriteRenderer>();
         pigeonAnimator = GetComponent<Animator>();
 
@@ -86,8 +84,6 @@ public class pombo1 : MonoBehaviour
                 playerInAttackRange = false;
             }
         }
-
-        Limit();
     }
 
     private void FixedUpdate()
@@ -133,27 +129,6 @@ public class pombo1 : MonoBehaviour
     private void FollowPlayer()
     {
         pigeonRB.velocity = new Vector3(playerDirection.x * moveSpeed, pigeonRB.velocity.y, playerDirection.z * moveSpeed);
-    }
-
-    private void FlipSprite()
-    {
-        if(pigeonRB.velocity.x > 0)
-        {
-            pigeonSR.flipX = false;
-            pigeonSpriteDirection = 1;
-        }
-
-        else if(pigeonRB.velocity.x < 0)
-        {
-            pigeonSR.flipX = true;
-            pigeonSpriteDirection = -1;
-        }
-    }
-
-    private void Limit()
-    {
-        if (transform.position.z >= 2.5f) transform.position = new Vector3(transform.position.x, transform.position.y, 2.5f);
-        if (transform.position.z <= -2.5f) transform.position = new Vector3(transform.position.x, transform.position.y, -2.5f);
     }
 
     private void OnDrawGizmos()

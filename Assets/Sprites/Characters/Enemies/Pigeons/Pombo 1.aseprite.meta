@@ -121,15 +121,15 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Pombo 1_Frame_0
     originalName: 
-    pivot: {x: 0.5344828, y: 0}
+    pivot: {x: 0.5319149, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 88
-      y: 144
-      width: 58
-      height: 66
+      x: 83
+      y: 196
+      width: 47
+      height: 53
     spriteID: 075feee334ca3f54da720358b3454fb1
     spriteBone: []
     spriteOutline: []
@@ -138,7 +138,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 88, y: 144}
+    uvTransform: {x: 83, y: 196}
   - name: Pombo 1_Frame_1
     originalName: 
     pivot: {x: 0.45070425, y: -0.058823533}
@@ -147,7 +147,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 157
+      y: 4
       width: 71
       height: 68
     spriteID: 4b4d5bf89fc035e4999ec08040ccda7d
@@ -158,7 +158,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 157}
+    uvTransform: {x: 4, y: 4}
   - name: Pombo 1_Frame_2
     originalName: 
     pivot: {x: 0.5344828, y: 0}
@@ -166,8 +166,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 88
-      y: 68
+      x: 4
+      y: 80
       width: 58
       height: 68
     spriteID: 512afbfb2fd271c4ea5bd203f63d93b0
@@ -178,7 +178,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 88, y: 68}
+    uvTransform: {x: 4, y: 80}
   - name: Pombo 1_Frame_3
     originalName: 
     pivot: {x: 0.47368422, y: 0}
@@ -186,10 +186,10 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
+      x: 83
       y: 4
       width: 76
-      height: 73
+      height: 56
     spriteID: 5a7267d76a093d44f9b17fc4837d5799
     spriteBone: []
     spriteOutline: []
@@ -198,7 +198,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
+    uvTransform: {x: 83, y: 4}
   - name: Pombo 1_Frame_4
     originalName: 
     pivot: {x: 0.47368422, y: 0}
@@ -206,10 +206,10 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 85
+      x: 83
+      y: 68
       width: 76
-      height: 64
+      height: 56
     spriteID: 6231f9f8b38181849b37c675e4380001
     spriteBone: []
     spriteOutline: []
@@ -218,7 +218,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 85}
+    uvTransform: {x: 83, y: 68}
   - name: Pombo 1_Frame_5
     originalName: 
     pivot: {x: 0.47368422, y: 0}
@@ -226,8 +226,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 88
-      y: 4
+      x: 83
+      y: 132
       width: 76
       height: 56
     spriteID: 28c055d466b56144fab79438a2a71e04
@@ -238,7 +238,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 88, y: 4}
+    uvTransform: {x: 83, y: 132}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -251,10 +251,10 @@ ScriptedImporter:
     - name: Pombo 1_Frame_0
       frameIndex: 0
       cellRect:
-        x: 9
+        x: 15
         y: 0
-        width: 58
-        height: 66
+        width: 47
+        height: 53
       spriteId: 075feee334ca3f54da720358b3454fb1
     - name: Pombo 1_Frame_1
       frameIndex: 1
@@ -278,7 +278,7 @@ ScriptedImporter:
         x: 4
         y: 0
         width: 76
-        height: 73
+        height: 56
       spriteId: 5a7267d76a093d44f9b17fc4837d5799
     - name: Pombo 1_Frame_4
       frameIndex: 4
@@ -286,7 +286,7 @@ ScriptedImporter:
         x: 4
         y: 0
         width: 76
-        height: 64
+        height: 56
       spriteId: 6231f9f8b38181849b37c675e4380001
     - name: Pombo 1_Frame_5
       frameIndex: 5

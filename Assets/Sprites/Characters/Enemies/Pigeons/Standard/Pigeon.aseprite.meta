@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f2c161251a0991e4cbc4622a17067533
+guid: b1aece7891e6c9545ab6d2af6d7a3006
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,18 +119,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Pombo 4_Frame_0
+  - name: Pigeon_Frame_0
     originalName: 
-    pivot: {x: 0.5344828, y: 0}
+    pivot: {x: 0.5319149, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 88
-      y: 144
-      width: 58
-      height: 66
-    spriteID: 442cc516e499e2a45a0e4a921402b5ca
+      x: 83
+      y: 196
+      width: 47
+      height: 53
+    spriteID: c373673f89ab6f14db31dbb856a6cdf3
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -138,8 +138,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 88, y: 144}
-  - name: Pombo 4_Frame_1
+    uvTransform: {x: 83, y: 196}
+  - name: Pigeon_Frame_1
     originalName: 
     pivot: {x: 0.45070425, y: -0.058823533}
     alignment: 9
@@ -147,50 +147,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 157
+      y: 4
       width: 71
       height: 68
-    spriteID: 40d768e6f1978764f8a2958ca4379cdd
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 157}
-  - name: Pombo 4_Frame_2
-    originalName: 
-    pivot: {x: 0.5344828, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 88
-      y: 68
-      width: 58
-      height: 68
-    spriteID: 3ce4b819f4a801d42b2f8ee215f82cb9
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 88, y: 68}
-  - name: Pombo 4_Frame_3
-    originalName: 
-    pivot: {x: 0.47368422, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 4
-      width: 76
-      height: 73
-    spriteID: 83df21b99221a9c49b592db264cbb1ae
+    spriteID: 6f0d956891d1fab4a97575a8a804e15c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -199,18 +159,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: Pombo 4_Frame_4
+  - name: Pigeon_Frame_2
     originalName: 
-    pivot: {x: 0.47368422, y: 0}
+    pivot: {x: 0.5344828, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 85
-      width: 76
-      height: 64
-    spriteID: 781ec1301aa2337499a08c04e127eb4f
+      y: 80
+      width: 58
+      height: 68
+    spriteID: d149b5c2d33e36b458caee80faa2e5bb
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -218,19 +178,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 85}
-  - name: Pombo 4_Frame_5
+    uvTransform: {x: 4, y: 80}
+  - name: Pigeon_Frame_3
     originalName: 
     pivot: {x: 0.47368422, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 88
+      x: 83
       y: 4
       width: 76
       height: 56
-    spriteID: 76b9038bfea90254293b7e20c5739676
+    spriteID: 6bada88fd15050b41b5643eb553dbdb2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -238,64 +198,104 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 88, y: 4}
+    uvTransform: {x: 83, y: 4}
+  - name: Pigeon_Frame_4
+    originalName: 
+    pivot: {x: 0.47368422, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 83
+      y: 68
+      width: 76
+      height: 56
+    spriteID: 70469b8a3a344d44ca018207d3a0925d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 83, y: 68}
+  - name: Pigeon_Frame_5
+    originalName: 
+    pivot: {x: 0.47368422, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 83
+      y: 132
+      width: 76
+      height: 56
+    spriteID: e5d10f3992fa4e745bab4528124eddc8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 83, y: 132}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -2047650001
-    name: Pombo 4
+    guid: -1217101632
+    name: Pigeon
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Pombo 4_Frame_0
+    - name: Pigeon_Frame_0
       frameIndex: 0
       cellRect:
-        x: 9
+        x: 15
         y: 0
-        width: 58
-        height: 66
-      spriteId: 442cc516e499e2a45a0e4a921402b5ca
-    - name: Pombo 4_Frame_1
+        width: 47
+        height: 53
+      spriteId: c373673f89ab6f14db31dbb856a6cdf3
+    - name: Pigeon_Frame_1
       frameIndex: 1
       cellRect:
         x: 8
         y: 4
         width: 71
         height: 68
-      spriteId: 40d768e6f1978764f8a2958ca4379cdd
-    - name: Pombo 4_Frame_2
+      spriteId: 6f0d956891d1fab4a97575a8a804e15c
+    - name: Pigeon_Frame_2
       frameIndex: 2
       cellRect:
         x: 9
         y: 0
         width: 58
         height: 68
-      spriteId: 3ce4b819f4a801d42b2f8ee215f82cb9
-    - name: Pombo 4_Frame_3
+      spriteId: d149b5c2d33e36b458caee80faa2e5bb
+    - name: Pigeon_Frame_3
       frameIndex: 3
       cellRect:
         x: 4
         y: 0
         width: 76
-        height: 73
-      spriteId: 83df21b99221a9c49b592db264cbb1ae
-    - name: Pombo 4_Frame_4
+        height: 56
+      spriteId: 6bada88fd15050b41b5643eb553dbdb2
+    - name: Pigeon_Frame_4
       frameIndex: 4
       cellRect:
         x: 4
         y: 0
         width: 76
-        height: 64
-      spriteId: 781ec1301aa2337499a08c04e127eb4f
-    - name: Pombo 4_Frame_5
+        height: 56
+      spriteId: 70469b8a3a344d44ca018207d3a0925d
+    - name: Pigeon_Frame_5
       frameIndex: 5
       cellRect:
         x: 4
         y: 0
         width: 76
         height: 56
-      spriteId: 76b9038bfea90254293b7e20c5739676
+      spriteId: e5d10f3992fa4e745bab4528124eddc8
     linkedCells: []
     parentIndex: -1
   platformSettings: []

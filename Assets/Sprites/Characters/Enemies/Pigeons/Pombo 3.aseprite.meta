@@ -130,7 +130,7 @@ ScriptedImporter:
       y: 144
       width: 58
       height: 66
-    spriteID: 9fc551ebc17841c4cbe1e69516085fd6
+    spriteID: 1d92dd5c9bfeda248a4e0a69c38b8cfd
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -150,7 +150,7 @@ ScriptedImporter:
       y: 157
       width: 71
       height: 68
-    spriteID: 418577a31723058409aea037e2802677
+    spriteID: d7ac30e42c716a34eaa615b890aa6d15
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -170,7 +170,7 @@ ScriptedImporter:
       y: 68
       width: 58
       height: 68
-    spriteID: 68739b96106be0e41ab3f12f3551dd33
+    spriteID: 7b26290bb8d26c541b1e1fd65cd7f63e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -190,7 +190,7 @@ ScriptedImporter:
       y: 4
       width: 76
       height: 73
-    spriteID: b0b84d4954351a04da94ffe36db3f97b
+    spriteID: e2f469f49fa01d34f9e9b3d020aace9a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -210,7 +210,7 @@ ScriptedImporter:
       y: 85
       width: 76
       height: 64
-    spriteID: 5fe8382e4fd844e4ab7dd715f81e9426
+    spriteID: 150fedee2b8608b47b4a6f74cf7eebb2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -230,7 +230,7 @@ ScriptedImporter:
       y: 4
       width: 76
       height: 56
-    spriteID: 3316961a1101b744db066fce64a21915
+    spriteID: 09bec4b1676ac13419018fb5d649a76c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -255,7 +255,7 @@ ScriptedImporter:
         y: 0
         width: 58
         height: 66
-      spriteId: 9fc551ebc17841c4cbe1e69516085fd6
+      spriteId: 1d92dd5c9bfeda248a4e0a69c38b8cfd
     - name: Pombo 3_Frame_1
       frameIndex: 1
       cellRect:
@@ -263,7 +263,7 @@ ScriptedImporter:
         y: 4
         width: 71
         height: 68
-      spriteId: 418577a31723058409aea037e2802677
+      spriteId: d7ac30e42c716a34eaa615b890aa6d15
     - name: Pombo 3_Frame_2
       frameIndex: 2
       cellRect:
@@ -271,7 +271,7 @@ ScriptedImporter:
         y: 0
         width: 58
         height: 68
-      spriteId: 68739b96106be0e41ab3f12f3551dd33
+      spriteId: 7b26290bb8d26c541b1e1fd65cd7f63e
     - name: Pombo 3_Frame_3
       frameIndex: 3
       cellRect:
@@ -279,7 +279,7 @@ ScriptedImporter:
         y: 0
         width: 76
         height: 73
-      spriteId: b0b84d4954351a04da94ffe36db3f97b
+      spriteId: e2f469f49fa01d34f9e9b3d020aace9a
     - name: Pombo 3_Frame_4
       frameIndex: 4
       cellRect:
@@ -287,7 +287,7 @@ ScriptedImporter:
         y: 0
         width: 76
         height: 64
-      spriteId: 5fe8382e4fd844e4ab7dd715f81e9426
+      spriteId: 150fedee2b8608b47b4a6f74cf7eebb2
     - name: Pombo 3_Frame_5
       frameIndex: 5
       cellRect:
@@ -295,7 +295,7 @@ ScriptedImporter:
         y: 0
         width: 76
         height: 56
-      spriteId: 3316961a1101b744db066fce64a21915
+      spriteId: 09bec4b1676ac13419018fb5d649a76c
     linkedCells: []
     parentIndex: -1
   platformSettings: []
