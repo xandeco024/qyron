@@ -1,149 +1,56 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Pigeon : Enemy
 {
-    private Vector3 playerDirection;
+    //[Header("Livre arbitrio falso")]
 
-    [Header("Pigeon")]
-    [SerializeField] private float pigeonDamage;
-    [SerializeField] private float moveSpeed;
-    [SerializeField] private float attackCD;
- 
-    [Header("Components")]
-    private GameObject qyron;
-    private qyronCombat qyronCombat;
-    private Rigidbody pigeonRB;
-    private SpriteRenderer pigeonSR;
-    private BoxCollider pigeonCOL;
-    private Animator pigeonAnimator;
-    private LayerMask groundLayer;
-
-    [Header("State")]
-    private bool playerInAttackRange = false;
-    private bool isFollowing;
-    private bool isAttacking;
-    private bool wasHit;
-    private bool isGrounded;
-
-    [Header("Combat Hitbox")]
-    [SerializeField] Vector3 CombatRaycastSize;
-    [SerializeField] Vector3 CombatBoxOffset;
-    [SerializeField] bool pigeonHitCollision;
-    private LayerMask playerLayer;
-    private int pigeonSpriteDirection = 1;
-
-    [Header("Livre arbitrio falso")]
-    private Vector3 destination;
-    private float idleTime;
-    private float startIdleTime;
-    private float moveTime;
-    private float startMoveTime;
-    private bool isIdle;
-    private bool isMoving;
+    void Awake()
+    {
+        GetComponentsOnCharacter();
+    }
 
     void Start()
     {
-        qyron = GameObject.FindWithTag("Player");
-        qyronCombat = qyron.GetComponent<qyronCombat>();
-            
-        groundLayer = LayerMask.GetMask("Ground");
-        playerLayer = LayerMask.GetMask("Player");
-        pigeonRB = GetComponent<Rigidbody>();
-        pigeonCOL = GetComponent<BoxCollider>();
-        pigeonSR = GetComponent<SpriteRenderer>();
-        pigeonAnimator = GetComponent<Animator>();
+        players = FindObjectsOfType<PlayableCharacter>();
 
-        Physics.IgnoreCollision(pigeonCOL, qyron.GetComponent<BoxCollider>());
+        SetStats();
+
     }
 
     void Update()
     {
-        pigeonHitCollision = Physics.CheckBox(transform.position + CombatBoxOffset * pigeonSpriteDirection, CombatRaycastSize / 2, transform.rotation, playerLayer);
-
-        playerDirection = (qyron.transform.position - transform.position).normalized;
-
-        if(!pigeonCombat.isTakingDamage && pigeonCombat.enemyHealth > 1)
+        FlipSprite();
+        
+        if(currentHealth <= 0)
         {
-            FlipSprite();
+            Die();
+        }
 
-            if(pigeonHitCollision)
-            {
-                playerInAttackRange = true;
-                
-                if(!isAttacking)
-                {
-                    StartCoroutine (Attack());
-                }
-            }
+        if(Searching)
+        {
+            SearchingForTarget();
+        }
 
-            else
-
-            {
-                playerInAttackRange = false;
-            }
+        if(Following)
+        {
+            FollowTarget();
         }
     }
 
     private void FixedUpdate()
     {
-        if(!pigeonCombat.isTakingDamage && !playerInAttackRange)
-        {
-            if(Vector3.Distance(transform.position, qyron.transform.position) <= 5)
-            {
-                FollowPlayer();
-            }
-        }
+        LimitZ();
     }
 
-    /*private void FreeMove()
+    override protected void SearchingForTarget()
     {
-        if(!playerInAttackRange)
-        {
-            if(transform.position == destination)
-            {
-                isIdle = true;
-            }
-        }
-    }*/
+        base.SearchingForTarget();
 
-    private IEnumerator Attack()
-    {
-        Debug.Log("#carregando"); 
-        isAttacking = true;
-        pigeonAnimator.SetTrigger("Attack");
-
-        if(playerInAttackRange)
-        {
-            StartCoroutine(qyronCombat.TakeDamage(pigeonDamage, true, new Vector3(1, 1, 0)));
-        }
-
-        yield return new WaitForSeconds(.1f);
-        Debug.Log("#atacando");
-
-        yield return new WaitForSeconds(attackCD);
-        isAttacking = false;
-    }
-
-    private void FollowPlayer()
-    {
-        pigeonRB.velocity = new Vector3(playerDirection.x * moveSpeed, pigeonRB.velocity.y, playerDirection.z * moveSpeed);
+        animator.SetBool("Moving", moving);
     }
 
     private void OnDrawGizmos()
     {
-        if (pigeonHitCollision)
-        {
-            Gizmos.color = Color.red;
-        }
 
-        else
-
-        {
-            Gizmos.color = Color.yellow;
-        }
-
-        Gizmos.DrawWireCube(transform.position + CombatBoxOffset * pigeonSpriteDirection, CombatRaycastSize);
     }
 }

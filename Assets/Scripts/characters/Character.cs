@@ -37,6 +37,16 @@ public class Character : MonoBehaviour {
     protected float jumpForce;
     public float JumpForce { get { return jumpForce; } }
 
+    protected void SetStats()
+    {
+        maxHealth = baseMaxHealth;
+        currentHealth = maxHealth;
+        attackDamage = baseAttackDamage;
+        criticalChance = baseCriticalChance;
+        moveSpeed = baseMoveSpeed;
+        jumpForce = baseJumpForce;
+    }
+
 
     [Header("Character Behaviour")]
     protected bool invincible;

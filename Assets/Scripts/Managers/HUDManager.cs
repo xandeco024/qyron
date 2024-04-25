@@ -24,11 +24,10 @@ public class HUDManager : MonoBehaviour
 
     [Header("Players Stats")]
     private PlayableCharacter[] players = new PlayableCharacter[4];
-    private PlayableCharacter[] foundPlayers;
 
     void Start()
     {
-        foundPlayers = FindObjectsOfType<PlayableCharacter>();
+        PlayableCharacter[] foundPlayers;foundPlayers = FindObjectsOfType<PlayableCharacter>();
 
         for (int i = 0; i < players.Length; i++)
         {

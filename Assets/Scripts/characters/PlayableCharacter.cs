@@ -80,12 +80,7 @@ public class PlayableCharacter : Character {
 
     void Start()
     {
-        maxHealth = baseMaxHealth;
-        currentHealth = maxHealth;
-        moveSpeed = baseMoveSpeed;
-        attackDamage = baseAttackDamage;
-        criticalChance = baseCriticalChance;
-        jumpForce = baseJumpForce;
+        SetStats();
     }   
 
     void Update()
