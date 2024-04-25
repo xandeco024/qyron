@@ -5,10 +5,10 @@ public class Character : MonoBehaviour {
 
     [Header("Components")]
     [SerializeField] protected GameObject damageTextPrefab;
-    protected Rigidbody rb;
-    protected Animator animator;
-    protected SpriteRenderer sr;
-    protected BoxCollider bc;
+    public Rigidbody rb;
+    public Animator animator;
+    public SpriteRenderer sr;
+    public BoxCollider bc;
 
     protected virtual void GetComponentsOnCharacter()
     {
@@ -73,13 +73,13 @@ public class Character : MonoBehaviour {
 
     #region Movement
 
-    protected void LimitZ()
+    public void LimitZ()
     {
         if (transform.position.z >= 2.5f) transform.position = new Vector3(transform.position.x, transform.position.y, 2.5f);
         if (transform.position.z <= -2.5f) transform.position = new Vector3(transform.position.x, transform.position.y, -2.5f);
     }
 
-    protected void FlipSprite()
+    public void FlipSprite()
     {
         if (rb.velocity.x > 0.1f) 
         {

@@ -87,8 +87,10 @@ public class PlayableCharacter : Character {
     {
         if (currentHealth <= 0) 
         {
-            Die();
+            animator.SetBool("downed", true);
+            isMovingAllowed = false;
         }
+
         DetectGround();
         DebugHandler(); 
 
@@ -604,6 +606,13 @@ void ApplyMovement()
 
     #region ???
 
+    public void Revive()
+    {
+        currentHealth = maxHealth/4;
+        animator.SetBool("downed", false);
+        isMovingAllowed = true;
+    }
+
     public void Heal(float amount)
     {
         currentHealth += amount;
@@ -728,6 +737,12 @@ void ApplyMovement()
             {
                 Debug.Log("Adicionou 50 de experiencia");
                 AddExP(50);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha6))
+            {
+                Debug.Log("Reviveu");
+                Revive();
             }
         }
     }

@@ -3812,6 +3812,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageTextPrefab: {fileID: 8396298817394685240, guid: 912ee59ec9288fb408dbd0d7e199cc81, type: 3}
+  rb: {fileID: 0}
+  animator: {fileID: 0}
+  sr: {fileID: 0}
+  bc: {fileID: 0}
   baseMaxHealth: 10
   baseAttackDamage: 5
   baseCriticalChance: 15
@@ -13752,6 +13756,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageTextPrefab: {fileID: 8396298817394685240, guid: 912ee59ec9288fb408dbd0d7e199cc81, type: 3}
+  rb: {fileID: 0}
+  animator: {fileID: 0}
+  sr: {fileID: 0}
+  bc: {fileID: 0}
   baseMaxHealth: 0
   baseAttackDamage: 0
   baseCriticalChance: 0
@@ -41058,6 +41066,14 @@ PrefabInstance:
       value: Standard Pigeon
       objectReference: {fileID: 0}
     - target: {fileID: 1628338094675461508, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
+      propertyPath: attackRange
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628338094675461508, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
+      propertyPath: direction.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628338094675461508, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
       propertyPath: targetRange
       value: 4
       objectReference: {fileID: 0}
@@ -41068,6 +41084,22 @@ PrefabInstance:
     - target: {fileID: 1628338094675461508, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
       propertyPath: baseMoveSpeed
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628338094675461508, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
+      propertyPath: idleTimeRange.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628338094675461508, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
+      propertyPath: idleTimeRange.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628338094675461508, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
+      propertyPath: moveTimeRange.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628338094675461508, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
+      propertyPath: moveTimeRange.y
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2461838035692679688, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
       propertyPath: m_LocalPosition.x
