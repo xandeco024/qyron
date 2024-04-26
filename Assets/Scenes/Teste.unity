@@ -3827,8 +3827,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  isMovingAllowed: 1
-  grabbable: 0
+  Grabbable: 0
   debug: 1
   limitZ: 1
   maxJumps: 1
@@ -13771,8 +13770,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
-  isMovingAllowed: 1
-  grabbable: 1
+  Grabbable: 1
   damageTaken: 0
 --- !u!65 &747152915
 BoxCollider:
@@ -41066,6 +41064,18 @@ PrefabInstance:
       value: Standard Pigeon
       objectReference: {fileID: 0}
     - target: {fileID: 1628338094675461508, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
+      propertyPath: attackCD
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628338094675461508, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
+      propertyPath: Grabbable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628338094675461508, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
+      propertyPath: attackDelay
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628338094675461508, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
       propertyPath: attackRange
       value: 1.25
       objectReference: {fileID: 0}
@@ -41086,6 +41096,18 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1628338094675461508, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
+      propertyPath: combatBoxSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628338094675461508, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
+      propertyPath: combatBoxSize.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628338094675461508, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
+      propertyPath: combatBoxSize.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628338094675461508, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
       propertyPath: idleTimeRange.x
       value: 2
       objectReference: {fileID: 0}
@@ -41100,6 +41122,18 @@ PrefabInstance:
     - target: {fileID: 1628338094675461508, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
       propertyPath: moveTimeRange.y
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628338094675461508, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
+      propertyPath: combatBoxOffset.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628338094675461508, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
+      propertyPath: combatBoxOffset.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628338094675461508, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 2461838035692679688, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
       propertyPath: m_LocalPosition.x

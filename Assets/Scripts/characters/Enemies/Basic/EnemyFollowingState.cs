@@ -15,24 +15,25 @@ public class EnemyFollowingState : StateMachineBehaviour
     {
         target = enemy.Target;
 
-        if (target != null && Vector3.Distance(enemy.transform.position, target.transform.position) <= enemy.AttackRange)
+        if (target != null && enemy.IsMovingAllowed)
         {
-            animator.SetBool("following", false);
-            //animator.SetBool("Attacking", true);
-            Debug.Log("Deve atacar!");
-        }
-        else if (target != null)
-        {
-            Vector3 targetDirection = (target.transform.position - enemy.transform.position).normalized;
+            Vector3 targetDirection = (new Vector3(target.transform.position.x - enemy.FacingDirection, target.transform.position.y, target.transform.position.z) - enemy.transform.position).normalized;
             enemy.rb.velocity = new Vector3(targetDirection.x * enemy.MoveSpeed, enemy.rb.velocity.y, targetDirection.z * enemy.MoveSpeed);
+
+            enemy.LimitZ();
+            enemy.FlipHandler();
+
+            if (enemy.PlayerOnAttackRange() && enemy.CanAttack)
+            {
+                animator.SetBool("following", false);
+                animator.SetTrigger("attack");
+            }
+
         }
         else
         {
             animator.SetBool("following", false);
         }
-
-        enemy.LimitZ();
-        enemy.FlipSprite();
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

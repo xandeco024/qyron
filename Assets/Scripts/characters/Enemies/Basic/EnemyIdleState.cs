@@ -16,6 +16,9 @@ public class EnemyIdleState : StateMachineBehaviour
         target = enemy.Target;
         enemy.rb.velocity = Vector3.zero;
         idleTime = Random.Range(enemy.IdleTimeRange.x, enemy.IdleTimeRange.y);
+
+        //start idle animation on random frame
+
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -36,6 +39,7 @@ public class EnemyIdleState : StateMachineBehaviour
             animator.SetBool("freeWalk", false);
         }
 
+        enemy.FlipHandler();
         enemy.LimitZ();
     }
 

@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -11,8 +12,16 @@ public class Enemy : Character
 
 
     [Header("Attack")]
-    [SerializeField] protected float attackRange;
-    public float AttackRange { get => attackRange; }
+    protected bool canAttack = true;
+    public bool CanAttack { get => canAttack; }
+    [SerializeField] protected float attackDelay;
+    public float AttackDelay { get => attackDelay; }
+    [SerializeField] protected float attackCD;
+    public float AttackCD { get => attackCD; }
+    [SerializeField] protected Vector3 combatBoxSize;
+    public Vector3 CombatBoxSize { get => combatBoxSize; }
+    [SerializeField] protected Vector3 combatBoxOffset;
+    public Vector3 CombatBoxOffset { get => combatBoxOffset; }
 
 
     
@@ -25,17 +34,38 @@ public class Enemy : Character
     public Vector2 IdleTimeRange { get => idleTimeRange; }
 
 
-    
-    void Start()
+
+    public IEnumerator BasicAttack()
     {
-        GetComponentsOnCharacter();
-        SetStats();
-        players = FindObjectsOfType<PlayableCharacter>();
+        canAttack = false;
+        yield return new WaitForSeconds(attackDelay);
+
+        Collider[] colliders = Physics.OverlapBox(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.y), combatBoxSize / 2, transform.rotation);
+        foreach (Collider collider in colliders)
+        {
+            if (collider.GetComponent<PlayableCharacter>() != null)
+            {
+                collider.GetComponent<PlayableCharacter>().TakeDamage(attackDamage);
+            }
+        }
+
+        yield return new WaitForSeconds(attackCD);
+        canAttack = true;
     }
 
-    void Update()
+    public bool PlayerOnAttackRange()
     {
-        target = FindTargetOnRange(players, targetRange);
+        bool range = false;
+        Collider[] colliders = Physics.OverlapBox(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.y), combatBoxSize / 2, transform.rotation);
+        foreach (Collider collider in colliders)
+        {
+            if (collider.GetComponent<PlayableCharacter>() != null)
+            {
+                range = true;
+                break;
+            }
+        }
+        return range;
     }
 
     protected PlayableCharacter FindTargetOnRange(PlayableCharacter[] players, float range)
@@ -61,5 +91,12 @@ public class Enemy : Character
         }
 
         return target;
+    }
+
+    protected virtual void OnDrawGizmos()
+    {
+        //draw combat box
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.z), combatBoxSize);
     }
 }

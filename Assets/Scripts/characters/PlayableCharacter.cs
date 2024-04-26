@@ -339,7 +339,7 @@ public class PlayableCharacter : Character {
 
         foreach (Collider collider in hitColliders)
         {
-            if (collider.GetComponent<Character>() && collider.GetComponent<Character>() != this && collider.GetComponent<Character>().grabbable)
+            if (collider.GetComponent<Character>() && collider.GetComponent<Character>() != this && collider.GetComponent<Character>().IsGrabbable)
             {
                 combo.Add("G");
 
@@ -347,7 +347,7 @@ public class PlayableCharacter : Character {
 
                 grabbedCharacter.transform.position = transform.position + new Vector3(grabbedCharacterOffset.x * facingDirection, grabbedCharacterOffset.y, grabbedCharacterOffset.z);
                 grabbedCharacter.transform.SetParent(transform);
-                grabbedCharacter.SetGrabbed(true);
+                grabbedCharacter.SetGrabbed(true, facingDirection);
 
                 yield return new WaitForSeconds(3);
 
@@ -499,7 +499,7 @@ public class PlayableCharacter : Character {
         canHeavyAttack = true;
     }
 
-    public override void TakeDamage(float damage, bool critical = false, Vector3 knockbackDir = default, float knockbackForce = 0)
+    public override void TakeDamage(float damage, bool critical = false, Vector3 knockbackDir = default, float knockbackForce = 0, float knockbackDuration = .2f)
     {
         base.TakeDamage(damage, critical, knockbackDir, knockbackForce);
 

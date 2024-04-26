@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Pigeon : Enemy
@@ -13,8 +14,13 @@ public class Pigeon : Enemy
         SetStats();
     }
 
-    private void OnDrawGizmos()
+    void Update()
     {
+        target = FindTargetOnRange(players, targetRange);
+    }
 
+    override protected void OnDrawGizmos()
+    {
+        base.OnDrawGizmos();
     }
 }

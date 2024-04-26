@@ -63,9 +63,14 @@ public class Character : MonoBehaviour {
     
     public int FacingDirection { get { return facingDirection; } }
     protected int facingDirection = 1;
+    protected bool isMovingAllowed = true;
+    public bool IsMovingAllowed { get { return isMovingAllowed; } }
+    [SerializeField] protected bool Grabbable;
+    public bool IsGrabbable { get { return Grabbable; } }
+    protected bool isGrabbed;
+    public bool IsGrabbed { get { return isGrabbed; } }
 
-    public bool isMovingAllowed = true;
-    public bool grabbable;
+
 
     [Header("Animation")]
     protected bool isTakingDamage;
@@ -79,19 +84,29 @@ public class Character : MonoBehaviour {
         if (transform.position.z <= -2.5f) transform.position = new Vector3(transform.position.x, transform.position.y, -2.5f);
     }
 
-    public void FlipSprite()
+    public void Flip(bool right = false)
+    {
+        if (right)
+        {
+            facingDirection = 1;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else
+        {
+            facingDirection = -1;
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+    }
+
+    public void FlipHandler()
     {
         if (rb.velocity.x > 0.1f) 
         {
-            facingDirection = 1;
-            //sr.flipX = false;
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            Flip(true);
         }
         else if (rb.velocity.x < -0.1f) 
         {
-            facingDirection = -1;
-            //sr.flipX = true;
-            transform.rotation = Quaternion.Euler(0, 180, 0);
+            Flip(false);
         }
     }
 
@@ -122,7 +137,7 @@ public class Character : MonoBehaviour {
         }
     }
 
-    public virtual void TakeDamage(float damage, bool critical = false, Vector3 knockbackDir = default, float knockbackForce = 0)
+    public virtual void TakeDamage(float damage, bool critical = false, Vector3 knockbackDir = default, float knockbackForce = 0, float knockbackDuration = .2f)
     {
         StartCoroutine(FlashRed(2));
         currentHealth -= damage;
@@ -132,14 +147,19 @@ public class Character : MonoBehaviour {
 
         if (knockbackForce > 0)
         {
-            TakeKnockBack(knockbackDir, knockbackForce);
+            StartCoroutine(TakeKnockback(knockbackDir, knockbackForce,knockbackDuration));
         }
     }
 
-    protected void TakeKnockBack(Vector3 knockbackDir, float knockbackForce)
+
+    protected IEnumerator TakeKnockback(Vector3 knockbackDir, float knockbackForce, float duration)
     {
+        isMovingAllowed = false;
         rb.velocity = new Vector3(0, 0, 0);
         rb.AddForce(knockbackDir * knockbackForce, ForceMode.Impulse);
+        yield return new WaitForSeconds(duration);
+        rb.velocity = new Vector3(0, 0, 0);
+        isMovingAllowed = true;
     }
 
     protected void Die()
@@ -185,8 +205,10 @@ public class Character : MonoBehaviour {
         }
     }
 
-    public void SetGrabbed(bool grabbed)
+    public void SetGrabbed(bool grabbed, int facingDirection = 1)
     {
+        Flip(facingDirection == 1? false : true);
+        this.isGrabbed = grabbed;
         isMovingAllowed = !grabbed;
         bc.enabled = !grabbed;
         rb.isKinematic = grabbed;

@@ -39,7 +39,7 @@ public class EnemyFreeWalkState : StateMachineBehaviour
         }
 
         enemy.LimitZ();
-        enemy.FlipSprite();
+        enemy.Flip();
     }
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
