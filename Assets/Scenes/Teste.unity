@@ -41044,7 +41044,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7719896896258417734, guid: 463062c37ee40ef46ae264cb7228f3f3, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -41199,6 +41199,10 @@ PrefabInstance:
     - target: {fileID: 5410975031907401224, guid: 4a70c1b94e891f1488c12311f7261dba, type: 3}
       propertyPath: m_Name
       value: Mini Qyron PET
+      objectReference: {fileID: 0}
+    - target: {fileID: 5410975031907401224, guid: 4a70c1b94e891f1488c12311f7261dba, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6059337175289317696, guid: 4a70c1b94e891f1488c12311f7261dba, type: 3}
       propertyPath: m_LocalPosition.x

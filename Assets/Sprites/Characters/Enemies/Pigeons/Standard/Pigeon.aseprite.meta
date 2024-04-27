@@ -461,14 +461,14 @@ ScriptedImporter:
     uvTransform: {x: 139, y: 166}
   - name: Pigeon_Frame_18
     originalName: 
-    pivot: {x: 0.47540984, y: 0.06896552}
+    pivot: {x: 0.50793654, y: 0.1724138}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 188
       y: 4
-      width: 61
+      width: 63
       height: 29
     spriteID: 72f5ee9c41836084ebe14f2702d3db71
     spriteBone: []
@@ -727,9 +727,9 @@ ScriptedImporter:
     - name: Pigeon_Frame_18
       frameIndex: 18
       cellRect:
-        x: 11
-        y: -2
-        width: 61
+        x: 8
+        y: -5
+        width: 63
         height: 29
       spriteId: 72f5ee9c41836084ebe14f2702d3db71
     - name: Pigeon_Frame_19

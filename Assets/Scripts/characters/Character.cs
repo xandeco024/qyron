@@ -205,12 +205,12 @@ public class Character : MonoBehaviour {
         }
     }
 
-    public void SetGrabbed(bool grabbed, int facingDirection = 1)
+    public void SetGrabbed(bool grabbed)
     {
-        Flip(facingDirection == 1? false : true);
         this.isGrabbed = grabbed;
         isMovingAllowed = !grabbed;
         bc.enabled = !grabbed;
         rb.isKinematic = grabbed;
+        if (animator != null) animator.SetBool("grabbed", grabbed);
     }
 }

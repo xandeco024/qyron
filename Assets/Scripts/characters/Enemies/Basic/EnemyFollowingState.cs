@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyFollowingState : StateMachineBehaviour
 {
     Enemy enemy;
-    PlayableCharacter target;
+    PlayableCharacter target; 
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -17,9 +17,6 @@ public class EnemyFollowingState : StateMachineBehaviour
 
         if (target != null && enemy.IsMovingAllowed)
         {
-            Vector3 targetDirection = (new Vector3(target.transform.position.x - enemy.FacingDirection, target.transform.position.y, target.transform.position.z) - enemy.transform.position).normalized;
-            enemy.rb.velocity = new Vector3(targetDirection.x * enemy.MoveSpeed, enemy.rb.velocity.y, targetDirection.z * enemy.MoveSpeed);
-
             enemy.LimitZ();
             enemy.FlipHandler();
 
@@ -27,6 +24,12 @@ public class EnemyFollowingState : StateMachineBehaviour
             {
                 animator.SetBool("following", false);
                 animator.SetTrigger("attack");
+            }
+
+            else if (!enemy.PlayerOnAttackRange())
+            {
+                Vector3 targetDirection = (new Vector3(target.transform.position.x - enemy.FacingDirection, target.transform.position.y, target.transform.position.z) - enemy.transform.position).normalized;
+                enemy.rb.velocity = new Vector3(targetDirection.x * enemy.MoveSpeed, enemy.rb.velocity.y, targetDirection.z * enemy.MoveSpeed);
             }
 
         }

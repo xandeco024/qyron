@@ -347,7 +347,8 @@ public class PlayableCharacter : Character {
 
                 grabbedCharacter.transform.position = transform.position + new Vector3(grabbedCharacterOffset.x * facingDirection, grabbedCharacterOffset.y, grabbedCharacterOffset.z);
                 grabbedCharacter.transform.SetParent(transform);
-                grabbedCharacter.SetGrabbed(true, facingDirection);
+                grabbedCharacter.SetGrabbed(true);
+                grabbedCharacter.Flip(facingDirection == 1 ? false : true);
 
                 yield return new WaitForSeconds(3);
 
