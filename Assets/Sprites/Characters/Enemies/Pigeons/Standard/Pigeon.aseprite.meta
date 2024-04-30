@@ -126,8 +126,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 88
-      y: 334
+      x: 4
+      y: 144
       width: 41
       height: 47
     spriteID: c373673f89ab6f14db31dbb856a6cdf3
@@ -138,7 +138,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 88, y: 334}
+    uvTransform: {x: 4, y: 144}
   - name: Pigeon_Frame_1
     originalName: 
     pivot: {x: 0.5609756, y: 0}
@@ -146,8 +146,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 139
-      y: 4
+      x: 151
+      y: 144
       width: 41
       height: 46
     spriteID: 6f0d956891d1fab4a97575a8a804e15c
@@ -158,7 +158,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 139, y: 4}
+    uvTransform: {x: 151, y: 144}
   - name: Pigeon_Frame_2
     originalName: 
     pivot: {x: 0.5609756, y: 0}
@@ -166,8 +166,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 88
-      y: 389
+      x: 53
+      y: 144
       width: 41
       height: 47
     spriteID: d149b5c2d33e36b458caee80faa2e5bb
@@ -178,7 +178,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 88, y: 389}
+    uvTransform: {x: 53, y: 144}
   - name: Pigeon_Frame_3
     originalName: 
     pivot: {x: 0.5609756, y: 0}
@@ -186,8 +186,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 139
-      y: 58
+      x: 200
+      y: 144
       width: 41
       height: 46
     spriteID: 6bada88fd15050b41b5643eb553dbdb2
@@ -198,7 +198,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 139, y: 58}
+    uvTransform: {x: 200, y: 144}
   - name: Pigeon_Frame_4
     originalName: 
     pivot: {x: 0.44230768, y: 0}
@@ -206,8 +206,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 188
-      y: 41
+      x: 369
+      y: 144
       width: 52
       height: 29
     spriteID: 70469b8a3a344d44ca018207d3a0925d
@@ -218,7 +218,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 188, y: 41}
+    uvTransform: {x: 369, y: 144}
   - name: Pigeon_Frame_5
     originalName: 
     pivot: {x: 0.5609756, y: 0}
@@ -226,8 +226,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 139
-      y: 112
+      x: 249
+      y: 144
       width: 41
       height: 46
     spriteID: e5d10f3992fa4e745bab4528124eddc8
@@ -238,7 +238,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 139, y: 112}
+    uvTransform: {x: 249, y: 144}
   - name: Pigeon_Frame_6
     originalName: 
     pivot: {x: 0.5609756, y: 0}
@@ -246,8 +246,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 88
-      y: 444
+      x: 102
+      y: 144
       width: 41
       height: 47
     spriteID: 9659522a888a9b940bac066f8c61130b
@@ -258,7 +258,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 88, y: 444}
+    uvTransform: {x: 102, y: 144}
   - name: Pigeon_Frame_7
     originalName: 
     pivot: {x: 0.5555556, y: 0}
@@ -266,8 +266,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 446
+      x: 70
+      y: 68
       width: 45
       height: 46
     spriteID: 1c83568026a3dd347a0a33066958b38d
@@ -278,7 +278,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 446}
+    uvTransform: {x: 70, y: 68}
   - name: Pigeon_Frame_8
     originalName: 
     pivot: {x: 0.5555556, y: 0}
@@ -286,8 +286,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 336
+      x: 398
+      y: 4
       width: 45
       height: 47
     spriteID: f46c7d9c2638c3848a92798e54744066
@@ -298,7 +298,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 336}
+    uvTransform: {x: 398, y: 4}
   - name: Pigeon_Frame_9
     originalName: 
     pivot: {x: 0.5813954, y: 0}
@@ -306,8 +306,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 88
-      y: 4
+      x: 123
+      y: 68
       width: 43
       height: 47
     spriteID: 9c186a43a4809cf43a387c32a29b58f1
@@ -318,7 +318,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 88, y: 4}
+    uvTransform: {x: 123, y: 68}
   - name: Pigeon_Frame_10
     originalName: 
     pivot: {x: 0.5813954, y: 0}
@@ -326,8 +326,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 88
-      y: 114
+      x: 269
+      y: 68
       width: 43
       height: 46
     spriteID: 82905d67442a89e4580919edfefb7ccf
@@ -338,7 +338,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 88, y: 114}
+    uvTransform: {x: 269, y: 68}
   - name: Pigeon_Frame_11
     originalName: 
     pivot: {x: 0.5813954, y: 0}
@@ -346,8 +346,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 88
-      y: 59
+      x: 174
+      y: 68
       width: 43
       height: 47
     spriteID: 9db5ebc403497a54880e240f7019edda
@@ -358,7 +358,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 88, y: 59}
+    uvTransform: {x: 174, y: 68}
   - name: Pigeon_Frame_12
     originalName: 
     pivot: {x: 0.5813954, y: 0}
@@ -366,8 +366,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 88
-      y: 168
+      x: 320
+      y: 68
       width: 43
       height: 46
     spriteID: 6d1926606baa9824a9ed1513a2ae1ebf
@@ -378,7 +378,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 88, y: 168}
+    uvTransform: {x: 320, y: 68}
   - name: Pigeon_Frame_13
     originalName: 
     pivot: {x: 0.5555556, y: 0}
@@ -386,8 +386,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 391
+      x: 451
+      y: 4
       width: 45
       height: 47
     spriteID: 34b2dbd0a228f4f4a89aa906ce981c51
@@ -398,7 +398,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 391}
+    uvTransform: {x: 451, y: 4}
   - name: Pigeon_Frame_14
     originalName: 
     pivot: {x: 0.5609756, y: 0}
@@ -406,8 +406,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 88
-      y: 222
+      x: 371
+      y: 68
       width: 41
       height: 48
     spriteID: e4b023b11c90f9c4fa55e1da2e28a78d
@@ -418,7 +418,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 88, y: 222}
+    uvTransform: {x: 371, y: 68}
   - name: Pigeon_Frame_15
     originalName: 
     pivot: {x: 0.5609756, y: 0}
@@ -426,8 +426,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 88
-      y: 278
+      x: 420
+      y: 68
       width: 41
       height: 48
     spriteID: ba64343426d60e34984d10423aa8d212
@@ -438,7 +438,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 88, y: 278}
+    uvTransform: {x: 420, y: 68}
   - name: Pigeon_Frame_16
     originalName: 
     pivot: {x: 0.1724138, y: -0.14754097}
@@ -446,8 +446,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 139
-      y: 166
+      x: 469
+      y: 68
       width: 29
       height: 61
     spriteID: afb7a54916ee03946a993e62ebce2149
@@ -458,18 +458,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 139, y: 166}
+    uvTransform: {x: 469, y: 68}
   - name: Pigeon_Frame_18
     originalName: 
-    pivot: {x: 0.50793654, y: 0.1724138}
+    pivot: {x: 0.44444445, y: -0.16071428}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 188
-      y: 4
-      width: 63
-      height: 29
+      x: 225
+      y: 68
+      width: 36
+      height: 56
     spriteID: 72f5ee9c41836084ebe14f2702d3db71
     spriteBone: []
     spriteOutline: []
@@ -478,18 +478,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 188, y: 4}
+    uvTransform: {x: 225, y: 68}
   - name: Pigeon_Frame_19
     originalName: 
-    pivot: {x: 0.5344828, y: 0}
+    pivot: {x: 0.32, y: -0.25}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 260
-      width: 58
-      height: 68
+      x: 340
+      y: 4
+      width: 50
+      height: 52
     spriteID: 469e41e7d4f437a43b52cc07cb36e2f9
     spriteBone: []
     spriteOutline: []
@@ -498,18 +498,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 260}
+    uvTransform: {x: 340, y: 4}
   - name: Pigeon_Frame_20
     originalName: 
-    pivot: {x: 0.47368422, y: 0}
+    pivot: {x: 0.50793654, y: 0.1724138}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 4
-      width: 76
-      height: 56
+      x: 298
+      y: 144
+      width: 63
+      height: 29
     spriteID: f15d1271016f6d34786e43086a9443e0
     spriteBone: []
     spriteOutline: []
@@ -518,18 +518,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
+    uvTransform: {x: 298, y: 144}
   - name: Pigeon_Frame_21
     originalName: 
-    pivot: {x: 0.47368422, y: 0}
+    pivot: {x: 0.5344828, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 68
-      width: 76
-      height: 56
+      width: 58
+      height: 68
     spriteID: 9371a07338d78c64bb50ed0eaea98c36
     spriteBone: []
     spriteOutline: []
@@ -547,7 +547,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 132
+      y: 4
       width: 76
       height: 56
     spriteID: dee7c5a0facfb5b46bdb735b0db777c6
@@ -558,7 +558,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 132}
+    uvTransform: {x: 4, y: 4}
   - name: Pigeon_Frame_23
     originalName: 
     pivot: {x: 0.47368422, y: 0}
@@ -566,8 +566,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 196
+      x: 88
+      y: 4
       width: 76
       height: 56
     spriteID: 84a23d11413331c44a38837108363a96
@@ -578,7 +578,47 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 196}
+    uvTransform: {x: 88, y: 4}
+  - name: Pigeon_Frame_24
+    originalName: 
+    pivot: {x: 0.47368422, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 172
+      y: 4
+      width: 76
+      height: 56
+    spriteID: d69911238857f1143ac3ad23e7ef14a9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 172, y: 4}
+  - name: Pigeon_Frame_24
+    originalName: 
+    pivot: {x: 0.47368422, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 256
+      y: 4
+      width: 76
+      height: 56
+    spriteID: d55e389415ca1644fb46b1c570c9172c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 256, y: 4}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -724,30 +764,38 @@ ScriptedImporter:
         width: 29
         height: 61
       spriteId: afb7a54916ee03946a993e62ebce2149
+    - name: Pigeon_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 24
+        y: 9
+        width: 36
+        height: 56
+      spriteId: 72f5ee9c41836084ebe14f2702d3db71
     - name: Pigeon_Frame_18
       frameIndex: 18
+      cellRect:
+        x: 24
+        y: 13
+        width: 50
+        height: 52
+      spriteId: 469e41e7d4f437a43b52cc07cb36e2f9
+    - name: Pigeon_Frame_19
+      frameIndex: 19
       cellRect:
         x: 8
         y: -5
         width: 63
         height: 29
-      spriteId: 72f5ee9c41836084ebe14f2702d3db71
-    - name: Pigeon_Frame_19
-      frameIndex: 19
+      spriteId: f15d1271016f6d34786e43086a9443e0
+    - name: Pigeon_Frame_20
+      frameIndex: 20
       cellRect:
         x: 9
         y: 0
         width: 58
         height: 68
-      spriteId: 469e41e7d4f437a43b52cc07cb36e2f9
-    - name: Pigeon_Frame_20
-      frameIndex: 20
-      cellRect:
-        x: 4
-        y: 0
-        width: 76
-        height: 56
-      spriteId: f15d1271016f6d34786e43086a9443e0
+      spriteId: 9371a07338d78c64bb50ed0eaea98c36
     - name: Pigeon_Frame_21
       frameIndex: 21
       cellRect:
@@ -755,7 +803,7 @@ ScriptedImporter:
         y: 0
         width: 76
         height: 56
-      spriteId: 9371a07338d78c64bb50ed0eaea98c36
+      spriteId: dee7c5a0facfb5b46bdb735b0db777c6
     - name: Pigeon_Frame_22
       frameIndex: 22
       cellRect:
@@ -763,7 +811,7 @@ ScriptedImporter:
         y: 0
         width: 76
         height: 56
-      spriteId: dee7c5a0facfb5b46bdb735b0db777c6
+      spriteId: 84a23d11413331c44a38837108363a96
     - name: Pigeon_Frame_23
       frameIndex: 23
       cellRect:
@@ -771,7 +819,15 @@ ScriptedImporter:
         y: 0
         width: 76
         height: 56
-      spriteId: 84a23d11413331c44a38837108363a96
+      spriteId: d69911238857f1143ac3ad23e7ef14a9
+    - name: Pigeon_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: 4
+        y: 0
+        width: 76
+        height: 56
+      spriteId: d55e389415ca1644fb46b1c570c9172c
     linkedCells: []
     parentIndex: -1
   platformSettings: []
