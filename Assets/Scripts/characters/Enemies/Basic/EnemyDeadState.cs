@@ -9,7 +9,8 @@ public class EnemyDeadState : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         enemy = animator.GetComponent<Enemy>();
-        enemy.StartCoroutine(enemy.Die(10));   
+        enemy.StartCoroutine(enemy.Die(enemy.DeathTime));   
+        enemy.GiveXP(enemy.XpAmount);
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

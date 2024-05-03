@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -38,7 +39,10 @@ public class Enemy : Character
     [Header("Other")]
     [SerializeField] protected int deathTime;
     public int DeathTime { get => deathTime; }
-
+    [SerializeField] protected int xpAmount;
+    public int XpAmount { get => xpAmount; }
+    [SerializeField] protected Vector3 exPBoxSize;
+    public Vector3 XpBoxSize { get => exPBoxSize; }
 
 
     public IEnumerator BasicAttack()
@@ -110,7 +114,7 @@ public class Enemy : Character
     {
         int timesToFlash = deathTime * 5;
 
-        if (sr != null)
+        if (GetComponent<SpriteRenderer>() != null)
         {
             for (int i = 0; i < timesToFlash; i++)
             {
@@ -120,23 +124,51 @@ public class Enemy : Character
                 yield return new WaitForSeconds(0.1f);
             }
         }
-        else if (GetComponent<Renderer>() != null)
+        else if (GetComponents<Renderer>() != null)
         {
             for (int i = 0; i < timesToFlash; i++)
             {
-                GetComponent<Renderer>().material.color = new Color(1,1,1,0);
+                foreach (Renderer renderer in GetComponents<Renderer>())
+                {
+                    renderer.material.color = new Color(1, 1, 1, 0);
+                }
                 yield return new WaitForSeconds(0.1f);
-                GetComponent<Renderer>().material.color = new Color(1,1,1,1);
+                foreach (Renderer renderer in GetComponents<Renderer>())
+                {
+                    renderer.material.color = new Color(1, 1, 1, 1);
+                }
                 yield return new WaitForSeconds(0.1f);
             }
         }
-        else 
+        else
         {
-            Debug.LogError("No sprite renderer or renderer found on " + gameObject.name);
+            Debug.Log("No sprite renderer or renderer found");
+            Debug.Log("Destroying object in " + deathTime + " seconds");
             yield return new WaitForSeconds(deathTime);
         }
 
-        StopAllCoroutines();
+        //StopAllCoroutines();
         Destroy(gameObject);
     }
+
+    public void GiveXP(int xpAmount)
+    {
+        Collider[] colliders = Physics.OverlapBox(transform.position, exPBoxSize / 2, transform.rotation);
+        List<PlayableCharacter> playersOnRange = new List<PlayableCharacter>();
+
+        foreach (Collider collider in colliders)
+        {
+            if (collider.GetComponent<PlayableCharacter>() != null)
+            {
+                playersOnRange.Add(collider.GetComponent<PlayableCharacter>());
+            }
+        }
+
+        foreach (PlayableCharacter player in playersOnRange)
+        {
+            player.AddExP(Mathf.RoundToInt(xpAmount / playersOnRange.Count));
+        }
+
+        if(debug) Debug.Log("Gave " + Mathf.RoundToInt(xpAmount / playersOnRange.Count) + " xp to " + playersOnRange.Count + " players");
+    } 
 }

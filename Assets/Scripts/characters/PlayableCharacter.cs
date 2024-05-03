@@ -7,8 +7,6 @@ using UnityEngine.Rendering.Universal;
 public class PlayableCharacter : Character {
 
     [Header("Character Stats")]
-
-    [SerializeField] private bool debug;
     private int level = 1;
     public int Level { get { return level; } }
     private int exP = 0;

@@ -19,6 +19,7 @@ public class Character : MonoBehaviour {
     }
 
     [Header("Character Stats")]
+    [SerializeField] protected bool debug;
     [SerializeField] protected float baseMaxHealth;
     protected float maxHealth;
     public float MaxHealth { get { return maxHealth; } }
@@ -70,6 +71,8 @@ public class Character : MonoBehaviour {
     public bool IsGrabbed { get { return isGrabbed; } }
     protected bool isReceivingCombo;
     public bool IsReceivingCombo { get { return isReceivingCombo; } }
+    protected bool isDead;
+    public bool IsDead { get { return isDead; } }
 
 
 

@@ -16,11 +16,12 @@ public class Pigeon : Enemy
 
     void Update()
     {
-        if (currentHealth <= 0 && !isReceivingCombo)
+        if (currentHealth <= 0 && !isReceivingCombo && !isDead)
         {
+            isDead = true;
             animator.SetTrigger("deathTrigger");
         }
-        
+
         target = FindTargetOnRange(players, targetRange);
     }
 

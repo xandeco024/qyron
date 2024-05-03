@@ -3816,6 +3816,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   sr: {fileID: 0}
   bc: {fileID: 0}
+  debug: 1
   baseMaxHealth: 10
   baseAttackDamage: 5
   baseCriticalChance: 15
@@ -3828,7 +3829,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   Grabbable: 0
-  debug: 1
   limitZ: 1
   maxJumps: 1
   dashForce: 15
@@ -13759,6 +13759,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   sr: {fileID: 0}
   bc: {fileID: 0}
+  debug: 0
   baseMaxHealth: 0
   baseAttackDamage: 0
   baseCriticalChance: 0
@@ -41064,8 +41065,16 @@ PrefabInstance:
       value: Standard Pigeon
       objectReference: {fileID: 0}
     - target: {fileID: 1628338094675461508, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
+      propertyPath: debug
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628338094675461508, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
       propertyPath: attackCD
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628338094675461508, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
+      propertyPath: xpAmount
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1628338094675461508, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
       propertyPath: Grabbable
@@ -41090,6 +41099,18 @@ PrefabInstance:
     - target: {fileID: 1628338094675461508, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
       propertyPath: targetRange
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628338094675461508, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
+      propertyPath: exPBoxSize.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628338094675461508, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
+      propertyPath: exPBoxSize.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628338094675461508, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
+      propertyPath: exPBoxSize.z
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1628338094675461508, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
       propertyPath: baseMaxHealth
