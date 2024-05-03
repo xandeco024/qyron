@@ -60,7 +60,6 @@ public class Character : MonoBehaviour {
         bool hitGround = Physics.Raycast(transform.position + raycastOffset, Vector3.down, out hit, raycastDistance, groundLayer);
         return hitGround;
     }
-    
     public int FacingDirection { get { return facingDirection; } }
     protected int facingDirection = 1;
     protected bool isMovingAllowed = true;
@@ -69,6 +68,8 @@ public class Character : MonoBehaviour {
     public bool IsGrabbable { get { return Grabbable; } }
     protected bool isGrabbed;
     public bool IsGrabbed { get { return isGrabbed; } }
+    protected bool isReceivingCombo;
+    public bool IsReceivingCombo { get { return isReceivingCombo; } }
 
 
 
@@ -162,17 +163,6 @@ public class Character : MonoBehaviour {
         isMovingAllowed = true;
     }
 
-    protected void Die()
-    {
-        // Play death animation
-        // Disable movement
-        // Disable combat
-        // Disable collision
-        // Disable this script
-        StopAllCoroutines(); // ver se acaba o bug dos pombo (nao acabou...)
-        Destroy(gameObject);
-    }
-
     protected IEnumerator FlashRed(int timesToFlash)
     {
         if (GetComponent<SpriteRenderer>() != null)
@@ -212,5 +202,21 @@ public class Character : MonoBehaviour {
         bc.enabled = !grabbed;
         rb.isKinematic = grabbed;
         if (animator != null) animator.SetBool("grabbed", grabbed);
+    }
+
+    protected void SetRecievingComboOnTargets(bool receivingCombo, Collider[] colliders)
+    {
+        foreach (Collider collider in colliders)
+        {
+            if (collider.GetComponent<Character>())
+            {
+                collider.GetComponent<Character>().SetReceivingCombo(receivingCombo);
+            }
+        }
+    }
+
+    public void SetReceivingCombo(bool receivingCombo)
+    {
+        this.isReceivingCombo = receivingCombo;
     }
 }

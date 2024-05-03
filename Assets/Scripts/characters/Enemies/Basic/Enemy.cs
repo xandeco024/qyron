@@ -35,6 +35,12 @@ public class Enemy : Character
 
 
 
+    [Header("Other")]
+    [SerializeField] protected int deathTime;
+    public int DeathTime { get => deathTime; }
+
+
+
     public IEnumerator BasicAttack()
     {
         canAttack = false;
@@ -98,5 +104,39 @@ public class Enemy : Character
         //draw combat box
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.z), combatBoxSize);
+    }
+
+    public IEnumerator Die(int deathTime = 0)
+    {
+        int timesToFlash = deathTime * 5;
+
+        if (sr != null)
+        {
+            for (int i = 0; i < timesToFlash; i++)
+            {
+                sr.color = new Color(1, 1, 1, 0);
+                yield return new WaitForSeconds(0.1f);
+                sr.color = new Color(1, 1, 1, 1);
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
+        else if (GetComponent<Renderer>() != null)
+        {
+            for (int i = 0; i < timesToFlash; i++)
+            {
+                GetComponent<Renderer>().material.color = new Color(1,1,1,0);
+                yield return new WaitForSeconds(0.1f);
+                GetComponent<Renderer>().material.color = new Color(1,1,1,1);
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
+        else 
+        {
+            Debug.LogError("No sprite renderer or renderer found on " + gameObject.name);
+            yield return new WaitForSeconds(deathTime);
+        }
+
+        StopAllCoroutines();
+        Destroy(gameObject);
     }
 }

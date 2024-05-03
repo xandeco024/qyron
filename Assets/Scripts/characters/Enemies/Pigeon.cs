@@ -5,7 +5,7 @@ public class Pigeon : Enemy
 {
     void Awake()
     {
-        GetComponentsOnCharacter();
+        GetComponentsOnCharacter(); 
     }
 
     void Start()
@@ -16,6 +16,11 @@ public class Pigeon : Enemy
 
     void Update()
     {
+        if (currentHealth <= 0 && !isReceivingCombo)
+        {
+            animator.SetTrigger("deathTrigger");
+        }
+        
         target = FindTargetOnRange(players, targetRange);
     }
 

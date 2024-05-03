@@ -216,7 +216,7 @@ public class PlayableCharacter : Character {
         //logica para calcular dano que o hit vai dar.
         //calcula se vai dar critico ou não
         bool critical = Random.Range(0, 100) < criticalChance;
-        Debug.Log(critical);
+        //Debug.Log(critical);
         float damage = baseAttackDamage * (critical? 2f : 1f);
 
         attackAnimationIndex = (attackAnimationIndex == 1) ? 2 : 1;
@@ -376,6 +376,8 @@ public class PlayableCharacter : Character {
         moveSpeed = baseMoveSpeed;
     }
 
+    #region Combos
+
     IEnumerator LLLLCombo()
     {
         canLightAttack = false;
@@ -395,10 +397,14 @@ public class PlayableCharacter : Character {
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
         DealDamage(hitColliders, damage, critical, new Vector3(1 * facingDirection,1,0), 1f);
 
+        SetRecievingComboOnTargets(true ,hitColliders);
+
         yield return new WaitForSeconds(0.3f);
 
         isMovingAllowed = true;
         isAttacking = false;
+
+        SetRecievingComboOnTargets(false ,hitColliders);
 
         yield return new WaitForSeconds(lightAttackCD);
 
@@ -419,19 +425,22 @@ public class PlayableCharacter : Character {
         bool critical = Random.Range(0, 100) < criticalChance;
         float damage = baseAttackDamage * 2.5f * (critical? 2f : 1f);
 
+        Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
+        SetRecievingComboOnTargets(true ,hitColliders);
+        
         Debug.Log("Deu o combo LLH");
 
         yield return new WaitForSeconds(0.27f);
 
         Debug.Log("Terminou de girar");
 
-        Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
         DealDamage(hitColliders, damage, critical, new Vector3(0,1,1), 2.5f);
 
         yield return new WaitForSeconds(0.3f);
 
         isMovingAllowed = true;
         isAttacking = false;
+        SetRecievingComboOnTargets(false ,hitColliders);
 
         yield return new WaitForSeconds(heavyAttackCD);
 
@@ -452,19 +461,22 @@ public class PlayableCharacter : Character {
         bool critical = Random.Range(0, 100) < criticalChance;
         float damage = baseAttackDamage * 2.5f * (critical? 2f : 1f);
 
+        Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
+        SetRecievingComboOnTargets(true ,hitColliders);
+
         Debug.Log("Deu o combo LLH");
 
         yield return new WaitForSeconds(0.5f);
 
         Debug.Log("Terminou de girar");
 
-        Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
         DealDamage(hitColliders, damage, critical, new Vector3(0,1,-1), 4f);
 
         yield return new WaitForSeconds(0.3f);
 
         isMovingAllowed = true;
         isAttacking = false;
+        SetRecievingComboOnTargets(false ,hitColliders);
 
         yield return new WaitForSeconds(heavyAttackCD);
 
@@ -490,15 +502,21 @@ public class PlayableCharacter : Character {
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
         DealDamage(hitColliders, damage, critical, new Vector3(1 * facingDirection,.5f,0), 4);
 
+        SetRecievingComboOnTargets(true ,hitColliders);
+
         yield return new WaitForSeconds(0.3f);
 
         isMovingAllowed = true;
         isAttacking = false;
 
+        SetRecievingComboOnTargets(false ,hitColliders);
+
         yield return new WaitForSeconds(heavyAttackCD);
 
         canHeavyAttack = true;
     }
+
+    #endregion
 
     public override void TakeDamage(float damage, bool critical = false, Vector3 knockbackDir = default, float knockbackForce = 0, float knockbackDuration = .2f)
     {
