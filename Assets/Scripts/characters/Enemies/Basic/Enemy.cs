@@ -108,6 +108,10 @@ public class Enemy : Character
         //draw combat box
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.z), combatBoxSize);
+    
+        //draw xp box
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireCube(transform.position, exPBoxSize);
     }
 
     public IEnumerator Die(int deathTime = 0)
