@@ -315,6 +315,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "UI",
+            "id": "8a83872c-f4a7-4e7a-98af-e36b1a0ae19e",
+            "actions": [
+                {
+                    "name": "Pause / Resume",
+                    "type": "Button",
+                    "id": "d17a65ff-efdb-4ca8-8bb9-b52b0a944ed1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4f677b9c-918c-4c36-89af-1039b3474b0d",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "Pause / Resume",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

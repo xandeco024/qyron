@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class gameManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     [SerializeField] private List<AudioClip> musicList;
     private int currentMusicIndex = 0;
 
     private AudioSource gameManagerAudioSource;
+    private bool paused;
+
 
     void Start()
     {

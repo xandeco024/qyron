@@ -337,6 +337,34 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""8a83872c-f4a7-4e7a-98af-e36b1a0ae19e"",
+            ""actions"": [
+                {
+                    ""name"": ""Pause / Resume"",
+                    ""type"": ""Button"",
+                    ""id"": ""d17a65ff-efdb-4ca8-8bb9-b52b0a944ed1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""4f677b9c-918c-4c36-89af-1039b3474b0d"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""Pause / Resume"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -360,6 +388,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         m_Player_LightAttack = m_Player.FindAction("Light Attack", throwIfNotFound: true);
         m_Player_HeavyAttack = m_Player.FindAction("Heavy Attack", throwIfNotFound: true);
         m_Player_GrabAttack = m_Player.FindAction("Grab Attack", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_PauseResume = m_UI.FindAction("Pause / Resume", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -503,6 +534,52 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
+    private readonly InputAction m_UI_PauseResume;
+    public struct UIActions
+    {
+        private @InputMaster m_Wrapper;
+        public UIActions(@InputMaster wrapper) { m_Wrapper = wrapper; }
+        public InputAction @PauseResume => m_Wrapper.m_UI_PauseResume;
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        public void AddCallbacks(IUIActions instance)
+        {
+            if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
+            @PauseResume.started += instance.OnPauseResume;
+            @PauseResume.performed += instance.OnPauseResume;
+            @PauseResume.canceled += instance.OnPauseResume;
+        }
+
+        private void UnregisterCallbacks(IUIActions instance)
+        {
+            @PauseResume.started -= instance.OnPauseResume;
+            @PauseResume.performed -= instance.OnPauseResume;
+            @PauseResume.canceled -= instance.OnPauseResume;
+        }
+
+        public void RemoveCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IUIActions instance)
+        {
+            foreach (var item in m_Wrapper.m_UIActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_UIActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public UIActions @UI => new UIActions(this);
     private int m_GamepadSchemeIndex = -1;
     public InputControlScheme GamepadScheme
     {
@@ -529,5 +606,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         void OnLightAttack(InputAction.CallbackContext context);
         void OnHeavyAttack(InputAction.CallbackContext context);
         void OnGrabAttack(InputAction.CallbackContext context);
+    }
+    public interface IUIActions
+    {
+        void OnPauseResume(InputAction.CallbackContext context);
     }
 }

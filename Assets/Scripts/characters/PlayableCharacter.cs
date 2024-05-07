@@ -51,7 +51,6 @@ public class PlayableCharacter : Character {
     private bool canLightAttack = true;
     [SerializeField] private float heavyAttackCD;
     private bool canHeavyAttack = true;
-
     [SerializeField] private float grabAttackCD;
     private bool canGrab = true;
     [SerializeField] private Vector3 CombatBoxOffset;
