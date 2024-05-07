@@ -60,7 +60,30 @@ public class HUDManager : MonoBehaviour
         if (players[hudIndex] != null) 
         {
             hudObject[hudIndex].SetActive(true);
-            //TROCA A IMAGEM DA HUD, PRO PERSONAGEM QUE ESTIVER JOGANDO
+            
+            float imageIndex;
+
+            switch (players[hudIndex].gameObject.name)
+            {
+                case "Qyron":
+                    imageIndex = 0;
+                    break;
+                case "Qyra":
+                    imageIndex = 0.25f;
+                    break;
+                case "Meowcelo":
+                    imageIndex = 0.5f;
+                    break;
+                case "Gark":
+                    imageIndex = 0.75f;
+                    break;
+                default:
+                    imageIndex = 0;
+                    break;
+            }
+
+            hudImage[hudIndex].GetComponent<Animator>().SetFloat("ImageIndex", imageIndex);
+
             if (debug) Debug.Log("HUD INDEX: " + hudIndex + "ACTIVE PLAYER: " + players[hudIndex].name);
         }
 

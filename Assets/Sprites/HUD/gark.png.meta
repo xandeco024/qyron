@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4291708e4617d6843a365af9796736f3
+guid: c23ffea5d3d7d124287b71eb9eb7259d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HUD_0
+      name: gark_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c222f54337ea9f94c94957bf57f8c1e5
-      internalID: -901432986
+      spriteID: 9998aaca4bd73cd43ba806181e1026ac
+      internalID: -1319752105
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HUD_1
+      name: gark_1
       rect:
         serializedVersion: 2
         x: 112
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf3beb23066d81c49abe7abd653d61b0
-      internalID: 609909191
+      spriteID: 66b4102cb6bebed47b06b6cfcafcfe59
+      internalID: 1396592786
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HUD_2
+      name: gark_2
       rect:
         serializedVersion: 2
         x: 224
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 855b42893711bd640a46c0ac21d159b9
-      internalID: 141030769
+      spriteID: 43b1b0ce70b4a3b48b736722a4f7a66a
+      internalID: 1761886393
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HUD_3
+      name: gark_3
       rect:
         serializedVersion: 2
         x: 336
@@ -200,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db64b1cdf282b034fba1e97956ec4151
-      internalID: 100747240
+      spriteID: ef86c25d82e6e9e4b8c73bf2f7063105
+      internalID: -566600154
       vertices: []
       indices: 
       edges: []
@@ -217,10 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      HUD_0: -901432986
-      HUD_1: 609909191
-      HUD_2: 141030769
-      HUD_3: 100747240
+      gark_0: -1319752105
+      gark_1: 1396592786
+      gark_2: 1761886393
+      gark_3: -566600154
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
