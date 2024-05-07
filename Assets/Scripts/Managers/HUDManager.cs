@@ -10,18 +10,17 @@ public class HUDManager : MonoBehaviour
 
     [Header("HUD")]
     [SerializeField] private GameObject[] hudObject = new GameObject[4];
-    [SerializeField] private Image[] hudImage = new Image[4];
-    [SerializeField] private Image[] damageBar = new Image[4];
-    [SerializeField] private Image[] healthBar = new Image[4];
-    [SerializeField] private TextMeshProUGUI[] healthText = new TextMeshProUGUI[4];
-    [SerializeField] private Image[] xpBar = new Image[4];
-    [SerializeField] private TextMeshProUGUI[] levelText = new TextMeshProUGUI[4];
-    [SerializeField] private TextMeshProUGUI[] coinsText = new TextMeshProUGUI[4];
-    [SerializeField] private Image[] hits0 = new Image[4];
-    [SerializeField] private Image[] hits1 = new Image[4];
-    [SerializeField] private Image[] lastHits = new Image[4];
-
-
+    private Image[] hudImage = new Image[4];
+    private Image[] damageBar = new Image[4];
+    private Image[] healthBar = new Image[4];
+    private TextMeshProUGUI[] healthText = new TextMeshProUGUI[4];
+    private Image[] xpBar = new Image[4];
+    private TextMeshProUGUI[] levelText = new TextMeshProUGUI[4];
+    private TextMeshProUGUI[] coinsText = new TextMeshProUGUI[4];
+    private Image[] hits0 = new Image[4];
+    private Image[] hits1 = new Image[4];
+    private Image[] lastHits = new Image[4];
+    
     [Header("Players Stats")]
     private PlayableCharacter[] players = new PlayableCharacter[4];
 
@@ -60,7 +59,18 @@ public class HUDManager : MonoBehaviour
         if (players[hudIndex] != null) 
         {
             hudObject[hudIndex].SetActive(true);
-            
+
+            hudImage[hudIndex] = hudObject[hudIndex].transform.Find("HUD Image").GetComponent<Image>();
+            damageBar[hudIndex] = hudObject[hudIndex].transform.Find("Damage Bar").GetComponent<Image>();
+            healthBar[hudIndex] = hudObject[hudIndex].transform.Find("Health Bar").GetComponent<Image>();
+            healthText[hudIndex] = hudObject[hudIndex].transform.Find("Health Text").GetComponent<TextMeshProUGUI>();
+            xpBar[hudIndex] = hudObject[hudIndex].transform.Find("XP Bar").GetComponent<Image>();
+            levelText[hudIndex] = hudObject[hudIndex].transform.Find("Level Text").GetComponent<TextMeshProUGUI>();
+            coinsText[hudIndex] = hudObject[hudIndex].transform.Find("Coins Text").GetComponent<TextMeshProUGUI>();
+            hits0[hudIndex] = hudObject[hudIndex].transform.Find("Hit 0").GetComponent<Image>();
+            hits1[hudIndex] = hudObject[hudIndex].transform.Find("Hit 1").GetComponent<Image>();
+            lastHits[hudIndex] = hudObject[hudIndex].transform.Find("Last Hit").GetComponent<Image>();
+
             float imageIndex;
 
             switch (players[hudIndex].gameObject.name)
@@ -82,7 +92,7 @@ public class HUDManager : MonoBehaviour
                     break;
             }
 
-            hudImage[hudIndex].GetComponent<Animator>().SetFloat("ImageIndex", imageIndex);
+            hudImage[hudIndex].GetComponent<Animator>().SetFloat("index", imageIndex);
 
             if (debug) Debug.Log("HUD INDEX: " + hudIndex + "ACTIVE PLAYER: " + players[hudIndex].name);
         }
@@ -94,7 +104,7 @@ public class HUDManager : MonoBehaviour
             if (debug) Debug.Log("HUD INDEX: " + hudIndex + "NO PLAYER FOUND! DEACTIVATING HUD!");
         }
     }
-
+    
     private void HudHandler(int hudIndex)
     {
         if (players[hudIndex] != null)
