@@ -6,7 +6,7 @@ public class PauseManager : MonoBehaviour
 {
     private InputMaster inputMaster;
     private GameManager gameManager;
-    private bool paused;
+    private bool paused = false;
     [SerializeField] private GameObject pausePanel;
 
     void Awake()
@@ -28,7 +28,7 @@ public class PauseManager : MonoBehaviour
     void Controls()
     {
         inputMaster = new InputMaster();
-        inputMaster.UI.PauseResume.performed += _ => Pause(paused);
+        inputMaster.UI.PauseResume.performed += _ => Pause();
     }
 
     void Start()
@@ -41,10 +41,19 @@ public class PauseManager : MonoBehaviour
         
     }
 
-    void Pause(bool pause)
+    public void Pause()
     {
-        paused = !paused;
-        Time.timeScale = pause ? 0 : 1;
-        pausePanel.SetActive(pause);
+        if(paused)
+        {
+            paused = false;
+            Time.timeScale = 1;
+            pausePanel.SetActive(false);
+        }
+        else
+        {
+            paused = true;
+            Time.timeScale = 0;
+            pausePanel.SetActive(true);
+        }
     }
 }
