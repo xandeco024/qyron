@@ -84,8 +84,8 @@ public class Character : MonoBehaviour {
 
     public void LimitZ()
     {
-        if (transform.position.z >= 2.5f) transform.position = new Vector3(transform.position.x, transform.position.y, 2.5f);
-        if (transform.position.z <= -2.5f) transform.position = new Vector3(transform.position.x, transform.position.y, -2.5f);
+        if (transform.position.z >= 7f) transform.position = new Vector3(transform.position.x, transform.position.y, 7f);
+        if (transform.position.z <= -7.5f) transform.position = new Vector3(transform.position.x, transform.position.y, -7.5f);
     }
 
     public void Flip(bool right = false)
