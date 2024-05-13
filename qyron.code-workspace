@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "FATEC TechLab TESTES",
+			"path": "../../Arduino/FATEC TechLab TESTES"
+		}
+	],
+	"settings": {
+		"dotnet.defaultSolution": "qyron.sln"
+	}
+}
