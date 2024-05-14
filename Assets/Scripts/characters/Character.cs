@@ -78,6 +78,9 @@ public class Character : MonoBehaviour {
 
     [Header("Animation")]
     protected bool isTakingDamage;
+    public bool IsTakingDamage { get { return isTakingDamage; } }
+    protected float damageTime;
+    public float DamageTime { get { return damageTime; } }
     protected bool isAttacking;
 
     #region Movement
@@ -130,13 +133,13 @@ public class Character : MonoBehaviour {
         }
     }
 
-    protected void DealDamage(Collider[] hitColliders, float damage, bool critical = false, Vector3 knockbackDir = default, float knockbackForce = 0)
+    protected void DealDamage(Collider[] hitColliders, float damage, bool critical = false, Vector3 knockbackDir = default, float knockbackForce = 0, float knockbackDuration = .2f)
     {
         foreach(Collider hitCollider in hitColliders)
         {
             if (hitCollider.GetComponent<Character>() && hitCollider.GetComponent<Character>() != this)
             {
-                hitCollider.GetComponent<Character>().TakeDamage(damage, critical, knockbackDir, knockbackForce);
+                hitCollider.GetComponent<Character>().TakeDamage(damage, critical, knockbackDir, knockbackForce, knockbackDuration);
             }
         }
     }

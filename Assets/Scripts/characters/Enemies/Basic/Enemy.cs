@@ -44,6 +44,17 @@ public class Enemy : Character
     [SerializeField] protected Vector3 exPBoxSize;
     public Vector3 XpBoxSize { get => exPBoxSize; }
 
+    public override void TakeDamage(float damage, bool critical = false, Vector3 knockbackDir = default, float knockbackForce = 0, float knockbackDuration = 0.2f)
+    {
+        StopAllCoroutines();
+        canAttack = true;
+        base.TakeDamage(damage, critical, knockbackDir, knockbackForce, knockbackDuration);
+        damageTime = knockbackDuration;
+        animator.SetTrigger("damageTrigger");
+        animator.SetBool("takingDamage", true);
+        animator.SetFloat("knockbackY", Mathf.Abs(knockbackDir.y));
+        animator.SetFloat("knockbackX", Mathf.Abs(knockbackDir.x));
+    }
 
     public IEnumerator BasicAttack()
     {

@@ -389,10 +389,10 @@ public class PlayableCharacter : Character {
         bool critical = Random.Range(0, 100) < criticalChance;
         float damage = baseAttackDamage * 2 * (critical? 2f : 1f);
 
-        animator.SetTrigger("LLLTrigger");
+        animator.SetTrigger("LLLTrigger");  
 
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
-        DealDamage(hitColliders, damage, critical, new Vector3(1 * facingDirection,1,0), 1f);
+        DealDamage(hitColliders, damage, critical, new Vector3(0.8f * facingDirection,1,0), 3f, 0.2f);
 
         SetRecievingComboOnTargets(true ,hitColliders);
 
@@ -431,7 +431,7 @@ public class PlayableCharacter : Character {
 
         Debug.Log("Terminou de girar");
 
-        DealDamage(hitColliders, damage, critical, new Vector3(0,1,1), 2.5f);
+        DealDamage(hitColliders, damage, critical, new Vector3(0,1,1), 2.5f, 0.3f);
 
         yield return new WaitForSeconds(0.3f);
 
@@ -467,7 +467,7 @@ public class PlayableCharacter : Character {
 
         Debug.Log("Terminou de girar");
 
-        DealDamage(hitColliders, damage, critical, new Vector3(0,1,-1), 4f);
+        DealDamage(hitColliders, damage, critical, new Vector3(0,1,-1), 4f, 0.4f);
 
         yield return new WaitForSeconds(0.3f);
 
@@ -497,7 +497,7 @@ public class PlayableCharacter : Character {
         animator.SetTrigger("HHHTrigger");
 
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
-        DealDamage(hitColliders, damage, critical, new Vector3(1 * facingDirection,.5f,0), 4);
+        DealDamage(hitColliders, damage, critical, new Vector3(1 * facingDirection,.5f,0), 4, 0.3f);
 
         SetRecievingComboOnTargets(true ,hitColliders);
 
