@@ -6,8 +6,8 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Pombo 1 Levando Dano
-  serializedVersion: 6
+  m_Name: Light Attack 1
+  serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
   m_UseHighQualityCurve: 1
@@ -18,16 +18,22 @@ AnimationClip:
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves:
-  - curve:
+  - serializedVersion: 2
+    curve:
     - time: 0
-      value: {fileID: 992305489, guid: bec90068078dc8c47adc9e77bff0921d, type: 3}
-    - time: 0.071428575
-      value: {fileID: 992305489, guid: bec90068078dc8c47adc9e77bff0921d, type: 3}
+      value: {fileID: 1005414757, guid: b369bc8e10bba9148a32622f214b4d5f, type: 3}
+    - time: 0.1
+      value: {fileID: 1143334928, guid: b369bc8e10bba9148a32622f214b4d5f, type: 3}
+    - time: 0.2
+      value: {fileID: -2108985929, guid: b369bc8e10bba9148a32622f214b4d5f, type: 3}
+    - time: 0.3
+      value: {fileID: -1089426710, guid: b369bc8e10bba9148a32622f214b4d5f, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 14
+    flags: 2
+  m_SampleRate: 10
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -41,15 +47,19 @@ AnimationClip:
       typeID: 212
       customType: 23
       isPPtrCurve: 1
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 992305489, guid: bec90068078dc8c47adc9e77bff0921d, type: 3}
-    - {fileID: 992305489, guid: bec90068078dc8c47adc9e77bff0921d, type: 3}
+    - {fileID: 1005414757, guid: b369bc8e10bba9148a32622f214b4d5f, type: 3}
+    - {fileID: 1143334928, guid: b369bc8e10bba9148a32622f214b4d5f, type: 3}
+    - {fileID: -2108985929, guid: b369bc8e10bba9148a32622f214b4d5f, type: 3}
+    - {fileID: -1089426710, guid: b369bc8e10bba9148a32622f214b4d5f, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.14285715
+    m_StopTime: 0.4
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

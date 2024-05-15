@@ -1,28 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.Playables;
 public class Enemy : Character
 {
     protected PlayableCharacter[] players;
     protected PlayableCharacter target;
     public PlayableCharacter Target { get => target; }
+    protected PlayableCharacter lastFrameTarget;
     [SerializeField] protected float targetRange;
     public float TargetRange { get => targetRange; }
 
 
     [Header("Attack")]
-    protected bool canAttack = true;
-    public bool CanAttack { get => canAttack; }
-    [SerializeField] protected float attackDelay;
-    public float AttackDelay { get => attackDelay; }
-    [SerializeField] protected float attackCD;
-    public float AttackCD { get => attackCD; }
+    protected bool canLightAttack = true;
+    public bool CanLightAttack { get => canLightAttack; }
+    [SerializeField] protected float lightAttackDelay;
+    public float LightAttackDelay { get => lightAttackDelay; }
+    [SerializeField] protected float lightAttackCD;
+    public float LightAttackCD { get => lightAttackCD; }
+    [SerializeField] protected bool canHeavyAttack = true;
+    public bool CanHeavyAttack { get => canHeavyAttack; }
+    [SerializeField] protected float heavyAttackDelay;
+    public float HeavyAttackDelay { get => heavyAttackDelay; }
+    [SerializeField] protected float heavyAttackCD;
+    public float HeavyAttackCD { get => heavyAttackCD; }
     [SerializeField] protected Vector3 combatBoxSize;
     public Vector3 CombatBoxSize { get => combatBoxSize; }
     [SerializeField] protected Vector3 combatBoxOffset;
     public Vector3 CombatBoxOffset { get => combatBoxOffset; }
+    protected bool firstAttackOnTarget = true;
+    public bool FirstAttackOnTarget { get => firstAttackOnTarget; }
 
 
     
@@ -44,11 +51,19 @@ public class Enemy : Character
     [SerializeField] protected Vector3 exPBoxSize;
     public Vector3 XpBoxSize { get => exPBoxSize; }
 
-    public override void TakeDamage(float damage, bool critical = false, Vector3 knockbackDir = default, float knockbackForce = 0, float knockbackDuration = 0.2f)
+    public override void TakeDamage(float damage, float stunDuration, bool critical = false, Vector3 knockbackDir = default, float knockbackForce = 0, float knockbackDuration = 0.2f)
     {
-        StopAllCoroutines();
-        canAttack = true;
-        base.TakeDamage(damage, critical, knockbackDir, knockbackForce, knockbackDuration);
+        if (isLightAttacking)
+        {
+            StartCoroutine(CancelLightAttack());
+        }
+
+        if (isHeavyAttacking)
+        {
+            StartCoroutine(CancelHeavyAttack());
+        }
+
+        base.TakeDamage(damage, stunDuration, critical, knockbackDir, knockbackForce, knockbackDuration);
         damageTime = knockbackDuration;
         animator.SetTrigger("damageTrigger");
         animator.SetBool("takingDamage", true);
@@ -56,22 +71,71 @@ public class Enemy : Character
         animator.SetFloat("knockbackX", Mathf.Abs(knockbackDir.x));
     }
 
-    public IEnumerator BasicAttack()
+    public virtual IEnumerator LightAttack()
     {
-        canAttack = false;
-        yield return new WaitForSeconds(attackDelay);
+        firstAttackOnTarget = false;
+        isLightAttacking = true;
+        canLightAttack = false;
+        yield return new WaitForSeconds(lightAttackDelay);
+
+        bool critical = Random.Range(0, 100) < criticalChance;
+        //Debug.Log(critical);
+        float damage = attackDamage * (critical? 2f : 1f);
+
 
         Collider[] colliders = Physics.OverlapBox(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.y), combatBoxSize / 2, transform.rotation);
         foreach (Collider collider in colliders)
         {
             if (collider.GetComponent<PlayableCharacter>() != null)
             {
-                collider.GetComponent<PlayableCharacter>().TakeDamage(attackDamage);
+                collider.GetComponent<PlayableCharacter>().TakeDamage(damage, 0.1f);
             }
         }
 
-        yield return new WaitForSeconds(attackCD);
-        canAttack = true;
+        yield return new WaitForSeconds(lightAttackCD);
+        canLightAttack = true;
+        isLightAttacking = false;
+    }
+
+    protected IEnumerator CancelLightAttack()
+    {
+        StopCoroutine(LightAttack());
+        isLightAttacking = false;
+        yield return new WaitForSeconds(lightAttackDelay);
+        canLightAttack = true;
+    }
+
+    public virtual IEnumerator HeavyAttack()
+    {
+        isHeavyAttacking = true;
+        canHeavyAttack = false;
+        yield return new WaitForSeconds(heavyAttackDelay);
+
+        bool critical = Random.Range(0, 100) < criticalChance;
+        //Debug.Log(critical);
+        float damage = attackDamage * 2 * (critical? 2f : 1f);
+
+
+        Collider[] colliders = Physics.OverlapBox(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.y), combatBoxSize / 2, transform.rotation);
+        foreach (Collider collider in colliders)
+        {
+            if (collider.GetComponent<PlayableCharacter>() != null)
+            {
+                collider.GetComponent<PlayableCharacter>().TakeDamage(damage, 0.2f);
+            }
+        }
+
+        yield return new WaitForSeconds(heavyAttackCD);
+        canHeavyAttack = true;
+        isHeavyAttacking = false;
+    }
+
+    protected IEnumerator CancelHeavyAttack()
+    {
+        StopCoroutine(HeavyAttack());
+        isHeavyAttacking = false;
+        yield return new WaitForSeconds(heavyAttackDelay);
+        canHeavyAttack = true;
     }
 
     public bool PlayerOnAttackRange()

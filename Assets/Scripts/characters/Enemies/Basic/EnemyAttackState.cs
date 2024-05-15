@@ -10,7 +10,15 @@ public class EnemyAttackState : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         enemy = animator.GetComponent<Enemy>();
-        enemy.StartCoroutine(enemy.BasicAttack());
+
+        if (enemy.CanHeavyAttack && !enemy.FirstAttackOnTarget)
+        {
+            enemy.StartCoroutine(enemy.HeavyAttack());
+        }
+        else if (enemy.CanLightAttack)
+        {
+            enemy.StartCoroutine(enemy.LightAttack());
+        }
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

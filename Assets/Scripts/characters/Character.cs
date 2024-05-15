@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Unity.Collections.LowLevel.Unsafe;
 
 public class Character : MonoBehaviour {
 
@@ -73,6 +74,10 @@ public class Character : MonoBehaviour {
     public bool IsReceivingCombo { get { return isReceivingCombo; } }
     protected bool isDead;
     public bool IsDead { get { return isDead; } }
+    [SerializeField] protected Vector2 damageTextOffset = new Vector2(0.5f, 0.5f);
+    [SerializeField] protected bool damageTextFaceToDirection;
+    protected bool stunned = false;
+    public bool Stunned { get { return stunned; } }
 
 
 
@@ -81,7 +86,10 @@ public class Character : MonoBehaviour {
     public bool IsTakingDamage { get { return isTakingDamage; } }
     protected float damageTime;
     public float DamageTime { get { return damageTime; } }
+    protected int attackAnimationIndex = 1;
     protected bool isAttacking;
+    protected bool isLightAttacking;
+    protected bool isHeavyAttacking;
 
     #region Movement
 
@@ -117,6 +125,13 @@ public class Character : MonoBehaviour {
         }
     }
 
+    protected IEnumerator HandleStun(float stunDuration)
+    {
+        stunned = true;
+        yield return new WaitForSeconds(stunDuration);
+        stunned = false;
+    }
+
     #endregion
 
     protected void FallDetect()
@@ -128,29 +143,34 @@ public class Character : MonoBehaviour {
 
         if (isGrounded() && fallDamage)
         {
-            TakeDamage(10);
+            TakeDamage(10, 0);
             fallDamage = false;
         }
     }
 
-    protected void DealDamage(Collider[] hitColliders, float damage, bool critical = false, Vector3 knockbackDir = default, float knockbackForce = 0, float knockbackDuration = .2f)
+    protected void DealDamage(Collider[] hitColliders, float damage, float stunDuration, bool critical = false, Vector3 knockbackDir = default, float knockbackForce = 0, float knockbackDuration = .2f)
     {
         foreach(Collider hitCollider in hitColliders)
         {
             if (hitCollider.GetComponent<Character>() && hitCollider.GetComponent<Character>() != this)
             {
-                hitCollider.GetComponent<Character>().TakeDamage(damage, critical, knockbackDir, knockbackForce, knockbackDuration);
+                hitCollider.GetComponent<Character>().TakeDamage(damage, stunDuration, critical, knockbackDir, knockbackForce, knockbackDuration);
             }
         }
     }
 
-    public virtual void TakeDamage(float damage, bool critical = false, Vector3 knockbackDir = default, float knockbackForce = 0, float knockbackDuration = .2f)
+    public virtual void TakeDamage(float damage, float stunDuration, bool critical = false, Vector3 knockbackDir = default, float knockbackForce = 0, float knockbackDuration = .2f)
     {
         StartCoroutine(FlashRed(2));
         currentHealth -= damage;
         
-        Vector3 damageTextPosition = transform.position + new Vector3(facingDirection, 0f, -1f);
+        Vector3 damageTextPosition = transform.position + new Vector3(damageTextOffset.x * (damageTextFaceToDirection == true? facingDirection : 1), damageTextOffset.y, -1f);
         Instantiate(damageTextPrefab, damageTextPosition, Quaternion.identity).GetComponent<damageText>().SetText(damage.ToString(), critical);
+
+        if (stunDuration > 0)
+        {
+            StartCoroutine(HandleStun(stunDuration));
+        }
 
         if (knockbackForce > 0)
         {
