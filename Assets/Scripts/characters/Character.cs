@@ -26,18 +26,33 @@ public class Character : MonoBehaviour {
     public float MaxHealth { get { return maxHealth; } }
     protected float currentHealth;
     public float CurrentHealth { get { return currentHealth; } }
+    [SerializeField] protected float baseResistance;
+    protected float resistance;
+    public float Resistance { get { return resistance; } }
+    [SerializeField] protected float baseDamageReduction;
+    protected float damageReduction;
+    public float DamageReduction { get { return damageReduction; } }
     [SerializeField] protected float baseAttackDamage;
     protected float attackDamage;
     public float AttackDamage { get { return attackDamage; } }
     [SerializeField] protected float baseCriticalChance;
     protected float criticalChance;
     public float CriticalChance { get { return criticalChance; } }
+    [SerializeField] protected float baseSpeed;
+    protected float speed;
+    public float Speed { get { return speed; } }
+    [SerializeField] protected float baseDodgeChance;
+    protected float dodgeChance;
+    public float DodgeChance { get { return dodgeChance; } }
     [SerializeField] protected float baseMoveSpeed;
     protected float moveSpeed;
     public float MoveSpeed { get { return moveSpeed; } }
     [SerializeField] protected float baseJumpForce;
     protected float jumpForce;
     public float JumpForce { get { return jumpForce; } }
+    [SerializeField] protected float baseRespect;
+    protected float respect;
+    public float Respect { get { return respect; } }
 
     protected void SetStats()
     {
