@@ -36710,7 +36710,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628338094675461508, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
       propertyPath: baseMaxHealth
-      value: 20
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 1628338094675461508, guid: cdc718204a7fbfc438df8e2d6f75c72d, type: 3}
       propertyPath: baseMoveSpeed
