@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 70e9556f3ff3eda4ea1d26f878b35ac9
+guid: d2ce34791bc63cb428cf238bf6f11672
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,58 +119,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: flying whey
+  - name: Shake
     originalName: 
-    pivot: {x: 0.5, y: -0.25}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 28
-      y: 24
-      width: 14
-      height: 12
-    spriteID: c2382b92b3f76434c9fb29751dd80806
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 28, y: 24}
-  - name: flying whey_Frame_1
-    originalName: 
-    pivot: {x: 0.53333336, y: -0.16666667}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 28
-      y: 4
-      width: 15
-      height: 12
-    spriteID: 4a77a69f6d37e6549befff26f197f2ba
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 28, y: 4}
-  - name: flying whey_Frame_2
-    originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5833334, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 16
+      width: 12
       height: 15
-    spriteID: 645474be4710d6642aa310dcea289bec
+    spriteID: 1b60c4446a4e267468bebe9cee2dce68
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -179,67 +139,23 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: flying whey_Frame_3
-    originalName: 
-    pivot: {x: 0.5, y: -0.06666667}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 27
-      width: 16
-      height: 15
-    spriteID: 8da5d3f1bcc9fa1479bb1836171dae6b
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 27}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1725430518
-    name: flying whey
+    guid: 1573215600
+    name: Shake
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: flying whey_Frame_0
+    - name: Shake
       frameIndex: 0
       cellRect:
         x: 1
-        y: 3
-        width: 14
-        height: 12
-      spriteId: c2382b92b3f76434c9fb29751dd80806
-    - name: flying whey_Frame_1
-      frameIndex: 1
-      cellRect:
-        x: 0
-        y: 2
-        width: 15
-        height: 12
-      spriteId: 4a77a69f6d37e6549befff26f197f2ba
-    - name: flying whey_Frame_2
-      frameIndex: 2
-      cellRect:
-        x: 0
         y: 0
-        width: 16
+        width: 12
         height: 15
-      spriteId: 645474be4710d6642aa310dcea289bec
-    - name: flying whey_Frame_3
-      frameIndex: 3
-      cellRect:
-        x: 0
-        y: 1
-        width: 16
-        height: 15
-      spriteId: 8da5d3f1bcc9fa1479bb1836171dae6b
+      spriteId: 1b60c4446a4e267468bebe9cee2dce68
     linkedCells: []
     parentIndex: -1
   platformSettings: []
