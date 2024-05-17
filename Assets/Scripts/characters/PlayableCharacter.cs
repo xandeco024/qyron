@@ -239,7 +239,7 @@ public class PlayableCharacter : Character {
             if(isGrabbing) // se estiver grebbando então faz o combo de grab
             { 
                 CancelGrab();
-                Debug.Log("Heavy Grab Attack " + combo);
+                //uDebug.Log("Heavy Grab Attack " + combo);
                 combo.Clear();
             }
 
