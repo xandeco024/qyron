@@ -440,6 +440,15 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Join"",
+                    ""type"": ""Button"",
+                    ""id"": ""79d1d50a-15e1-4ad8-8046-5eea90e14f0c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -882,6 +891,28 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""action"": ""Pause / Resume"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9eb42832-56ed-4010-b9a2-edb88a1cfc88"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Join"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1327e08a-85cc-4faa-8940-61ddd728ef9c"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Join"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -937,6 +968,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
         m_UI_PauseResume = m_UI.FindAction("Pause / Resume", throwIfNotFound: true);
+        m_UI_Join = m_UI.FindAction("Join", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1095,6 +1127,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_TrackedDevicePosition;
     private readonly InputAction m_UI_TrackedDeviceOrientation;
     private readonly InputAction m_UI_PauseResume;
+    private readonly InputAction m_UI_Join;
     public struct UIActions
     {
         private @InputMaster m_Wrapper;
@@ -1110,6 +1143,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         public InputAction @TrackedDevicePosition => m_Wrapper.m_UI_TrackedDevicePosition;
         public InputAction @TrackedDeviceOrientation => m_Wrapper.m_UI_TrackedDeviceOrientation;
         public InputAction @PauseResume => m_Wrapper.m_UI_PauseResume;
+        public InputAction @Join => m_Wrapper.m_UI_Join;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1152,6 +1186,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @PauseResume.started += instance.OnPauseResume;
             @PauseResume.performed += instance.OnPauseResume;
             @PauseResume.canceled += instance.OnPauseResume;
+            @Join.started += instance.OnJoin;
+            @Join.performed += instance.OnJoin;
+            @Join.canceled += instance.OnJoin;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -1189,6 +1226,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @PauseResume.started -= instance.OnPauseResume;
             @PauseResume.performed -= instance.OnPauseResume;
             @PauseResume.canceled -= instance.OnPauseResume;
+            @Join.started -= instance.OnJoin;
+            @Join.performed -= instance.OnJoin;
+            @Join.canceled -= instance.OnJoin;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -1246,5 +1286,6 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
         void OnPauseResume(InputAction.CallbackContext context);
+        void OnJoin(InputAction.CallbackContext context);
     }
 }

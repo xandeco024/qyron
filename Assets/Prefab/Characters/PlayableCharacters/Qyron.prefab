@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7008431577122273722}
   - component: {fileID: 375390561498784039}
   - component: {fileID: 8684156598380509673}
+  - component: {fileID: 3341052499411830076}
   m_Layer: 8
   m_Name: Qyron
   m_TagString: Player
@@ -273,10 +274,15 @@ MonoBehaviour:
   bc: {fileID: 0}
   debug: 1
   baseMaxHealth: 10
+  baseResistance: 0
+  baseDamageReduction: 0
   baseAttackDamage: 5
   baseCriticalChance: 15
+  baseSpeed: 0
+  baseDodgeChance: 0
   baseMoveSpeed: 8
   baseJumpForce: 12
+  baseRespect: 0
   fallDamageEnabled: 0
   raycastDistance: 0.4
   raycastOffset: {x: 0, y: -1.4, z: 0}
@@ -284,6 +290,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   Grabbable: 0
+  damageTextOffset: {x: 0.5, y: 0.5}
+  damageTextFaceToDirection: 0
   limitZ: 1
   maxJumps: 1
   dashForce: 15
@@ -298,3 +306,33 @@ MonoBehaviour:
   CombatBoxOffset: {x: 0.25, y: -0.5, z: 0}
   CombatRaycastSize: {x: 1.5, y: 2, z: 1}
   grabbedCharacterOffset: {x: 1, y: 0, z: 0}
+--- !u!114 &3341052499411830076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4397903468640775225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 9fb6ab75aa8a4e94da71a01956f478b8, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 1
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
