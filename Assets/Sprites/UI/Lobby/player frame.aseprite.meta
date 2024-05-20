@@ -146,51 +146,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 140
-      y: 4
-      width: 60
-      height: 93
-    spriteID: 7d093d5d546264e49b12eea32cb295b0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 140, y: 4}
-  - name: player frame_Frame_1
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 72
-      y: 4
-      width: 60
-      height: 96
-    spriteID: c015552dc1c7f8c43b003c6c43d4971a
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 72, y: 4}
-  - name: player frame_Frame_3
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
       x: 4
       y: 108
       width: 60
-      height: 93
-    spriteID: 5d0f2229c4a5de9478ffa60a98502fb6
+      height: 95
+    spriteID: 7d093d5d546264e49b12eea32cb295b0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -216,30 +176,14 @@ ScriptedImporter:
         width: 60
         height: 96
       spriteId: 1e5d00671fc630042a9976333e504443
-    - name: player frame_Frame_2
-      frameIndex: 2
-      cellRect:
-        x: 18
-        y: 0
-        width: 60
-        height: 93
-      spriteId: 7d093d5d546264e49b12eea32cb295b0
     - name: player frame_Frame_1
       frameIndex: 1
       cellRect:
         x: 18
         y: 0
         width: 60
-        height: 96
-      spriteId: c015552dc1c7f8c43b003c6c43d4971a
-    - name: player frame_Frame_3
-      frameIndex: 3
-      cellRect:
-        x: 18
-        y: 0
-        width: 60
-        height: 93
-      spriteId: 5d0f2229c4a5de9478ffa60a98502fb6
+        height: 95
+      spriteId: 7d093d5d546264e49b12eea32cb295b0
     linkedCells: []
     parentIndex: -1
   platformSettings: []

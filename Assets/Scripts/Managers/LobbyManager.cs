@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class LobbyManager : MonoBehaviour
 {
@@ -23,13 +24,13 @@ public class LobbyManager : MonoBehaviour
 
     }
 
-    public void OnPlayerJoined()
+    public void OnPlayerJoined(PlayerInputManager.PlayerJoinedEvent playerJoinedEvent)
     {
         playerCount++;
         Debug.Log("Player " + playerCount + "Joined");
     }
 
-    public void OnPlayerLeft()
+    public void OnPlayerLeft(PlayerInputManager.PlayerLeftEvent playerLeftEvent)
     {
         playerCount--;
         Debug.Log("Player " + playerCount + "Left");

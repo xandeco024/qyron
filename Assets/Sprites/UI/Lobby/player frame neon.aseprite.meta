@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0351c5f8896791f47939e8d9ee477789
+guid: d9b837379eb058647bbafc0533c34f78
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,98 +119,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: join button
+  - name: player frame neon_Frame_0
     originalName: 
-    pivot: {x: 0.5, y: -0.26086956}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 52
-      width: 32
-      height: 23
-    spriteID: abf138905e8cc7843a2b5e7cb86721db
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 52}
-  - name: join button_Frame_1
-    originalName: 
-    pivot: {x: 0.5, y: -0.2857143}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 68
-      y: 4
-      width: 32
-      height: 21
-    spriteID: 0931fd05a9e877d43b543977d15abb36
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 68, y: 4}
-  - name: join button_Frame_2
-    originalName: 
-    pivot: {x: 0.5, y: -0.26086956}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 83
-      width: 32
-      height: 23
-    spriteID: 8c6188714009f7a45a1acec13f37450e
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 83}
-  - name: join button_Frame_3
-    originalName: 
-    pivot: {x: 0.5, y: -0.2857143}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 68
-      y: 33
-      width: 32
-      height: 21
-    spriteID: 4cce8348408b3c748b3cc3ca1d7b07b9
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 68, y: 33}
-  - name: join button_Frame_4
-    originalName: 
-    pivot: {x: 0.5, y: -0.3888889}
+    pivot: {x: 0.5, y: -0.05405405}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 56
-      height: 18
-    spriteID: 6d5a822023a6a6048ba7a3add12ac87f
+      width: 62
+      height: 74
+    spriteID: d00f580cd9948fe4a982bc8e3708409e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -219,18 +139,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: join button_Frame_5
+  - name: player frame neon_Frame_1
     originalName: 
-    pivot: {x: 0.5, y: -0.5}
+    pivot: {x: 0.5, y: -0.05405405}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 30
-      width: 56
-      height: 14
-    spriteID: 6f748462ae8cd374dbeeba6563707338
+      y: 86
+      width: 62
+      height: 74
+    spriteID: 5468b28ca6e696342a8df338e5f504e6
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -238,67 +158,91 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 30}
+    uvTransform: {x: 4, y: 86}
+  - name: player frame neon_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: -0.05405405}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 168
+      width: 62
+      height: 74
+    spriteID: 42e6713288764bf46ac89ab9fcfb586c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 168}
+  - name: player frame neon_Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: -0.05405405}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 74
+      y: 4
+      width: 62
+      height: 74
+    spriteID: 98acd8a32b717d24a8fcc663be477570
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 74, y: 4}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -2126394702
-    name: join button
+    guid: -385096926
+    name: player frame neon
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: join button_Frame_0
+    - name: player frame neon_Frame_0
       frameIndex: 0
       cellRect:
-        x: 16
-        y: 6
-        width: 32
-        height: 23
-      spriteId: abf138905e8cc7843a2b5e7cb86721db
-    - name: join button_Frame_1
+        x: 17
+        y: 4
+        width: 62
+        height: 74
+      spriteId: d00f580cd9948fe4a982bc8e3708409e
+    - name: player frame neon_Frame_1
       frameIndex: 1
       cellRect:
-        x: 16
-        y: 6
-        width: 32
-        height: 21
-      spriteId: 0931fd05a9e877d43b543977d15abb36
-    - name: join button_Frame_2
+        x: 17
+        y: 4
+        width: 62
+        height: 74
+      spriteId: 5468b28ca6e696342a8df338e5f504e6
+    - name: player frame neon_Frame_2
       frameIndex: 2
       cellRect:
-        x: 16
-        y: 6
-        width: 32
-        height: 23
-      spriteId: 8c6188714009f7a45a1acec13f37450e
-    - name: join button_Frame_3
+        x: 17
+        y: 4
+        width: 62
+        height: 74
+      spriteId: 42e6713288764bf46ac89ab9fcfb586c
+    - name: player frame neon_Frame_3
       frameIndex: 3
       cellRect:
-        x: 16
-        y: 6
-        width: 32
-        height: 21
-      spriteId: 4cce8348408b3c748b3cc3ca1d7b07b9
-    - name: join button_Frame_4
-      frameIndex: 4
-      cellRect:
-        x: 4
-        y: 7
-        width: 56
-        height: 18
-      spriteId: 6d5a822023a6a6048ba7a3add12ac87f
-    - name: join button_Frame_5
-      frameIndex: 5
-      cellRect:
-        x: 4
-        y: 7
-        width: 56
-        height: 14
-      spriteId: 6f748462ae8cd374dbeeba6563707338
+        x: 17
+        y: 4
+        width: 62
+        height: 74
+      spriteId: 98acd8a32b717d24a8fcc663be477570
     linkedCells: []
     parentIndex: -1
   platformSettings: []
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 64, y: 32}
+  canvasSize: {x: 96, y: 96}

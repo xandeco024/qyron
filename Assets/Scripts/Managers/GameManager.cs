@@ -38,4 +38,9 @@ public class GameManager : MonoBehaviour
         gameManagerAudioSource.Play();
     }
 
+    private void SetCameraFollow()
+    {
+        
+    }
+
 }

@@ -60,22 +60,23 @@ public class PlayableCharacter : Character {
     void Awake()
     {
         GetComponentsOnCharacter();
-        Controls();
+        //Controls();
     }
 
     private void OnEnable()
     {
-        inputMaster.Enable();
+        //inputMaster.Enable();
     }
 
     private void OnDisable()
     {
-        inputMaster.Disable();
+        //inputMaster.Disable();
     }
 
     void Start()
     {
         SetStats();
+        DontDestroyOnLoad(gameObject);
     }   
 
     void Update()
@@ -170,7 +171,7 @@ public class PlayableCharacter : Character {
         }
     }
 
-    void LightAttack(InputAction.CallbackContext ctx)
+    public void LightAttack(InputAction.CallbackContext ctx)
     {
         if (canLightAttack)
         {
@@ -228,7 +229,7 @@ public class PlayableCharacter : Character {
         canLightAttack = true;
     }
 
-    void HeavyAttack(InputAction.CallbackContext ctx)
+    public void HeavyAttack(InputAction.CallbackContext ctx)
     {
         if (canHeavyAttack)
         {
@@ -285,7 +286,7 @@ public class PlayableCharacter : Character {
         canHeavyAttack = true;
     }
 
-    void GrabAttack(InputAction.CallbackContext ctx)
+    public void GrabAttack(InputAction.CallbackContext ctx)
     {
         if (canGrab && !isAttacking && !isGrabbing)
         {
@@ -547,6 +548,11 @@ void DetectGround()
     }
 }
 
+public void OnMove(InputAction.CallbackContext ctx)
+{
+    movementInput = ctx.ReadValue<Vector2>();
+}
+
 void ApplyMovement()
 {
     if (isMovingAllowed)
@@ -573,7 +579,7 @@ void ApplyMovement()
 }
 
 
-    void Jump(InputAction.CallbackContext ctx)
+    public void Jump(InputAction.CallbackContext ctx)
     {
         if (jumps > 0 && isMovingAllowed && !isGrabbing)
         {
@@ -584,7 +590,7 @@ void ApplyMovement()
         }
     }
 
-    private void Dash(InputAction.CallbackContext ctx)
+    public void Dash(InputAction.CallbackContext ctx)
     {
         if (canDash && isMovingAllowed && !isGrabbing)
         {
