@@ -137,7 +137,6 @@ public class PlayableCharacter : Character {
         {
             case "LLL":
                 Debug.Log("Combo LLLL Realizado");
-                combo.Clear();
                 StartCoroutine(LLLLCombo());
                 break;
             default:
@@ -153,18 +152,15 @@ public class PlayableCharacter : Character {
         {
             case "LLH":
                 Debug.Log("Combo LLHH Realizado");
-                combo.Clear();
                 StartCoroutine(LLHHCombo());
                 break;
             case "HHH":
                 Debug.Log("Combo HHHH Realizado");
-                combo.Clear();
                 StartCoroutine(HHHHCombo());
                 break;
 
             case "LLL":
                 Debug.Log("Combo LLLH Realizado");
-                combo.Clear();
                 StartCoroutine(LLLHCombo());
                 break;
             default:
@@ -399,11 +395,14 @@ public class PlayableCharacter : Character {
         isMovingAllowed = true;
         isAttacking = false;
 
+        combo.Clear();
+
         SetRecievingComboOnTargets(false ,hitColliders);
 
         yield return new WaitForSeconds(lightAttackCD);
 
         canLightAttack = true;
+
     }
 
     IEnumerator LLLHCombo()
@@ -435,6 +434,9 @@ public class PlayableCharacter : Character {
 
         isMovingAllowed = true;
         isAttacking = false;
+
+        combo.Clear();
+
         SetRecievingComboOnTargets(false ,hitColliders);
 
         yield return new WaitForSeconds(heavyAttackCD);
@@ -471,6 +473,9 @@ public class PlayableCharacter : Character {
 
         isMovingAllowed = true;
         isAttacking = false;
+
+        combo.Clear();
+
         SetRecievingComboOnTargets(false ,hitColliders);
 
         yield return new WaitForSeconds(heavyAttackCD);
@@ -503,6 +508,8 @@ public class PlayableCharacter : Character {
 
         isMovingAllowed = true;
         isAttacking = false;
+
+        combo.Clear();
 
         SetRecievingComboOnTargets(false ,hitColliders);
 

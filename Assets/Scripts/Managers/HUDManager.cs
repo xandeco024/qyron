@@ -19,6 +19,7 @@ public class HUDManager : MonoBehaviour
     private TextMeshProUGUI[] coinsText = new TextMeshProUGUI[4];
     private Image[] hits0 = new Image[4];
     private Image[] hits1 = new Image[4];
+    private Image[] hits2 = new Image[4];
     private Image[] lastHits = new Image[4];
     
     [Header("Players Stats")]
@@ -69,6 +70,7 @@ public class HUDManager : MonoBehaviour
             coinsText[hudIndex] = hudObject[hudIndex].transform.Find("Coins Text").GetComponent<TextMeshProUGUI>();
             hits0[hudIndex] = hudObject[hudIndex].transform.Find("Hit 0").GetComponent<Image>();
             hits1[hudIndex] = hudObject[hudIndex].transform.Find("Hit 1").GetComponent<Image>();
+            hits2[hudIndex] = hudObject[hudIndex].transform.Find("Hit 2").GetComponent<Image>();
             lastHits[hudIndex] = hudObject[hudIndex].transform.Find("Last Hit").GetComponent<Image>();
 
             float imageIndex;
@@ -187,6 +189,29 @@ public class HUDManager : MonoBehaviour
             else
             {
                 hits1[hudIndex].gameObject.SetActive(false);
+            }
+
+            if (players[hudIndex].Combo.Count > 3)
+            {
+                hits2[hudIndex].gameObject.SetActive(true);
+
+                if (players[hudIndex].Combo[players[hudIndex].Combo.Count -4] == "L")
+                {
+                    hits2[hudIndex].GetComponent<Animator>().SetTrigger("L");
+                }
+                else if (players[hudIndex].Combo[players[hudIndex].Combo.Count -4] == "H")
+                {
+                    hits2[hudIndex].GetComponent<Animator>().SetTrigger("H");
+                }
+                else if (players[hudIndex].Combo[players[hudIndex].Combo.Count -4] == "G")
+                {
+                    hits2[hudIndex].GetComponent<Animator>().SetTrigger("G");
+                }
+            }
+
+            else
+            {
+                hits2[hudIndex].gameObject.SetActive(false);
             }
         }
     }
