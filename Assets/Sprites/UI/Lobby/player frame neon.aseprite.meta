@@ -121,7 +121,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: player frame neon_Frame_0
     originalName: 
-    pivot: {x: 0.5, y: -0.05405405}
+    pivot: {x: 0.5, y: -0.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -129,7 +129,7 @@ ScriptedImporter:
       x: 4
       y: 4
       width: 62
-      height: 74
+      height: 52
     spriteID: d00f580cd9948fe4a982bc8e3708409e
     spriteBone: []
     spriteOutline: []
@@ -141,15 +141,15 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: player frame neon_Frame_1
     originalName: 
-    pivot: {x: 0.5, y: -0.05405405}
+    pivot: {x: 0.5, y: -0.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 86
+      y: 64
       width: 62
-      height: 74
+      height: 52
     spriteID: 5468b28ca6e696342a8df338e5f504e6
     spriteBone: []
     spriteOutline: []
@@ -158,18 +158,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 86}
+    uvTransform: {x: 4, y: 64}
   - name: player frame neon_Frame_2
     originalName: 
-    pivot: {x: 0.5, y: -0.05405405}
+    pivot: {x: 0.5, y: -0.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 168
+      y: 124
       width: 62
-      height: 74
+      height: 52
     spriteID: 42e6713288764bf46ac89ab9fcfb586c
     spriteBone: []
     spriteOutline: []
@@ -178,18 +178,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 168}
+    uvTransform: {x: 4, y: 124}
   - name: player frame neon_Frame_3
     originalName: 
-    pivot: {x: 0.5, y: -0.05405405}
+    pivot: {x: 0.5, y: -0.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 74
-      y: 4
+      x: 4
+      y: 184
       width: 62
-      height: 74
+      height: 52
     spriteID: 98acd8a32b717d24a8fcc663be477570
     spriteBone: []
     spriteOutline: []
@@ -198,7 +198,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 74, y: 4}
+    uvTransform: {x: 4, y: 184}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -212,33 +212,33 @@ ScriptedImporter:
       frameIndex: 0
       cellRect:
         x: 17
-        y: 4
+        y: 26
         width: 62
-        height: 74
+        height: 52
       spriteId: d00f580cd9948fe4a982bc8e3708409e
     - name: player frame neon_Frame_1
       frameIndex: 1
       cellRect:
         x: 17
-        y: 4
+        y: 26
         width: 62
-        height: 74
+        height: 52
       spriteId: 5468b28ca6e696342a8df338e5f504e6
     - name: player frame neon_Frame_2
       frameIndex: 2
       cellRect:
         x: 17
-        y: 4
+        y: 26
         width: 62
-        height: 74
+        height: 52
       spriteId: 42e6713288764bf46ac89ab9fcfb586c
     - name: player frame neon_Frame_3
       frameIndex: 3
       cellRect:
         x: 17
-        y: 4
+        y: 26
         width: 62
-        height: 74
+        height: 52
       spriteId: 98acd8a32b717d24a8fcc663be477570
     linkedCells: []
     parentIndex: -1
