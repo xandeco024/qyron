@@ -5,32 +5,23 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-class LobbyPlayer
-{
-    public PlayableCharacter character;
-    public InputDevice device;
-
-    public LobbyPlayer(PlayableCharacter character, InputDevice device)
-    {
-        this.character = character;
-        this.device = device;
-    }
-}
-
 public class LobbyManager : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    private int playerCount = 0;
-    [SerializeField] PlayableCharacter[] playableCharacterPrefabs;
-    string[] selectedCharacters = new string[4];
-    private PlayerInputManager playerInputManager;
+    private LobbyPlayer[] lobbyPlayers = new LobbyPlayer[4];
+    private PlayerInput[] playerInputs = new PlayerInput[4];
 
-    private LobbyPlayer[] lobbyPlayers = {null, null, null, null};
+    private PlayerInputManager playerInputManager;
 
     void Start()
     {
         playerInputManager = GetComponent<PlayerInputManager>();
+
+        for (int i = 0; i < 4; i++)
+        {
+            lobbyPlayers[i] = GameObject.Find("Player Frame 2 " + i).GetComponent<LobbyPlayer>();
+        }
     }
 
 
@@ -42,22 +33,40 @@ public class LobbyManager : MonoBehaviour
 
     public void JoinPlayer()
     {
-        if (playerCount < 4)
+        //search for gameobjects called playerInputOBJ
+
+        for (int i = 0; i < playerInputs.Length; i++)
         {
-            lobbyPlayers[playerCount] = new LobbyPlayer(playableCharacterPrefabs[playerCount], null);
+            if(playerInputs[i] == null)
+            {
+                playerInputs[i] = GameObject.Find("teste(Clone)").GetComponent<PlayerInput>();
+                break;
+            }
         }
-        else
+
+        /*for(int i = 0; i < foundPlayerInputs.Length; i++)
         {
-            Debug.Log("Lobby is full.");
+            if (playerInputs[i] != foundPlayerInputs[i])
+            {
+                playerInputs[i] = foundPlayerInputs[i];
+                break;
+            }
         }
+
+        Debug.Log("Join Player");
+        for (int i = 0; i < 4; i++)
+        {
+            if (!lobbyPlayers[i].GetComponent<PlayerInput>())
+            {
+                lobbyPlayers[i].JoinPlayer(playerInputs[playerInputs.Count - 1]);
+            }
+        }*/
+
+        lobbyPlayers[playerInputs.Length - 1].JoinPlayer(playerInputs[playerInputs.Length - 1]);
     }
 
-    public void LeavePlayer(int playerIndex)
+    public void LeavePlayer()
     {
-        if (lobbyPlayers[playerIndex] != null)
-        {
-            lobbyPlayers[playerIndex] = null;
-            playerCount--;
-        }
+
     }
 }
