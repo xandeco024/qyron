@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 7008431577122273722}
   - component: {fileID: 375390561498784039}
   - component: {fileID: 8684156598380509673}
+  - component: {fileID: 6348327662188655456}
   - component: {fileID: 3341052499411830076}
   m_Layer: 8
-  m_Name: Qyron
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -306,6 +307,18 @@ MonoBehaviour:
   CombatBoxOffset: {x: 0.25, y: -0.5, z: 0}
   CombatRaycastSize: {x: 1.5, y: 2, z: 1}
   grabbedCharacterOffset: {x: 1, y: 0, z: 0}
+--- !u!114 &6348327662188655456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4397903468640775225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef20acb21894a1b488c81e1bc9c97e23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3341052499411830076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,9 +485,53 @@ MonoBehaviour:
     m_ActionId: 3141d6c3-9e16-4703-a00c-3cf9e169a80e
     m_ActionName: UI/Pause / Resume[/Keyboard/escape]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 79d1d50a-15e1-4ad8-8046-5eea90e14f0c
-    m_ActionName: UI/Join[/Keyboard/space]
+      m_Calls:
+      - m_Target: {fileID: 6348327662188655456}
+        m_TargetAssemblyTypeName: LobbyPlayer, Assembly-CSharp
+        m_MethodName: PreviousCharacter
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3701cb7b-9b98-4b65-a93a-ba6854ece89b
+    m_ActionName: Lobby/Previous[/Keyboard/a,/Keyboard/leftArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6348327662188655456}
+        m_TargetAssemblyTypeName: LobbyPlayer, Assembly-CSharp
+        m_MethodName: NextCharacter
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5151c28d-5d30-4dd3-8c04-3b94fccaf855
+    m_ActionName: Lobby/Next[/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: LobbyPlayer, Assembly-CSharp
+        m_MethodName: ToggleReady
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0fc43ec3-9c91-40e5-933e-0efc846e79a5
+    m_ActionName: Lobby/Join[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

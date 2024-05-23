@@ -57,24 +57,9 @@ public class PlayableCharacter : Character {
     private bool isGrabbing;
     private Character grabbedCharacter;
 
-    void Awake()
-    {
-        GetComponentsOnCharacter();
-        //Controls();
-    }
-
-    private void OnEnable()
-    {
-        //inputMaster.Enable();
-    }
-
-    private void OnDisable()
-    {
-        //inputMaster.Disable();
-    }
-
     void Start()
     {
+        GetComponentsOnCharacter();
         SetStats();
         DontDestroyOnLoad(gameObject);
     }   
@@ -89,27 +74,12 @@ public class PlayableCharacter : Character {
 
         DetectGround();
         DebugHandler(); 
-
         CombatHandler();
     }
 
     void FixedUpdate()
     {
         ApplyMovement();
-    }
-
-    void Controls()
-    {
-        inputMaster = new InputMaster();
-        inputMaster.Player.Movement.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
-        inputMaster.Player.Movement.canceled += ctx => movementInput = Vector2.zero;
-
-        inputMaster.Player.Jump.performed += Jump;
-        inputMaster.Player.Dash.performed += Dash;
-
-        inputMaster.Player.LightAttack.performed += LightAttack;
-        inputMaster.Player.HeavyAttack.performed += HeavyAttack;
-        inputMaster.Player.GrabAttack.performed += GrabAttack;
     }
 
     #region Combat

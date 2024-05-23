@@ -440,33 +440,6 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Join"",
-                    ""type"": ""Button"",
-                    ""id"": ""79d1d50a-15e1-4ad8-8046-5eea90e14f0c"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press"",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Next"",
-                    ""type"": ""Button"",
-                    ""id"": ""76837412-74c3-48a4-aa83-ada86af222fa"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Previous"",
-                    ""type"": ""Button"",
-                    ""id"": ""0b422b21-22bd-4b75-8f60-d6b0f59e7962"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -909,10 +882,45 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""action"": ""Pause / Resume"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Lobby"",
+            ""id"": ""4ce657ef-8a05-45f5-83f6-45d7e2f6431f"",
+            ""actions"": [
+                {
+                    ""name"": ""Previous"",
+                    ""type"": ""Button"",
+                    ""id"": ""3701cb7b-9b98-4b65-a93a-ba6854ece89b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Next"",
+                    ""type"": ""Button"",
+                    ""id"": ""5151c28d-5d30-4dd3-8c04-3b94fccaf855"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Join"",
+                    ""type"": ""Button"",
+                    ""id"": ""0fc43ec3-9c91-40e5-933e-0efc846e79a5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
                     ""name"": """",
-                    ""id"": ""9eb42832-56ed-4010-b9a2-edb88a1cfc88"",
+                    ""id"": ""cde0300a-46ba-4625-8fd9-63a80f8e6db9"",
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -923,7 +931,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""1327e08a-85cc-4faa-8940-61ddd728ef9c"",
+                    ""id"": ""70f384e7-1dd5-4dca-85e2-931e4c6447b7"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -934,7 +942,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""20b6f512-2548-48bd-8487-2014eea607e6"",
+                    ""id"": ""a1daabb3-18fc-43ab-93c9-af88f9c0b852"",
                     ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -945,7 +953,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""9e3a5a13-fa12-4411-b911-6c6985845410"",
+                    ""id"": ""c92330eb-227c-429e-8f89-e97223b6bd5a"",
                     ""path"": ""<Gamepad>/dpad/right"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -956,7 +964,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""e61a585a-d291-4ff1-9828-8cdbb93093b4"",
+                    ""id"": ""00f65e66-a8ff-45f7-9c2c-505193f2f75a"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
@@ -967,7 +975,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""4c811da4-b487-4c6c-8311-442ac667e96c"",
+                    ""id"": ""ee66ac44-cb24-42c4-883e-6122a7734a80"",
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
@@ -978,7 +986,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c838eef3-0551-40c0-aaba-a235c27b5ede"",
+                    ""id"": ""937f5102-7df4-476a-84f6-51d4f1237d1b"",
                     ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -989,7 +997,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""7699f438-9d43-4628-b6cd-b7f2a290325b"",
+                    ""id"": ""c29fbeb6-9ba1-44d1-b717-1ab9f86e0828"",
                     ""path"": ""<Gamepad>/dpad/left"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -1000,7 +1008,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""715eb8b3-fdb4-4a82-8bc2-4dbbf5656968"",
+                    ""id"": ""4568204b-4550-4350-93ae-8e2c14af88ea"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
@@ -1011,7 +1019,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c5206697-316e-4a94-9e54-47c43340fb28"",
+                    ""id"": ""ae37802f-e2e7-4b73-8796-841eaa26cac6"",
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
@@ -1074,9 +1082,11 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
         m_UI_PauseResume = m_UI.FindAction("Pause / Resume", throwIfNotFound: true);
-        m_UI_Join = m_UI.FindAction("Join", throwIfNotFound: true);
-        m_UI_Next = m_UI.FindAction("Next", throwIfNotFound: true);
-        m_UI_Previous = m_UI.FindAction("Previous", throwIfNotFound: true);
+        // Lobby
+        m_Lobby = asset.FindActionMap("Lobby", throwIfNotFound: true);
+        m_Lobby_Previous = m_Lobby.FindAction("Previous", throwIfNotFound: true);
+        m_Lobby_Next = m_Lobby.FindAction("Next", throwIfNotFound: true);
+        m_Lobby_Join = m_Lobby.FindAction("Join", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1235,9 +1245,6 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_TrackedDevicePosition;
     private readonly InputAction m_UI_TrackedDeviceOrientation;
     private readonly InputAction m_UI_PauseResume;
-    private readonly InputAction m_UI_Join;
-    private readonly InputAction m_UI_Next;
-    private readonly InputAction m_UI_Previous;
     public struct UIActions
     {
         private @InputMaster m_Wrapper;
@@ -1253,9 +1260,6 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         public InputAction @TrackedDevicePosition => m_Wrapper.m_UI_TrackedDevicePosition;
         public InputAction @TrackedDeviceOrientation => m_Wrapper.m_UI_TrackedDeviceOrientation;
         public InputAction @PauseResume => m_Wrapper.m_UI_PauseResume;
-        public InputAction @Join => m_Wrapper.m_UI_Join;
-        public InputAction @Next => m_Wrapper.m_UI_Next;
-        public InputAction @Previous => m_Wrapper.m_UI_Previous;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1298,15 +1302,6 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @PauseResume.started += instance.OnPauseResume;
             @PauseResume.performed += instance.OnPauseResume;
             @PauseResume.canceled += instance.OnPauseResume;
-            @Join.started += instance.OnJoin;
-            @Join.performed += instance.OnJoin;
-            @Join.canceled += instance.OnJoin;
-            @Next.started += instance.OnNext;
-            @Next.performed += instance.OnNext;
-            @Next.canceled += instance.OnNext;
-            @Previous.started += instance.OnPrevious;
-            @Previous.performed += instance.OnPrevious;
-            @Previous.canceled += instance.OnPrevious;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -1344,15 +1339,6 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @PauseResume.started -= instance.OnPauseResume;
             @PauseResume.performed -= instance.OnPauseResume;
             @PauseResume.canceled -= instance.OnPauseResume;
-            @Join.started -= instance.OnJoin;
-            @Join.performed -= instance.OnJoin;
-            @Join.canceled -= instance.OnJoin;
-            @Next.started -= instance.OnNext;
-            @Next.performed -= instance.OnNext;
-            @Next.canceled -= instance.OnNext;
-            @Previous.started -= instance.OnPrevious;
-            @Previous.performed -= instance.OnPrevious;
-            @Previous.canceled -= instance.OnPrevious;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -1370,6 +1356,68 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
+
+    // Lobby
+    private readonly InputActionMap m_Lobby;
+    private List<ILobbyActions> m_LobbyActionsCallbackInterfaces = new List<ILobbyActions>();
+    private readonly InputAction m_Lobby_Previous;
+    private readonly InputAction m_Lobby_Next;
+    private readonly InputAction m_Lobby_Join;
+    public struct LobbyActions
+    {
+        private @InputMaster m_Wrapper;
+        public LobbyActions(@InputMaster wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Previous => m_Wrapper.m_Lobby_Previous;
+        public InputAction @Next => m_Wrapper.m_Lobby_Next;
+        public InputAction @Join => m_Wrapper.m_Lobby_Join;
+        public InputActionMap Get() { return m_Wrapper.m_Lobby; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(LobbyActions set) { return set.Get(); }
+        public void AddCallbacks(ILobbyActions instance)
+        {
+            if (instance == null || m_Wrapper.m_LobbyActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_LobbyActionsCallbackInterfaces.Add(instance);
+            @Previous.started += instance.OnPrevious;
+            @Previous.performed += instance.OnPrevious;
+            @Previous.canceled += instance.OnPrevious;
+            @Next.started += instance.OnNext;
+            @Next.performed += instance.OnNext;
+            @Next.canceled += instance.OnNext;
+            @Join.started += instance.OnJoin;
+            @Join.performed += instance.OnJoin;
+            @Join.canceled += instance.OnJoin;
+        }
+
+        private void UnregisterCallbacks(ILobbyActions instance)
+        {
+            @Previous.started -= instance.OnPrevious;
+            @Previous.performed -= instance.OnPrevious;
+            @Previous.canceled -= instance.OnPrevious;
+            @Next.started -= instance.OnNext;
+            @Next.performed -= instance.OnNext;
+            @Next.canceled -= instance.OnNext;
+            @Join.started -= instance.OnJoin;
+            @Join.performed -= instance.OnJoin;
+            @Join.canceled -= instance.OnJoin;
+        }
+
+        public void RemoveCallbacks(ILobbyActions instance)
+        {
+            if (m_Wrapper.m_LobbyActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ILobbyActions instance)
+        {
+            foreach (var item in m_Wrapper.m_LobbyActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_LobbyActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public LobbyActions @Lobby => new LobbyActions(this);
     private int m_GamepadSchemeIndex = -1;
     public InputControlScheme GamepadScheme
     {
@@ -1410,8 +1458,11 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
         void OnPauseResume(InputAction.CallbackContext context);
-        void OnJoin(InputAction.CallbackContext context);
-        void OnNext(InputAction.CallbackContext context);
+    }
+    public interface ILobbyActions
+    {
         void OnPrevious(InputAction.CallbackContext context);
+        void OnNext(InputAction.CallbackContext context);
+        void OnJoin(InputAction.CallbackContext context);
     }
 }

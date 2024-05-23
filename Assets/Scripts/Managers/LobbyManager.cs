@@ -11,17 +11,17 @@ public class LobbyManager : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    private LobbyPlayer[] lobbyPlayers = new LobbyPlayer[4];
-    private PlayerInput[] playerInputs;
+    private LobbyPlayer[] lobbyPlayers;
+    private GameObject[] playerFrames = new GameObject[4];
+
     private PlayerInputManager playerInputManager;
 
     void Start()
     {
         playerInputManager = GetComponent<PlayerInputManager>();
-
         for (int i = 0; i < 4; i++)
         {
-            lobbyPlayers[i] = GameObject.Find("Player Frame 2 " + i).GetComponent<LobbyPlayer>();
+            playerFrames[i] = GameObject.Find("Player Frame 2 " + i);
         }
     }
 
@@ -29,20 +29,50 @@ public class LobbyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        HandlePlayerFrames();
+    }
 
+    void HandlePlayerFrames()
+    {
+        if (lobbyPlayers != null)
+        {
+            for (int i = 0; i < lobbyPlayers.Length; i++)
+            {
+                playerFrames[i].GetComponent<Animator>().SetBool("empty" , false);
+
+                int charIndex;
+
+                switch (lobbyPlayers[i].SelectedCharacterName)
+                {
+                    case "Qyron":
+                        charIndex = 0;
+                        break;
+                    case "Qyana":
+                        charIndex = 1;
+                        break;
+                    case "Meowcello":
+                        charIndex = 2;
+                        break;
+                    case "Gark":
+                        charIndex = 3;
+                        break;
+                    default:
+                        charIndex = 0;
+                        break;
+                }
+
+                playerFrames[i].GetComponent<Animator>().SetFloat("blend" , charIndex);
+
+            }
+        }
+    
     }
 
     public void JoinPlayer()
     {
-        playerInputs = FindObjectsOfType<PlayerInput>();
-
-        for (int i = 0; i < playerInputs.Length; i++)
-        {
-            if (lobbyPlayers[i].linkedCharacter == null)
-            {
-                lobbyPlayers[i].linkedCharacter = playerInputs[i].gameObject.GetComponent<PlayableCharacter>();
-            }
-        }
+        lobbyPlayers = FindObjectsOfType<LobbyPlayer>();
+        //invert the order of the players
+        lobbyPlayers = lobbyPlayers.Reverse().ToArray();
     }
 
     public void LeavePlayer()
