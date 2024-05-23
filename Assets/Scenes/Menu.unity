@@ -1606,19 +1606,7 @@ MonoBehaviour:
         m_CallState: 2
   m_PlayerLeftEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 563127098}
-        m_TargetAssemblyTypeName: LobbyManager, Assembly-CSharp
-        m_MethodName: LeavePlayer
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_JoinAction:
     m_UseReference: 1
     m_Action:
@@ -1647,7 +1635,7 @@ MonoBehaviour:
         m_Flags: 0
       m_Flags: 0
     m_Reference: {fileID: -9205356682402960406, guid: 9fb6ab75aa8a4e94da71a01956f478b8, type: 3}
-  m_PlayerPrefab: {fileID: 448886538130686460, guid: cd66a76258d34834b8d6498437650749, type: 3}
+  m_PlayerPrefab: {fileID: 4397903468640775225, guid: f63a537f1c977214b9365c7567257671, type: 3}
   m_SplitScreen: 0
   m_MaintainAspectRatioInSplitScreen: 0
   m_FixedNumberOfSplitScreens: -1

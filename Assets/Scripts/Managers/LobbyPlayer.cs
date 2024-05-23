@@ -8,9 +8,11 @@ public class LobbyPlayer : MonoBehaviour
 {
     [SerializeField] private PlayableCharacter[] characters;
     private PlayableCharacter selectedCharacter;
+    public PlayableCharacter linkedCharacter;
     private int selectedCharacterIndex;
     private bool ready;
     public bool Ready { get => ready;}
+
 
     [Header("Components")]
     private Animator animator;
