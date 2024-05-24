@@ -9,9 +9,9 @@ public class LobbyPlayer : MonoBehaviour {
         private string[] characterNames = { "Qyron", "Qyana", "Meowcello", "Gark" };
         public string[] AvaliableCharacters;
         private string selectedCharacterName;
-        public string SelectedCharacterName { get => selectedCharacterName; }
         private int selectedCharacterIndex;
-        
+        private GameObject playerFrameObject;
+        private Animator playerFrameAnimator;
 
 
         void Awake()
@@ -34,7 +34,18 @@ public class LobbyPlayer : MonoBehaviour {
 
         void Update()
         {
-            
+            if (playerFrameObject != null)
+            {
+
+            }
+        }
+
+        public void SetPlayerFrame(GameObject playerFrame)
+        {
+            playerFrameObject = playerFrame;
+            playerFrameAnimator = playerFrameObject.GetComponent<Animator>();
+            playerFrameAnimator.SetBool("empty", false);
+
         }
 
         public void NextCharacter(InputAction.CallbackContext context)
@@ -47,6 +58,7 @@ public class LobbyPlayer : MonoBehaviour {
                     selectedCharacterIndex = 0;
                 }
                 selectedCharacterName = characterNames[selectedCharacterIndex];
+                playerFrameAnimator.SetFloat("blend", selectedCharacterIndex);
             }
         }
 
@@ -60,6 +72,7 @@ public class LobbyPlayer : MonoBehaviour {
                     selectedCharacterIndex = characterNames.Length - 1;
                 }
                 selectedCharacterName = characterNames[selectedCharacterIndex];
+                playerFrameAnimator.SetFloat("blend", selectedCharacterIndex);
             }
         }
 
@@ -69,6 +82,7 @@ public class LobbyPlayer : MonoBehaviour {
             {
                 ready = !ready;
                 Debug.Log("Ready: " + ready);
+                playerFrameAnimator.SetBool("ready", ready);
             }
         }
 
@@ -81,7 +95,12 @@ public class LobbyPlayer : MonoBehaviour {
             }
         }
 
-        public void SwitchActionMap()
+        public void LeaveToMenu()
+        {
+            Destroy(gameObject);
+        }
+
+        public void EnablePlayerActionMap   ()
         {
             GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
         }

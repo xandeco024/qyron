@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ExceptionServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -19,6 +20,7 @@ public class LobbyManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI readyPlayersText;
     private int readyPlayers;
     private bool countdownStarted = false;
+
     private PlayerInputManager playerInputManager;
 
     void Start()
@@ -27,7 +29,7 @@ public class LobbyManager : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             playerFramesObject[i] = GameObject.Find("Player Frame 2 " + i);
-            joinObject[i] = playerFramesObject[i].GetComponentInChildren<TextMeshProUGUI>().gameObject;
+            //joinObject[i] = playerFramesObject[i].GetComponentInChildren<TextMeshProUGUI>().gameObject;
         }
     }
 
@@ -35,7 +37,23 @@ public class LobbyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HandlePlayerFrames();
+        //HandlePlayerFrames();
+    }
+
+    void OnEnable()
+    {
+        if (lobbyPlayers != null)
+        {
+            for (int i = 0; i < lobbyPlayers.Length; i++)
+            {
+                Destroy(lobbyPlayers[i].gameObject);
+            }
+        }
+
+        if(playerInputManager != null)
+        {
+            playerInputManager.EnableJoining();
+        }
     }
 
     void HandlePlayerFrames()
@@ -58,28 +76,7 @@ public class LobbyManager : MonoBehaviour
                 playerFramesObject[i].GetComponent<Animator>().SetBool("empty" , false);
                 joinObject[i].SetActive(false);
 
-                int charIndex;
 
-                switch (lobbyPlayers[i].SelectedCharacterName)
-                {
-                    case "Qyron":
-                        charIndex = 0;
-                        break;
-                    case "Qyana":
-                        charIndex = 1;
-                        break;
-                    case "Meowcello":
-                        charIndex = 2;
-                        break;
-                    case "Gark":
-                        charIndex = 3;
-                        break;
-                    default:
-                        charIndex = 0;
-                        break;
-                }
-
-                playerFramesObject[i].GetComponent<Animator>().SetFloat("blend" , charIndex);
 
                 if (lobbyPlayers[i].Ready)
                 {
@@ -117,7 +114,7 @@ public class LobbyManager : MonoBehaviour
 
         for (int i = 0; i < lobbyPlayers.Length; i++)
         {
-            lobbyPlayers[i].GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
+            lobbyPlayers[i].EnablePlayerActionMap();
         }
         
         loadSceneManager.LoadScene(1);
@@ -128,6 +125,30 @@ public class LobbyManager : MonoBehaviour
         lobbyPlayers = FindObjectsOfType<LobbyPlayer>();
         //invert the order of the players pq senao ele troca o primeiro index pelo segundo e afins.
         lobbyPlayers = lobbyPlayers.Reverse().ToArray();
+
+        for (int i = 0; i < lobbyPlayers.Length; i++)
+        {
+            lobbyPlayers[i].SetPlayerFrame(playerFramesObject[i]);
+        }
+
+        /*LobbyPlayer[] foundLobbyPlayers = FindObjectsOfType<LobbyPlayer>();
+
+        for (int i = 0; i < foundLobbyPlayers.Length; i++)
+        {
+            if (!lobbyPlayers.Contains(foundLobbyPlayers[i]))
+            {
+                for (int j = 0; j < lobbyPlayers.Length; j++)
+                {
+                    if (lobbyPlayers[j] == null)
+                    {
+                        lobbyPlayers[j] = foundLobbyPlayers[i];
+                        break;
+                    }
+                }
+            }
+        }*/
+
+
     }
 
     public void LeavePlayer()

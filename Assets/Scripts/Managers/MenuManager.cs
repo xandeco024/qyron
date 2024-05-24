@@ -6,11 +6,14 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
 
-    int sceneBuildIndex;
+    [SerializeField] private GameObject mainMenuObject;
+    [SerializeField] private GameObject lobbyGameObject;
+    [SerializeField] private GameObject settingsGameObject;
+    [SerializeField] private GameObject creditsGameObject;
 
     void Start()
     {
-        sceneBuildIndex = SceneManager.GetActiveScene().buildIndex;
+        
     }
 
     void Update()
@@ -18,12 +21,33 @@ public class MenuManager : MonoBehaviour
         
     }
 
-    public void StartGame()
+    public void Play()
     {
-        SceneManager.LoadScene(sceneBuildIndex + 1);
+        if (mainMenuObject.activeSelf)
+        {
+            mainMenuObject.SetActive(false);
+        }
+
+        if (!lobbyGameObject.activeSelf)
+        {
+            lobbyGameObject.SetActive(true);
+        }
     }
 
-    public void ExitGame()
+    public void BackToMainMenu(GameObject currentMenu)
+    {
+        if (currentMenu.activeSelf)
+        {
+            currentMenu.SetActive(false);
+        }
+
+        if (!mainMenuObject.activeSelf)
+        {
+            mainMenuObject.SetActive(true);
+        }
+    }
+
+    public void Exit()
     {
         Application.Quit();
     }
