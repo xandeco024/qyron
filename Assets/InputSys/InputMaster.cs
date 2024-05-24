@@ -440,6 +440,15 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Join"",
+                    ""type"": ""Button"",
+                    ""id"": ""33554070-7c06-4b54-8abe-e969d8e1e1ea"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -882,6 +891,28 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""action"": ""Pause / Resume"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""67f9f598-24d2-4315-a3a6-de408f910394"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Join"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""08568c78-1c2f-49ba-a37f-693ea8c5e1ea"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Join"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -908,9 +939,18 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Join"",
+                    ""name"": ""Confirm"",
                     ""type"": ""Button"",
-                    ""id"": ""0fc43ec3-9c91-40e5-933e-0efc846e79a5"",
+                    ""id"": ""b93dc7e5-c5e4-4a4c-ba87-19111a7a8c40"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Leave"",
+                    ""type"": ""Button"",
+                    ""id"": ""26ef347f-3bfe-4e8f-8c2c-e1096d0f6ece"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press"",
@@ -918,28 +958,6 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""cde0300a-46ba-4625-8fd9-63a80f8e6db9"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Join"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""70f384e7-1dd5-4dca-85e2-931e4c6447b7"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Join"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": """",
                     ""id"": ""a1daabb3-18fc-43ab-93c9-af88f9c0b852"",
@@ -1027,6 +1045,50 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""action"": ""Previous"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c42031d1-dc78-4acc-9064-ad91b4e5bc95"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""970352c6-1b7e-490a-b458-c50c1acd4507"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e4d0e21f-b0e5-4d29-a194-94f45bcf93cd"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Leave"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ad999ca6-960c-437b-8921-f35abbe35c29"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Leave"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1082,11 +1144,13 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
         m_UI_PauseResume = m_UI.FindAction("Pause / Resume", throwIfNotFound: true);
+        m_UI_Join = m_UI.FindAction("Join", throwIfNotFound: true);
         // Lobby
         m_Lobby = asset.FindActionMap("Lobby", throwIfNotFound: true);
         m_Lobby_Previous = m_Lobby.FindAction("Previous", throwIfNotFound: true);
         m_Lobby_Next = m_Lobby.FindAction("Next", throwIfNotFound: true);
-        m_Lobby_Join = m_Lobby.FindAction("Join", throwIfNotFound: true);
+        m_Lobby_Confirm = m_Lobby.FindAction("Confirm", throwIfNotFound: true);
+        m_Lobby_Leave = m_Lobby.FindAction("Leave", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1245,6 +1309,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_TrackedDevicePosition;
     private readonly InputAction m_UI_TrackedDeviceOrientation;
     private readonly InputAction m_UI_PauseResume;
+    private readonly InputAction m_UI_Join;
     public struct UIActions
     {
         private @InputMaster m_Wrapper;
@@ -1260,6 +1325,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         public InputAction @TrackedDevicePosition => m_Wrapper.m_UI_TrackedDevicePosition;
         public InputAction @TrackedDeviceOrientation => m_Wrapper.m_UI_TrackedDeviceOrientation;
         public InputAction @PauseResume => m_Wrapper.m_UI_PauseResume;
+        public InputAction @Join => m_Wrapper.m_UI_Join;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1302,6 +1368,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @PauseResume.started += instance.OnPauseResume;
             @PauseResume.performed += instance.OnPauseResume;
             @PauseResume.canceled += instance.OnPauseResume;
+            @Join.started += instance.OnJoin;
+            @Join.performed += instance.OnJoin;
+            @Join.canceled += instance.OnJoin;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -1339,6 +1408,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @PauseResume.started -= instance.OnPauseResume;
             @PauseResume.performed -= instance.OnPauseResume;
             @PauseResume.canceled -= instance.OnPauseResume;
+            @Join.started -= instance.OnJoin;
+            @Join.performed -= instance.OnJoin;
+            @Join.canceled -= instance.OnJoin;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -1362,14 +1434,16 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
     private List<ILobbyActions> m_LobbyActionsCallbackInterfaces = new List<ILobbyActions>();
     private readonly InputAction m_Lobby_Previous;
     private readonly InputAction m_Lobby_Next;
-    private readonly InputAction m_Lobby_Join;
+    private readonly InputAction m_Lobby_Confirm;
+    private readonly InputAction m_Lobby_Leave;
     public struct LobbyActions
     {
         private @InputMaster m_Wrapper;
         public LobbyActions(@InputMaster wrapper) { m_Wrapper = wrapper; }
         public InputAction @Previous => m_Wrapper.m_Lobby_Previous;
         public InputAction @Next => m_Wrapper.m_Lobby_Next;
-        public InputAction @Join => m_Wrapper.m_Lobby_Join;
+        public InputAction @Confirm => m_Wrapper.m_Lobby_Confirm;
+        public InputAction @Leave => m_Wrapper.m_Lobby_Leave;
         public InputActionMap Get() { return m_Wrapper.m_Lobby; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1385,9 +1459,12 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @Next.started += instance.OnNext;
             @Next.performed += instance.OnNext;
             @Next.canceled += instance.OnNext;
-            @Join.started += instance.OnJoin;
-            @Join.performed += instance.OnJoin;
-            @Join.canceled += instance.OnJoin;
+            @Confirm.started += instance.OnConfirm;
+            @Confirm.performed += instance.OnConfirm;
+            @Confirm.canceled += instance.OnConfirm;
+            @Leave.started += instance.OnLeave;
+            @Leave.performed += instance.OnLeave;
+            @Leave.canceled += instance.OnLeave;
         }
 
         private void UnregisterCallbacks(ILobbyActions instance)
@@ -1398,9 +1475,12 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @Next.started -= instance.OnNext;
             @Next.performed -= instance.OnNext;
             @Next.canceled -= instance.OnNext;
-            @Join.started -= instance.OnJoin;
-            @Join.performed -= instance.OnJoin;
-            @Join.canceled -= instance.OnJoin;
+            @Confirm.started -= instance.OnConfirm;
+            @Confirm.performed -= instance.OnConfirm;
+            @Confirm.canceled -= instance.OnConfirm;
+            @Leave.started -= instance.OnLeave;
+            @Leave.performed -= instance.OnLeave;
+            @Leave.canceled -= instance.OnLeave;
         }
 
         public void RemoveCallbacks(ILobbyActions instance)
@@ -1458,11 +1538,13 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
         void OnPauseResume(InputAction.CallbackContext context);
+        void OnJoin(InputAction.CallbackContext context);
     }
     public interface ILobbyActions
     {
         void OnPrevious(InputAction.CallbackContext context);
         void OnNext(InputAction.CallbackContext context);
-        void OnJoin(InputAction.CallbackContext context);
+        void OnConfirm(InputAction.CallbackContext context);
+        void OnLeave(InputAction.CallbackContext context);
     }
 }

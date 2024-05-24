@@ -418,6 +418,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Join",
+                    "type": "Button",
+                    "id": "33554070-7c06-4b54-8abe-e969d8e1e1ea",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -860,6 +869,28 @@
                     "action": "Pause / Resume",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "67f9f598-24d2-4315-a3a6-de408f910394",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Join",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "08568c78-1c2f-49ba-a37f-693ea8c5e1ea",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Join",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -886,9 +917,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Join",
+                    "name": "Confirm",
                     "type": "Button",
-                    "id": "0fc43ec3-9c91-40e5-933e-0efc846e79a5",
+                    "id": "b93dc7e5-c5e4-4a4c-ba87-19111a7a8c40",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Leave",
+                    "type": "Button",
+                    "id": "26ef347f-3bfe-4e8f-8c2c-e1096d0f6ece",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press",
@@ -896,28 +936,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "cde0300a-46ba-4625-8fd9-63a80f8e6db9",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Join",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "70f384e7-1dd5-4dca-85e2-931e4c6447b7",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Join",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "a1daabb3-18fc-43ab-93c9-af88f9c0b852",
@@ -1003,6 +1021,50 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Previous",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c42031d1-dc78-4acc-9064-ad91b4e5bc95",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Confirm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "970352c6-1b7e-490a-b458-c50c1acd4507",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Confirm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e4d0e21f-b0e5-4d29-a194-94f45bcf93cd",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Leave",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ad999ca6-960c-437b-8921-f35abbe35c29",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Leave",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

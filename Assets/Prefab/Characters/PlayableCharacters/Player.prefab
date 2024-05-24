@@ -319,6 +319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef20acb21894a1b488c81e1bc9c97e23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AvaliableCharacters: []
 --- !u!114 &3341052499411830076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -517,8 +518,12 @@ MonoBehaviour:
     m_ActionId: 5151c28d-5d30-4dd3-8c04-3b94fccaf855
     m_ActionName: Lobby/Next[/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 33554070-7c06-4b54-8abe-e969d8e1e1ea
+    m_ActionName: UI/Join[/XInputControllerWindows/buttonSouth,/Keyboard/space]
+  - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6348327662188655456}
         m_TargetAssemblyTypeName: LobbyPlayer, Assembly-CSharp
         m_MethodName: ToggleReady
         m_Mode: 0
@@ -530,8 +535,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 0fc43ec3-9c91-40e5-933e-0efc846e79a5
-    m_ActionName: Lobby/Join[/Keyboard/space]
+    m_ActionId: b93dc7e5-c5e4-4a4c-ba87-19111a7a8c40
+    m_ActionName: Lobby/Confirm[/XInputControllerWindows/buttonSouth,/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6348327662188655456}
+        m_TargetAssemblyTypeName: LobbyPlayer, Assembly-CSharp
+        m_MethodName: Leave
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 26ef347f-3bfe-4e8f-8c2c-e1096d0f6ece
+    m_ActionName: Lobby/Leave[/XInputControllerWindows/buttonEast,/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

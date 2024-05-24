@@ -31,6 +31,7 @@ public class LoadSceneManager : MonoBehaviour
         "TENTE IR AO LOJISTA AS 4:20",
         "FAÇA PROERD. NÃO USE DROGAS",
         };
+
     void Start()
     {
         screenWidth = Screen.width;
@@ -42,11 +43,9 @@ public class LoadSceneManager : MonoBehaviour
         
     }
 
-
-
     public void LoadScene(int sceneIndex)
     {
-        Debug.Log("STARTOU!!");
+        //Debug.Log("STARTOU!!");
         loadingScreen.SetActive(true); 
         hintText.text = hintList[UnityEngine.Random.Range(0, hintList.Count)];
         StartCoroutine(LoadSceneAsync(sceneIndex));
@@ -70,7 +69,7 @@ public class LoadSceneManager : MonoBehaviour
             loadingBar.fillAmount = progress;
             loadingText.text = "Carregando " + (progress * 100).ToString("0") + "% ...";
 
-            Debug.Log(progress);
+            //Debug.Log(progress);
 
             yield return null;
         }

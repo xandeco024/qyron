@@ -7,9 +7,12 @@ public class LobbyPlayer : MonoBehaviour {
         private bool ready;
         public bool Ready { get => ready; }
         private string[] characterNames = { "Qyron", "Qyana", "Meowcello", "Gark" };
+        public string[] AvaliableCharacters;
         private string selectedCharacterName;
         public string SelectedCharacterName { get => selectedCharacterName; }
         private int selectedCharacterIndex;
+        
+
 
         void Awake()
         {
@@ -69,12 +72,17 @@ public class LobbyPlayer : MonoBehaviour {
             }
         }
 
-        public void StartGame(InputAction.CallbackContext context)
+        public void Leave(InputAction.CallbackContext context)
         {
             if (context.performed)
             {
-                Debug.Log("Start Game");
-                GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
+                Debug.Log("Leave");
+                Destroy(gameObject);
             }
+        }
+
+        public void SwitchActionMap()
+        {
+            GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
         }
     }
