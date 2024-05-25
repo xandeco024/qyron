@@ -57,6 +57,14 @@ public class PlayableCharacter : Character {
     private bool isGrabbing;
     private Character grabbedCharacter;
 
+    private string characterName;
+    public string CharacterName { get { return characterName; } }
+
+    public void SetupCharacter(string name)
+    {
+        characterName = name;
+    }
+
     void Start()
     {
         GetComponentsOnCharacter();
@@ -68,7 +76,9 @@ public class PlayableCharacter : Character {
     {
         if (currentHealth <= 0) 
         {
+            currentHealth = 0;
             animator.SetBool("downed", true);
+            rb.velocity = Vector3.zero;
             isMovingAllowed = false;
         }
 
@@ -143,23 +153,26 @@ public class PlayableCharacter : Character {
 
     public void LightAttack(InputAction.CallbackContext ctx)
     {
-        if (canLightAttack)
+        if(ctx.performed)
         {
-            if(isGrabbing) // se estiver grebbando então faz o combo de grab
-            { 
-                CancelGrab();
-                Debug.Log("Light Grab Attack " + combo);
-                combo.Clear();
-            }
-
-            else if (combo.Count == 3 && !isAttacking && validLightCombos.Contains(string.Join("", combo.GetRange(combo.Count - 3, 3)))) // se o combo for valido e tiver 3 ataques
+            if (canLightAttack)
             {
-                LightComboHandler();
-            }
+                if(isGrabbing) // se estiver grebbando então faz o combo de grab
+                { 
+                    CancelGrab();
+                    Debug.Log("Light Grab Attack " + combo);
+                    combo.Clear();
+                }
 
-            else if (!isAttacking)
-            {
-                StartCoroutine(LightAttackCoroutine());
+                else if (combo.Count == 3 && !isAttacking && validLightCombos.Contains(string.Join("", combo.GetRange(combo.Count - 3, 3)))) // se o combo for valido e tiver 3 ataques
+                {
+                    LightComboHandler();
+                }
+
+                else if (!isAttacking)
+                {
+                    StartCoroutine(LightAttackCoroutine());
+                }
             }
         }
     }
@@ -201,23 +214,26 @@ public class PlayableCharacter : Character {
 
     public void HeavyAttack(InputAction.CallbackContext ctx)
     {
-        if (canHeavyAttack)
+        if(ctx.performed)
         {
-            if(isGrabbing) // se estiver grebbando então faz o combo de grab
-            { 
-                CancelGrab();
-                //uDebug.Log("Heavy Grab Attack " + combo);
-                combo.Clear();
-            }
-
-            else if (combo.Count == 3 && !isAttacking && validHeavyCombos.Contains(string.Join("", combo.GetRange(combo.Count - 3, 3)))) // se o combo for valido e tiver 3 ataques
+            if (canHeavyAttack)
             {
-                HeavyComboHandler();
-            }
+                if(isGrabbing) // se estiver grebbando então faz o combo de grab
+                { 
+                    CancelGrab();
+                    //uDebug.Log("Heavy Grab Attack " + combo);
+                    combo.Clear();
+                }
 
-            else if (!isAttacking)
-            {
-                StartCoroutine(HeavyAttackCoroutine());
+                else if (combo.Count == 3 && !isAttacking && validHeavyCombos.Contains(string.Join("", combo.GetRange(combo.Count - 3, 3)))) // se o combo for valido e tiver 3 ataques
+                {
+                    HeavyComboHandler();
+                }
+
+                else if (!isAttacking)
+                {
+                    StartCoroutine(HeavyAttackCoroutine());
+                }
             }
         }
     }
@@ -258,28 +274,31 @@ public class PlayableCharacter : Character {
 
     public void GrabAttack(InputAction.CallbackContext ctx)
     {
-        if (canGrab && !isAttacking && !isGrabbing)
+        if(ctx.performed)
         {
-            if (combo.Count > 0)
+            if (canGrab && !isAttacking && !isGrabbing)
             {
-                // só vai grabar se no combo não houver um outro grab
-                if (combo.Contains("G")) return;
+                if (combo.Count > 0)
+                {
+                    // só vai grabar se no combo não houver um outro grab
+                    if (combo.Contains("G")) return;
+                    else
+                    {
+                        StartCoroutine(GrabAttackCoroutine());
+                    }
+                }
+
                 else
                 {
                     StartCoroutine(GrabAttackCoroutine());
                 }
             }
 
-            else
+            else if (isGrabbing)
             {
-                StartCoroutine(GrabAttackCoroutine());
+                CancelGrab();
+                StopCoroutine(GrabAttackCoroutine());
             }
-        }
-
-        else if (isGrabbing)
-        {
-            CancelGrab();
-            StopCoroutine(GrabAttackCoroutine());
         }
     }
 
@@ -551,20 +570,27 @@ void ApplyMovement()
 
     public void Jump(InputAction.CallbackContext ctx)
     {
-        if (jumps > 0 && isMovingAllowed && !isGrabbing)
+        if (ctx.performed)
         {
-            animator.SetTrigger("jumpTrigger");
-            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            jumps--;
+            if (jumps > 0 && isMovingAllowed && !isGrabbing)
+
+            {
+                animator.SetTrigger("jumpTrigger");
+                rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                jumps--;
+            }
         }
     }
 
     public void Dash(InputAction.CallbackContext ctx)
     {
-        if (canDash && isMovingAllowed && !isGrabbing)
+        if (ctx.performed)
         {
-            StartCoroutine(DashCoroutine());
+            if (canDash && isMovingAllowed && !isGrabbing)
+            {
+                StartCoroutine(DashCoroutine());
+            }
         }
     }
 

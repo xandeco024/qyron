@@ -8,10 +8,10 @@ public class LobbyPlayer : MonoBehaviour {
         private bool ready;
         public bool Ready { get => ready; }
         private string[] characterNames = { "Qyron", "Qyana", "Meowcello", "Gark" };
-        public string[] AvaliableCharacters;
         private string selectedCharacterName;
         public string SelectedCharacterName { get => selectedCharacterName; }
         private int selectedCharacterIndex;
+
         private GameObject playerFrameObject;
         private GameObject characterObject;
         private Animator playerFrameAnimator;
@@ -33,6 +33,11 @@ public class LobbyPlayer : MonoBehaviour {
             }
         }
 
+        void OnEnable()
+        {
+            ResetLobbyPlayer();
+        }
+
         void Start()
         {
 
@@ -42,8 +47,34 @@ public class LobbyPlayer : MonoBehaviour {
         {
             if (playerFrameObject != null)
             {
+                if(lobbyManager.LockedCharacterNamesList.Contains(selectedCharacterName) && !ready)
+                {
+                    playerFrameAnimator.SetBool("unavaliable", true);
+                    characterAnimator.GetComponent<Image>().color = Color.gray;
+                    //canLockCharacter = false;
+                }
+                else
+                {
+                    playerFrameAnimator.SetBool("unavaliable", false);
+                    characterAnimator.GetComponent<Image>().color = Color.white;
+                    //canLockCharacter = true;
+                }
 
+                playerFrameAnimator.SetFloat("blend", selectedCharacterIndex);
+                characterAnimator.SetFloat("blend", selectedCharacterIndex);
             }
+        }
+
+        private  void ResetLobbyPlayer()
+        {
+            ready = false;
+            selectedCharacterIndex = 0;
+            selectedCharacterName = characterNames[selectedCharacterIndex];
+            playerFrameAnimator.SetBool("ready", false);
+            playerFrameAnimator.SetBool("empty", false);
+            playerFrameAnimator.SetBool("unavaliable", false);
+            playerFrameAnimator.SetFloat("blend", selectedCharacterIndex);
+            characterAnimator.SetFloat("blend", selectedCharacterIndex);
         }
 
         public void SetPlayerFrame(GameObject playerFrame)
@@ -69,7 +100,7 @@ public class LobbyPlayer : MonoBehaviour {
                         selectedCharacterIndex = 0;
                     }
 
-                    HandlePlayerFrame();
+                    selectedCharacterName = characterNames[selectedCharacterIndex];
                 }
             }
         }
@@ -86,39 +117,26 @@ public class LobbyPlayer : MonoBehaviour {
                     {
                         selectedCharacterIndex = characterNames.Length - 1;
                     }
-                    
-                    HandlePlayerFrame();
+
+                    selectedCharacterName = characterNames[selectedCharacterIndex];
                 }
             }
-        }
-
-        private void HandlePlayerFrame()
-        {
-            selectedCharacterName = characterNames[selectedCharacterIndex];
-
-            if(lobbyManager.LockedCharacterNames.Contains(selectedCharacterName))
-            {
-                playerFrameAnimator.SetBool("unavaliable", true);
-                characterAnimator.GetComponent<Image>().color = Color.gray;
-            }
-            else
-            {
-                playerFrameAnimator.SetBool("unavaliable", false);
-                characterAnimator.GetComponent<Image>().color = Color.white;
-            }
-
-            playerFrameAnimator.SetFloat("blend", selectedCharacterIndex);
-            characterAnimator.SetFloat("blend", selectedCharacterIndex);
         }
 
         public void ToggleReady(InputAction.CallbackContext context)
         {
             if (context.performed)
             {
-                if(!lobbyManager.LockedCharacterNames.Contains(selectedCharacterName))
+                if (!lobbyManager.LockedCharacterNamesList.Contains(selectedCharacterName) && !ready)
                 {
-                    ready = !ready;
-                    Debug.Log("Ready: " + ready);
+                    ready = true;
+                    lobbyManager.ToggleLockedCharacter(selectedCharacterName, ready);
+                    playerFrameAnimator.SetBool("ready", ready);
+                }
+                else if (ready)
+                {
+                    ready = false;
+                    lobbyManager.ToggleLockedCharacter(selectedCharacterName, ready);
                     playerFrameAnimator.SetBool("ready", ready);
                 }
             }
@@ -128,17 +146,14 @@ public class LobbyPlayer : MonoBehaviour {
         {
             if (context.performed)
             {
-                Debug.Log("Leave");
+                playerFrameAnimator.SetBool("empty", true);
+                characterObject.SetActive(false);
+                lobbyManager.LeavePlayer(this.GetComponent<PlayerInput>());
                 Destroy(gameObject);
             }
         }
 
-        public void LeaveToMenu()
-        {
-            Destroy(gameObject);
-        }
-
-        public void EnablePlayerActionMap   ()
+        public void EnablePlayerActionMap()
         {
             GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
         }

@@ -54,11 +54,6 @@ public class Character : MonoBehaviour {
     protected float respect;
     public float Respect { get { return respect; } }
 
-    public void SetupCharacter()
-    {
-
-    }
-
     protected void SetStats()
     {
         maxHealth = baseMaxHealth;

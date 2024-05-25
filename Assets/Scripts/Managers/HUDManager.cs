@@ -22,24 +22,14 @@ public class HUDManager : MonoBehaviour
     private Image[] hits2 = new Image[4];
     private Image[] lastHits = new Image[4];
     
-    [Header("Players Stats")]
-    private PlayableCharacter[] players = new PlayableCharacter[4];
+    private GameManager gameManager;
+    private List<PlayableCharacter> playerList = new List<PlayableCharacter>();
 
     void Start()
     {
-        PlayableCharacter[] foundPlayers;foundPlayers = FindObjectsOfType<PlayableCharacter>();
+        gameManager = FindObjectOfType<GameManager>();
 
-        for (int i = 0; i < players.Length; i++)
-        {
-            if (i < foundPlayers.Length)
-            {
-                players[i] = foundPlayers[i];
-            }
-            else
-            {
-                players[i] = null;
-            }
-        }
+        playerList = gameManager.PlayerList;
 
         SetupHUD(0);
         SetupHUD(1);
@@ -49,7 +39,7 @@ public class HUDManager : MonoBehaviour
 
     void Update()
     {
-        for (int i = 0; i < players.Length; i++)
+        for (int i = 0; i < playerList.Count; i++)
         {
             HudHandler(i);
         }
@@ -57,7 +47,7 @@ public class HUDManager : MonoBehaviour
 
     private void SetupHUD(int hudIndex)
     {
-        if (players[hudIndex] != null) 
+        if (hudIndex < playerList.Count && playerList[hudIndex] != null) 
         {
             hudObject[hudIndex].SetActive(true);
 
@@ -75,15 +65,15 @@ public class HUDManager : MonoBehaviour
 
             float imageIndex;
 
-            switch (players[hudIndex].gameObject.name)
+            switch (playerList[hudIndex].CharacterName)
             {
                 case "Qyron":
                     imageIndex = 0;
                     break;
-                case "Qyra":
+                case "Qyana":
                     imageIndex = 0.25f;
                     break;
-                case "Meowcelo":
+                case "Meowcello":
                     imageIndex = 0.5f;
                     break;
                 case "Gark":
@@ -96,7 +86,7 @@ public class HUDManager : MonoBehaviour
 
             hudImage[hudIndex].GetComponent<Animator>().SetFloat("index", imageIndex);
 
-            if (debug) Debug.Log("HUD INDEX: " + hudIndex + "ACTIVE PLAYER: " + players[hudIndex].name);
+            if (debug) Debug.Log("HUD INDEX: " + hudIndex + "ACTIVE PLAYER: " + playerList[hudIndex].name);
         }
 
         else
@@ -109,32 +99,40 @@ public class HUDManager : MonoBehaviour
     
     private void HudHandler(int hudIndex)
     {
-        if (players[hudIndex] != null)
+        if (playerList[hudIndex] != null)
         {
-            damageBar[hudIndex].fillAmount = Mathf.Lerp(damageBar[hudIndex].fillAmount, (players[hudIndex].CurrentHealth / players[hudIndex].MaxHealth), 2.5f * Time.deltaTime);
-            healthBar[hudIndex].fillAmount = players[hudIndex].CurrentHealth / players[hudIndex].MaxHealth;
-            healthText[hudIndex].text = players[hudIndex].CurrentHealth.ToString();
+            damageBar[hudIndex].fillAmount = Mathf.Lerp(damageBar[hudIndex].fillAmount, (playerList[hudIndex].CurrentHealth / playerList[hudIndex].MaxHealth), 2.5f * Time.deltaTime);
+            healthBar[hudIndex].fillAmount = playerList[hudIndex].CurrentHealth / playerList[hudIndex].MaxHealth;
+            //integer, but if decimal, only show 1 decimal
+            if (playerList[hudIndex].CurrentHealth % 1 != 0)
+            {
+                healthText[hudIndex].text = playerList[hudIndex].CurrentHealth.ToString("F1");
+            }
+            else
+            {
+                healthText[hudIndex].text = playerList[hudIndex].CurrentHealth.ToString();
+            }
 
             //xpBar[hudIndex].fillAmount = Mathf.Lerp(xpBar[hudIndex].fillAmount, (players[hudIndex].ExP / players[hudIndex].NextLevelExP), 3 * Time.deltaTime);
-            xpBar[hudIndex].fillAmount = Mathf.Lerp(xpBar[hudIndex].fillAmount, ((float)players[hudIndex].ExP / (float)players[hudIndex].NextLevelExP), 3 * Time.deltaTime);
-            levelText[hudIndex].text = players[hudIndex].Level.ToString();
+            xpBar[hudIndex].fillAmount = Mathf.Lerp(xpBar[hudIndex].fillAmount, ((float)playerList[hudIndex].ExP / (float)playerList[hudIndex].NextLevelExP), 3 * Time.deltaTime);
+            levelText[hudIndex].text = playerList[hudIndex].Level.ToString();
 
-            coinsText[hudIndex].text = players[hudIndex].Coins.ToString();
+            coinsText[hudIndex].text = playerList[hudIndex].Coins.ToString();
 
             //logica pros hits
-            if (players[hudIndex].Combo.Count > 0)
+            if (playerList[hudIndex].Combo.Count > 0)
             {
                 lastHits[hudIndex].gameObject.SetActive(true);
 
-                if (players[hudIndex].Combo[players[hudIndex].Combo.Count -1] == "L")
+                if (playerList[hudIndex].Combo[playerList[hudIndex].Combo.Count -1] == "L")
                 {
                     lastHits[hudIndex].GetComponent<Animator>().SetTrigger("L");
                 }
-                else if (players[hudIndex].Combo[players[hudIndex].Combo.Count -1] == "H")
+                else if (playerList[hudIndex].Combo[playerList[hudIndex].Combo.Count -1] == "H")
                 {
                     lastHits[hudIndex].GetComponent<Animator>().SetTrigger("H");
                 }
-                else if (players[hudIndex].Combo[players[hudIndex].Combo.Count -1] == "G")
+                else if (playerList[hudIndex].Combo[playerList[hudIndex].Combo.Count -1] == "G")
                 {
                     lastHits[hudIndex].GetComponent<Animator>().SetTrigger("G");
                 }
@@ -145,19 +143,19 @@ public class HUDManager : MonoBehaviour
                 lastHits[hudIndex].gameObject.SetActive(false);
             }
 
-            if (players[hudIndex].Combo.Count > 1)
+            if (playerList[hudIndex].Combo.Count > 1)
             {
                 hits0[hudIndex].gameObject.SetActive(true);
 
-                if (players[hudIndex].Combo[players[hudIndex].Combo.Count -2] == "L")
+                if (playerList[hudIndex].Combo[playerList[hudIndex].Combo.Count -2] == "L")
                 {
                     hits0[hudIndex].GetComponent<Animator>().SetTrigger("L");
                 }
-                else if (players[hudIndex].Combo[players[hudIndex].Combo.Count -2] == "H")
+                else if (playerList[hudIndex].Combo[playerList[hudIndex].Combo.Count -2] == "H")
                 {
                     hits0[hudIndex].GetComponent<Animator>().SetTrigger("H");
                 }
-                else if (players[hudIndex].Combo[players[hudIndex].Combo.Count -2] == "G")
+                else if (playerList[hudIndex].Combo[playerList[hudIndex].Combo.Count -2] == "G")
                 {
                     hits0[hudIndex].GetComponent<Animator>().SetTrigger("G");
                 }
@@ -168,19 +166,19 @@ public class HUDManager : MonoBehaviour
                 hits0[hudIndex].gameObject.SetActive(false);
             }
 
-            if (players[hudIndex].Combo.Count > 2)
+            if (playerList[hudIndex].Combo.Count > 2)
             {
                 hits1[hudIndex].gameObject.SetActive(true);
 
-                if (players[hudIndex].Combo[players[hudIndex].Combo.Count -3] == "L")
+                if (playerList[hudIndex].Combo[playerList[hudIndex].Combo.Count -3] == "L")
                 {
                     hits1[hudIndex].GetComponent<Animator>().SetTrigger("L");
                 }
-                else if (players[hudIndex].Combo[players[hudIndex].Combo.Count -3] == "H")
+                else if (playerList[hudIndex].Combo[playerList[hudIndex].Combo.Count -3] == "H")
                 {
                     hits1[hudIndex].GetComponent<Animator>().SetTrigger("H");
                 }
-                else if (players[hudIndex].Combo[players[hudIndex].Combo.Count -3] == "G")
+                else if (playerList[hudIndex].Combo[playerList[hudIndex].Combo.Count -3] == "G")
                 {
                     hits1[hudIndex].GetComponent<Animator>().SetTrigger("G");
                 }
@@ -191,19 +189,19 @@ public class HUDManager : MonoBehaviour
                 hits1[hudIndex].gameObject.SetActive(false);
             }
 
-            if (players[hudIndex].Combo.Count > 3)
+            if (playerList[hudIndex].Combo.Count > 3)
             {
                 hits2[hudIndex].gameObject.SetActive(true);
 
-                if (players[hudIndex].Combo[players[hudIndex].Combo.Count -4] == "L")
+                if (playerList[hudIndex].Combo[playerList[hudIndex].Combo.Count -4] == "L")
                 {
                     hits2[hudIndex].GetComponent<Animator>().SetTrigger("L");
                 }
-                else if (players[hudIndex].Combo[players[hudIndex].Combo.Count -4] == "H")
+                else if (playerList[hudIndex].Combo[playerList[hudIndex].Combo.Count -4] == "H")
                 {
                     hits2[hudIndex].GetComponent<Animator>().SetTrigger("H");
                 }
-                else if (players[hudIndex].Combo[players[hudIndex].Combo.Count -4] == "G")
+                else if (playerList[hudIndex].Combo[playerList[hudIndex].Combo.Count -4] == "G")
                 {
                     hits2[hudIndex].GetComponent<Animator>().SetTrigger("G");
                 }

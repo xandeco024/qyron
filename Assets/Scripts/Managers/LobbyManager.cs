@@ -16,13 +16,13 @@ public class LobbyManager : MonoBehaviour
     // Start is called before the first frame update
 
     [SerializeField] private LoadSceneManager loadSceneManager;
-    private LobbyPlayer[] lobbyPlayers;
-    private List<string> lockedCharacterNames = new List<string>();
-    public List<string> LockedCharacterNames { get => lockedCharacterNames; }
+    private List<LobbyPlayer> lobbyPlayersList = new List<LobbyPlayer>();
+    int readyPlayers;
+    private List<string> lockedCharacterNamesList = new List<string>();
+    public List<string> LockedCharacterNamesList { get => lockedCharacterNamesList; }
     private GameObject[] playerFrameObjects = new GameObject[4];
     private GameObject[] characterObjects = new GameObject[4];
     [SerializeField] private TextMeshProUGUI readyPlayersText;
-    private int readyPlayers;
     private bool countdownStarted = false;
 
     Coroutine startGameCoroutine;
@@ -57,6 +57,8 @@ public class LobbyManager : MonoBehaviour
 
     void ResetLobby()
     {
+        //destroy all players to create new ones.
+
         PlayableCharacter[] players = FindObjectsOfType<PlayableCharacter>();
 
         if (players != null)
@@ -69,72 +71,74 @@ public class LobbyManager : MonoBehaviour
             }
         }
 
-        if (lobbyPlayers != null)
-        {
-            for (int i = 0; i < lobbyPlayers.Length; i++)
-            {
-                Destroy(lobbyPlayers[i].gameObject);
-            }
-        }
-
         if(playerInputManager != null)
         {
             playerInputManager.EnableJoining();
         }
 
+        playerFrameObjects[0].GetComponent<Button>().Select();
+
         for (int i = 0; i < playerFrameObjects.Length; i++)
         {
-            if (i == 0) playerFrameObjects[i].GetComponent<Button>().Select();
-
             playerFrameObjects[i].GetComponent<Animator>().SetBool("empty", true);
             characterObjects[i].SetActive(false);
         }
 
-        lockedCharacterNames.Clear();
+        lockedCharacterNamesList.Clear();
+        lobbyPlayersList.Clear();
 
         readyPlayersText.text = "Aguardando Jogadores!";
     }
 
-    void HandleLobby()
+    public void ToggleLockedCharacter(string characterName, bool locked)
     {
-        if (lobbyPlayers != null)
+        if (locked)
+        {
+            lockedCharacterNamesList.Add(characterName);
+        }
+
+        else
+        {
+            lockedCharacterNamesList.Remove(characterName);
+        }
+    }
+
+    void HandleLobby() // handle ready and locked players
+    {
+        if (lobbyPlayersList.Count > 0)
         {
             readyPlayers = 0;
 
-            lockedCharacterNames.Clear();
-
-            for (int i = 0; i < lobbyPlayers.Length; i++)
+            foreach (LobbyPlayer lobbyPlayer in lobbyPlayersList)
             {
-                if (lobbyPlayers[i].Ready)
-                {
-                    lockedCharacterNames.Add(lobbyPlayers[i].SelectedCharacterName);
-                }
-            }
-
-            for (int i = 0; i < lobbyPlayers.Length; i++)
-            {
-                if (lobbyPlayers[i].Ready)
+                if (lobbyPlayer.Ready)
                 {
                     readyPlayers++;
                 }
             }
 
-            if (readyPlayers == lobbyPlayers.Length && !countdownStarted)
+            if (readyPlayers == lobbyPlayersList.Count && !countdownStarted)
             {
                 startGameCoroutine = StartCoroutine(StartGame());
             }
 
-            else if (readyPlayers < lobbyPlayers.Length && countdownStarted)
+            else if (readyPlayers < lobbyPlayersList.Count && countdownStarted)
             {
-                Debug.Log("PAROU");
                 countdownStarted = false;
                 StopCoroutine(startGameCoroutine);
             }
 
-            else if (readyPlayers < lobbyPlayers.Length)
+            else if (readyPlayers < lobbyPlayersList.Count)
             {
-                readyPlayersText.text = readyPlayers + " / " + lobbyPlayers.Length + " Jogadores Prontos!";
+                readyPlayersText.text = readyPlayers + " / " + lobbyPlayersList.Count + " Jogadores Prontos!";
             }
+        }
+
+        else if (countdownStarted)
+        {
+            countdownStarted = false;
+            StopCoroutine(startGameCoroutine);
+            readyPlayersText.text = "Aguardando Jogadores!";
         }
     }
 
@@ -149,28 +153,32 @@ public class LobbyManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         playerInputManager.DisableJoining();
 
-        for (int i = 0; i < lobbyPlayers.Length; i++)
+        foreach (LobbyPlayer lobbyPlayer in lobbyPlayersList)
         {
-            lobbyPlayers[i].EnablePlayerActionMap();
+            lobbyPlayer.EnablePlayerActionMap();
+            lobbyPlayer.GetComponent<PlayableCharacter>().SetupCharacter(lobbyPlayer.SelectedCharacterName);
         }
         
         loadSceneManager.LoadScene(1);
     }
 
-    public void JoinPlayer()
+    public void JoinPlayer(PlayerInput lobbyPlayerInput)
     {
-        lobbyPlayers = FindObjectsOfType<LobbyPlayer>();
-        //invert the order of the players pq senao ele troca o primeiro index pelo segundo e afins.
-        lobbyPlayers = lobbyPlayers.Reverse().ToArray();
-
-        for (int i = 0; i < lobbyPlayers.Length; i++)
-        {
-            lobbyPlayers[i].SetPlayerFrame(playerFrameObjects[i]);
-        }
+        LobbyPlayer joinedPlayer = lobbyPlayerInput.GetComponent<LobbyPlayer>();
+        lobbyPlayersList.Add(joinedPlayer);
+        joinedPlayer.SetPlayerFrame(playerFrameObjects[lobbyPlayersList.IndexOf(joinedPlayer)]);
     }
 
-    public void LeavePlayer()
+    public void LeavePlayer(PlayerInput lobbyPlayerInput)
     {
+        LobbyPlayer leftPlayer = lobbyPlayerInput.GetComponent<LobbyPlayer>();
 
+        if (leftPlayer.Ready)
+        {
+            readyPlayers--;
+            lockedCharacterNamesList.Remove(leftPlayer.SelectedCharacterName);
+        }
+
+        lobbyPlayersList.Remove(leftPlayer);
     }
 }
