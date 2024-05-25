@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pf2GarkReady
+  m_Name: CharacterMeowcello
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,7 +21,13 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -1427054574, guid: add9f9be519ccf843aa528e8a4e15491, type: 3}
+      value: {fileID: -1279357061, guid: 6bd5f4c00fd98fe449138e4f8b371ad5, type: 3}
+    - time: 0.25
+      value: {fileID: 755166881, guid: 6bd5f4c00fd98fe449138e4f8b371ad5, type: 3}
+    - time: 0.5
+      value: {fileID: 95935890, guid: 6bd5f4c00fd98fe449138e4f8b371ad5, type: 3}
+    - time: 0.75
+      value: {fileID: -1793191057, guid: 6bd5f4c00fd98fe449138e4f8b371ad5, type: 3}
     attribute: m_Sprite
     path: 
     classID: 114
@@ -44,13 +50,16 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -1427054574, guid: add9f9be519ccf843aa528e8a4e15491, type: 3}
+    - {fileID: -1279357061, guid: 6bd5f4c00fd98fe449138e4f8b371ad5, type: 3}
+    - {fileID: 755166881, guid: 6bd5f4c00fd98fe449138e4f8b371ad5, type: 3}
+    - {fileID: 95935890, guid: 6bd5f4c00fd98fe449138e4f8b371ad5, type: 3}
+    - {fileID: -1793191057, guid: 6bd5f4c00fd98fe449138e4f8b371ad5, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.25
+    m_StopTime: 1
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

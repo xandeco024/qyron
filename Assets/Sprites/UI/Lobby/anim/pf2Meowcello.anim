@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pf2Meowcelo
+  m_Name: pf2Meowcello
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,7 +21,7 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 1130078164, guid: add9f9be519ccf843aa528e8a4e15491, type: 3}
+      value: {fileID: -1856608802, guid: add9f9be519ccf843aa528e8a4e15491, type: 3}
     attribute: m_Sprite
     path: 
     classID: 114
@@ -44,7 +44,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 1130078164, guid: add9f9be519ccf843aa528e8a4e15491, type: 3}
+    - {fileID: -1856608802, guid: add9f9be519ccf843aa528e8a4e15491, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LobbyPlayer : MonoBehaviour {
         
@@ -9,9 +10,13 @@ public class LobbyPlayer : MonoBehaviour {
         private string[] characterNames = { "Qyron", "Qyana", "Meowcello", "Gark" };
         public string[] AvaliableCharacters;
         private string selectedCharacterName;
+        public string SelectedCharacterName { get => selectedCharacterName; }
         private int selectedCharacterIndex;
         private GameObject playerFrameObject;
+        private GameObject characterObject;
         private Animator playerFrameAnimator;
+        private Animator characterAnimator;
+        private LobbyManager lobbyManager;
 
 
         void Awake()
@@ -19,6 +24,7 @@ public class LobbyPlayer : MonoBehaviour {
             if (SceneManager.GetActiveScene().buildIndex == 0)
             {
                 GetComponent<PlayerInput>().SwitchCurrentActionMap("Lobby");
+                lobbyManager = FindObjectOfType<LobbyManager>();
             }
             else 
             {
@@ -45,20 +51,26 @@ public class LobbyPlayer : MonoBehaviour {
             playerFrameObject = playerFrame;
             playerFrameAnimator = playerFrameObject.GetComponent<Animator>();
             playerFrameAnimator.SetBool("empty", false);
-
+            characterObject = playerFrameObject.transform.GetChild(0).gameObject;
+            characterAnimator = characterObject.GetComponent<Animator>();
+            characterObject.SetActive(true);
         }
 
         public void NextCharacter(InputAction.CallbackContext context)
         {
             if (context.performed)
             {
-                selectedCharacterIndex++;
-                if (selectedCharacterIndex >= characterNames.Length)
+                if (!ready)
                 {
-                    selectedCharacterIndex = 0;
+                    selectedCharacterIndex++;
+
+                    if (selectedCharacterIndex >= characterNames.Length)
+                    {
+                        selectedCharacterIndex = 0;
+                    }
+
+                    HandlePlayerFrame();
                 }
-                selectedCharacterName = characterNames[selectedCharacterIndex];
-                playerFrameAnimator.SetFloat("blend", selectedCharacterIndex);
             }
         }
 
@@ -66,23 +78,49 @@ public class LobbyPlayer : MonoBehaviour {
         {
             if (context.performed)
             {
-                selectedCharacterIndex--;
-                if (selectedCharacterIndex < 0)
+                if (!ready)
                 {
-                    selectedCharacterIndex = characterNames.Length - 1;
+                    selectedCharacterIndex--;
+
+                    if (selectedCharacterIndex < 0)
+                    {
+                        selectedCharacterIndex = characterNames.Length - 1;
+                    }
+                    
+                    HandlePlayerFrame();
                 }
-                selectedCharacterName = characterNames[selectedCharacterIndex];
-                playerFrameAnimator.SetFloat("blend", selectedCharacterIndex);
             }
+        }
+
+        private void HandlePlayerFrame()
+        {
+            selectedCharacterName = characterNames[selectedCharacterIndex];
+
+            if(lobbyManager.LockedCharacterNames.Contains(selectedCharacterName))
+            {
+                playerFrameAnimator.SetBool("unavaliable", true);
+                characterAnimator.GetComponent<Image>().color = Color.gray;
+            }
+            else
+            {
+                playerFrameAnimator.SetBool("unavaliable", false);
+                characterAnimator.GetComponent<Image>().color = Color.white;
+            }
+
+            playerFrameAnimator.SetFloat("blend", selectedCharacterIndex);
+            characterAnimator.SetFloat("blend", selectedCharacterIndex);
         }
 
         public void ToggleReady(InputAction.CallbackContext context)
         {
             if (context.performed)
             {
-                ready = !ready;
-                Debug.Log("Ready: " + ready);
-                playerFrameAnimator.SetBool("ready", ready);
+                if(!lobbyManager.LockedCharacterNames.Contains(selectedCharacterName))
+                {
+                    ready = !ready;
+                    Debug.Log("Ready: " + ready);
+                    playerFrameAnimator.SetBool("ready", ready);
+                }
             }
         }
 

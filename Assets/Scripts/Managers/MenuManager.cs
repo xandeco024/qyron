@@ -2,18 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
 
     [SerializeField] private GameObject mainMenuObject;
+    [SerializeField] private Button playButton;
+    [SerializeField] private Button settingsButton;
+    [SerializeField] private Button creditsButton;
+    [SerializeField] private Button exitButton;
+
     [SerializeField] private GameObject lobbyGameObject;
     [SerializeField] private GameObject settingsGameObject;
     [SerializeField] private GameObject creditsGameObject;
 
     void Start()
     {
-        
+        ResumeGameIfPaused();
     }
 
     void Update()
@@ -44,11 +50,20 @@ public class MenuManager : MonoBehaviour
         if (!mainMenuObject.activeSelf)
         {
             mainMenuObject.SetActive(true);
+            playButton.Select();
         }
     }
 
     public void Exit()
     {
         Application.Quit();
+    }
+
+    private void ResumeGameIfPaused()
+    {
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }
     }
 }

@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.ExceptionServices;
 using TMPro;
+using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.InputSystem.Utilities;
+using UnityEngine.UI;
 
 public class LobbyManager : MonoBehaviour
 {
@@ -15,33 +17,58 @@ public class LobbyManager : MonoBehaviour
 
     [SerializeField] private LoadSceneManager loadSceneManager;
     private LobbyPlayer[] lobbyPlayers;
-    private GameObject[] playerFramesObject = new GameObject[4];
-    private GameObject[] joinObject = new GameObject[4];
+    private List<string> lockedCharacterNames = new List<string>();
+    public List<string> LockedCharacterNames { get => lockedCharacterNames; }
+    private GameObject[] playerFrameObjects = new GameObject[4];
+    private GameObject[] characterObjects = new GameObject[4];
     [SerializeField] private TextMeshProUGUI readyPlayersText;
     private int readyPlayers;
     private bool countdownStarted = false;
 
+    Coroutine startGameCoroutine;
+
     private PlayerInputManager playerInputManager;
 
-    void Start()
+    void Awake()
     {
         playerInputManager = GetComponent<PlayerInputManager>();
         for (int i = 0; i < 4; i++)
         {
-            playerFramesObject[i] = GameObject.Find("Player Frame 2 " + i);
-            //joinObject[i] = playerFramesObject[i].GetComponentInChildren<TextMeshProUGUI>().gameObject;
+            playerFrameObjects[i] = GameObject.Find("Player Frame 2 " + i);
+            characterObjects[i] = playerFrameObjects[i].transform.GetChild(0).gameObject;
         }
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        //HandlePlayerFrames();
     }
 
     void OnEnable()
     {
+        ResetLobby();
+    }
+
+
+    void Start()
+    {
+
+    }
+
+    void Update()
+    {
+        HandleLobby();
+    }
+
+    void ResetLobby()
+    {
+        PlayableCharacter[] players = FindObjectsOfType<PlayableCharacter>();
+
+        if (players != null)
+        {
+            Debug.Log("Destruidos " + players.Length + " jogadores");
+
+            for (int i = 0; i < players.Length; i++)
+            {
+                Destroy(players[i].gameObject);
+            }
+        }
+
         if (lobbyPlayers != null)
         {
             for (int i = 0; i < lobbyPlayers.Length; i++)
@@ -54,49 +81,59 @@ public class LobbyManager : MonoBehaviour
         {
             playerInputManager.EnableJoining();
         }
+
+        for (int i = 0; i < playerFrameObjects.Length; i++)
+        {
+            if (i == 0) playerFrameObjects[i].GetComponent<Button>().Select();
+
+            playerFrameObjects[i].GetComponent<Animator>().SetBool("empty", true);
+            characterObjects[i].SetActive(false);
+        }
+
+        lockedCharacterNames.Clear();
+
+        readyPlayersText.text = "Aguardando Jogadores!";
     }
 
-    void HandlePlayerFrames()
+    void HandleLobby()
     {
-        readyPlayers = 0;
-
         if (lobbyPlayers != null)
         {
+            readyPlayers = 0;
+
+            lockedCharacterNames.Clear();
+
             for (int i = 0; i < lobbyPlayers.Length; i++)
             {
-                if (i == 0)
+                if (lobbyPlayers[i].Ready)
                 {
-                    InputSystemUIInputModule inputSysUI = GameObject.FindObjectOfType<InputSystemUIInputModule>();
-                    if(inputSysUI != null)
-                    {
-                        lobbyPlayers[i].GetComponent<PlayerInput>().uiInputModule = inputSysUI;
-                    }
+                    lockedCharacterNames.Add(lobbyPlayers[i].SelectedCharacterName);
                 }
+            }
 
-                playerFramesObject[i].GetComponent<Animator>().SetBool("empty" , false);
-                joinObject[i].SetActive(false);
-
-
-
+            for (int i = 0; i < lobbyPlayers.Length; i++)
+            {
                 if (lobbyPlayers[i].Ready)
                 {
                     readyPlayers++;
                 }
-
             }
 
             if (readyPlayers == lobbyPlayers.Length && !countdownStarted)
             {
-                StartCoroutine(StartGame());
+                startGameCoroutine = StartCoroutine(StartGame());
             }
-            else if (readyPlayers != lobbyPlayers.Length)
+
+            else if (readyPlayers < lobbyPlayers.Length && countdownStarted)
             {
-                if (countdownStarted)
-                {
-                    StopCoroutine(StartGame());
-                    countdownStarted = false;
-                }
-                readyPlayersText.text = readyPlayers + " / " + lobbyPlayers.Length + " Players Prontos!";
+                Debug.Log("PAROU");
+                countdownStarted = false;
+                StopCoroutine(startGameCoroutine);
+            }
+
+            else if (readyPlayers < lobbyPlayers.Length)
+            {
+                readyPlayersText.text = readyPlayers + " / " + lobbyPlayers.Length + " Jogadores Prontos!";
             }
         }
     }
@@ -128,27 +165,8 @@ public class LobbyManager : MonoBehaviour
 
         for (int i = 0; i < lobbyPlayers.Length; i++)
         {
-            lobbyPlayers[i].SetPlayerFrame(playerFramesObject[i]);
+            lobbyPlayers[i].SetPlayerFrame(playerFrameObjects[i]);
         }
-
-        /*LobbyPlayer[] foundLobbyPlayers = FindObjectsOfType<LobbyPlayer>();
-
-        for (int i = 0; i < foundLobbyPlayers.Length; i++)
-        {
-            if (!lobbyPlayers.Contains(foundLobbyPlayers[i]))
-            {
-                for (int j = 0; j < lobbyPlayers.Length; j++)
-                {
-                    if (lobbyPlayers[j] == null)
-                    {
-                        lobbyPlayers[j] = foundLobbyPlayers[i];
-                        break;
-                    }
-                }
-            }
-        }*/
-
-
     }
 
     public void LeavePlayer()
