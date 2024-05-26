@@ -107,7 +107,6 @@ public class Character : MonoBehaviour {
     protected bool isHeavyAttacking;
 
     #region Movement
-
     public void LimitZ()
     {
         if (transform.position.z >= 7f) transform.position = new Vector3(transform.position.x, transform.position.y, 7f);

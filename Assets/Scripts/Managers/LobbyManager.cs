@@ -22,7 +22,7 @@ public class LobbyManager : MonoBehaviour
     public List<string> LockedCharacterNamesList { get => lockedCharacterNamesList; }
     private GameObject[] playerFrameObjects = new GameObject[4];
     private GameObject[] characterObjects = new GameObject[4];
-    [SerializeField] private TextMeshProUGUI readyPlayersText;
+    [SerializeField] private Animator readyPlayersAnimator;
     private bool countdownStarted = false;
 
     Coroutine startGameCoroutine;
@@ -87,7 +87,9 @@ public class LobbyManager : MonoBehaviour
         lockedCharacterNamesList.Clear();
         lobbyPlayersList.Clear();
 
-        readyPlayersText.text = "Aguardando Jogadores!";
+        readyPlayersAnimator.SetFloat("readyPlayers", 0);
+        readyPlayersAnimator.SetFloat("lobbyPlayers", 0);
+        readyPlayersAnimator.SetBool("starting", false);
     }
 
     public void ToggleLockedCharacter(string characterName, bool locked)
@@ -119,37 +121,37 @@ public class LobbyManager : MonoBehaviour
 
             if (readyPlayers == lobbyPlayersList.Count && !countdownStarted)
             {
+                readyPlayersAnimator.SetBool("starting", true);
                 startGameCoroutine = StartCoroutine(StartGame());
             }
 
             else if (readyPlayers < lobbyPlayersList.Count && countdownStarted)
             {
                 countdownStarted = false;
+                readyPlayersAnimator.SetBool("starting", false);
                 StopCoroutine(startGameCoroutine);
             }
 
             else if (readyPlayers < lobbyPlayersList.Count)
             {
-                readyPlayersText.text = readyPlayers + " / " + lobbyPlayersList.Count + " Jogadores Prontos!";
+                readyPlayersAnimator.SetFloat("readyPlayers", readyPlayers);
+                readyPlayersAnimator.SetFloat("lobbyPlayers", lobbyPlayersList.Count);
             }
         }
 
         else if (countdownStarted)
         {
             countdownStarted = false;
+            readyPlayersAnimator.SetBool("starting", false);
             StopCoroutine(startGameCoroutine);
-            readyPlayersText.text = "Aguardando Jogadores!";
         }
     }
 
     IEnumerator StartGame()
     {
         countdownStarted = true;
-        readyPlayersText.text = "Iniciando em 3";
         yield return new WaitForSeconds(1);
-        readyPlayersText.text = "Iniciando em 2";
         yield return new WaitForSeconds(1);
-        readyPlayersText.text = "Iniciando em 1";
         yield return new WaitForSeconds(1);
         playerInputManager.DisableJoining();
 

@@ -22,6 +22,7 @@ public class HUDManager : MonoBehaviour
     private Image[] hits2 = new Image[4];
     private Image[] lastHits = new Image[4];
     
+    [SerializeField] TextMeshProUGUI clockText;
     private GameManager gameManager;
     private List<PlayableCharacter> playerList = new List<PlayableCharacter>();
 
@@ -42,6 +43,7 @@ public class HUDManager : MonoBehaviour
         for (int i = 0; i < playerList.Count; i++)
         {
             HudHandler(i);
+            clockText.text = gameManager.Hours.ToString("00") + ":" + gameManager.Minutes.ToString("00");
         }
     }
 

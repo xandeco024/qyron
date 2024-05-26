@@ -60,6 +60,8 @@ public class PlayableCharacter : Character {
     private string characterName;
     public string CharacterName { get { return characterName; } }
 
+    private List<string> movementRestrictions = new List<string>();
+
     public void SetupCharacter(string name)
     {
         characterName = name;
@@ -542,11 +544,46 @@ public void OnMove(InputAction.CallbackContext ctx)
     movementInput = ctx.ReadValue<Vector2>();
 }
 
+public void SetMovementRestrictions(List<string> restrictions)
+{
+    movementRestrictions = restrictions;
+}
+
+public void ResetMovementRestrictions()
+{
+    movementRestrictions.Clear();
+}
+
+public void RemoveMovementRestriction(string restriction)
+{
+    movementRestrictions.Remove(restriction);
+}
+
+public void AddMovementRestriction(string restriction)
+{
+    movementRestrictions.Add(restriction);
+}
+
 void ApplyMovement()
 {
     if (isMovingAllowed)
     {
-        rb.velocity = new Vector3(movementInput.x * moveSpeed, rb.velocity.y, movementInput.y * moveSpeed);
+        float x = movementInput.x;
+
+        if (movementRestrictions.Contains("left")) if (x < 0) x = 0;
+        if (movementRestrictions.Contains("right")) if (x > 0) x = 0;
+
+        float y = rb.velocity.y;
+
+        if (movementRestrictions.Contains("up")) if (y > 0) y = 0;
+        if (movementRestrictions.Contains("down")) if (y < 0) y = 0;
+
+        float z = movementInput.y;
+
+        if (movementRestrictions.Contains("forward")) if (z > 0) z = 0;
+        if (movementRestrictions.Contains("backward")) if (z < 0) z = 0;
+
+        rb.velocity = new Vector3(x * moveSpeed, y, z * moveSpeed);
 
         if (movementInput.x != 0)
         {
