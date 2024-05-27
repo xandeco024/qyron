@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayableCharacter : Character {
 
@@ -62,6 +63,15 @@ public class PlayableCharacter : Character {
 
     private List<string> movementRestrictions = new List<string>();
 
+    [Header("UI")]
+    private bool isDowned;
+    public bool IsDowned { get { return isDowned; } }
+    [SerializeField] private Image downedFiller;
+    [SerializeField] private GameObject downedUIObject;
+    [SerializeField] private Animator downedBarAnimator;
+    private bool beingCured;
+    PlayableCharacter downedFriend = null;
+
     public void SetupCharacter(string name)
     {
         characterName = name;
@@ -76,17 +86,10 @@ public class PlayableCharacter : Character {
 
     void Update()
     {
-        if (currentHealth <= 0) 
-        {
-            currentHealth = 0;
-            animator.SetBool("downed", true);
-            rb.velocity = Vector3.zero;
-            isMovingAllowed = false;
-        }
-
         DetectGround();
         DebugHandler(); 
         CombatHandler();
+        DownedHandler();
     }
 
     void FixedUpdate()
@@ -95,6 +98,97 @@ public class PlayableCharacter : Character {
     }
 
     #region Combat
+
+    public void Revive()
+    {
+
+    }
+
+    void DownedHandler()
+    {
+        if (currentHealth <= 0 && !isDowned)
+        {
+            isDowned = true;
+            downedUIObject.SetActive(true);
+
+            if (downedUIObject.transform.rotation != Quaternion.Euler(0, 0, 0))
+            {
+                downedUIObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+
+            animator.SetBool("downed", true);
+            rb.velocity = Vector3.zero;
+            isMovingAllowed = false;
+        }
+
+        if (beingCured)
+        {
+            //fill downedFiller to 1 in 2 seconds
+            downedFiller.fillAmount += 1 * Time.deltaTime / 2;
+        }
+        else
+        {
+            downedFiller.fillAmount = 0;
+        }
+
+        if (downedFiller.fillAmount >= 1)
+        {
+            downedFiller.fillAmount = 0;
+            currentHealth = maxHealth/4;
+            animator.SetBool("downed", false);
+            isDowned = false;
+            isMovingAllowed = true;
+            beingCured = false;
+            downedUIObject.SetActive(false);
+        }
+    }
+
+    public void RevivePlayer(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            //beingCured = true;
+
+            Collider[] hitColliders = Physics.OverlapBox(transform.position, new Vector3(2,2,2), transform.rotation);
+            foreach (Collider hitCollider in hitColliders)
+            {
+                if (hitCollider.GetComponent<PlayableCharacter>() && hitCollider.GetComponent<PlayableCharacter>().IsDowned && hitCollider.GetComponent<PlayableCharacter>() != this)
+                {
+                    downedFriend = hitCollider.GetComponent<PlayableCharacter>();
+                    break;
+                }
+                else
+                {
+                    downedFriend = null;
+                }
+            }
+
+            if (downedFriend != null)
+            {
+                downedFriend.SetReviving(true);
+            }
+        }
+
+        if (ctx.duration >= 2)
+        {
+            Debug.Log("Deve reviver");
+        }
+
+
+        if (ctx.canceled)
+        {
+            if (downedFriend != null)
+            {
+                downedFriend.SetReviving(false);
+            }
+        }
+    }
+
+    public void SetReviving(bool value)
+    {
+        beingCured = value;
+    }
+    
 
     void CombatHandler()
     {
@@ -262,7 +356,7 @@ public class PlayableCharacter : Character {
         animator.SetInteger("attackAnimationIndex", attackAnimationIndex);
 
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
-        DealDamage(hitColliders, 0.4f, damage, critical);
+        DealDamage(hitColliders, damage, 0.4f, critical);
 
         yield return new WaitForSeconds(0.3f);
 
@@ -665,13 +759,6 @@ void ApplyMovement()
     #endregion
 
     #region ???
-
-    public void Revive()
-    {
-        currentHealth = maxHealth/4;
-        animator.SetBool("downed", false);
-        isMovingAllowed = true;
-    }
 
     public void Heal(float amount)
     {

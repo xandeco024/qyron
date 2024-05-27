@@ -24,13 +24,19 @@ public class LobbyManager : MonoBehaviour
     private GameObject[] characterObjects = new GameObject[4];
     [SerializeField] private Animator readyPlayersAnimator;
     private bool countdownStarted = false;
-
     Coroutine startGameCoroutine;
 
     private PlayerInputManager playerInputManager;
+    private MenuManager menuManager;
+
+    private InputMaster inputMaster;
 
     void Awake()
     {
+        menuManager = FindObjectOfType<MenuManager>();
+        inputMaster = new InputMaster();
+        inputMaster.UI.Cancel.performed += ctx => BackToMainMenu();
+
         playerInputManager = GetComponent<PlayerInputManager>();
         for (int i = 0; i < 4; i++)
         {
@@ -42,6 +48,13 @@ public class LobbyManager : MonoBehaviour
     void OnEnable()
     {
         ResetLobby();
+
+        inputMaster.Enable();
+    }
+
+    void OnDisable()
+    {
+        inputMaster.Disable();
     }
 
 
@@ -107,35 +120,30 @@ public class LobbyManager : MonoBehaviour
 
     void HandleLobby() // handle ready and locked players
     {
-        if (lobbyPlayersList.Count > 0)
-        {
-            readyPlayers = 0;
+        int notNullPlayersAmount = lobbyPlayersList.Where(player => player != null).ToList().Count;
+        readyPlayers = 0;
 
+        if (notNullPlayersAmount > 0)
+        {
             foreach (LobbyPlayer lobbyPlayer in lobbyPlayersList)
             {
-                if (lobbyPlayer.Ready)
+                if (lobbyPlayer != null && lobbyPlayer.Ready)
                 {
                     readyPlayers++;
                 }
             }
 
-            if (readyPlayers == lobbyPlayersList.Count && !countdownStarted)
+            if (readyPlayers == notNullPlayersAmount && !countdownStarted)
             {
                 readyPlayersAnimator.SetBool("starting", true);
                 startGameCoroutine = StartCoroutine(StartGame());
             }
 
-            else if (readyPlayers < lobbyPlayersList.Count && countdownStarted)
+            else if (readyPlayers < notNullPlayersAmount && countdownStarted)
             {
                 countdownStarted = false;
                 readyPlayersAnimator.SetBool("starting", false);
                 StopCoroutine(startGameCoroutine);
-            }
-
-            else if (readyPlayers < lobbyPlayersList.Count)
-            {
-                readyPlayersAnimator.SetFloat("readyPlayers", readyPlayers);
-                readyPlayersAnimator.SetFloat("lobbyPlayers", lobbyPlayersList.Count);
             }
         }
 
@@ -145,11 +153,16 @@ public class LobbyManager : MonoBehaviour
             readyPlayersAnimator.SetBool("starting", false);
             StopCoroutine(startGameCoroutine);
         }
+
+        readyPlayersAnimator.SetFloat("readyPlayers", readyPlayers);
+        readyPlayersAnimator.SetFloat("lobbyPlayers", notNullPlayersAmount);
     }
 
     IEnumerator StartGame()
     {
         countdownStarted = true;
+        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1);
         yield return new WaitForSeconds(1);
         yield return new WaitForSeconds(1);
         yield return new WaitForSeconds(1);
@@ -167,8 +180,21 @@ public class LobbyManager : MonoBehaviour
     public void JoinPlayer(PlayerInput lobbyPlayerInput)
     {
         LobbyPlayer joinedPlayer = lobbyPlayerInput.GetComponent<LobbyPlayer>();
-        lobbyPlayersList.Add(joinedPlayer);
-        joinedPlayer.SetPlayerFrame(playerFrameObjects[lobbyPlayersList.IndexOf(joinedPlayer)]);
+
+        int emptyIndex = lobbyPlayersList.FindIndex(player => player == null);
+
+        if (emptyIndex != -1)
+        {
+            // Adicione o novo jogador no índice vazio
+            lobbyPlayersList[emptyIndex] = joinedPlayer;
+            joinedPlayer.SetPlayerFrame(playerFrameObjects[emptyIndex]);
+        }
+        else
+        {
+            // Adicione o novo jogador no final da lista
+            lobbyPlayersList.Add(joinedPlayer);
+            joinedPlayer.SetPlayerFrame(playerFrameObjects[lobbyPlayersList.Count - 1]);
+        }
     }
 
     public void LeavePlayer(PlayerInput lobbyPlayerInput)
@@ -177,10 +203,42 @@ public class LobbyManager : MonoBehaviour
 
         if (leftPlayer.Ready)
         {
-            readyPlayers--;
             lockedCharacterNamesList.Remove(leftPlayer.SelectedCharacterName);
         }
 
-        lobbyPlayersList.Remove(leftPlayer);
+        foreach (LobbyPlayer player in lobbyPlayersList)
+        {
+            if (player != null)
+            {
+                if(player.Ready)
+                {
+                    player.UnsetReady();
+                }
+            }
+        }
+
+        if (countdownStarted)
+        {
+            countdownStarted = false;
+            readyPlayersAnimator.SetBool("starting", false);
+            StopCoroutine(startGameCoroutine);
+        }
+
+        int playerIndex = lobbyPlayersList.IndexOf(leftPlayer);
+
+        if (playerIndex != -1)
+        {
+            lobbyPlayersList[playerIndex] = null;
+        }
+    }
+
+    void BackToMainMenu()
+    {   
+        int notNullPlayersAmount = lobbyPlayersList.Where(player => player != null).ToList().Count;
+
+        if (notNullPlayersAmount == 0)
+        {
+            menuManager.BackToMainMenu(menuManager.LobbyGameObject);
+        }
     }
 }

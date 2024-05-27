@@ -206,6 +206,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: select and back buttons_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6e4c650e53f61746bae0cdad9d27c76
+      internalID: -1538493020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: select and back buttons_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 012a21999a188d44e8acb6bbe8485ac9
+      internalID: 172203553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -221,6 +263,8 @@ TextureImporter:
       select and back buttons_1: -636774522
       select and back buttons_2: 572972043
       select and back buttons_3: 1673583371
+      select and back buttons_4: -1538493020
+      select and back buttons_5: 172203553
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "Press",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Revive",
+                    "type": "Button",
+                    "id": "53baf38a-d678-4246-98b9-b3878d77b987",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -313,6 +322,28 @@
                     "action": "Grab Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a3ad405b-aca1-48d9-a60f-efa83024f786",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Revive",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a29c49f2-2b6b-45e1-bf88-81b84cac7668",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Revive",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -335,7 +366,7 @@
                     "id": "96c2d0e6-63ea-4004-9d80-dda75cb93c93",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 },
                 {
@@ -344,7 +375,7 @@
                     "id": "c631bafe-c4f2-467e-aaba-0fb97169b090",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 },
                 {
@@ -417,15 +448,6 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Join",
-                    "type": "Button",
-                    "id": "33554070-7c06-4b54-8abe-e969d8e1e1ea",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press",
                     "initialStateCheck": false
                 }
             ],
@@ -696,22 +718,22 @@
                 },
                 {
                     "name": "",
-                    "id": "beab9024-5c48-4f34-bb33-633f90cf0b00",
-                    "path": "*/{Submit}",
+                    "id": "179debd2-96d0-49ce-a1db-62ee6aa2c7cf",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse;Gamepad;Touch;Joystick;XR",
-                    "action": "Submit",
+                    "action": "Cancel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "179debd2-96d0-49ce-a1db-62ee6aa2c7cf",
-                    "path": "*/{Cancel}",
+                    "id": "90b0fa94-8acb-4537-b5fd-ec00c8272095",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse;Gamepad;Touch;Joystick;XR",
+                    "groups": "Keyboard&Mouse",
                     "action": "Cancel",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -872,23 +894,23 @@
                 },
                 {
                     "name": "",
-                    "id": "67f9f598-24d2-4315-a3a6-de408f910394",
+                    "id": "21ff625e-7f18-413d-ad3a-74787d139e3f",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Join",
+                    "groups": "Keyboard&Mouse;Gamepad",
+                    "action": "Submit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "08568c78-1c2f-49ba-a37f-693ea8c5e1ea",
-                    "path": "<Keyboard>/space",
+                    "id": "e041d011-8199-4be7-99d8-944f1df90722",
+                    "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Join",
+                    "action": "Submit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -905,6 +927,15 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Join",
+                    "type": "Button",
+                    "id": "23e5fe90-0981-470c-b61e-2d6447b40eed",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 },
                 {
@@ -1065,6 +1096,28 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Leave",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7ef95e13-be04-46b7-ba7b-59c1ac3259a7",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Join",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9966c62a-a062-413d-9086-a52ef34ef585",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Join",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

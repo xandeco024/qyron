@@ -80,6 +80,15 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Press"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Revive"",
+                    ""type"": ""Button"",
+                    ""id"": ""53baf38a-d678-4246-98b9-b3878d77b987"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -335,6 +344,28 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""action"": ""Grab Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a3ad405b-aca1-48d9-a60f-efa83024f786"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Revive"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a29c49f2-2b6b-45e1-bf88-81b84cac7668"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Revive"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -357,7 +388,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""id"": ""96c2d0e6-63ea-4004-9d80-dda75cb93c93"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -366,7 +397,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""id"": ""c631bafe-c4f2-467e-aaba-0fb97169b090"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -439,15 +470,6 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Join"",
-                    ""type"": ""Button"",
-                    ""id"": ""33554070-7c06-4b54-8abe-e969d8e1e1ea"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 }
             ],
@@ -718,22 +740,22 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""beab9024-5c48-4f34-bb33-633f90cf0b00"",
-                    ""path"": ""*/{Submit}"",
+                    ""id"": ""179debd2-96d0-49ce-a1db-62ee6aa2c7cf"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse;Gamepad;Touch;Joystick;XR"",
-                    ""action"": ""Submit"",
+                    ""action"": ""Cancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""179debd2-96d0-49ce-a1db-62ee6aa2c7cf"",
-                    ""path"": ""*/{Cancel}"",
+                    ""id"": ""90b0fa94-8acb-4537-b5fd-ec00c8272095"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse;Gamepad;Touch;Joystick;XR"",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Cancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -894,23 +916,23 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""67f9f598-24d2-4315-a3a6-de408f910394"",
+                    ""id"": ""21ff625e-7f18-413d-ad3a-74787d139e3f"",
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Join"",
+                    ""groups"": ""Keyboard&Mouse;Gamepad"",
+                    ""action"": ""Submit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""08568c78-1c2f-49ba-a37f-693ea8c5e1ea"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""id"": ""e041d011-8199-4be7-99d8-944f1df90722"",
+                    ""path"": ""<Keyboard>/enter"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Join"",
+                    ""action"": ""Submit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -927,6 +949,15 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Join"",
+                    ""type"": ""Button"",
+                    ""id"": ""23e5fe90-0981-470c-b61e-2d6447b40eed"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -1089,6 +1120,28 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""action"": ""Leave"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7ef95e13-be04-46b7-ba7b-59c1ac3259a7"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Join"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9966c62a-a062-413d-9086-a52ef34ef585"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Join"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1131,6 +1184,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         m_Player_LightAttack = m_Player.FindAction("Light Attack", throwIfNotFound: true);
         m_Player_HeavyAttack = m_Player.FindAction("Heavy Attack", throwIfNotFound: true);
         m_Player_GrabAttack = m_Player.FindAction("Grab Attack", throwIfNotFound: true);
+        m_Player_Revive = m_Player.FindAction("Revive", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1144,10 +1198,10 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
         m_UI_PauseResume = m_UI.FindAction("Pause / Resume", throwIfNotFound: true);
-        m_UI_Join = m_UI.FindAction("Join", throwIfNotFound: true);
         // Lobby
         m_Lobby = asset.FindActionMap("Lobby", throwIfNotFound: true);
         m_Lobby_Previous = m_Lobby.FindAction("Previous", throwIfNotFound: true);
+        m_Lobby_Join = m_Lobby.FindAction("Join", throwIfNotFound: true);
         m_Lobby_Next = m_Lobby.FindAction("Next", throwIfNotFound: true);
         m_Lobby_Confirm = m_Lobby.FindAction("Confirm", throwIfNotFound: true);
         m_Lobby_Leave = m_Lobby.FindAction("Leave", throwIfNotFound: true);
@@ -1218,6 +1272,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_LightAttack;
     private readonly InputAction m_Player_HeavyAttack;
     private readonly InputAction m_Player_GrabAttack;
+    private readonly InputAction m_Player_Revive;
     public struct PlayerActions
     {
         private @InputMaster m_Wrapper;
@@ -1228,6 +1283,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         public InputAction @LightAttack => m_Wrapper.m_Player_LightAttack;
         public InputAction @HeavyAttack => m_Wrapper.m_Player_HeavyAttack;
         public InputAction @GrabAttack => m_Wrapper.m_Player_GrabAttack;
+        public InputAction @Revive => m_Wrapper.m_Player_Revive;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1255,6 +1311,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @GrabAttack.started += instance.OnGrabAttack;
             @GrabAttack.performed += instance.OnGrabAttack;
             @GrabAttack.canceled += instance.OnGrabAttack;
+            @Revive.started += instance.OnRevive;
+            @Revive.performed += instance.OnRevive;
+            @Revive.canceled += instance.OnRevive;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1277,6 +1336,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @GrabAttack.started -= instance.OnGrabAttack;
             @GrabAttack.performed -= instance.OnGrabAttack;
             @GrabAttack.canceled -= instance.OnGrabAttack;
+            @Revive.started -= instance.OnRevive;
+            @Revive.performed -= instance.OnRevive;
+            @Revive.canceled -= instance.OnRevive;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1309,7 +1371,6 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_TrackedDevicePosition;
     private readonly InputAction m_UI_TrackedDeviceOrientation;
     private readonly InputAction m_UI_PauseResume;
-    private readonly InputAction m_UI_Join;
     public struct UIActions
     {
         private @InputMaster m_Wrapper;
@@ -1325,7 +1386,6 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         public InputAction @TrackedDevicePosition => m_Wrapper.m_UI_TrackedDevicePosition;
         public InputAction @TrackedDeviceOrientation => m_Wrapper.m_UI_TrackedDeviceOrientation;
         public InputAction @PauseResume => m_Wrapper.m_UI_PauseResume;
-        public InputAction @Join => m_Wrapper.m_UI_Join;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1368,9 +1428,6 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @PauseResume.started += instance.OnPauseResume;
             @PauseResume.performed += instance.OnPauseResume;
             @PauseResume.canceled += instance.OnPauseResume;
-            @Join.started += instance.OnJoin;
-            @Join.performed += instance.OnJoin;
-            @Join.canceled += instance.OnJoin;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -1408,9 +1465,6 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @PauseResume.started -= instance.OnPauseResume;
             @PauseResume.performed -= instance.OnPauseResume;
             @PauseResume.canceled -= instance.OnPauseResume;
-            @Join.started -= instance.OnJoin;
-            @Join.performed -= instance.OnJoin;
-            @Join.canceled -= instance.OnJoin;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -1433,6 +1487,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Lobby;
     private List<ILobbyActions> m_LobbyActionsCallbackInterfaces = new List<ILobbyActions>();
     private readonly InputAction m_Lobby_Previous;
+    private readonly InputAction m_Lobby_Join;
     private readonly InputAction m_Lobby_Next;
     private readonly InputAction m_Lobby_Confirm;
     private readonly InputAction m_Lobby_Leave;
@@ -1441,6 +1496,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         private @InputMaster m_Wrapper;
         public LobbyActions(@InputMaster wrapper) { m_Wrapper = wrapper; }
         public InputAction @Previous => m_Wrapper.m_Lobby_Previous;
+        public InputAction @Join => m_Wrapper.m_Lobby_Join;
         public InputAction @Next => m_Wrapper.m_Lobby_Next;
         public InputAction @Confirm => m_Wrapper.m_Lobby_Confirm;
         public InputAction @Leave => m_Wrapper.m_Lobby_Leave;
@@ -1456,6 +1512,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @Previous.started += instance.OnPrevious;
             @Previous.performed += instance.OnPrevious;
             @Previous.canceled += instance.OnPrevious;
+            @Join.started += instance.OnJoin;
+            @Join.performed += instance.OnJoin;
+            @Join.canceled += instance.OnJoin;
             @Next.started += instance.OnNext;
             @Next.performed += instance.OnNext;
             @Next.canceled += instance.OnNext;
@@ -1472,6 +1531,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @Previous.started -= instance.OnPrevious;
             @Previous.performed -= instance.OnPrevious;
             @Previous.canceled -= instance.OnPrevious;
+            @Join.started -= instance.OnJoin;
+            @Join.performed -= instance.OnJoin;
+            @Join.canceled -= instance.OnJoin;
             @Next.started -= instance.OnNext;
             @Next.performed -= instance.OnNext;
             @Next.canceled -= instance.OnNext;
@@ -1524,6 +1586,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         void OnLightAttack(InputAction.CallbackContext context);
         void OnHeavyAttack(InputAction.CallbackContext context);
         void OnGrabAttack(InputAction.CallbackContext context);
+        void OnRevive(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
@@ -1538,11 +1601,11 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
         void OnPauseResume(InputAction.CallbackContext context);
-        void OnJoin(InputAction.CallbackContext context);
     }
     public interface ILobbyActions
     {
         void OnPrevious(InputAction.CallbackContext context);
+        void OnJoin(InputAction.CallbackContext context);
         void OnNext(InputAction.CallbackContext context);
         void OnConfirm(InputAction.CallbackContext context);
         void OnLeave(InputAction.CallbackContext context);

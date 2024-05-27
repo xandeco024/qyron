@@ -142,6 +142,13 @@ public class LobbyPlayer : MonoBehaviour {
             }
         }
 
+        public void UnsetReady()
+        {
+            ready = false;
+            lobbyManager.ToggleLockedCharacter(selectedCharacterName, ready);
+            playerFrameAnimator.SetBool("ready", ready);
+        }
+
         public void Leave(InputAction.CallbackContext context)
         {
             if (context.performed)

@@ -6,16 +6,17 @@ using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
-
     [SerializeField] private GameObject mainMenuObject;
     [SerializeField] private Button playButton;
     [SerializeField] private Button settingsButton;
     [SerializeField] private Button creditsButton;
     [SerializeField] private Button exitButton;
-
     [SerializeField] private GameObject lobbyGameObject;
+    public GameObject LobbyGameObject { get => lobbyGameObject; }
     [SerializeField] private GameObject settingsGameObject;
+    public GameObject SettingsGameObject { get => settingsGameObject; }
     [SerializeField] private GameObject creditsGameObject;
+    public GameObject CreditsGameObject { get => creditsGameObject; }
 
     void Start()
     {

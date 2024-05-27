@@ -126,8 +126,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 36
-      y: 4
+      x: 4
+      y: 54
       width: 16
       height: 19
     spriteID: a9edc49d9531fe24fb7dc2628840c371
@@ -138,7 +138,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 36, y: 4}
+    uvTransform: {x: 4, y: 54}
   - name: select and back buttons_Frame_1
     originalName: 
     pivot: {x: 0.5, y: -0.2631579}
@@ -146,8 +146,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 36
-      y: 31
+      x: 4
+      y: 81
       width: 16
       height: 19
     spriteID: 4bc32d76ed4408e4eb75318bf7c4629a
@@ -158,7 +158,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 36, y: 31}
+    uvTransform: {x: 4, y: 81}
   - name: select and back buttons_Frame_2
     originalName: 
     pivot: {x: 0.5, y: -0.3529412}
@@ -181,6 +181,46 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: select and back buttons_Frame_3
     originalName: 
+    pivot: {x: 0.5, y: -0.2631579}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 4
+      width: 16
+      height: 19
+    spriteID: 93e6225f2a554af47a4710752a548ff0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 4}
+  - name: select and back buttons_Frame_4
+    originalName: 
+    pivot: {x: 0.5, y: -0.2631579}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 31
+      width: 16
+      height: 19
+    spriteID: 95923e268dee7164d9bfdcd8ac296ba8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 31}
+  - name: select and back buttons_Frame_5
+    originalName: 
     pivot: {x: 0.5, y: -0.3529412}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,7 +230,7 @@ ScriptedImporter:
       y: 29
       width: 24
       height: 17
-    spriteID: 93e6225f2a554af47a4710752a548ff0
+    spriteID: 92aeffd64a4daa54d9a21d43540259f0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -235,11 +275,27 @@ ScriptedImporter:
     - name: select and back buttons_Frame_3
       frameIndex: 3
       cellRect:
+        x: 8
+        y: 5
+        width: 16
+        height: 19
+      spriteId: 93e6225f2a554af47a4710752a548ff0
+    - name: select and back buttons_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 8
+        y: 5
+        width: 16
+        height: 19
+      spriteId: 95923e268dee7164d9bfdcd8ac296ba8
+    - name: select and back buttons_Frame_5
+      frameIndex: 5
+      cellRect:
         x: 4
         y: 6
         width: 24
         height: 17
-      spriteId: 93e6225f2a554af47a4710752a548ff0
+      spriteId: 92aeffd64a4daa54d9a21d43540259f0
     linkedCells: []
     parentIndex: -1
   platformSettings: []
