@@ -123,4 +123,15 @@ public class GameManager : MonoBehaviour
             hours = 0;
         }
     }
+
+    public void DestroyAllPlayers()
+    {
+        playerList.Clear();
+        PlayableCharacter[] unlucklyFoundPlayers = FindObjectsOfType<PlayableCharacter>();
+
+        foreach (PlayableCharacter player in unlucklyFoundPlayers)
+        {
+            Destroy(player.gameObject);
+        }
+    }
 }

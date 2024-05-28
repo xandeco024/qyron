@@ -7,12 +7,10 @@ public class Enemy : Character
     protected PlayableCharacter target;
     public PlayableCharacter Target { get => target; }
     protected PlayableCharacter lastFrameTarget;
-    [SerializeField] protected float targetRange;
-    public float TargetRange { get => targetRange; }
-    [SerializeField] protected Vector3 rangeBoxSize;
-    public Vector3 RangeBoxSize { get => rangeBoxSize; }
-    [SerializeField] protected float loseTargetRange;
-    public float LoseTargetRange { get => loseTargetRange; }
+    [SerializeField] protected Vector3 targetSearchBoxSize;
+    public Vector3 RangeBoxSize { get => targetSearchBoxSize; }
+    [SerializeField] protected float loseTargetAtRange;
+    public float LoseTargetRange { get => loseTargetAtRange; }
 
 
     [Header("Attack")]
@@ -148,7 +146,7 @@ public class Enemy : Character
         Collider[] colliders = Physics.OverlapBox(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.y), combatBoxSize / 2, transform.rotation);
         foreach (Collider collider in colliders)
         {
-            if (collider.GetComponent<PlayableCharacter>() != null)
+            if (collider.GetComponent<PlayableCharacter>() != null && collider.GetComponent<PlayableCharacter>() == target)
             {
                 range = true;
                 break;
@@ -161,13 +159,13 @@ public class Enemy : Character
     {
         PlayableCharacter target = null;
 
-        Collider[] colliders = Physics.OverlapBox(transform.position, rangeBoxSize / 2, transform.rotation);
+        Collider[] colliders = Physics.OverlapBox(transform.position, targetSearchBoxSize / 2, transform.rotation);
 
         List<PlayableCharacter> playersOnRange = new List<PlayableCharacter>();
 
         foreach (Collider collider in colliders)
         {
-            if (collider.GetComponent<PlayableCharacter>() != null)
+            if (collider.GetComponent<PlayableCharacter>() != null && !collider.GetComponent<PlayableCharacter>().IsDowned)
             {
                 playersOnRange.Add(collider.GetComponent<PlayableCharacter>());
             }

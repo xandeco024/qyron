@@ -157,7 +157,7 @@ MonoBehaviour:
   baseMaxHealth: 40
   baseResistance: 0
   baseDamageReduction: 0
-  baseAttackDamage: 3
+  baseAttackDamage: 2
   baseCriticalChance: 10
   baseSpeed: 0
   baseDodgeChance: 0
@@ -169,26 +169,25 @@ MonoBehaviour:
   raycastOffset: {x: 0, y: 0, z: 0}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   Grabbable: 0
   damageTextOffset: {x: 0.5, y: 0.5}
   damageTextFaceToDirection: 0
-  targetRange: 0
-  rangeBoxSize: {x: 10, y: 10, z: 10}
-  loseTargetRange: 10
+  targetSearchBoxSize: {x: 10, y: 5, z: 10}
+  loseTargetAtRange: 10
   lightAttackDelay: 0
-  lightAttackCD: 0
+  lightAttackCD: 0.5
   canHeavyAttack: 1
-  heavyAttackDelay: 0
-  heavyAttackCD: 0
-  combatBoxSize: {x: 0, y: 0, z: 0}
-  combatBoxOffset: {x: 0, y: 0, z: 0}
+  heavyAttackDelay: 0.2
+  heavyAttackCD: 5
+  combatBoxSize: {x: 1.4, y: 1.5, z: 1}
+  combatBoxOffset: {x: 0.5, y: -0.5, z: 0}
   freeMovement: 1
-  moveTimeRange: {x: 0, y: 0}
-  idleTimeRange: {x: 0, y: 0}
-  deathTime: 0
-  xpAmount: 0
-  exPBoxSize: {x: 0, y: 0, z: 0}
+  moveTimeRange: {x: 1, y: 6}
+  idleTimeRange: {x: 2, y: 8}
+  deathTime: 10
+  xpAmount: 40
+  exPBoxSize: {x: 10, y: 5, z: 10}
 --- !u!95 &5179986416803166698
 Animator:
   serializedVersion: 5

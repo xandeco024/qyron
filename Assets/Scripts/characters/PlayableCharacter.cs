@@ -98,26 +98,13 @@ public class PlayableCharacter : Character {
 
     #region Combat
 
-    public void Revive()
-    {
-
-    }
-
     void DownedHandler()
     {
+        if (currentHealth < 0) currentHealth = 0;
+
         if (currentHealth <= 0 && !isDowned)
         {
-            isDowned = true;
-            downedUIObject.SetActive(true);
-
-            if (downedUIObject.transform.rotation != Quaternion.Euler(0, 0, 0))
-            {
-                downedUIObject.transform.rotation = Quaternion.Euler(0, 0, 0);
-            }
-
-            animator.SetBool("downed", true);
-            rb.velocity = Vector3.zero;
-            isMovingAllowed = false;
+            SetDowned(true);
         }
 
         if (beingCured)
@@ -132,14 +119,29 @@ public class PlayableCharacter : Character {
 
         if (downedFiller.fillAmount >= 1)
         {
-            downedFiller.fillAmount = 0;
-            currentHealth = maxHealth/4;
-            animator.SetBool("downed", false);
-            isDowned = false;
-            isMovingAllowed = true;
-            beingCured = false;
-            downedUIObject.SetActive(false);
+            SetDowned(false);
         }
+    }
+
+    void SetDowned(bool value)
+    {
+        isDowned = value;
+
+        isMovingAllowed = !value;
+        canLightAttack = !value;
+        canHeavyAttack = !value;
+
+        downedFiller.fillAmount = 0;
+        currentHealth = value ? 0 : maxHealth/4;
+        animator.SetBool("downed", value);
+        downedUIObject.SetActive(value);
+
+        if (value) 
+        {
+            downedUIObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+            rb.velocity = Vector3.zero;
+        }
+
     }
 
     public void RevivePlayer(InputAction.CallbackContext ctx)
@@ -162,21 +164,15 @@ public class PlayableCharacter : Character {
                 }
             }
 
-            if (downedFriend != null)
+            if (downedFriend != null && !isDowned)
             {
                 downedFriend.SetReviving(true);
             }
         }
 
-        if (ctx.duration >= 2)
-        {
-            Debug.Log("Deve reviver");
-        }
-
-
         if (ctx.canceled)
         {
-            if (downedFriend != null)
+            if (downedFriend != null && !isDowned)
             {
                 downedFriend.SetReviving(false);
             }
@@ -299,7 +295,7 @@ public class PlayableCharacter : Character {
 
         yield return new WaitForSeconds(0.3f);
 
-        isMovingAllowed = true;
+        if (!isDowned) isMovingAllowed = true;
         isAttacking = false;
 
         yield return new WaitForSeconds(lightAttackCD);
@@ -359,7 +355,7 @@ public class PlayableCharacter : Character {
 
         yield return new WaitForSeconds(0.3f);
 
-        isMovingAllowed = true;
+        if (!isDowned) isMovingAllowed = true;
         isAttacking = false;
 
         yield return new WaitForSeconds(heavyAttackCD);
@@ -477,7 +473,7 @@ public class PlayableCharacter : Character {
 
         yield return new WaitForSeconds(0.3f);
 
-        isMovingAllowed = true;
+        if (!isDowned) isMovingAllowed = true;
         isAttacking = false;
 
         combo.Clear();
@@ -517,7 +513,7 @@ public class PlayableCharacter : Character {
 
         yield return new WaitForSeconds(0.3f);
 
-        isMovingAllowed = true;
+        if (!isDowned) isMovingAllowed = true;
         isAttacking = false;
 
         combo.Clear();
@@ -556,7 +552,7 @@ public class PlayableCharacter : Character {
 
         yield return new WaitForSeconds(0.3f);
 
-        isMovingAllowed = true;
+        if (!isDowned) isMovingAllowed = true;
         isAttacking = false;
 
         combo.Clear();
@@ -591,7 +587,7 @@ public class PlayableCharacter : Character {
 
         yield return new WaitForSeconds(0.3f);
 
-        isMovingAllowed = true;
+        if (!isDowned) isMovingAllowed = true;
         isAttacking = false;
 
         combo.Clear();
@@ -888,7 +884,7 @@ void ApplyMovement()
             if (Input.GetKeyDown(KeyCode.Alpha6))
             {
                 Debug.Log("Reviveu");
-                Revive();
+                SetDowned(false);
             }
         }
     }

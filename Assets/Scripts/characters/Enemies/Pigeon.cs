@@ -20,7 +20,7 @@ public class Pigeon : Enemy
 
         if (target != null)
         {
-            if (Vector3.Distance(transform.position, target.transform.position) > loseTargetRange)
+            if (Vector3.Distance(transform.position, target.transform.position) > loseTargetAtRange || target.IsDowned)
             {
                 target = null;
             }
@@ -98,6 +98,6 @@ public class Pigeon : Enemy
         base.OnDrawGizmos();
 
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position, rangeBoxSize);
+        Gizmos.DrawWireCube(transform.position, targetSearchBoxSize);
     }
 }

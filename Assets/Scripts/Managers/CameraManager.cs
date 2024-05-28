@@ -35,7 +35,7 @@ public class CameraManager : MonoBehaviour
             Vector3 middlePosition = Vector3.zero;
             foreach (PlayableCharacter player in playerList)
             {
-                middlePosition += player.transform.position;
+                if (player != null) middlePosition += player.transform.position;
             }
             middlePosition /= playerList.Count;
 
