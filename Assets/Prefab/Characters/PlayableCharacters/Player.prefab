@@ -454,15 +454,15 @@ MonoBehaviour:
   sr: {fileID: 0}
   bc: {fileID: 0}
   debug: 1
-  baseMaxHealth: 10
+  baseMaxHealth: 50
   baseResistance: 0
   baseDamageReduction: 0
   baseAttackDamage: 5
-  baseCriticalChance: 15
+  baseCriticalChance: 10
   baseSpeed: 0
   baseDodgeChance: 0
   baseMoveSpeed: 8
-  baseJumpForce: 12
+  baseJumpForce: 8
   baseRespect: 0
   fallDamageEnabled: 0
   raycastDistance: 0.4
@@ -489,7 +489,6 @@ MonoBehaviour:
   grabbedCharacterOffset: {x: 1, y: 0, z: 0}
   downedFiller: {fileID: 3647198117987679897}
   downedUIObject: {fileID: 4307346253183062333}
-  downedBarAnimator: {fileID: 0}
 --- !u!114 &6348327662188655456
 MonoBehaviour:
   m_ObjectHideFlags: 0

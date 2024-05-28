@@ -149,27 +149,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageTextPrefab: {fileID: 8396298817394685240, guid: 912ee59ec9288fb408dbd0d7e199cc81, type: 3}
-  baseMaxHealth: 5
-  baseAttackDamage: 0
-  baseCriticalChance: 0
+  rb: {fileID: 0}
+  animator: {fileID: 0}
+  sr: {fileID: 0}
+  bc: {fileID: 0}
+  debug: 0
+  baseMaxHealth: 40
+  baseResistance: 0
+  baseDamageReduction: 0
+  baseAttackDamage: 3
+  baseCriticalChance: 10
+  baseSpeed: 0
+  baseDodgeChance: 0
   baseMoveSpeed: 3
   baseJumpForce: 0
+  baseRespect: 0
   fallDamageEnabled: 0
   raycastDistance: 0
   raycastOffset: {x: 0, y: 0, z: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
-  isMovingAllowed: 1
-  grabbable: 1
+  Grabbable: 0
+  damageTextOffset: {x: 0.5, y: 0.5}
+  damageTextFaceToDirection: 0
   targetRange: 0
+  rangeBoxSize: {x: 10, y: 10, z: 10}
+  loseTargetRange: 10
+  lightAttackDelay: 0
+  lightAttackCD: 0
+  canHeavyAttack: 1
+  heavyAttackDelay: 0
+  heavyAttackCD: 0
+  combatBoxSize: {x: 0, y: 0, z: 0}
+  combatBoxOffset: {x: 0, y: 0, z: 0}
   freeMovement: 1
-  idleTimeRange:
-  - 1.5
-  - 3
-  moveTimeRange:
-  - 0.5
-  - 2
+  moveTimeRange: {x: 0, y: 0}
+  idleTimeRange: {x: 0, y: 0}
+  deathTime: 0
+  xpAmount: 0
+  exPBoxSize: {x: 0, y: 0, z: 0}
 --- !u!95 &5179986416803166698
 Animator:
   serializedVersion: 5

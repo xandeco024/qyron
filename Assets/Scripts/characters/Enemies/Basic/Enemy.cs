@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Enemy : Character
 {
-    protected PlayableCharacter[] players;
+    protected List<PlayableCharacter> players;
     protected PlayableCharacter target;
     public PlayableCharacter Target { get => target; }
     protected PlayableCharacter lastFrameTarget;
     [SerializeField] protected float targetRange;
     public float TargetRange { get => targetRange; }
+    [SerializeField] protected Vector3 rangeBoxSize;
+    public Vector3 RangeBoxSize { get => rangeBoxSize; }
+    [SerializeField] protected float loseTargetRange;
+    public float LoseTargetRange { get => loseTargetRange; }
 
 
     [Header("Attack")]
@@ -153,26 +157,25 @@ public class Enemy : Character
         return range;
     }
 
-    protected PlayableCharacter FindTargetOnRange(PlayableCharacter[] players, float range)
+    protected PlayableCharacter FindTargetOnRange()
     {
         PlayableCharacter target = null;
 
-        foreach (PlayableCharacter player in players)
+        Collider[] colliders = Physics.OverlapBox(transform.position, rangeBoxSize / 2, transform.rotation);
+
+        List<PlayableCharacter> playersOnRange = new List<PlayableCharacter>();
+
+        foreach (Collider collider in colliders)
         {
-            if (Vector3.Distance(transform.position, player.transform.position) <= range)
+            if (collider.GetComponent<PlayableCharacter>() != null)
             {
-                if (target == null)
-                {
-                    target = player;
-                }
-                else
-                {
-                    if (Vector3.Distance(transform.position, player.transform.position) < Vector3.Distance(transform.position, target.transform.position))
-                    {
-                        target = player;
-                    }
-                }
+                playersOnRange.Add(collider.GetComponent<PlayableCharacter>());
             }
+        }
+
+        if (playersOnRange.Count > 0)
+        {
+            target = playersOnRange[Random.Range(0, playersOnRange.Count)];
         }
 
         return target;

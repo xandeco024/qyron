@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Pigeon : Enemy
@@ -10,12 +11,21 @@ public class Pigeon : Enemy
 
     void Start()
     {
-        players = FindObjectsOfType<PlayableCharacter>();
         SetStats();
     }
 
     void Update()
     {
+        if (target == null) target = FindTargetOnRange();
+
+        if (target != null)
+        {
+            if (Vector3.Distance(transform.position, target.transform.position) > loseTargetRange)
+            {
+                target = null;
+            }
+        }
+
         if (currentHealth <= 0 && !isReceivingCombo && !isDead)
         {
             isDead = true;
@@ -24,9 +34,6 @@ public class Pigeon : Enemy
         }
 
         animator.SetBool("stunned", stunned);
-
-        target = FindTargetOnRange(players, targetRange);
-
 
         if (target != null && lastFrameTarget == null)
         {
@@ -89,5 +96,8 @@ public class Pigeon : Enemy
     override protected void OnDrawGizmos()
     {
         base.OnDrawGizmos();
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position, rangeBoxSize);
     }
 }

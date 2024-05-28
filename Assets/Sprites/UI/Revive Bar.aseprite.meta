@@ -139,6 +139,106 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: Revive Bar_Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: -0.7741935}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 84
+      width: 64
+      height: 31
+    spriteID: 982efe2c252b1c64183921fc7151e806
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 84}
+  - name: Revive Bar_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: -0.75}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 44
+      width: 64
+      height: 32
+    spriteID: 39a4fba7fd5d9224e83853f53dc72e2c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 44}
+  - name: Revive Bar_Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: -0.7741935}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 123
+      width: 64
+      height: 31
+    spriteID: ab918a315b2e92b4299b040718fa9aea
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 123}
+  - name: Revive Bar_Frame_4
+    originalName: 
+    pivot: {x: 0.5, y: -0.7741935}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 162
+      width: 64
+      height: 31
+    spriteID: 4e3664bb047473848a0a2e48a2531e14
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 162}
+  - name: Revive Bar_Frame_5
+    originalName: 
+    pivot: {x: 0.5, y: -0.8000001}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 201
+      width: 64
+      height: 30
+    spriteID: e5b8c439f8c246548b03e9322c95a5f2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 201}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -148,7 +248,7 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: Revive Bar
+    - name: Revive Bar_Frame_0
       frameIndex: 0
       cellRect:
         x: 0
@@ -156,6 +256,46 @@ ScriptedImporter:
         width: 64
         height: 32
       spriteId: c9d2a7d2ee4a2d84785248a21dc9eee6
+    - name: Revive Bar_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 0
+        y: 24
+        width: 64
+        height: 31
+      spriteId: 982efe2c252b1c64183921fc7151e806
+    - name: Revive Bar_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 0
+        y: 24
+        width: 64
+        height: 32
+      spriteId: 39a4fba7fd5d9224e83853f53dc72e2c
+    - name: Revive Bar_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 0
+        y: 24
+        width: 64
+        height: 31
+      spriteId: ab918a315b2e92b4299b040718fa9aea
+    - name: Revive Bar_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 0
+        y: 24
+        width: 64
+        height: 31
+      spriteId: 4e3664bb047473848a0a2e48a2531e14
+    - name: Revive Bar_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 0
+        y: 24
+        width: 64
+        height: 30
+      spriteId: e5b8c439f8c246548b03e9322c95a5f2
     linkedCells: []
     parentIndex: -1
   platformSettings: []

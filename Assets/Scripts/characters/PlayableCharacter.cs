@@ -68,7 +68,6 @@ public class PlayableCharacter : Character {
     public bool IsDowned { get { return isDowned; } }
     [SerializeField] private Image downedFiller;
     [SerializeField] private GameObject downedUIObject;
-    [SerializeField] private Animator downedBarAnimator;
     private bool beingCured;
     PlayableCharacter downedFriend = null;
 
