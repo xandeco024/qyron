@@ -71,6 +71,7 @@ public class CameraManager : MonoBehaviour
             // Ajustar o FOV proporcionalmente
             float scaleFactor = 0.1f; // Ajuste conforme necessário
             virtualCamera.m_Lens.FieldOfView = minFov + scaleFactor * averageDistance;
+            Debug.Log(virtualCamera.m_Lens.FieldOfView);
         }
 
         // Limitar o FOV
