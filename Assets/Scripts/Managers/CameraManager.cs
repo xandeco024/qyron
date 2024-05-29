@@ -13,25 +13,26 @@ public class CameraManager : MonoBehaviour
     private List<PlayableCharacter> playerList = new List<PlayableCharacter>();
     private PlayableCharacter extremeLeftPlayer, extremeRightPlayer;
 
-    [SerializeField] Vector3 offset;
+    [SerializeField] Vector3 singlePlayerOffset;
+    [SerializeField] Vector3 multiplePlayersOffset;
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
         playerList = gameManager.PlayerList;
-        extremeLeftPlayer = playerList[0];
-        extremeRightPlayer = playerList[0];
+
+        virtualCamera.m_Lens.FieldOfView = minFov;
+
+        if (playerList.Count > 1)
+        {
+            extremeLeftPlayer = playerList[0];
+            extremeRightPlayer = playerList[0];
+        }
     }
 
     void Update()
     {
-        // If there are no players in the scene, return.
-        if (playerList.Count == 0)
+        if (playerList.Count > 1)
         {
-            return;
-        }
-        else
-        {
-            //middle position between all players
             Vector3 middlePosition = Vector3.zero;
             foreach (PlayableCharacter player in playerList)
             {
@@ -40,11 +41,8 @@ public class CameraManager : MonoBehaviour
             middlePosition /= playerList.Count;
 
             //camera position
-            transform.position = middlePosition + offset;
-        }
+            transform.position = middlePosition + multiplePlayersOffset;
 
-        if (playerList.Count > 1)
-        {
             // Calcular a média das distâncias
             float totalDistance = 0;
             foreach (PlayableCharacter player in playerList)
@@ -72,21 +70,32 @@ public class CameraManager : MonoBehaviour
             float scaleFactor = 0.1f; // Ajuste conforme necessário
             virtualCamera.m_Lens.FieldOfView = minFov + scaleFactor * averageDistance;
             Debug.Log(virtualCamera.m_Lens.FieldOfView);
+
+            if (virtualCamera.m_Lens.FieldOfView >= maxFov)
+            {
+                extremeLeftPlayer.SetMovementRestrictions(new List<string> { "left" });
+                extremeRightPlayer.SetMovementRestrictions(new List<string> { "right" });
+            }
+
+            else 
+            {
+                if (extremeLeftPlayer.MovementRestrictions.Contains("left"))
+                {
+                    extremeLeftPlayer.RemoveMovementRestriction("left");
+                }
+
+                if (extremeRightPlayer.MovementRestrictions.Contains("right"))
+                {
+                    extremeRightPlayer.RemoveMovementRestriction("right");
+                }
+            }
+
+            virtualCamera.m_Lens.FieldOfView = Mathf.Clamp(virtualCamera.m_Lens.FieldOfView, minFov, maxFov);   
         }
 
-        // Limitar o FOV
-        virtualCamera.m_Lens.FieldOfView = Mathf.Clamp(virtualCamera.m_Lens.FieldOfView, minFov, maxFov);
-
-        if (virtualCamera.m_Lens.FieldOfView == maxFov)
+        else if (playerList.Count == 1) 
         {
-            extremeLeftPlayer.SetMovementRestrictions(new List<string> { "left" });
-            extremeRightPlayer.SetMovementRestrictions(new List<string> { "right" });
-        }
-
-        else 
-        {
-            extremeLeftPlayer.RemoveMovementRestriction("left");
-            extremeRightPlayer.RemoveMovementRestriction("right");
+            transform.position = playerList[0].transform.position + new Vector3(singlePlayerOffset.x * playerList[0].transform.rotation.y == 0 ? 1 : -1, singlePlayerOffset.y, singlePlayerOffset.z);
         }
     }
 }

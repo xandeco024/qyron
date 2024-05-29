@@ -28,12 +28,12 @@ public class EnemyIdleState : StateMachineBehaviour
 
         target = enemy.Target;
 
-        if(currentIdleTime >= idleTime && enemy.FreeMovement)
+        if(currentIdleTime >= idleTime && enemy.FreeMovement && !enemy.Stunned)
         {
             animator.SetBool("freeWalk", true);
         }
 
-        if (target != null)
+        if (target != null && !enemy.Stunned)
         {
             animator.SetBool("following", true);
             animator.SetBool("freeWalk", false);

@@ -4451,17 +4451,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
-  m_LookaheadTime: 1
-  m_LookaheadSmoothing: 10
+  m_LookaheadTime: 0.5
+  m_LookaheadSmoothing: 5
   m_LookaheadIgnoreY: 0
-  m_XDamping: 1
+  m_XDamping: 5
   m_YDamping: 1
   m_ZDamping: 0
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
   m_ScreenY: 0.5
   m_CameraDistance: 50
-  m_DeadZoneWidth: 0.2
+  m_DeadZoneWidth: 0.1
   m_DeadZoneHeight: 0.29618323
   m_DeadZoneDepth: 100
   m_UnlimitedSoftZone: 0
@@ -5547,9 +5547,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCamera: {fileID: 1624621661}
-  minFov: 6
-  maxFov: 10
-  offset: {x: 0, y: 2, z: 0}
+  minFov: 10
+  maxFov: 12
+  singlePlayerOffset: {x: 5, y: 0, z: 0}
+  multiplePlayersOffset: {x: 0, y: 0, z: 0}
 --- !u!1001 &1144643924
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -62,6 +62,7 @@ public class PlayableCharacter : Character {
     public string CharacterName { get { return characterName; } }
 
     private List<string> movementRestrictions = new List<string>();
+    public List<string> MovementRestrictions { get { return movementRestrictions; } }
 
     [Header("UI")]
     private bool isDowned;
@@ -291,7 +292,7 @@ public class PlayableCharacter : Character {
         animator.SetInteger("attackAnimationIndex", attackAnimationIndex);
 
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
-        DealDamage(hitColliders, damage, 0.3f,critical);
+        DealDamage(hitColliders, damage, 1f,critical);
 
         yield return new WaitForSeconds(0.3f);
 
