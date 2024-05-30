@@ -131,6 +131,7 @@ public class PlayableCharacter : Character {
         isMovingAllowed = !value;
         canLightAttack = !value;
         canHeavyAttack = !value;
+        canGrab = !value;
 
         downedFiller.fillAmount = 0;
         currentHealth = value ? 0 : maxHealth/4;
@@ -247,7 +248,7 @@ public class PlayableCharacter : Character {
     {
         if(ctx.performed)
         {
-            if (canLightAttack)
+            if (canLightAttack && !isDowned)
             {
                 if(isGrabbing) // se estiver grebbando então faz o combo de grab
                 { 
@@ -308,7 +309,7 @@ public class PlayableCharacter : Character {
     {
         if(ctx.performed)
         {
-            if (canHeavyAttack)
+            if (canHeavyAttack && !isDowned)
             {
                 if(isGrabbing) // se estiver grebbando então faz o combo de grab
                 { 
@@ -368,7 +369,7 @@ public class PlayableCharacter : Character {
     {
         if(ctx.performed)
         {
-            if (canGrab && !isAttacking && !isGrabbing)
+            if (canGrab && !isAttacking && !isGrabbing && !isDowned)
             {
                 if (combo.Count > 0)
                 {
@@ -418,7 +419,10 @@ public class PlayableCharacter : Character {
 
                 grabbedCharacter = collider.GetComponent<Character>();
 
+                //set grabbedCharacter grabbedPoint to to the grabbedCharacterOffset
+
                 grabbedCharacter.transform.position = transform.position + new Vector3(grabbedCharacterOffset.x * facingDirection, grabbedCharacterOffset.y, grabbedCharacterOffset.z);
+                
                 grabbedCharacter.transform.SetParent(transform);
                 grabbedCharacter.SetGrabbed(true);
                 grabbedCharacter.Flip(facingDirection == 1 ? false : true);

@@ -12,6 +12,8 @@ public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     Button button;
     TextMeshProUGUI text;
 
+
+
     void Start()
     {
         button = GetComponent<Button>();
@@ -22,7 +24,6 @@ public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        //text.text = selectedText;
         selected = true;
         selectedTimer = 0;
         text.text = selectedText;

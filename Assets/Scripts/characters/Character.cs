@@ -85,6 +85,8 @@ public class Character : MonoBehaviour {
     public bool IsGrabbable { get { return Grabbable; } }
     protected bool isGrabbed;
     public bool IsGrabbed { get { return isGrabbed; } }
+    [SerializeField] protected Vector3 grabPoint;
+    public Vector3 GrabPoint { get { return grabPoint; } }
     protected bool isReceivingCombo;
     public bool IsReceivingCombo { get { return isReceivingCombo; } }
     protected bool isDead;
@@ -109,8 +111,8 @@ public class Character : MonoBehaviour {
     #region Movement
     public void LimitZ()
     {
-        if (transform.position.z >= 7f) transform.position = new Vector3(transform.position.x, transform.position.y, 7f);
-        if (transform.position.z <= -7.5f) transform.position = new Vector3(transform.position.x, transform.position.y, -7.5f);
+        if (transform.position.z >= 20f) transform.position = new Vector3(transform.position.x, transform.position.y, 20f);
+        if (transform.position.z <= -13f) transform.position = new Vector3(transform.position.x, transform.position.y, -13f);
     }
 
     public void Flip(bool right = false)
