@@ -8179,18 +8179,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 232353762207052734, guid: f63a537f1c977214b9365c7567257671, type: 3}
-      propertyPath: m_FlipY
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 232353762207052734, guid: f63a537f1c977214b9365c7567257671, type: 3}
-      propertyPath: m_CastShadows
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 232353762207052734, guid: f63a537f1c977214b9365c7567257671, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     - target: {fileID: 4397903468640775225, guid: f63a537f1c977214b9365c7567257671, type: 3}
       propertyPath: m_Name
       value: Player
@@ -8234,70 +8222,6 @@ PrefabInstance:
     - target: {fileID: 4996354177151058306, guid: f63a537f1c977214b9365c7567257671, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8684156598380509673, guid: f63a537f1c977214b9365c7567257671, type: 3}
-      propertyPath: stepAssist
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8684156598380509673, guid: f63a537f1c977214b9365c7567257671, type: 3}
-      propertyPath: stepAssistForce
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 8684156598380509673, guid: f63a537f1c977214b9365c7567257671, type: 3}
-      propertyPath: stepAssistRay.y
-      value: -1.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8684156598380509673, guid: f63a537f1c977214b9365c7567257671, type: 3}
-      propertyPath: CombatBoxOffset.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8684156598380509673, guid: f63a537f1c977214b9365c7567257671, type: 3}
-      propertyPath: stepAssistForce.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8684156598380509673, guid: f63a537f1c977214b9365c7567257671, type: 3}
-      propertyPath: stepAssistForce.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8684156598380509673, guid: f63a537f1c977214b9365c7567257671, type: 3}
-      propertyPath: stepAssistForce.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8684156598380509673, guid: f63a537f1c977214b9365c7567257671, type: 3}
-      propertyPath: stepAssistLimit.y
-      value: -1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8684156598380509673, guid: f63a537f1c977214b9365c7567257671, type: 3}
-      propertyPath: stepAssistOffset.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8684156598380509673, guid: f63a537f1c977214b9365c7567257671, type: 3}
-      propertyPath: stepAssistOffset.y
-      value: -1.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8684156598380509673, guid: f63a537f1c977214b9365c7567257671, type: 3}
-      propertyPath: stepAssistOffset.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8684156598380509673, guid: f63a537f1c977214b9365c7567257671, type: 3}
-      propertyPath: CombatRaycastSize.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8684156598380509673, guid: f63a537f1c977214b9365c7567257671, type: 3}
-      propertyPath: stepAssistDistance.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8684156598380509673, guid: f63a537f1c977214b9365c7567257671, type: 3}
-      propertyPath: stepAssistDistance.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8684156598380509673, guid: f63a537f1c977214b9365c7567257671, type: 3}
-      propertyPath: stepAssistDistance.z
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8684156598380509673, guid: f63a537f1c977214b9365c7567257671, type: 3}
-      propertyPath: stepAssistLayer.m_Bits
-      value: 64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
