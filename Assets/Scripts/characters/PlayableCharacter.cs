@@ -90,6 +90,7 @@ public class PlayableCharacter : Character {
         DebugHandler(); 
         CombatHandler();
         DownedHandler();
+        StepAssist();
     }
 
     void FixedUpdate()
@@ -894,10 +895,12 @@ void ApplyMovement()
         }
     }
 
-    void OnDrawGizmos()
+    protected override void OnDrawGizmos()
     {
         if(debug)
         {
+            base.OnDrawGizmos();
+
             Collider[] hitColliders = Physics.OverlapBox(transform.position + CombatBoxOffset * facingDirection, CombatRaycastSize / 2, transform.rotation);
 
             if (hitColliders.Length > 0)

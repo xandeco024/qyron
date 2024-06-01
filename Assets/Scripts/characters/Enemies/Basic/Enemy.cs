@@ -55,22 +55,25 @@ public class Enemy : Character
 
     public override void TakeDamage(float damage, float stunDuration, bool critical = false, Vector3 knockbackDir = default, float knockbackForce = 0, float knockbackDuration = 0.2f)
     {
-        if (isLightAttacking)
+        if (!isDead)
         {
-            StartCoroutine(CancelLightAttack());
-        }
+            if (isLightAttacking)
+            {
+                StartCoroutine(CancelLightAttack());
+            }
 
-        if (isHeavyAttacking)
-        {
-            StartCoroutine(CancelHeavyAttack());
-        }
+            if (isHeavyAttacking)
+            {
+                StartCoroutine(CancelHeavyAttack());
+            }
 
-        base.TakeDamage(damage, stunDuration, critical, knockbackDir, knockbackForce, knockbackDuration);
-        damageTime = knockbackDuration;
-        animator.SetTrigger("damageTrigger");
-        animator.SetBool("takingDamage", true);
-        animator.SetFloat("knockbackY", Mathf.Abs(knockbackDir.y));
-        animator.SetFloat("knockbackX", Mathf.Abs(knockbackDir.x));
+            base.TakeDamage(damage, stunDuration, critical, knockbackDir, knockbackForce, knockbackDuration);
+            damageTime = knockbackDuration;
+            animator.SetTrigger("damageTrigger");
+            animator.SetBool("takingDamage", true);
+            animator.SetFloat("knockbackY", Mathf.Abs(knockbackDir.y));
+            animator.SetFloat("knockbackX", Mathf.Abs(knockbackDir.x));
+        }
     }
 
     public virtual IEnumerator LightAttack()
@@ -179,8 +182,10 @@ public class Enemy : Character
         return target;
     }
 
-    protected virtual void OnDrawGizmos()
+    protected override void OnDrawGizmos()
     {
+        base.OnDrawGizmos();
+
         //draw combat box
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.z), combatBoxSize);

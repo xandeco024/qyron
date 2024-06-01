@@ -1,7 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Security.Cryptography;
 using Cinemachine;
 using UnityEngine;
 
@@ -95,7 +92,8 @@ public class CameraManager : MonoBehaviour
 
         else if (playerList.Count == 1) 
         {
-            transform.position = playerList[0].transform.position + new Vector3(singlePlayerOffset.x * playerList[0].transform.rotation.y == 0 ? 1 : -1, singlePlayerOffset.y, singlePlayerOffset.z);
+            float xOffset = singlePlayerOffset.x * playerList[0].FacingDirection;
+            transform.position = playerList[0].transform.position + new Vector3(xOffset, singlePlayerOffset.y, singlePlayerOffset.z);
         }
     }
 }

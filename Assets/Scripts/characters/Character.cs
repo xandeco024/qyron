@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-using Unity.Collections.LowLevel.Unsafe;
+using Unity.Collections;
 
 public class Character : MonoBehaviour {
 
@@ -64,6 +64,15 @@ public class Character : MonoBehaviour {
         jumpForce = baseJumpForce;
     }
 
+    [Header("Step Assist")]
+    [SerializeField] protected bool stepAssist;
+    [SerializeField] protected Vector3 stepAssistRay;
+    [SerializeField] protected Vector3 stepAssistLimit;
+    [SerializeField] protected float stepAssistForce;
+    [SerializeField] protected Vector3 stepAssistDistance;
+    [SerializeField] protected LayerMask stepAssistLayer;
+
+
 
     [Header("Character Behaviour")]
     protected bool invincible;
@@ -113,6 +122,35 @@ public class Character : MonoBehaviour {
     {
         if (transform.position.z >= 20f) transform.position = new Vector3(transform.position.x, transform.position.y, 20f);
         if (transform.position.z <= -13f) transform.position = new Vector3(transform.position.x, transform.position.y, -13f);
+    }
+
+    public void StepAssist()
+    {
+        float applyingToEnemy;
+        
+        if (GetComponent<Enemy>() != null) applyingToEnemy = 1;
+        else applyingToEnemy = 0;
+
+        if (Physics.Raycast(transform.position + stepAssistRay, new Vector3(1 * facingDirection, 0, 0), stepAssistDistance.x, stepAssistLayer))
+        {
+            if (!Physics.Raycast(transform.position + stepAssistLimit, new Vector3(1 * facingDirection, 0, 0), stepAssistDistance.x, stepAssistLayer))
+            {
+                transform.position = new Vector3(transform.position.x + (stepAssistForce * facingDirection * applyingToEnemy), transform.position.y + stepAssistForce, transform.position.z);
+            }
+        }
+
+        float zDirection = 1;
+
+        if (rb.velocity.z > 0) zDirection = 1;
+        if (rb.velocity.z < 0) zDirection = -1;
+
+        if (Physics.Raycast(transform.position + stepAssistRay, new Vector3(0, 0, stepAssistDistance.z * zDirection), stepAssistDistance.z, stepAssistLayer))
+        {
+            if (!Physics.Raycast(transform.position + stepAssistLimit, new Vector3(0, 0, stepAssistDistance.z * zDirection), stepAssistDistance.z, stepAssistLayer))
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y + stepAssistForce, transform.position.z + (stepAssistForce * zDirection * applyingToEnemy));
+            }
+        }
     }
 
     public void Flip(bool right = false)
@@ -260,5 +298,29 @@ public class Character : MonoBehaviour {
     public void SetReceivingCombo(bool receivingCombo)
     {
         this.isReceivingCombo = receivingCombo;
+    }
+
+    protected virtual void OnDrawGizmos()
+    {
+        //Step Assist Gizmos
+        //x ray
+        if (debug && rb != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawRay(transform.position + new Vector3(stepAssistLimit.x * facingDirection, stepAssistLimit.y, stepAssistLimit.z), new Vector3(stepAssistDistance.x * facingDirection, 0 , 0));
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawRay(transform.position + new Vector3(stepAssistRay.x * facingDirection, stepAssistRay.y, stepAssistRay.z), new Vector3(stepAssistDistance.x * facingDirection, 0 , 0));
+
+            //z ray
+            float zDirection = 1;
+            
+            if (rb.velocity.z < 0) zDirection = -1;
+
+            Gizmos.color = Color.red;
+            Gizmos.DrawRay(transform.position + new Vector3(stepAssistLimit.x, stepAssistLimit.y, stepAssistLimit.z * zDirection), new Vector3(0, 0, stepAssistDistance.z * zDirection));
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawRay(transform.position + new Vector3(stepAssistRay.x, stepAssistRay.y, stepAssistRay.z * zDirection), new Vector3(0, 0, stepAssistDistance.z * zDirection));
+        }
+    
     }
 }

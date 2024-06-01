@@ -15,6 +15,7 @@ public class EnemyFreeWalkState : StateMachineBehaviour
         enemy = animator.GetComponent<Enemy>();
         moveTime = Random.Range(enemy.MoveTimeRange.x, enemy.MoveTimeRange.y);
         moveDirection = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f));
+        moveDirection.Normalize();
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

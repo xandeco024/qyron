@@ -41,6 +41,8 @@ public class Pigeon : Enemy
         }
 
         lastFrameTarget = target;
+
+        StepAssist();
     }
 
     public override IEnumerator LightAttack()
@@ -99,5 +101,23 @@ public class Pigeon : Enemy
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position, targetSearchBoxSize);
+
+        if (debug && rb != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawRay(transform.position + new Vector3(stepAssistLimit.x * facingDirection, stepAssistLimit.y, stepAssistLimit.z), new Vector3(stepAssistDistance.x * facingDirection, 0 , 0));
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawRay(transform.position + new Vector3(stepAssistRay.x * facingDirection, stepAssistRay.y, stepAssistRay.z), new Vector3(stepAssistDistance.x * facingDirection, 0 , 0));
+
+            //z ray
+            float zDirection = 1;
+            
+            if (rb.velocity.z < 0) zDirection = -1;
+
+            Gizmos.color = Color.red;
+            Gizmos.DrawRay(transform.position + new Vector3(stepAssistLimit.x, stepAssistLimit.y, stepAssistLimit.z * zDirection), new Vector3(0, 0, stepAssistDistance.z * zDirection));
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawRay(transform.position + new Vector3(stepAssistRay.x, stepAssistRay.y, stepAssistRay.z * zDirection), new Vector3(0, 0, stepAssistDistance.z * zDirection));
+        }
     }
 }
