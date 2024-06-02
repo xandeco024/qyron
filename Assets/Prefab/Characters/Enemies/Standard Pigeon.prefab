@@ -157,11 +157,11 @@ MonoBehaviour:
   baseMaxHealth: 40
   baseResistance: 0
   baseDamageReduction: 0
-  baseAttackDamage: 2
+  baseAttackDamage: 3
   baseCriticalChance: 12
   baseSpeed: 0
   baseDodgeChance: 0
-  baseMoveSpeed: 2
+  baseMoveSpeed: 3
   baseJumpForce: 0
   baseRespect: 0
   stepAssist: 1
@@ -187,7 +187,7 @@ MonoBehaviour:
   lightAttackDelay: 0
   lightAttackCD: 0.5
   canHeavyAttack: 1
-  heavyAttackDelay: 0.2
+  heavyAttackDelay: 0.6
   heavyAttackCD: 5
   combatBoxSize: {x: 1.4, y: 1.5, z: 1}
   combatBoxOffset: {x: 0.5, y: -0.5, z: 0}
