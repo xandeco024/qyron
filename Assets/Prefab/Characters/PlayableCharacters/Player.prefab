@@ -454,11 +454,11 @@ MonoBehaviour:
   sr: {fileID: 0}
   bc: {fileID: 0}
   debug: 1
-  baseMaxHealth: 50
+  baseMaxHealth: 60
   baseResistance: 0
   baseDamageReduction: 0
   baseAttackDamage: 5
-  baseCriticalChance: 13
+  baseCriticalChance: 11
   baseSpeed: 0
   baseDodgeChance: 0
   baseMoveSpeed: 9
