@@ -58,7 +58,7 @@ public class PlayableCharacter : Character {
     private bool isGrabbing;
     private Character grabbedCharacter;
 
-    private string characterName;
+    [SerializeField] private string characterName;
     public string CharacterName { get { return characterName; } }
 
     private List<string> movementRestrictions = new List<string>();
@@ -863,7 +863,7 @@ void ApplyMovement()
         exP = 0;
         level = 1;
         nextLevelExP = 100;
-    
+
         canDash = true;
         canLightAttack = true;
         canHeavyAttack = true;
