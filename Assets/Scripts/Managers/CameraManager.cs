@@ -66,8 +66,7 @@ public class CameraManager : MonoBehaviour
             // Ajustar o FOV proporcionalmente
             float scaleFactor = 0.1f; // Ajuste conforme necessário
             virtualCamera.m_Lens.FieldOfView = minFov + scaleFactor * averageDistance;
-            Debug.Log(virtualCamera.m_Lens.FieldOfView);
-
+            
             if (virtualCamera.m_Lens.FieldOfView >= maxFov)
             {
                 extremeLeftPlayer.SetMovementRestrictions(new List<string> { "left" });

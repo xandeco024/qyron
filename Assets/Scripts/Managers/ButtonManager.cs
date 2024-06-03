@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+using System.Collections.Generic;
 
 public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
 {
@@ -10,42 +11,87 @@ public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     float selectedTimer = 0;
     bool selected = false;
     Button button;
-    TextMeshProUGUI text;
-
-
+    [SerializeField] List<TextMeshProUGUI> textList;
+    [SerializeField] bool colorSwap;
+    [SerializeField] Color selectedColor;
+    Color mainTextOriginalColor;
+    [SerializeField] float blinkSpeed;
+    [SerializeField] string initialChar;
+    [SerializeField] string closureChar;
 
     void Start()
     {
         button = GetComponent<Button>();
-        text = GetComponentInChildren<TextMeshProUGUI>();
-        originalText = text.text;   
-        selectedText = "> " + originalText + " <";
+        
+        if (textList.Count == 0)
+        {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                if (transform.GetChild(i).GetComponent<TextMeshProUGUI>() != null)
+                {
+                    textList.Add(transform.GetChild(i).GetComponent<TextMeshProUGUI>());
+                }
+            }
+        }
+
+        originalText = textList[0].text;   
+        mainTextOriginalColor = textList[textList.Count-1].color;
+
+        if (closureChar != "")
+        {
+            selectedText = initialChar + " " + originalText + " " + closureChar;
+        }
+        else
+        {
+            selectedText = initialChar + " " + originalText + " " + initialChar;
+        }   
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
         selected = true;
         selectedTimer = 0;
-        text.text = selectedText;
+
+        foreach (TextMeshProUGUI t in textList)
+        {
+            t.text = selectedText;
+        }
+
+        if (colorSwap) textList[textList.Count-1].color = selectedColor;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         selected = false;
-        text.text = originalText;
+        foreach (TextMeshProUGUI t in textList)
+        {
+            t.text = originalText;
+        }
+
+        if (colorSwap) textList[textList.Count-1].color = mainTextOriginalColor;
     }
 
     public void OnSelect(BaseEventData eventData)
     {
         selected = true;
         selectedTimer = 0;
-        text.text = selectedText;
+        foreach (TextMeshProUGUI t in textList)
+        {
+            t.text = selectedText;
+        }
+
+        if (colorSwap) textList[textList.Count-1].color = selectedColor;
     }
 
     public void OnDeselect(BaseEventData eventData)
     {
         selected = false;
-        text.text = originalText;
+        foreach (TextMeshProUGUI t in textList)
+        {
+            t.text = originalText;
+        }
+
+        if (colorSwap) textList[textList.Count-1].color = mainTextOriginalColor;
     }
 
 
@@ -61,15 +107,21 @@ public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     void BlinkSelectedText()
     {
         selectedTimer += Time.deltaTime;
-        if (selectedTimer >= 0.5f)
+        if (selectedTimer >= blinkSpeed)
         {
-            if (text.text == selectedText)
+            if (textList[0].text == selectedText)
             {
-                text.text = originalText;
+                foreach (TextMeshProUGUI t in textList)
+                {
+                    t.text = originalText;
+                }
             }
             else
             {
-                text.text = selectedText;
+                foreach (TextMeshProUGUI t in textList)
+                {
+                    t.text = selectedText;
+                }
             }
             selectedTimer = 0;
         }

@@ -8,13 +8,13 @@ public class PauseManager : MonoBehaviour
 {
     private InputMaster inputMaster;
     private GameManager gameManager;
+    private GameOverManager gameOverManager;
     private bool paused = false;
     [SerializeField] private GameObject pauseCanvasObject;
     [SerializeField] private Button reusmeButton;
 
     void Awake()
     {
-        gameManager = FindObjectOfType<GameManager>();
         Controls();
     }
 
@@ -36,7 +36,9 @@ public class PauseManager : MonoBehaviour
 
     void Start()
     {
-        
+        gameManager = FindObjectOfType<GameManager>();
+        gameOverManager = FindObjectOfType<GameOverManager>();
+        SetPause(false);
     }
 
     void Update()
@@ -54,18 +56,26 @@ public class PauseManager : MonoBehaviour
 
     public void TogglePause()
     {
-            if (!paused)
-            {
-                Time.timeScale = 0;
-                pauseCanvasObject.SetActive(true);
-                paused = true;
-                reusmeButton.Select();
-            }
-            else
-            {
-                Time.timeScale = 1;
-                pauseCanvasObject.SetActive(false);
-                paused = false;
-            }
+        if (!gameOverManager.GameOver)
+        {
+            SetPause(!paused);
+        }
+    }
+
+    public void SetPause(bool value)
+    {
+        if (value)
+        {
+            Time.timeScale = 0;
+            pauseCanvasObject.SetActive(true);
+            paused = true;
+            reusmeButton.Select();
+        }
+        else if(value)
+        {
+            Time.timeScale = 1;
+            pauseCanvasObject.SetActive(false);
+            paused = false;
+        }
     }
 }

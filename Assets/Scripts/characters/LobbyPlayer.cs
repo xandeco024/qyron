@@ -13,6 +13,7 @@ public class LobbyPlayer : MonoBehaviour {
         private int selectedCharacterIndex;
 
         private GameObject playerFrameObject;
+        private GameObject toJoinObject;
         private GameObject characterObject;
         private Animator playerFrameAnimator;
         private Animator characterAnimator;
@@ -85,6 +86,8 @@ public class LobbyPlayer : MonoBehaviour {
             characterObject = playerFrameObject.transform.GetChild(0).gameObject;
             characterAnimator = characterObject.GetComponent<Animator>();
             characterObject.SetActive(true);
+            toJoinObject = playerFrameObject.transform.GetChild(1).gameObject;
+            toJoinObject.SetActive(false);
         }
 
         public void NextCharacter(InputAction.CallbackContext context)
@@ -155,6 +158,7 @@ public class LobbyPlayer : MonoBehaviour {
             {
                 playerFrameAnimator.SetBool("empty", true);
                 characterObject.SetActive(false);
+                toJoinObject.SetActive(true);
                 lobbyManager.LeavePlayer(this.GetComponent<PlayerInput>());
                 Destroy(gameObject);
             }

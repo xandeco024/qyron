@@ -72,8 +72,6 @@ public class LobbyManager : MonoBehaviour
 
         if (players != null)
         {
-            Debug.Log("Destruidos " + players.Length + " jogadores");
-
             for (int i = 0; i < players.Length; i++)
             {
                 Destroy(players[i].gameObject);

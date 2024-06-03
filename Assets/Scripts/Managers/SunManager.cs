@@ -25,8 +25,11 @@ public class SunController : MonoBehaviour
         float currentDayProgress = currentTime / 24f;
         
         // Calcula a rotação do sol com base no horário
-        sunZAngle = currentDayProgress * 360f;
-        transform.rotation = Quaternion.Euler(150, sunZAngle/2, sunZAngle);
+        sunZAngle = -currentDayProgress * 360f;
+
+        //transform.rotation = Quaternion.Euler(145, -250, 0);
+
+        transform.rotation = Quaternion.Euler(145, sunZAngle/2, sunZAngle);
         //if (transform.rotation.z > 360) transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0);
         //if (transform.rotation.y > 360) transform.rotation = Quaternion.Euler(transform.rotation.x, 0, transform.rotation.z);
         //if (transform.rotation.x > 360) transform.rotation = Quaternion.Euler(0, transform.rotation.y, transform.rotation.z);

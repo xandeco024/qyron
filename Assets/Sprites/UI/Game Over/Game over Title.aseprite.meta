@@ -121,15 +121,15 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Game over Title
     originalName: 
-    pivot: {x: 0.5, y: -0.14893617}
+    pivot: {x: 0.5071429, y: -0.51724136}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 68
-      height: 47
+      width: 140
+      height: 29
     spriteID: 9c57d5e02e2640042a7fa6a6bc86b328
     spriteBone: []
     spriteOutline: []
@@ -139,6 +139,26 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: Game over Title_Frame_1
+    originalName: 
+    pivot: {x: 0.50000006, y: -0.14893617}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 152
+      y: 4
+      width: 68
+      height: 47
+    spriteID: 4a07e426bb8b6d04bad8db785ff39259
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 152, y: 4}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -148,17 +168,25 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: Game over Title
+    - name: Game over Title_Frame_0
       frameIndex: 0
       cellRect:
-        x: 30
+        x: 25
+        y: 15
+        width: 140
+        height: 29
+      spriteId: 9c57d5e02e2640042a7fa6a6bc86b328
+    - name: Game over Title_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 62
         y: 7
         width: 68
         height: 47
-      spriteId: 9c57d5e02e2640042a7fa6a6bc86b328
+      spriteId: 4a07e426bb8b6d04bad8db785ff39259
     linkedCells: []
     parentIndex: -1
   platformSettings: []
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 128, y: 64}
+  canvasSize: {x: 192, y: 64}

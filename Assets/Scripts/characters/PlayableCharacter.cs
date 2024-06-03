@@ -849,6 +849,27 @@ void ApplyMovement()
         coins -= amount;
     }
 
+    public void Reset()
+    {
+        if (currentHealth <= 0)
+        {
+            SetDowned(false);
+        }
+
+
+
+        currentHealth = maxHealth;
+        coins = 0;
+        exP = 0;
+        level = 1;
+        nextLevelExP = 100;
+    
+        canDash = true;
+        canLightAttack = true;
+        canHeavyAttack = true;
+        canGrab = true;
+    }
+
     #endregion
 
     #region Debug
