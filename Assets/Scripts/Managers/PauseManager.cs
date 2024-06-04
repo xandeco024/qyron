@@ -50,6 +50,7 @@ public class PauseManager : MonoBehaviour
     {
         if (ctx.performed)
         {
+            Debug.Log("Pause button pressed");
             TogglePause();
         }
     }
@@ -71,7 +72,7 @@ public class PauseManager : MonoBehaviour
             paused = true;
             reusmeButton.Select();
         }
-        else if(value)
+        else if(!value)
         {
             Time.timeScale = 1;
             pauseCanvasObject.SetActive(false);
