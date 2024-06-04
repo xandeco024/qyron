@@ -56,6 +56,11 @@ public class Character : MonoBehaviour {
 
     protected void SetStats()
     {
+        resistance = baseResistance;
+        damageReduction = baseDamageReduction;
+        speed = baseSpeed;
+        dodgeChance = baseDodgeChance + speed / 2;
+        respect = baseRespect;
         maxHealth = baseMaxHealth;
         currentHealth = maxHealth;
         attackDamage = baseAttackDamage;
@@ -102,8 +107,12 @@ public class Character : MonoBehaviour {
     public bool IsDead { get { return isDead; } }
     [SerializeField] protected Vector2 damageTextOffset = new Vector2(0.5f, 0.5f);
     [SerializeField] protected bool damageTextFaceToDirection;
+
+    [Header("Stun")]
     protected bool stunned = false;
     public bool Stunned { get { return stunned; } }
+    protected float stunRemainingTime;
+    [SerializeField] protected ParticleSystem stunParticles;
 
 
 
@@ -179,11 +188,43 @@ public class Character : MonoBehaviour {
         }
     }
 
-    protected IEnumerator HandleStun(float stunDuration)
+    public void Stun(float stunDuration)
     {
-        stunned = true;
-        yield return new WaitForSeconds(stunDuration);
-        stunned = false;
+        if (stunDuration > stunRemainingTime)
+        {
+            stunRemainingTime = stunDuration;
+            stunned = true;
+        }
+    }
+
+    protected void StunHandler()
+    {
+        if (stunned)
+        {
+            if (stunParticles != null && stunRemainingTime >= 1 &&!stunParticles.gameObject.activeSelf)
+            {
+                //stunParticles.Play();
+                stunParticles.gameObject.SetActive(true);
+            }
+
+            isMovingAllowed = false;
+            rb.velocity = new Vector3(0, 0, 0);
+
+            if (stunRemainingTime <= 0)
+            {
+                if (stunParticles != null && stunParticles.isPlaying) stunParticles.gameObject.SetActive(false); 
+                isMovingAllowed = true;
+                stunned = false;
+            }
+
+            stunRemainingTime -= Time.deltaTime;
+        }
+
+        if (stunParticles != null && currentHealth <= 0 && stunParticles.gameObject.activeSelf)
+        {
+            //stunParticles.Stop();
+            stunParticles.gameObject.SetActive(false);
+        }
     }
 
     #endregion
@@ -215,20 +256,33 @@ public class Character : MonoBehaviour {
 
     public virtual void TakeDamage(float damage, float stunDuration, bool critical = false, Vector3 knockbackDir = default, float knockbackForce = 0, float knockbackDuration = .2f)
     {
-        StartCoroutine(FlashRed(2));
-        currentHealth -= damage;
-        
-        Vector3 damageTextPosition = transform.position + new Vector3(damageTextOffset.x * (damageTextFaceToDirection == true? facingDirection : 1), damageTextOffset.y, -1f);
-        Instantiate(damageTextPrefab, damageTextPosition, Quaternion.identity).GetComponent<damageText>().SetText(damage.ToString(), critical);
+        bool dodge = Random.Range(0, 100) < dodgeChance;
 
-        if (stunDuration > 0)
+        if (!dodge)
         {
-            StartCoroutine(HandleStun(stunDuration));
+            StartCoroutine(FlashRed(2));
+
+            float damageTaken = damage - (damage * (resistance / 100)) - damageReduction;
+            currentHealth -= damageTaken;
+
+            Vector3 damageTextPosition = transform.position + new Vector3(damageTextOffset.x * (damageTextFaceToDirection == true? facingDirection : 1), damageTextOffset.y, -1f);
+            Instantiate(damageTextPrefab, damageTextPosition, Quaternion.identity).GetComponent<damageText>().SetText(damageTaken.ToString(), critical);
+
+            if (stunDuration > 0)
+            {
+                Stun(stunDuration);
+            }
+
+            if (knockbackForce > 0)
+            {
+                StartCoroutine(TakeKnockback(knockbackDir, knockbackForce,knockbackDuration));
+            }
         }
 
-        if (knockbackForce > 0)
+        else
+
         {
-            StartCoroutine(TakeKnockback(knockbackDir, knockbackForce,knockbackDuration));
+            Instantiate(damageTextPrefab, transform.position + new Vector3(damageTextOffset.x * (damageTextFaceToDirection == true? facingDirection : 1), damageTextOffset.y, -1f), Quaternion.identity).GetComponent<damageText>().SetText("ESQUIVOU!", false);
         }
     }
 

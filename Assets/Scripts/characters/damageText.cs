@@ -15,16 +15,14 @@ public class damageText : MonoBehaviour
 
     public void SetText(string text, bool critical = false)
     {
+        textTMPRO.text = text;
         if (critical)
         {
-            textTMPRO.color = Color.red;
+            textTMPRO.color = new Color(164, 36, 69);
             textTMPRO.fontSize = 7;
             textTMPRO.text = text + "!";
         }
-        else
-        {
-            textTMPRO.text = text;
-        }
+        textTMPRO.text = textTMPRO.text.Replace(',', '.');
     }
 
     private void DestroyText()

@@ -43,6 +43,7 @@ public class Pigeon : Enemy
         lastFrameTarget = target;
 
         StepAssist();
+        StunHandler();
     }
 
     public override IEnumerator LightAttack()

@@ -1350,7 +1350,6 @@ GameObject:
   m_Component:
   - component: {fileID: 670426663}
   - component: {fileID: 670426666}
-  - component: {fileID: 670426665}
   - component: {fileID: 670426664}
   - component: {fileID: 670426667}
   m_Layer: 5
@@ -1421,7 +1420,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 670426665}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -1437,36 +1436,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &670426665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 670426662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 5
 --- !u!222 &670426666
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1487,7 +1456,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd3ad873d6972ce418edfa9a4a73b24f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textList: []
+  mainText: {fileID: 1525806668}
+  textDecorationList:
+  - {fileID: 614038830}
   colorSwap: 1
   selectedColor: {r: 0.96862745, g: 0.70980394, b: 0, a: 1}
   blinkSpeed: 0.5
@@ -1804,7 +1775,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1108931865}
   - component: {fileID: 1108931868}
-  - component: {fileID: 1108931867}
   - component: {fileID: 1108931866}
   - component: {fileID: 1108931869}
   m_Layer: 5
@@ -1875,40 +1845,10 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1108931867}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1108931867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1108931864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 5
 --- !u!222 &1108931868
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1929,7 +1869,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd3ad873d6972ce418edfa9a4a73b24f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textList: []
+  mainText: {fileID: 256664282}
+  textDecorationList:
+  - {fileID: 161260756}
   colorSwap: 1
   selectedColor: {r: 0.96862745, g: 0.70980394, b: 0, a: 1}
   blinkSpeed: 0.5
@@ -3043,7 +2985,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1900475754}
   - component: {fileID: 1900475757}
-  - component: {fileID: 1900475756}
   - component: {fileID: 1900475755}
   - component: {fileID: 1900475758}
   m_Layer: 5
@@ -3114,7 +3055,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1900475756}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -3130,36 +3071,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1900475756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1900475753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 5
 --- !u!222 &1900475757
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3180,7 +3091,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd3ad873d6972ce418edfa9a4a73b24f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textList: []
+  mainText: {fileID: 1562637708}
+  textDecorationList:
+  - {fileID: 1915937689}
   colorSwap: 1
   selectedColor: {r: 0.96862745, g: 0.70980394, b: 0, a: 1}
   blinkSpeed: 0.5
@@ -3574,7 +3487,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1984002168}
   - component: {fileID: 1984002171}
-  - component: {fileID: 1984002170}
   - component: {fileID: 1984002169}
   - component: {fileID: 1984002172}
   m_Layer: 5
@@ -3645,40 +3557,10 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1984002170}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1984002170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1984002167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 5
 --- !u!222 &1984002171
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3699,7 +3581,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd3ad873d6972ce418edfa9a4a73b24f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textList: []
+  mainText: {fileID: 1937040182}
+  textDecorationList:
+  - {fileID: 91313284}
   colorSwap: 1
   selectedColor: {r: 0.96862745, g: 0.70980394, b: 0, a: 1}
   blinkSpeed: 0.5

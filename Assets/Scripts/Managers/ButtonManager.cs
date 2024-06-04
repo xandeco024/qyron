@@ -11,31 +11,21 @@ public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     float selectedTimer = 0;
     bool selected = false;
     Button button;
-    [SerializeField] List<TextMeshProUGUI> textList;
-    [SerializeField] bool colorSwap;
-    [SerializeField] Color selectedColor;
-    Color mainTextOriginalColor;
-    [SerializeField] float blinkSpeed;
-    [SerializeField] string initialChar;
-    [SerializeField] string closureChar;
+    [SerializeField] private TextMeshProUGUI mainText;
+    [SerializeField] private List<TextMeshProUGUI> textDecorationList;
+    [SerializeField] private bool colorSwap;
+    [SerializeField] private Color selectedColor;
+    private Color mainTextOriginalColor;
+    [SerializeField] private float blinkSpeed;
+    [SerializeField] private string initialChar;
+    [SerializeField] private string closureChar;
 
     void Start()
     {
         button = GetComponent<Button>();
-        
-        if (textList.Count == 0)
-        {
-            for (int i = 0; i < transform.childCount; i++)
-            {
-                if (transform.GetChild(i).GetComponent<TextMeshProUGUI>() != null)
-                {
-                    textList.Add(transform.GetChild(i).GetComponent<TextMeshProUGUI>());
-                }
-            }
-        }
 
-        originalText = textList[0].text;   
-        mainTextOriginalColor = textList[textList.Count-1].color;
+        originalText = mainText.text;   
+        mainTextOriginalColor = mainText.color;
 
         if (closureChar != "")
         {
@@ -49,49 +39,52 @@ public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        selected = true;
-        selectedTimer = 0;
-
-        foreach (TextMeshProUGUI t in textList)
-        {
-            t.text = selectedText;
-        }
-
-        if (colorSwap) textList[textList.Count-1].color = selectedColor;
+        HandleSelect();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        selected = false;
-        foreach (TextMeshProUGUI t in textList)
-        {
-            t.text = originalText;
-        }
-
-        if (colorSwap) textList[textList.Count-1].color = mainTextOriginalColor;
+        HandleDeselect();
     }
 
     public void OnSelect(BaseEventData eventData)
     {
-        selected = true;
-        selectedTimer = 0;
-        foreach (TextMeshProUGUI t in textList)
-        {
-            t.text = selectedText;
-        }
-
-        if (colorSwap) textList[textList.Count-1].color = selectedColor;
+        HandleSelect();
     }
 
     public void OnDeselect(BaseEventData eventData)
     {
+        HandleDeselect();
+    }
+
+
+
+    void HandleSelect()
+    {
+        selected = true;
+        selectedTimer = 0;
+
+        mainText.text = selectedText;
+
+        foreach (TextMeshProUGUI t in textDecorationList)
+        {
+            t.text = selectedText;
+        }
+
+        if (colorSwap) mainText.color = selectedColor;
+    }
+
+    void HandleDeselect()
+    {
         selected = false;
-        foreach (TextMeshProUGUI t in textList)
+        mainText.text = originalText;
+
+        foreach (TextMeshProUGUI t in textDecorationList)
         {
             t.text = originalText;
         }
 
-        if (colorSwap) textList[textList.Count-1].color = mainTextOriginalColor;
+        if (colorSwap) mainText.color = mainTextOriginalColor;
     }
 
 
@@ -109,20 +102,25 @@ public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         selectedTimer += Time.deltaTime;
         if (selectedTimer >= blinkSpeed)
         {
-            if (textList[0].text == selectedText)
+            if (mainText.text == selectedText)
             {
-                foreach (TextMeshProUGUI t in textList)
+                mainText.text = originalText;
+
+                foreach (TextMeshProUGUI t in textDecorationList)
                 {
                     t.text = originalText;
                 }
             }
             else
             {
-                foreach (TextMeshProUGUI t in textList)
+                mainText.text = selectedText;
+
+                foreach (TextMeshProUGUI t in textDecorationList)
                 {
                     t.text = selectedText;
                 }
             }
+            
             selectedTimer = 0;
         }
     }

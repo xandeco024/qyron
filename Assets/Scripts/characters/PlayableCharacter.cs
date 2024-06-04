@@ -45,13 +45,24 @@ public class PlayableCharacter : Character {
     private List<string> validHeavyCombos = new List<string>() {"HHH", "LLH", "LLL"};
     public List<string> Combo { get { return combo; } }
     private float lastAttackTime;
-    [SerializeField] private bool friendlyFire;
+    [SerializeField] private bool recieveDamageFromFriends;
+
     [SerializeField] private float lightAttackCD;
+    [SerializeField] private float lightAttackStunDuration;
     private bool canLightAttack = true;
+
     [SerializeField] private float heavyAttackCD;
+    [SerializeField] private float heavyAttackStunDuration;
     private bool canHeavyAttack = true;
+
     [SerializeField] private float grabAttackCD;
+    [SerializeField] private float grabAttackStunDuration;
     private bool canGrab = true;
+
+    [SerializeField] private float lightComboStunDuration;
+    [SerializeField] private float heavyComboStunDuration;
+    [SerializeField] private float grabComboStunDuration;
+
     [SerializeField] private Vector3 CombatBoxOffset;
     [SerializeField] private Vector3 CombatRaycastSize;
     [SerializeField] private Vector3 grabbedCharacterOffset;
@@ -91,6 +102,7 @@ public class PlayableCharacter : Character {
         CombatHandler();
         DownedHandler();
         StepAssist();
+        StunHandler();
     }
 
     void FixedUpdate()
@@ -294,7 +306,7 @@ public class PlayableCharacter : Character {
         animator.SetInteger("attackAnimationIndex", attackAnimationIndex);
 
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
-        DealDamage(hitColliders, damage, 1f,critical);
+        DealDamage(hitColliders, damage, lightAttackStunDuration, critical);
 
         yield return new WaitForSeconds(0.3f);
 
@@ -354,7 +366,7 @@ public class PlayableCharacter : Character {
         animator.SetInteger("attackAnimationIndex", attackAnimationIndex);
 
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
-        DealDamage(hitColliders, damage, 0.4f, critical);
+        DealDamage(hitColliders, damage, heavyAttackStunDuration, critical);
 
         yield return new WaitForSeconds(0.3f);
 
@@ -473,7 +485,7 @@ public class PlayableCharacter : Character {
         animator.SetTrigger("LLLTrigger");  
 
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
-        DealDamage(hitColliders, damage, 0.5f, critical, new Vector3(0.8f * facingDirection,1,0), 3f, 0.2f);
+        DealDamage(hitColliders, damage, lightComboStunDuration, critical, new Vector3(0.8f * facingDirection,1,0), 3f, 0.2f);
 
         SetRecievingComboOnTargets(true ,hitColliders);
 
@@ -515,7 +527,7 @@ public class PlayableCharacter : Character {
 
         Debug.Log("Terminou de girar");
 
-        DealDamage(hitColliders, damage, 0.5f, critical, new Vector3(0,1,1), 2.5f, 0.3f);
+        DealDamage(hitColliders, damage, heavyComboStunDuration, critical, new Vector3(0,1,1), 2.5f, 0.3f);
 
         yield return new WaitForSeconds(0.3f);
 
@@ -554,7 +566,7 @@ public class PlayableCharacter : Character {
 
         Debug.Log("Terminou de girar");
 
-        DealDamage(hitColliders, damage, 0.5f, critical, new Vector3(0,1,-1), 4f, 0.4f);
+        DealDamage(hitColliders, damage, heavyComboStunDuration, critical, new Vector3(0,1,-1), 4f, 0.4f);
 
         yield return new WaitForSeconds(0.3f);
 
@@ -587,7 +599,7 @@ public class PlayableCharacter : Character {
         animator.SetTrigger("HHHTrigger");
 
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
-        DealDamage(hitColliders, damage, 0.5f, critical, new Vector3(1 * facingDirection,.5f,0), 4, 0.3f);
+        DealDamage(hitColliders, damage, heavyComboStunDuration, critical, new Vector3(1 * facingDirection,.5f,0), 4, 0.3f);
 
         SetRecievingComboOnTargets(true ,hitColliders);
 
@@ -609,13 +621,21 @@ public class PlayableCharacter : Character {
 
     public override void TakeDamage(float damage, float stunDuration, bool critical = false, Vector3 knockbackDir = default, float knockbackForce = 0, float knockbackDuration = .2f)
     {
+        float lastHealth = currentHealth;
         base.TakeDamage(damage, stunDuration, critical, knockbackDir, knockbackForce);
 
-        animator.SetTrigger("damageTrigger");
-
-        if (isGrabbing)
+        if (currentHealth < lastHealth)
         {
-            CancelGrab();
+            animator.SetTrigger("damageTrigger");
+
+            if (isGrabbing)
+            {
+                CancelGrab();
+            }
+        }
+        else
+        {
+            //dodjou!
         }
     }
 
@@ -880,7 +900,7 @@ void ApplyMovement()
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                Debug.Log("Tomou 10 de dano");
+                Debug.Log("Tomou 2 de dano");
                 TakeDamage(2, 0);
             }
 

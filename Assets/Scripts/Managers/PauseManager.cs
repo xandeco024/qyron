@@ -50,7 +50,6 @@ public class PauseManager : MonoBehaviour
     {
         if (ctx.performed)
         {
-            Debug.Log("Pause button pressed");
             TogglePause();
         }
     }
