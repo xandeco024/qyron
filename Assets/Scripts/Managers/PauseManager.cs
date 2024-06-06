@@ -69,7 +69,7 @@ public class PauseManager : MonoBehaviour
             Time.timeScale = 0;
             pauseCanvasObject.SetActive(true);
             paused = true;
-            reusmeButton.Select();
+            //reusmeButton.Select();
         }
         else if(!value)
         {
