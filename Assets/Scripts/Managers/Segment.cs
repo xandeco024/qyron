@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Net.NetworkInformation;
 using UnityEngine;
 
 public class Segment : MonoBehaviour
 {
+    private GameManager gameManager;
     private LevelManager levelManager;
 
     [SerializeField] private int index;
@@ -14,18 +14,27 @@ public class Segment : MonoBehaviour
     [SerializeField] private Vector3 size;
     public Vector3 Size { get { return size; }}
 
+    private List<PlayableCharacter> playersOnSegment = new List<PlayableCharacter>();
+    public List<PlayableCharacter> PlayersOnSegment { get { return playersOnSegment; }}
+
+    private BoxCollider boxCollider;
+
     [SerializeField] private bool complete;
     public bool Complete { get { return complete; } set { complete = value; }}
 
     void Start()
     {
+        boxCollider = GetComponent<BoxCollider>();
+        boxCollider.size = size;
         levelManager = FindObjectOfType<LevelManager>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     void Update()
     {
-        
+        playersOnSegment = gameManager.PlayerList.FindAll(player => boxCollider.bounds.Contains(player.transform.position));
     }
+
 
     void OnDrawGizmos()
     {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class LevelManager : MonoBehaviour
 {
@@ -33,28 +34,63 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        LimitPlayersOnSegment();
+        //LimitPlayersOnSegments();
+        RestrictPlayersToSegment();
         HandleSegmentCompletion();
     }
 
-    void LimitPlayersOnSegment()
+    /*void LimitPlayersOnSegments()
     {
         // O SEGMENTO ATUAL e o segmento MAXIMO DESBLOQUEADO são coisas diferentes.
 
+        foreach (Segment segment in segments)
+        {
+            if (segment.PlayersOnSegment.Count > 0)
+            {
+                foreach (PlayableCharacter player in segment.PlayersOnSegment)
+                {
+                    if (segment == currentSegment)
+                    {
+                        if (player.transform.position.x > segment.transform.position.x + segment.Size.x / 2)
+                        {
+                            player.transform.position = new Vector3(segment.transform.position.x + segment.Size.x / 2, player.transform.position.y, player.transform.position.z);
+                        }
+                    }
+                    
+                    //bloqueia no segmento 0 pra esquerda.
+                    else if (segment.Index == 0 && player.transform.position.x < segment.transform.position.x - segment.Size.x / 2)
+                    {
+                        player.transform.position = new Vector3(segment.transform.position.x - segment.Size.x / 2, player.transform.position.y, player.transform.position.z);
+                    }
+
+                    if (player.transform.position.z > segment.transform.position.z + segment.Size.z / 2)
+                    {
+                        player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, segment.transform.position.z + segment.Size.z / 2);
+                    }
+
+                    else if (player.transform.position.z < segment.transform.position.z - segment.Size.z / 2)
+                    {
+                        player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, segment.transform.position.z - segment.Size.z / 2);
+                    }
+                }
+            }
+        }
+    }*/
+
+    void RestrictPlayersToSegment()
+    {
         foreach (PlayableCharacter player in playerList)
         {
-            //limit x ele não pode de maneira alguma avançar no X, e sempre vai ser assim.
             if (player.transform.position.x > currentSegment.transform.position.x + currentSegment.Size.x / 2)
             {
                 player.transform.position = new Vector3(currentSegment.transform.position.x + currentSegment.Size.x / 2, player.transform.position.y, player.transform.position.z);
             }
-            // para que ele possa voltar para o segmento anterior, menos no 0
-            else if (currentSegment.Index == 0 && player.transform.position.x < currentSegment.transform.position.x - currentSegment.Size.x / 2)
+
+            else if (player.transform.position.x < currentSegment.transform.position.x - currentSegment.Size.x / 2)
             {
                 player.transform.position = new Vector3(currentSegment.transform.position.x - currentSegment.Size.x / 2, player.transform.position.y, player.transform.position.z);
             }
 
-            //limit z as vezes, o segmento atual é mais esguio que o anterior
             if (player.transform.position.z > currentSegment.transform.position.z + currentSegment.Size.z / 2)
             {
                 player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, currentSegment.transform.position.z + currentSegment.Size.z / 2);

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -9,6 +10,7 @@ public class PauseManager : MonoBehaviour
     private InputMaster inputMaster;
     private GameManager gameManager;
     private GameOverManager gameOverManager;
+    private EventSystem eventSystem;
     private bool paused = false;
     [SerializeField] private GameObject pauseCanvasObject;
     [SerializeField] private Button reusmeButton;
@@ -38,6 +40,7 @@ public class PauseManager : MonoBehaviour
     {
         gameManager = FindObjectOfType<GameManager>();
         gameOverManager = FindObjectOfType<GameOverManager>();
+        eventSystem = FindObjectOfType<EventSystem>();
         SetPause(false);
     }
 
@@ -70,6 +73,8 @@ public class PauseManager : MonoBehaviour
             pauseCanvasObject.SetActive(true);
             paused = true;
             //reusmeButton.Select();
+            eventSystem.SetSelectedGameObject(null);
+            eventSystem.SetSelectedGameObject(reusmeButton.gameObject);
         }
         else if(!value)
         {
