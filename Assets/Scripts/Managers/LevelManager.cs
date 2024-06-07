@@ -34,73 +34,7 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //LimitPlayersOnSegments();
-        RestrictPlayersToSegment();
         HandleSegmentCompletion();
-    }
-
-    /*void LimitPlayersOnSegments()
-    {
-        // O SEGMENTO ATUAL e o segmento MAXIMO DESBLOQUEADO são coisas diferentes.
-
-        foreach (Segment segment in segments)
-        {
-            if (segment.PlayersOnSegment.Count > 0)
-            {
-                foreach (PlayableCharacter player in segment.PlayersOnSegment)
-                {
-                    if (segment == currentSegment)
-                    {
-                        if (player.transform.position.x > segment.transform.position.x + segment.Size.x / 2)
-                        {
-                            player.transform.position = new Vector3(segment.transform.position.x + segment.Size.x / 2, player.transform.position.y, player.transform.position.z);
-                        }
-                    }
-                    
-                    //bloqueia no segmento 0 pra esquerda.
-                    else if (segment.Index == 0 && player.transform.position.x < segment.transform.position.x - segment.Size.x / 2)
-                    {
-                        player.transform.position = new Vector3(segment.transform.position.x - segment.Size.x / 2, player.transform.position.y, player.transform.position.z);
-                    }
-
-                    if (player.transform.position.z > segment.transform.position.z + segment.Size.z / 2)
-                    {
-                        player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, segment.transform.position.z + segment.Size.z / 2);
-                    }
-
-                    else if (player.transform.position.z < segment.transform.position.z - segment.Size.z / 2)
-                    {
-                        player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, segment.transform.position.z - segment.Size.z / 2);
-                    }
-                }
-            }
-        }
-    }*/
-
-    void RestrictPlayersToSegment()
-    {
-        foreach (PlayableCharacter player in playerList)
-        {
-            if (player.transform.position.x > currentSegment.transform.position.x + currentSegment.Size.x / 2)
-            {
-                player.transform.position = new Vector3(currentSegment.transform.position.x + currentSegment.Size.x / 2, player.transform.position.y, player.transform.position.z);
-            }
-
-            else if (player.transform.position.x < currentSegment.transform.position.x - currentSegment.Size.x / 2)
-            {
-                player.transform.position = new Vector3(currentSegment.transform.position.x - currentSegment.Size.x / 2, player.transform.position.y, player.transform.position.z);
-            }
-
-            if (player.transform.position.z > currentSegment.transform.position.z + currentSegment.Size.z / 2)
-            {
-                player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, currentSegment.transform.position.z + currentSegment.Size.z / 2);
-            }
-
-            else if (player.transform.position.z < currentSegment.transform.position.z - currentSegment.Size.z / 2)
-            {
-                player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, currentSegment.transform.position.z - currentSegment.Size.z / 2);
-            }
-        }
     }
 
     void HandleSegmentCompletion()
