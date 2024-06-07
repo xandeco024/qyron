@@ -7,9 +7,9 @@ public class Segment : MonoBehaviour
 {
     private LevelManager levelManager;
 
-    [SerializeField] private int segmentIndex;
+    [SerializeField] private int index;
 
-    public int SegmentIndex { get { return segmentIndex; }}
+    public int Index { get { return index; }}
 
     [SerializeField] private Vector3 size;
     public Vector3 Size { get { return size; }}

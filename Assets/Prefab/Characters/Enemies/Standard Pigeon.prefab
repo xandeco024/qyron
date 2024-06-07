@@ -181,7 +181,7 @@ MonoBehaviour:
     m_Bits: 64
   Grabbable: 0
   grabPoint: {x: 0, y: 0, z: 0}
-  damageTextOffset: {x: 0.5, y: 0.5}
+  damageTextOffset: {x: 0.5, y: 0}
   damageTextFaceToDirection: 0
   stunParticles: {fileID: 1511485841948778553}
   targetSearchBoxSize: {x: 10, y: 5, z: 10}

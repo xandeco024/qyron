@@ -60,7 +60,7 @@ public class CameraManager : MonoBehaviour
             AdjustCameraForSinglePlayer();
         }
 
-        //LimitCamera();
+        LimitCamera();
     }
 
     private void AdjustCameraForMultiplePlayers()
@@ -152,41 +152,25 @@ public class CameraManager : MonoBehaviour
         cameraHalfHeight = mainCamera.orthographicSize;
         cameraHalfWidth = cameraHalfHeight * mainCamera.aspect;
 
-        cameraRightBound = mainCamera.transform.position.x + cameraHalfWidth;
-        cameraLeftBound = mainCamera.transform.position.x - cameraHalfWidth;
-        cameraTopBound = mainCamera.transform.position.y + cameraHalfHeight;
-        cameraBottomBound = mainCamera.transform.position.y - cameraHalfHeight;
+        cameraRightBound = transform.position.x + cameraHalfWidth;
+        cameraLeftBound = transform.position.x - cameraHalfWidth;
+        cameraTopBound = transform.position.y + cameraHalfHeight;
+        cameraBottomBound = transform.position.y - cameraHalfHeight;
     }
 
     private void LimitCamera()
     {
         UpdateCameraSizeAndBounds();
 
-        if (cameraLeftLimit != 0 && cameraRightLimit != 0 && cameraTopLimit != 0 && cameraBottomLimit != 0)
+        if (cameraRightBound > cameraRightLimit)
         {
-            if (cameraLeftBound < cameraLeftLimit)
-            {
-                transform.position = new Vector3(cameraLeftLimit + cameraHalfWidth, transform.position.y, transform.position.z);
-            }
-            else if (cameraRightBound > cameraRightLimit)
-            {
-                transform.position = new Vector3(cameraRightLimit - cameraHalfWidth, transform.position.y, transform.position.z);
-            }
-
-            if (cameraTopBound > cameraTopLimit)
-            {
-                transform.position = new Vector3(transform.position.x, cameraTopLimit - cameraHalfHeight, transform.position.z);
-            }
-            else if (cameraBottomBound < cameraBottomLimit)
-            {
-                transform.position = new Vector3(transform.position.x, cameraBottomLimit + cameraHalfHeight, transform.position.z);
-            }
+            transform.position = new Vector3(cameraRightLimit - cameraHalfWidth, transform.position.y, transform.position.z);
+            Debug.Log("Passou o limite direita");
         }
-
-        else
-
+        else if (cameraLeftBound < cameraLeftLimit)
         {
-            Debug.LogWarning("Camera limits not set");
+            transform.position = new Vector3(cameraLeftLimit + cameraHalfWidth, transform.position.y, transform.position.z);
+            Debug.Log("Passou o limite esquerda");
         }
     }
 

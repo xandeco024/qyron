@@ -18,7 +18,8 @@ public class damageText : MonoBehaviour
         textTMPRO.text = text;
         if (critical)
         {
-            textTMPRO.color = new Color(164, 36, 69);
+            //textTMPRO.color = new Color(164, 36, 69); unity colors goes from 0 to 1.
+            textTMPRO.color = new Color(0.64f, 0.14f, 0.27f);
             textTMPRO.fontSize = 7;
             textTMPRO.text = text + "!";
         }

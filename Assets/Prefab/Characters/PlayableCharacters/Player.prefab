@@ -481,10 +481,10 @@ MonoBehaviour:
     m_Bits: 64
   Grabbable: 0
   grabPoint: {x: 0, y: 0, z: 0}
-  damageTextOffset: {x: 0.5, y: 0.5}
+  damageTextOffset: {x: 0.5, y: 0}
   damageTextFaceToDirection: 0
   stunParticles: {fileID: 5938829870029955419}
-  limitZ: 1
+  limitZ: 0
   maxJumps: 1
   dashForce: 15
   dashDuration: 0.25
