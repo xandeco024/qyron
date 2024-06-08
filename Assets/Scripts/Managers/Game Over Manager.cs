@@ -10,14 +10,18 @@ public class GameOverManager : MonoBehaviour
     private bool gameOver = false;
     public bool GameOver { get => gameOver; }
     GameManager gameManager;
+    LevelManager levelManager;
     LoadSceneManager sceneLoader;
     [SerializeField] GameObject gameOverCanvasObject;
     [SerializeField] Button restartButton;
     private List<PlayableCharacter> playerList;
+    [SerializeField] private int lifes;
+    public int Lifes { get => lifes; set => lifes = value; }
 
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
+        levelManager = FindObjectOfType<LevelManager>();
         sceneLoader = FindObjectOfType<LoadSceneManager>();
         playerList = gameManager.PlayerList;
         gameOverCanvasObject.SetActive(false);
@@ -55,7 +59,17 @@ public class GameOverManager : MonoBehaviour
             }
         }
 
-        if (downedPlayers == playerList.Count)
+        if (downedPlayers == playerList.Count && lifes > 0)
+        {
+            if (levelManager.CurrentSegment.Index > 0)
+            {
+            }
+            
+            lifes--;
+            levelManager.GoToSegment(levelManager.CurrentSegment.Index, true, true);
+            levelManager.CurrentSegment.Reset();
+        }
+        else if (downedPlayers == playerList.Count && lifes <= 0)
         {
             gameOver = true;
         }

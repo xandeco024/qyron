@@ -22,13 +22,18 @@ public class HUDManager : MonoBehaviour
     private Image[] hits2 = new Image[4];
     private Image[] lastHits = new Image[4];
     
+    [SerializeField] GameObject pointingRightPaw;
+    [SerializeField] TextMeshProUGUI lifesText;
     [SerializeField] TextMeshProUGUI clockText;
     private GameManager gameManager;
+    private GameOverManager gameOverManager;
+
     private List<PlayableCharacter> playerList = new List<PlayableCharacter>();
 
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
+        gameOverManager = FindObjectOfType<GameOverManager>();
 
         playerList = gameManager.PlayerList;
 
@@ -44,6 +49,7 @@ public class HUDManager : MonoBehaviour
         {
             HudHandler(i);
             clockText.text = gameManager.Hours.ToString("00") + ":" + gameManager.Minutes.ToString("00");
+            lifesText.text = "x " + gameOverManager.Lifes.ToString();
         }
     }
 
@@ -214,5 +220,10 @@ public class HUDManager : MonoBehaviour
                 hits2[hudIndex].gameObject.SetActive(false);
             }
         }
+    }
+
+    public void SetPoitingRightPaw(bool value)
+    {
+        pointingRightPaw.SetActive(value);
     }
 }

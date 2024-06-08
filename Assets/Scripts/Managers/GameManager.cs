@@ -10,15 +10,12 @@ public class GameManager : MonoBehaviour
 
     private AudioSource audioSource;
 
-
     private bool paused;
 
-
-
-    [SerializeField] bool movePlayersToSpawn;
-    [SerializeField] private Vector3 spawnPosition;
     private List<PlayableCharacter> playerList = new List<PlayableCharacter>();
     public List<PlayableCharacter> PlayerList { get => playerList; }
+
+    LevelManager levelManager;
 
 
 
@@ -69,7 +66,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        if (movePlayersToSpawn) MovePlayersToSpawn(playerList);
+        levelManager = FindObjectOfType<LevelManager>();
+        levelManager.GoToSegment(levelManager.FirstSegmentIndex, false, false);
+
         audioSource = GetComponent<AudioSource>();
         PlayMusic();
 
@@ -96,19 +95,6 @@ public class GameManager : MonoBehaviour
         audioSource.Play();
     }
 
-    private void MovePlayersToSpawn(List<PlayableCharacter> players)
-    {
-        int offset = 0;
-        int offsetIncrease = 2;
-
-        for (int i = 0; i < players.Count; i++)
-        {
-            players[i].rb.velocity = Vector3.zero;
-            players[i].transform.position = spawnPosition + new Vector3(offset, 0, 0);
-            offset += offsetIncrease;
-        }
-    }
-
     void HandleTime()
     {   
         minutes++;
@@ -133,5 +119,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(player.gameObject);
         }
+    }
+
+    public void SetTime(int hours, int minutes)
+    {
+        this.hours = hours;
+        this.minutes = minutes;
     }
 }

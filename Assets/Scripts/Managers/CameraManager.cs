@@ -164,14 +164,10 @@ public class CameraManager : MonoBehaviour
 
         if (cameraRightBound > cameraRightLimit)
         {
-            transform.position = new Vector3(cameraRightLimit - cameraHalfWidth, transform.position.y, transform.position.z);
-            Debug.Log("Passou o limite direita");
-        }
+            transform.position = new Vector3(cameraRightLimit - cameraHalfWidth, transform.position.y, transform.position.z);        }
         else if (cameraLeftBound < cameraLeftLimit)
         {
-            transform.position = new Vector3(cameraLeftLimit + cameraHalfWidth, transform.position.y, transform.position.z);
-            Debug.Log("Passou o limite esquerda");
-        }
+            transform.position = new Vector3(cameraLeftLimit + cameraHalfWidth, transform.position.y, transform.position.z);        }
     }
 
     public void SetCameraLimits(float left, float right, float top, float bottom)
