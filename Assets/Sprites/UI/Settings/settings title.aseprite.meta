@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: abab19b0edc4f4e41981034135b771ce
+guid: ad0469f6fd961b74892d48e9145bd361
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,18 +119,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: meowcello safado
+  - name: settings title
     originalName: 
-    pivot: {x: 0.48101267, y: -0.8148148}
+    pivot: {x: 0.505618, y: -0.33333334}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 79
-      height: 108
-    spriteID: 2bdf3824c52adee46a887cd99d147a8b
+      width: 89
+      height: 33
+    spriteID: 4479025b3e946714bb31aa0a1c342967
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,54 +139,26 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: meowcello safado_Frame_1
-    originalName: 
-    pivot: {x: 0.48101267, y: -0.8148148}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 120
-      width: 79
-      height: 108
-    spriteID: f7dee5d92751b6a4699605aaa5c2c555
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 120}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1188908721
-    name: meowcello safado
+    guid: 719350177
+    name: settings title
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: meowcello safado_Frame_0
+    - name: settings title
       frameIndex: 0
       cellRect:
-        x: 90
-        y: 88
-        width: 79
-        height: 108
-      spriteId: 2bdf3824c52adee46a887cd99d147a8b
-    - name: meowcello safado_Frame_1
-      frameIndex: 1
-      cellRect:
-        x: 90
-        y: 88
-        width: 79
-        height: 108
-      spriteId: f7dee5d92751b6a4699605aaa5c2c555
+        x: 19
+        y: 11
+        width: 89
+        height: 33
+      spriteId: 4479025b3e946714bb31aa0a1c342967
     linkedCells: []
     parentIndex: -1
   platformSettings: []
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 256, y: 256}
+  canvasSize: {x: 128, y: 64}
