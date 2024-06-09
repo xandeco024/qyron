@@ -18,6 +18,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject creditsGameObject;
     public GameObject CreditsGameObject { get => creditsGameObject; }
 
+
+
     void Start()
     {
         ResumeGameIfPaused();
@@ -51,7 +53,7 @@ public class MenuManager : MonoBehaviour
         if (!mainMenuObject.activeSelf)
         {
             mainMenuObject.SetActive(true);
-            playButton.Select();
+            //playButton.Select();
         }
     }
 
@@ -65,6 +67,20 @@ public class MenuManager : MonoBehaviour
         if (Time.timeScale == 0)
         {
             Time.timeScale = 1;
+        }
+    }
+
+    public void OpenCredits()
+    {
+        if (mainMenuObject.activeSelf)
+        {
+            mainMenuObject.SetActive(false);
+        }
+
+        if (!creditsGameObject.activeSelf)
+        {
+            creditsGameObject.SetActive(true); 
+            //credits btn select
         }
     }
 }

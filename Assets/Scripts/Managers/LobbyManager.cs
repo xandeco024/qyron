@@ -44,7 +44,13 @@ public class LobbyManager : MonoBehaviour
     void OnEnable()
     {
         ResetLobby();
+        /*
+        int notNullPlayersAmount = lobbyPlayersList.Where(player => player != null).ToList().Count;
 
+        if (notNullPlayersAmount == 0)
+        {
+            menuManager.BackToMainMenu(menuManager.LobbyGameObject);
+        }*/
         inputMaster.Enable();
     }
 
@@ -223,16 +229,6 @@ public class LobbyManager : MonoBehaviour
         if (playerIndex != -1)
         {
             lobbyPlayersList[playerIndex] = null;
-        }
-    }
-
-    void BackToMainMenu()
-    {   
-        int notNullPlayersAmount = lobbyPlayersList.Where(player => player != null).ToList().Count;
-
-        if (notNullPlayersAmount == 0)
-        {
-            menuManager.BackToMainMenu(menuManager.LobbyGameObject);
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using TMPro;
 using System.Collections.Generic;
 
-public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
+public class UiElement : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
 {
     string originalText;
     string selectedText;
@@ -19,6 +19,8 @@ public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     [SerializeField] private float blinkSpeed;
     [SerializeField] private string initialChar;
     [SerializeField] private string closureChar;
+    [SerializeField] private GameObject element;
+
 
     void Start()
     {
@@ -57,6 +59,21 @@ public class ButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         HandleDeselect();
     }
 
+
+    void HandleSlider()
+    {
+
+    }
+
+    void HandleTextButton()
+    {
+        
+    }
+
+    void HandleElement()
+    {
+
+    }
 
 
     void HandleSelect()
