@@ -6,23 +6,47 @@ using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] private GameObject mainMenuObject;
-    [SerializeField] private Button playButton;
-    [SerializeField] private Button settingsButton;
-    [SerializeField] private Button creditsButton;
-    [SerializeField] private Button exitButton;
-    [SerializeField] private GameObject lobbyGameObject;
-    public GameObject LobbyGameObject { get => lobbyGameObject; }
-    [SerializeField] private GameObject settingsGameObject;
-    public GameObject SettingsGameObject { get => settingsGameObject; }
-    [SerializeField] private GameObject creditsGameObject;
-    public GameObject CreditsGameObject { get => creditsGameObject; }
 
+    [Header("Main Menu")]
+    [SerializeField] private GameObject mainMenuPanelObject;
+    [SerializeField] private Button mainMenuFirstButton;
 
+    [Header("Lobby")]
+    [SerializeField] private GameObject lobbyPanelObject;
+    [SerializeField] private Button lobbyFirstButton;
+
+    [Header("Settings")]
+    [SerializeField] private GameObject settingsPanelObject;
+    [SerializeField] private Selectable settingsFirstButton;
+
+    [Header("Credits")]
+    [SerializeField] private GameObject creditsPanelObject;
+    [SerializeField] private Button creditsFirstButton;
+
+    private InputMaster inputMaster;
+    public InputMaster InputMaster { get => inputMaster; }
+
+    void Awake()
+    {
+        inputMaster = new InputMaster();
+        inputMaster.UI.Cancel.performed += ctx => BackToMainMenu(lobbyPanelObject);
+        inputMaster.UI.Cancel.performed += ctx => BackToMainMenu(settingsPanelObject);
+        inputMaster.UI.Cancel.performed += ctx => BackToMainMenu(creditsPanelObject);
+    }
 
     void Start()
     {
         ResumeGameIfPaused();
+    }
+
+    void OnEnable()
+    {
+        inputMaster.Enable();
+    }
+
+    void OnDisable()
+    {
+        inputMaster.Disable();
     }
 
     void Update()
@@ -32,29 +56,23 @@ public class MenuManager : MonoBehaviour
 
     public void Play()
     {
-        if (mainMenuObject.activeSelf)
-        {
-            mainMenuObject.SetActive(false);
-        }
-
-        if (!lobbyGameObject.activeSelf)
-        {
-            lobbyGameObject.SetActive(true);
-        }
+        mainMenuPanelObject.SetActive(false);
+        lobbyPanelObject.SetActive(true);
+        if (lobbyFirstButton != null) lobbyFirstButton.Select();
     }
 
-    public void BackToMainMenu(GameObject currentMenu)
+    public void OpenCredits()
     {
-        if (currentMenu.activeSelf)
-        {
-            currentMenu.SetActive(false);
-        }
+        mainMenuPanelObject.SetActive(false);
+        creditsPanelObject.SetActive(true);
+        if (creditsFirstButton != null) creditsFirstButton.Select();
+    }
 
-        if (!mainMenuObject.activeSelf)
-        {
-            mainMenuObject.SetActive(true);
-            //playButton.Select();
-        }
+    public void OpenSettings()
+    {
+        mainMenuPanelObject.SetActive(false);
+        settingsPanelObject.SetActive(true);
+        if (settingsFirstButton != null) settingsFirstButton.Select();
     }
 
     public void Exit()
@@ -62,25 +80,18 @@ public class MenuManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void BackToMainMenu(GameObject currentMenu)
+    {
+        currentMenu.SetActive(false);
+        mainMenuPanelObject.SetActive(true);
+        if (mainMenuFirstButton != null) mainMenuFirstButton.Select();
+    }
+
     private void ResumeGameIfPaused()
     {
         if (Time.timeScale == 0)
         {
             Time.timeScale = 1;
-        }
-    }
-
-    public void OpenCredits()
-    {
-        if (mainMenuObject.activeSelf)
-        {
-            mainMenuObject.SetActive(false);
-        }
-
-        if (!creditsGameObject.activeSelf)
-        {
-            creditsGameObject.SetActive(true); 
-            //credits btn select
         }
     }
 }

@@ -31,7 +31,7 @@ public class LobbyManager : MonoBehaviour
     {
         menuManager = FindObjectOfType<MenuManager>();
         inputMaster = new InputMaster();
-        inputMaster.UI.Cancel.performed += ctx => BackToMainMenu();
+        //inputMaster.UI.Cancel.performed += ctx => BackToMainMenu();
 
         playerInputManager = GetComponent<PlayerInputManager>();
         for (int i = 0; i < 4; i++)
