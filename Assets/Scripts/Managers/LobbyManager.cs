@@ -23,14 +23,13 @@ public class LobbyManager : MonoBehaviour
     Coroutine startGameCoroutine;
 
     private PlayerInputManager playerInputManager;
-    private MenuManager menuManager;
-
-    private InputMaster inputMaster;
+    
+    private MainInputManager mainInputManager;
 
     void Awake()
     {
-        menuManager = FindObjectOfType<MenuManager>();
-        inputMaster = new InputMaster();
+        //menuManager = FindObjectOfType<MenuManager>();
+        //inputMaster = new InputMaster();
         //inputMaster.UI.Cancel.performed += ctx => BackToMainMenu();
 
         playerInputManager = GetComponent<PlayerInputManager>();
@@ -44,25 +43,19 @@ public class LobbyManager : MonoBehaviour
     void OnEnable()
     {
         ResetLobby();
-        /*
-        int notNullPlayersAmount = lobbyPlayersList.Where(player => player != null).ToList().Count;
-
-        if (notNullPlayersAmount == 0)
-        {
-            menuManager.BackToMainMenu(menuManager.LobbyGameObject);
-        }*/
-        inputMaster.Enable();
     }
 
     void OnDisable()
     {
-        inputMaster.Disable();
+        ResetLobby();
     }
 
 
     void Start()
     {
+        mainInputManager = FindObjectOfType<MainInputManager>();
 
+        //mainInputManager.InputMaster.UI.Cancel.performed += ctx => ResetLobby();
     }
 
     void Update()

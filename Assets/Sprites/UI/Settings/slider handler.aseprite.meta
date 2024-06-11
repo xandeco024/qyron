@@ -161,6 +161,26 @@ ScriptedImporter:
     uvTransform: {x: 28, y: 4}
   - name: slider handler_Frame_2
     originalName: 
+    pivot: {x: 0.5, y: -0.07692308}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 26
+      y: 26
+      width: 16
+      height: 13
+    spriteID: 3d86199f23a0126459ae12c42f94cc50
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 26, y: 26}
+  - name: slider handler_Frame_3
+    originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,7 +190,7 @@ ScriptedImporter:
       y: 26
       width: 14
       height: 16
-    spriteID: 3d86199f23a0126459ae12c42f94cc50
+    spriteID: f13e34eb1d354754bb4ca534186dc069
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -207,11 +227,19 @@ ScriptedImporter:
     - name: slider handler_Frame_2
       frameIndex: 2
       cellRect:
+        x: 0
+        y: 1
+        width: 16
+        height: 13
+      spriteId: 3d86199f23a0126459ae12c42f94cc50
+    - name: slider handler_Frame_3
+      frameIndex: 3
+      cellRect:
         x: 1
         y: 0
         width: 14
         height: 16
-      spriteId: 3d86199f23a0126459ae12c42f94cc50
+      spriteId: f13e34eb1d354754bb4ca534186dc069
     linkedCells: []
     parentIndex: -1
   platformSettings: []

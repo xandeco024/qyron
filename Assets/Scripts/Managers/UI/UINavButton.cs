@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class UINavButton : MonoBehaviour,  IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
 {
-    [SerializeField] MenuManager manager;
+    [SerializeField] MainInputManager mainInputManager;
     private bool editing = false;
     private bool selected = false;
     [SerializeField] TextMeshProUGUI mainText;
@@ -23,10 +23,14 @@ public class UINavButton : MonoBehaviour,  IPointerEnterHandler, IPointerExitHan
 
     void Start()
     {
-        manager.InputMaster.UI.Navigate.performed += ctx => Navigate(ctx.ReadValue<Vector2>());
-        manager.InputMaster.UI.Submit.performed += ctx => ToggleEditing(ctx);
+        mainInputManager = FindObjectOfType<MainInputManager>();
 
-        if(options != null)
+        mainInputManager.InputMaster.UI.Navigate.performed += ctx => Navigate(ctx.ReadValue<Vector2>());
+
+        mainInputManager.InputMaster.UI.Submit.performed += ctx => SetEditing(ctx);
+        mainInputManager.InputMaster.UI.Cancel.performed += ctx => UnsetEditing(ctx);
+
+        if(options != null && options.Count > 0)
         {
             SetOption(currentOptionIndex);
         }
@@ -37,12 +41,13 @@ public class UINavButton : MonoBehaviour,  IPointerEnterHandler, IPointerExitHan
 
     }
 
-    public void SetEditing(bool editing)
+    public void ChangeEditing(bool editing)
     {
         this.editing = editing;
 
         if (editing)
         {
+            mainInputManager.LockedObject = gameObject;
             foreach (TextMeshProUGUI text in mainOptionTextList)
             {
                 text.color = selectedColor;
@@ -50,6 +55,7 @@ public class UINavButton : MonoBehaviour,  IPointerEnterHandler, IPointerExitHan
         }
         else
         {
+            mainInputManager.LockedObject = null;
             foreach (TextMeshProUGUI text in mainOptionTextList)
             {
                 text.color = Color.white;
@@ -57,12 +63,19 @@ public class UINavButton : MonoBehaviour,  IPointerEnterHandler, IPointerExitHan
         }
     }
 
-    void ToggleEditing(InputAction.CallbackContext context)
+    void SetEditing(InputAction.CallbackContext ctx)
     {
-        if (context.performed && selected)
+        if (ctx.performed && selected)
         {
-            editing = !editing;
-            SetEditing(editing);
+            ChangeEditing(true);
+        }
+    }
+
+    void UnsetEditing(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed && selected)
+        {
+            ChangeEditing(false);
         }
     }
 
@@ -83,7 +96,7 @@ public class UINavButton : MonoBehaviour,  IPointerEnterHandler, IPointerExitHan
 
     public void ButtonNextOption(Button button)
     {
-        //for it to reset the button after the next option is selected, so you can keep pressing the button to change the options
+        //for it to reset the button after the next option is selected, so you can keep pressing the button to change the options GAMBIARRA
         button.gameObject.SetActive(false);
         Debug.Log("ButtonNext");
         NextOption();
@@ -135,7 +148,7 @@ public class UINavButton : MonoBehaviour,  IPointerEnterHandler, IPointerExitHan
         }
         else
         {
-            Debug.LogError("Option index out of range");
+            Debug.LogError("Option index out of range on object" + gameObject.name);
         }
     }
 
@@ -147,6 +160,10 @@ public class UINavButton : MonoBehaviour,  IPointerEnterHandler, IPointerExitHan
     void HandleSelect()
     {
         selected = true;
+        if (editing)
+        {
+            ChangeEditing(false);
+        }
         mainText.color = selectedColor;
 
         foreach (GameObject arrow in arrows)
@@ -158,7 +175,10 @@ public class UINavButton : MonoBehaviour,  IPointerEnterHandler, IPointerExitHan
     void HandleDeselect()
     {
         selected = false;
-        editing = false;
+        if (editing)
+        {
+            ChangeEditing(false);
+        }
         mainText.color = Color.white;
 
         foreach (GameObject arrow in arrows)

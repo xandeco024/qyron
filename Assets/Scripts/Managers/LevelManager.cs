@@ -112,6 +112,7 @@ public class LevelManager : MonoBehaviour
             {
                 player.Reset();
             }
+            player.rb.velocity = Vector3.zero; // pra ele nao voar pro chao
             Vector3 sp = segments[segmentIndex].TranslateSpawnPoint();
             player.transform.position = new Vector3(sp.x + x, sp.y, sp.z + z);
             x += 2;

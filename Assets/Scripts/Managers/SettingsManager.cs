@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class SettingsManager : MonoBehaviour
 {
+    [SerializeField] private GameObject settingsPanelObject;
+
     [Header("Quality")]
     [SerializeField] private UINavButton qualityNavButton;
     [SerializeField] private UINavButton fullscreenNavButton;
@@ -21,9 +23,9 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] private Slider sfxSlider;
     [SerializeField] private Button sfxPlay;
 
-    void Start()
+    void Awake()
     {
-        //create an array to hold the resolutions
+        /*create an array to hold the resolutions
         Resolution[] resolutions = Screen.resolutions;
         //create a list of strings to hold the resolution options, without the hz
         List<string> resolutionOptions = new List<string>();
@@ -31,20 +33,25 @@ public class SettingsManager : MonoBehaviour
         {
             resolutionOptions.Add(r.width + " x " + r.height);
         }
-        resolutionNavButton.SetOptionsList(resolutionOptions);
+        resolutionNavButton.SetOptionsList(resolutionOptions);*/
+    }
 
-        SetResolution(PlayerPrefs.GetInt("Resolution", resolutions.Length - 1));
-        resolutionNavButton.SetOption(PlayerPrefs.GetInt("Resolution", resolutions.Length - 1));
+    void OnEnable()
+    {
+        //resolutionNavButton.SetOption(PlayerPrefs.GetInt("Resolution", resolutions.Length - 1));
 
-        SetQuality(PlayerPrefs.GetInt("Quality", 3));
         qualityNavButton.SetOption(PlayerPrefs.GetInt("Quality", 3));
 
-        SetFullscreen(PlayerPrefs.GetInt("Fullscreen", 1) == 1);
         fullscreenNavButton.SetOption(PlayerPrefs.GetInt("Fullscreen", 1));
 
         masterSlider.value = PlayerPrefs.GetFloat("MasterVolume", 100);
         musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 100);
         sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume", 100);
+    }
+
+    void Start()
+    {
+
     }
 
     void Update()
@@ -89,17 +96,22 @@ public class SettingsManager : MonoBehaviour
     public void Apply()
     {
         //apply quality settings
-        //QualitySettings.SetQualityLevel(qualityNavButton.CurrentOptionIndex);
         SetQuality(qualityNavButton.CurrentOptionIndex);
         PlayerPrefs.SetInt("Quality", qualityNavButton.CurrentOptionIndex);
+        Debug.Log("Quality: " + qualityNavButton.CurrentOptionIndex);
+
         //apply fullscreen settings
         SetFullscreen(fullscreenNavButton.CurrentOptionIndex == 1);
         PlayerPrefs.SetInt("Fullscreen", fullscreenNavButton.CurrentOptionIndex);
+        Debug.Log("Fullscreen: " + fullscreenNavButton.CurrentOptionIndex);
+
         //apply resolution settings
         SetResolution(resolutionNavButton.CurrentOptionIndex);
         PlayerPrefs.SetInt("Resolution", resolutionNavButton.CurrentOptionIndex);
+        Debug.Log("Resolution: " + resolutionNavButton.CurrentOptionIndex);
 
         //apply volume settings
+        
         PlayerPrefs.SetFloat("MasterVolume", masterSlider.value);
         PlayerPrefs.SetFloat("MusicVolume", musicSlider.value);
         PlayerPrefs.SetFloat("SFXVolume", sfxSlider.value);

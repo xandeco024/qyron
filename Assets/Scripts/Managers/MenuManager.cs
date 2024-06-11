@@ -23,30 +23,24 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject creditsPanelObject;
     [SerializeField] private Button creditsFirstButton;
 
-    private InputMaster inputMaster;
-    public InputMaster InputMaster { get => inputMaster; }
+    private GameObject lockedObject;
+    public GameObject LockedObject { get => lockedObject; set => lockedObject = value; }
+    private MainInputManager mainInputManager;
 
     void Awake()
     {
-        inputMaster = new InputMaster();
-        inputMaster.UI.Cancel.performed += ctx => BackToMainMenu(lobbyPanelObject);
-        inputMaster.UI.Cancel.performed += ctx => BackToMainMenu(settingsPanelObject);
-        inputMaster.UI.Cancel.performed += ctx => BackToMainMenu(creditsPanelObject);
+
     }
 
     void Start()
     {
+        mainInputManager = FindObjectOfType<MainInputManager>();
+
+        mainInputManager.InputMaster.UI.Cancel.performed += ctx => BackToMainMenu(settingsPanelObject);
+        mainInputManager.InputMaster.UI.Cancel.performed += ctx => BackToMainMenu(creditsPanelObject);
+        mainInputManager.InputMaster.UI.Cancel.performed += ctx => BackToMainMenu(lobbyPanelObject);
+
         ResumeGameIfPaused();
-    }
-
-    void OnEnable()
-    {
-        inputMaster.Enable();
-    }
-
-    void OnDisable()
-    {
-        inputMaster.Disable();
     }
 
     void Update()
@@ -82,9 +76,12 @@ public class MenuManager : MonoBehaviour
 
     public void BackToMainMenu(GameObject currentMenu)
     {
-        currentMenu.SetActive(false);
-        mainMenuPanelObject.SetActive(true);
-        if (mainMenuFirstButton != null) mainMenuFirstButton.Select();
+        if (mainInputManager.LockedObject == null)
+        {
+            currentMenu.SetActive(false);
+            mainMenuPanelObject.SetActive(true);
+            if (mainMenuFirstButton != null) mainMenuFirstButton.Select();
+        }
     }
 
     private void ResumeGameIfPaused()

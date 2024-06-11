@@ -602,6 +602,7 @@ MonoBehaviour:
   blinkSpeed: 0.5
   initialChar: '-'
   closureChar: 
+  element: {fileID: 0}
 --- !u!114 &42419719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -811,7 +812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 1
   size: {x: 25, y: 20, z: 26}
-  spawnPoint: {x: 5, y: -8, z: 0}
+  spawnPoint: {x: 5, y: -5, z: 0}
   complete: 0
   currentWave: 0
   waves:
@@ -1546,7 +1547,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 2
   size: {x: 25, y: 20, z: 26}
-  spawnPoint: {x: 5, y: -8, z: 0}
+  spawnPoint: {x: 5, y: -5, z: 0}
   complete: 0
   currentWave: 0
   waves:
@@ -2937,6 +2938,7 @@ MonoBehaviour:
   blinkSpeed: 0.5
   initialChar: '-'
   closureChar: 
+  element: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -3775,6 +3777,7 @@ MonoBehaviour:
   blinkSpeed: 0.5
   initialChar: '-'
   closureChar: 
+  element: {fileID: 0}
 --- !u!4 &654335881 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 900b8f2dca9bef841997a63af9cafd45, type: 3}
@@ -4607,6 +4610,7 @@ MonoBehaviour:
   blinkSpeed: 0.5
   initialChar: '-'
   closureChar: 
+  element: {fileID: 0}
 --- !u!1 &751439573 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: cf3b675acb1e74c43804f572464729e6, type: 3}
@@ -5701,6 +5705,7 @@ MonoBehaviour:
   blinkSpeed: 0.5
   initialChar: '-'
   closureChar: 
+  element: {fileID: 0}
 --- !u!1 &901160366
 GameObject:
   m_ObjectHideFlags: 0
@@ -5824,6 +5829,7 @@ MonoBehaviour:
   blinkSpeed: 0.5
   initialChar: '-'
   closureChar: 
+  element: {fileID: 0}
 --- !u!114 &936234894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7114,6 +7120,7 @@ MonoBehaviour:
   blinkSpeed: 0.5
   initialChar: '-'
   closureChar: 
+  element: {fileID: 0}
 --- !u!114 &1245125310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7363,6 +7370,7 @@ MonoBehaviour:
   blinkSpeed: 0.5
   initialChar: '-'
   closureChar: 
+  element: {fileID: 0}
 --- !u!1 &1281863528
 GameObject:
   m_ObjectHideFlags: 0
@@ -8597,7 +8605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   size: {x: 24, y: 20, z: 26}
-  spawnPoint: {x: 5, y: -8, z: 0}
+  spawnPoint: {x: 5, y: -5, z: 0}
   complete: 0
   currentWave: 0
   waves: []
@@ -9353,7 +9361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 3
   size: {x: 30, y: 20, z: 10}
-  spawnPoint: {x: 5, y: -8, z: 0}
+  spawnPoint: {x: 5, y: -5, z: 0}
   complete: 0
   currentWave: 0
   waves:
@@ -10363,6 +10371,7 @@ MonoBehaviour:
   blinkSpeed: 0.5
   initialChar: '-'
   closureChar: 
+  element: {fileID: 0}
 --- !u!114 &1953551375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10938,6 +10947,7 @@ MonoBehaviour:
   blinkSpeed: 0.5
   initialChar: '-'
   closureChar: 
+  element: {fileID: 0}
 --- !u!1 &2087371491
 GameObject:
   m_ObjectHideFlags: 0
