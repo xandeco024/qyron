@@ -98,7 +98,18 @@ public class Segment : MonoBehaviour
             activated = false;
         }
 
-        playersOnSegment.ForEach(player => RestrictPlayerToSegment(player));
+        foreach (PlayableCharacter player in playersOnSegment)
+        {
+            RestrictCharacterToSegment(player);
+        }
+
+        foreach (Enemy enemy in enemies)
+        {
+            if (enemy != null)
+            {
+                RestrictCharacterToSegment(enemy, true);
+            }
+        }
     }
 
     void HandleEnemySpawn()
@@ -108,6 +119,10 @@ public class Segment : MonoBehaviour
             if (!enemySpawn.Spawned)
             {
                 enemies.Add(enemySpawn.Spawn(transform.position));
+                if (enemySpawn.join)
+                {
+                    enemies.Last().SetJoin(true, TranslateEnemyJoinPoint(enemySpawn.joinPoint));
+                }
             }
         }
     }
@@ -139,28 +154,43 @@ public class Segment : MonoBehaviour
         }
     }
 
-    void RestrictPlayerToSegment(PlayableCharacter player)
+    void RestrictCharacterToSegment(Character character, bool totalRestriction = false)
     {
-        // só vai limitar no segmento que não está completo
-        if (!complete && player.transform.position.x > transform.position.x + size.x / 2 - 1)
+        if (!totalRestriction)
         {
-            player.transform.position = new Vector3(transform.position.x + size.x / 2 - 1, player.transform.position.y, player.transform.position.z);
+            // só vai limitar no segmento que não está completo
+            if (!complete && character.transform.position.x > transform.position.x + size.x / 2 - 1)
+            {
+                character.transform.position = new Vector3(transform.position.x + size.x / 2 - 1, character.transform.position.y, character.transform.position.z);
+            }
+            
+            //só limita para voltar no segmento 0 pra ele não ir pro segmento -1 (inexistente.)
+            if (index == 0 && character.transform.position.x < transform.position.x - size.x / 2 + 1)
+            {
+                character.transform.position = new Vector3(transform.position.x - size.x / 2 + 1, character.transform.position.y, character.transform.position.z);
+            }
         }
-        
-        //só limita para voltar no segmento 0 pra ele não ir pro segmento -1 (inexistente.)
-        if (index == 0 && player.transform.position.x < transform.position.x - size.x / 2 + 1)
+
+        else 
         {
-            player.transform.position = new Vector3(transform.position.x - size.x / 2 + 1, player.transform.position.y, player.transform.position.z);
+            if (character.transform.position.x > transform.position.x + size.x / 2 - 1)
+            {
+                character.transform.position = new Vector3(transform.position.x + size.x / 2 - 1, character.transform.position.y, character.transform.position.z);
+            }
+            else if (character.transform.position.x < transform.position.x - size.x / 2 + 1)
+            {
+                character.transform.position = new Vector3(transform.position.x - size.x / 2 + 1, character.transform.position.y, character.transform.position.z);
+            }
         }
 
         // a limitação Z sempre ocorre em todo player no segmento.
-        if (player.transform.position.z > transform.position.z + size.z / 2 - 1)
+        if (character.transform.position.z > transform.position.z + size.z / 2 - 1)
         {
-            player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z + size.z / 2 - 1);
+            character.transform.position = new Vector3(character.transform.position.x, character.transform.position.y, transform.position.z + size.z / 2 - 1);
         }
-        else if (player.transform.position.z < transform.position.z - size.z / 2 + 1)
+        else if (character.transform.position.z < transform.position.z - size.z / 2 + 1)
         {
-            player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z - size.z / 2 + 1);
+            character.transform.position = new Vector3(character.transform.position.x, character.transform.position.y, transform.position.z - size.z / 2 + 1);
         }
     }
 

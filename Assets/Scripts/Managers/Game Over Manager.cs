@@ -9,10 +9,12 @@ public class GameOverManager : MonoBehaviour
 {
     private bool gameOver = false;
     public bool GameOver { get => gameOver; }
+    bool restarting = false;
     GameManager gameManager;
     LevelManager levelManager;
     LoadSceneManager sceneLoader;
-    [SerializeField] GameObject gameOverCanvasObject;
+    [SerializeField] GameObject gameOverPanel;
+    [SerializeField] GameObject transitionPanel;
     [SerializeField] Button restartButton;
     private List<PlayableCharacter> playerList;
     [SerializeField] private int lifes;
@@ -24,7 +26,7 @@ public class GameOverManager : MonoBehaviour
         levelManager = FindObjectOfType<LevelManager>();
         sceneLoader = FindObjectOfType<LoadSceneManager>();
         playerList = gameManager.PlayerList;
-        gameOverCanvasObject.SetActive(false);
+        gameOverPanel.SetActive(false);
     }
     void Update()
     {
@@ -43,7 +45,7 @@ public class GameOverManager : MonoBehaviour
     void HandleGameOver()
     {
         Time.timeScale = 0;
-        gameOverCanvasObject.SetActive(true);
+        gameOverPanel.SetActive(true);
         restartButton.Select();
     }
 
@@ -60,14 +62,8 @@ public class GameOverManager : MonoBehaviour
         }
 
         if (downedPlayers == playerList.Count && lifes > 0)
-        {
-            if (levelManager.CurrentSegment.Index > 0)
-            {
-            }
-            
-            lifes--;
-            levelManager.GoToSegment(levelManager.CurrentSegment.Index, true, true);
-            levelManager.CurrentSegment.Reset();
+        {            
+            if (!restarting) StartCoroutine(RestartSegment());
         }
         else if (downedPlayers == playerList.Count && lifes <= 0)
         {
@@ -83,5 +79,19 @@ public class GameOverManager : MonoBehaviour
         }
         Time.timeScale = 1;
         sceneLoader.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    IEnumerator RestartSegment()
+    {
+        restarting = true;
+        transitionPanel.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        lifes--;
+        levelManager.GoToSegment(levelManager.CurrentSegment.Index, true, true);
+        levelManager.CurrentSegment.Reset();
+        yield return new WaitForSeconds(0.5f);
+        
+        transitionPanel.SetActive(false);
+        restarting = false;
     }
 }

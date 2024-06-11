@@ -80,7 +80,10 @@ public class MenuManager : MonoBehaviour
         {
             currentMenu.SetActive(false);
             mainMenuPanelObject.SetActive(true);
-            if (mainMenuFirstButton != null) mainMenuFirstButton.Select();
+            if (mainMenuFirstButton != null)
+            {
+                mainMenuFirstButton.Select();
+            }
         }
     }
 

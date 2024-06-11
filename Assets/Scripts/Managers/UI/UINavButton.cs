@@ -98,6 +98,7 @@ public class UINavButton : MonoBehaviour,  IPointerEnterHandler, IPointerExitHan
     {
         //for it to reset the button after the next option is selected, so you can keep pressing the button to change the options GAMBIARRA
         button.gameObject.SetActive(false);
+        
         Debug.Log("ButtonNext");
         NextOption();
         button.gameObject.SetActive(true);
@@ -136,6 +137,7 @@ public class UINavButton : MonoBehaviour,  IPointerEnterHandler, IPointerExitHan
     {
         if (index < options.Count)
         {
+            currentOptionIndex = index;
             foreach (TextMeshProUGUI text in mainOptionTextList)
             {
                 text.text = options[index];

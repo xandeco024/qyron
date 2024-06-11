@@ -197,8 +197,9 @@ MonoBehaviour:
   moveTimeRange: {x: 1, y: 6}
   idleTimeRange: {x: 2, y: 8}
   deathTime: 2
+  coinAmount: 50
   xpAmount: 40
-  exPBoxSize: {x: 12, y: 5, z: 12}
+  lootBoxSize: {x: 15, y: 10, z: 15}
 --- !u!95 &5179986416803166698
 Animator:
   serializedVersion: 5

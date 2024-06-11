@@ -18,6 +18,7 @@ public class UISlider : MonoBehaviour,  IPointerEnterHandler, IPointerExitHandle
     {
         slider = GetComponent<Slider>();
         slider.onValueChanged.AddListener(delegate { UpdatePercentageText(); });  //caralhou essa aq o copilot foi longe.
+        UpdatePercentageText();
     }
 
     void Start()

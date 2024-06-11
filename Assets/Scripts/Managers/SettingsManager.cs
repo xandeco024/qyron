@@ -7,8 +7,6 @@ using UnityEngine.UI;
 
 public class SettingsManager : MonoBehaviour
 {
-    [SerializeField] private GameObject settingsPanelObject;
-
     [Header("Quality")]
     [SerializeField] private UINavButton qualityNavButton;
     [SerializeField] private UINavButton fullscreenNavButton;
@@ -23,40 +21,48 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] private Slider sfxSlider;
     [SerializeField] private Button sfxPlay;
 
+    [Header("Settings")]
+    Resolution[] resolutions;
+    int resolutionIndex;
+    int qualityIndex;
+    int fullscreenIndex;
+
     void Awake()
     {
-        /*create an array to hold the resolutions
-        Resolution[] resolutions = Screen.resolutions;
-        //create a list of strings to hold the resolution options, without the hz
+        resolutions = Screen.resolutions;
         List<string> resolutionOptions = new List<string>();
-        foreach (Resolution r in resolutions)
+
+        for (int i = 0; i < resolutions.Length; i++)
         {
-            resolutionOptions.Add(r.width + " x " + r.height);
+            Resolution r = resolutions[i];
+            resolutionOptions.Add(r.width + "x" + r.height);
+            if (r.width == Screen.currentResolution.width && r.height == Screen.currentResolution.height)
+            {
+                resolutionIndex = i;
+            }
         }
-        resolutionNavButton.SetOptionsList(resolutionOptions);*/
+        resolutionNavButton.SetOptionsList(resolutionOptions);
+        resolutionNavButton.SetOption(resolutionIndex);
     }
 
     void OnEnable()
     {
-        //resolutionNavButton.SetOption(PlayerPrefs.GetInt("Resolution", resolutions.Length - 1));
+        resolutionIndex = PlayerPrefs.GetInt("Resolution", 6);
+        qualityIndex = PlayerPrefs.GetInt("Quality", 3);
+        fullscreenIndex = PlayerPrefs.GetInt("Fullscreen", 1);
 
-        qualityNavButton.SetOption(PlayerPrefs.GetInt("Quality", 3));
+        resolutionNavButton.SetOption(resolutionIndex);
+        qualityNavButton.SetOption(qualityIndex);
+        fullscreenNavButton.SetOption(fullscreenIndex);
 
-        fullscreenNavButton.SetOption(PlayerPrefs.GetInt("Fullscreen", 1));
-
-        masterSlider.value = PlayerPrefs.GetFloat("MasterVolume", 100);
-        musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 100);
-        sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume", 100);
-    }
-
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
+        float master = PlayerPrefs.GetFloat("MasterVolume", 100);
+        masterSlider.value = master;
         
+        float music = PlayerPrefs.GetFloat("MusicVolume", 100);
+        musicSlider.value = music;
+
+        float sfx = PlayerPrefs.GetFloat("SFXVolume", 100);
+        sfxSlider.value = sfx;
     }
 
     public void SetQuality(int qualityIndex)
@@ -64,15 +70,17 @@ public class SettingsManager : MonoBehaviour
         QualitySettings.SetQualityLevel(qualityIndex);
     }
 
-    public void SetFullscreen(bool isFullscreen)
+    public void SetFullScreenMode(int fullscreenIndex)
     {
-        Screen.fullScreen = isFullscreen;
+        FullScreenMode mode = fullscreenIndex == 1 ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
+
+        Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, mode);
     }
 
     public void SetResolution(int resolutionIndex)
     {
-        Resolution[] resolutions = Screen.resolutions;
-        Screen.SetResolution(resolutions[resolutionIndex].width, resolutions[resolutionIndex].height, Screen.fullScreen);
+        Resolution resolution = resolutions[resolutionIndex];
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 
     public void SetMasterVolume(float volume)
@@ -93,25 +101,27 @@ public class SettingsManager : MonoBehaviour
         audioMixer.SetFloat("SFXVolume", Mathf.Log10(volume) * 20f);
     }
 
-    public void Apply()
+    public void Cancel()
     {
-        //apply quality settings
-        SetQuality(qualityNavButton.CurrentOptionIndex);
+        SetQuality(PlayerPrefs.GetInt("Quality", 3));
+        SetFullScreenMode(PlayerPrefs.GetInt("Fullscreen", 1));
+        SetResolution(PlayerPrefs.GetInt("Resolution", 0));
+
+        SetMasterVolume(PlayerPrefs.GetFloat("MasterVolume", 1));
+        SetBGMVolume(PlayerPrefs.GetFloat("MusicVolume", 1));
+        SetSFXVolume(PlayerPrefs.GetFloat("SFXVolume", 1));
+    }
+
+    public void Apply()
+    {           
         PlayerPrefs.SetInt("Quality", qualityNavButton.CurrentOptionIndex);
-        Debug.Log("Quality: " + qualityNavButton.CurrentOptionIndex);
-
-        //apply fullscreen settings
-        SetFullscreen(fullscreenNavButton.CurrentOptionIndex == 1);
+        SetQuality(qualityNavButton.CurrentOptionIndex);
         PlayerPrefs.SetInt("Fullscreen", fullscreenNavButton.CurrentOptionIndex);
-        Debug.Log("Fullscreen: " + fullscreenNavButton.CurrentOptionIndex);
-
-        //apply resolution settings
-        SetResolution(resolutionNavButton.CurrentOptionIndex);
+        SetFullScreenMode(fullscreenNavButton.CurrentOptionIndex);
+        Debug.Log("FullScreen" + fullscreenNavButton.CurrentOptionIndex);
         PlayerPrefs.SetInt("Resolution", resolutionNavButton.CurrentOptionIndex);
-        Debug.Log("Resolution: " + resolutionNavButton.CurrentOptionIndex);
+        SetResolution(resolutionNavButton.CurrentOptionIndex);
 
-        //apply volume settings
-        
         PlayerPrefs.SetFloat("MasterVolume", masterSlider.value);
         PlayerPrefs.SetFloat("MusicVolume", musicSlider.value);
         PlayerPrefs.SetFloat("SFXVolume", sfxSlider.value);

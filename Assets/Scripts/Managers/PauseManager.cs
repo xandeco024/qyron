@@ -7,40 +7,19 @@ using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour
 {
-    private InputMaster inputMaster;
+    private MainInputManager mainInputManager;
     private GameManager gameManager;
     private GameOverManager gameOverManager;
-    private EventSystem eventSystem;
     private bool paused = false;
-    [SerializeField] private GameObject pauseCanvasObject;
+    [SerializeField] private GameObject pausePanel;
     [SerializeField] private Button reusmeButton;
-
-    void Awake()
-    {
-        Controls();
-    }
-
-    void OnEnable()
-    {
-        inputMaster.Enable();
-    }
-
-    void OnDisable()
-    {
-        inputMaster.Disable();
-    }
-
-    void Controls()
-    {
-        inputMaster = new InputMaster();
-        inputMaster.UI.PauseResume.performed += ctx => TogglePauseAction(ctx);
-    }
 
     void Start()
     {
+        mainInputManager = FindObjectOfType<MainInputManager>();
+        mainInputManager.InputMaster.UI.PauseResume.performed += ctx => TogglePauseAction(ctx);
         gameManager = FindObjectOfType<GameManager>();
         gameOverManager = FindObjectOfType<GameOverManager>();
-        eventSystem = FindObjectOfType<EventSystem>();
         SetPause(false);
     }
 
@@ -70,16 +49,14 @@ public class PauseManager : MonoBehaviour
         if (value)
         {
             Time.timeScale = 0;
-            pauseCanvasObject.SetActive(true);
+            pausePanel.SetActive(true);
             paused = true;
-            //reusmeButton.Select();
-            eventSystem.SetSelectedGameObject(null);
-            eventSystem.SetSelectedGameObject(reusmeButton.gameObject);
+            reusmeButton.Select();
         }
         else if(!value)
         {
             Time.timeScale = 1;
-            pauseCanvasObject.SetActive(false);
+            pausePanel.SetActive(false);
             paused = false;
         }
     }

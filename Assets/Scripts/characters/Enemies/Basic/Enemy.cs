@@ -12,6 +12,11 @@ public class Enemy : Character
     [SerializeField] protected float loseTargetAtRange;
     public float LoseTargetRange { get => loseTargetAtRange; }
 
+    private bool join;
+    public bool Join { get => join; }
+
+    private Vector3 joinDestination;
+    public Vector3 JoinDestination { get => joinDestination; }
 
     [Header("Attack")]
     protected bool canLightAttack = true;
@@ -48,10 +53,12 @@ public class Enemy : Character
     [Header("Other")]
     [SerializeField] protected int deathTime;
     public int DeathTime { get => deathTime; }
+    [SerializeField] protected int coinAmount;
+    public int CoinAmount { get => coinAmount; }
     [SerializeField] protected int xpAmount;
     public int XpAmount { get => xpAmount; }
-    [SerializeField] protected Vector3 exPBoxSize;
-    public Vector3 XpBoxSize { get => exPBoxSize; }
+    [SerializeField] protected Vector3 lootBoxSize;
+    public Vector3 LootBoxSize { get => lootBoxSize; }
 
     public override void TakeDamage(float damage, float stunDuration, bool critical = false, Vector3 knockbackDir = default, float knockbackForce = 0, float knockbackDuration = 0.2f)
     {
@@ -192,7 +199,7 @@ public class Enemy : Character
     
         //draw xp box
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireCube(transform.position, exPBoxSize);
+        Gizmos.DrawWireCube(transform.position, lootBoxSize);
     }
 
     public IEnumerator Die(int deathTime = 0)
@@ -236,9 +243,30 @@ public class Enemy : Character
         Destroy(gameObject);
     }
 
+    public void GiveCoins(int coinAmount)
+    {
+        Collider[] colliders = Physics.OverlapBox(transform.position, lootBoxSize / 2, transform.rotation);
+        List<PlayableCharacter> playersOnRange = new List<PlayableCharacter>();
+
+        foreach (Collider collider in colliders)
+        {
+            if (collider.GetComponent<PlayableCharacter>() != null)
+            {
+                playersOnRange.Add(collider.GetComponent<PlayableCharacter>());
+            }
+        }
+
+        foreach (PlayableCharacter player in playersOnRange)
+        {
+            player.AddCoins(Mathf.RoundToInt(coinAmount / playersOnRange.Count));
+        }
+
+        if(debug) Debug.Log("Gave " + Mathf.RoundToInt(coinAmount / playersOnRange.Count) + " coins to " + playersOnRange.Count + " players");
+    }
+
     public void GiveXP(int xpAmount)
     {
-        Collider[] colliders = Physics.OverlapBox(transform.position, exPBoxSize / 2, transform.rotation);
+        Collider[] colliders = Physics.OverlapBox(transform.position, lootBoxSize / 2, transform.rotation);
         List<PlayableCharacter> playersOnRange = new List<PlayableCharacter>();
 
         foreach (Collider collider in colliders)
@@ -256,4 +284,10 @@ public class Enemy : Character
 
         if(debug) Debug.Log("Gave " + Mathf.RoundToInt(xpAmount / playersOnRange.Count) + " xp to " + playersOnRange.Count + " players");
     } 
+
+    public void SetJoin(bool join, Vector3 destination)
+    {
+        this.join = join;
+        joinDestination = destination;
+    }
 }

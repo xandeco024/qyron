@@ -33,7 +33,24 @@ public class UIBlinkSelectButton : MonoBehaviour, IPointerEnterHandler, IPointer
         selectedText = initialChar + " " + mainText + " " + closureChar;
     }
 
-    // Update is called once per frame
+    void OnEnable()
+    {
+        selected = false;
+        selectedTimer = 0;
+
+        foreach (TextMeshProUGUI text in mainTextList)
+        {
+            text.text = mainText;
+            text.color = mainColor;
+        }
+
+        foreach (TextMeshProUGUI text in textDecorationList)
+        {
+            text.text = mainText;
+            //text.GetComponent<TextMeshProUGUI>().color = mainColor;
+        }
+    }
+
     void Update()
     {
         if (selected)
