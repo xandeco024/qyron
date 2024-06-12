@@ -82,8 +82,6 @@ public class LobbyManager : MonoBehaviour
             playerInputManager.EnableJoining();
         }
 
-        playerFrameObjects[0].GetComponent<Button>().Select();
-
         for (int i = 0; i < playerFrameObjects.Length; i++)
         {
             playerFrameObjects[i].GetComponent<Animator>().SetBool("empty", true);
@@ -147,6 +145,11 @@ public class LobbyManager : MonoBehaviour
             StopCoroutine(startGameCoroutine);
         }
 
+        else 
+        {
+            mainInputManager.LockedObject = null;
+        }
+
         readyPlayersAnimator.SetFloat("readyPlayers", readyPlayers);
         readyPlayersAnimator.SetFloat("lobbyPlayers", notNullPlayersAmount);
     }
@@ -173,7 +176,7 @@ public class LobbyManager : MonoBehaviour
     public void JoinPlayer(PlayerInput lobbyPlayerInput)
     {
         LobbyPlayer joinedPlayer = lobbyPlayerInput.GetComponent<LobbyPlayer>();
-
+        mainInputManager.LockedObject = playerFrameObjects[0];
         int emptyIndex = lobbyPlayersList.FindIndex(player => player == null);
 
         if (emptyIndex != -1)

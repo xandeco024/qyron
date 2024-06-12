@@ -1,9 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
-using UnityEngine;
 
 public class UIBlinkSelectButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
 {
@@ -20,124 +18,88 @@ public class UIBlinkSelectButton : MonoBehaviour, IPointerEnterHandler, IPointer
 
     [SerializeField] List<TextMeshProUGUI> mainTextList = new List<TextMeshProUGUI>();
     [SerializeField] List<TextMeshProUGUI> textDecorationList = new List<TextMeshProUGUI>();
-    
 
     void Awake()
     {
         mainText = mainTextList[0].text;
         mainColor = mainTextList[0].color;
-    }
-
-    void Start()
-    {
-        selectedText = initialChar + " " + mainText + " " + closureChar;
+        selectedText = $"{initialChar} {mainText} {closureChar}";
     }
 
     void OnEnable()
     {
-        selected = false;
-        selectedTimer = 0;
-
-        foreach (TextMeshProUGUI text in mainTextList)
-        {
-            text.text = mainText;
-            text.color = mainColor;
-        }
-
-        foreach (TextMeshProUGUI text in textDecorationList)
-        {
-            text.text = mainText;
-            //text.GetComponent<TextMeshProUGUI>().color = mainColor;
-        }
+        ResetState();
     }
 
     void Update()
     {
         if (selected)
         {
-            BlinkColor();
+            BlinkText();
         }
     }
 
-    void BlinkColor()
+    private void ResetState()
+    {
+        selected = false;
+        selectedTimer = 0;
+        UpdateText(mainText, mainColor);
+    }
+
+    private void BlinkText()
     {
         selectedTimer += Time.deltaTime;
         if (selectedTimer > blinkSpeed)
         {
             if (mainTextList[0].text == selectedText)
             {
-                foreach (TextMeshProUGUI text in mainTextList)
-                {
-                    text.text = mainText;;
-                }
-                
-                foreach (TextMeshProUGUI text in textDecorationList)
-                {
-                    text.text = mainText;
-                }
+                UpdateText(mainText, selectedColor);
             }
-
             else
             {
-                foreach (TextMeshProUGUI text in mainTextList)
-                {
-                    text.text = selectedText;
-                }
-
-                foreach (TextMeshProUGUI text in textDecorationList)
-                {
-                    text.text = selectedText;
-                }
+                UpdateText(selectedText, selectedColor);
             }
-
             selectedTimer = 0;
         }
     }
 
-    void HandleSelect()
+    private void UpdateText(string text, Color color)
     {
-        selected = true;
-        selectedTimer = 0;
-
-        foreach (TextMeshProUGUI text in mainTextList)
+        foreach (TextMeshProUGUI textElement in mainTextList)
         {
-            text.text = selectedText;
-            text.color = selectedColor;
+            textElement.text = text;
+            textElement.color = color;
         }
 
-        foreach (TextMeshProUGUI text in textDecorationList)
+        foreach (TextMeshProUGUI textElement in textDecorationList)
         {
-            text.text = selectedText;
-            //text.GetComponent<TextMeshProUGUI>().color = selectedColor;
+            textElement.text = text;
+            //textElement.color = color; // Uncomment if decorations should also change color
         }
     }
 
-    void HandleDeselect()
+    private void HandleSelect()
+    {
+        selected = true;
+        selectedTimer = 0;
+        UpdateText(selectedText, selectedColor);
+    }
+
+    private void HandleDeselect()
     {
         selected = false;
         selectedTimer = 0;
-
-        foreach (TextMeshProUGUI text in mainTextList)
-        {
-            text.text = mainText;
-            text.color = mainColor;
-        }
-
-        foreach (TextMeshProUGUI text in textDecorationList)
-        {
-            text.text = mainText;
-            //text.GetComponent<TextMeshProUGUI>().color = mainColor;
-        }
+        UpdateText(mainText, mainColor);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        HandleSelect();
+        //HandleSelect();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        HandleDeselect();
+        //HandleDeselect();
     }
 
     public void OnSelect(BaseEventData eventData)

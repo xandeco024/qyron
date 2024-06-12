@@ -32,7 +32,7 @@ public class UINavButton : MonoBehaviour,  IPointerEnterHandler, IPointerExitHan
 
         if(options != null && options.Count > 0)
         {
-            SetOption(currentOptionIndex);
+            SetOption(currentOptionIndex, Color.white);
         }
     }
 
@@ -120,7 +120,7 @@ public class UINavButton : MonoBehaviour,  IPointerEnterHandler, IPointerExitHan
         {
             currentOptionIndex = 0;
         }
-        SetOption(currentOptionIndex);
+        SetOption(currentOptionIndex , selectedColor);
     }
 
     public void PreviousOption()
@@ -130,23 +130,15 @@ public class UINavButton : MonoBehaviour,  IPointerEnterHandler, IPointerExitHan
         {
             currentOptionIndex = options.Count - 1;
         }
-        SetOption(currentOptionIndex);
+        SetOption(currentOptionIndex, selectedColor);
     }
 
-    public void SetOption(int index)
+    public void SetOption(int index, Color color)
     {
         if (index < options.Count)
         {
             currentOptionIndex = index;
-            foreach (TextMeshProUGUI text in mainOptionTextList)
-            {
-                text.text = options[index];
-            }
-
-            foreach (TextMeshProUGUI text in OptionTextDecorationList)
-            {
-                text.text = options[index];
-            }
+            UpdateText(options[index], color);
         }
         else
         {
@@ -189,14 +181,29 @@ public class UINavButton : MonoBehaviour,  IPointerEnterHandler, IPointerExitHan
         }
     }
 
+    void UpdateText(string text, Color color)
+    {
+        foreach (TextMeshProUGUI textElement in mainOptionTextList)
+        {
+            textElement.text = text;
+            textElement.color = color;
+        }
+
+        foreach (TextMeshProUGUI textElement in OptionTextDecorationList)
+        {
+            textElement.text = text;
+            //textElement.color = color; // Uncomment if decorations should also change color
+        }
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
-        HandleSelect();
+        //HandleSelect();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        HandleDeselect();
+        //HandleDeselect();
     }
 
     public void OnSelect(BaseEventData eventData)
@@ -207,5 +214,10 @@ public class UINavButton : MonoBehaviour,  IPointerEnterHandler, IPointerExitHan
     public void OnDeselect(BaseEventData eventData)
     {
         HandleDeselect();
+    }
+
+    public void Penis()
+    {
+        Debug.Log("Penis");
     }
 }

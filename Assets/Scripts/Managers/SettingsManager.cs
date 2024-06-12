@@ -42,7 +42,7 @@ public class SettingsManager : MonoBehaviour
             }
         }
         resolutionNavButton.SetOptionsList(resolutionOptions);
-        resolutionNavButton.SetOption(resolutionIndex);
+        resolutionNavButton.SetOption(resolutionIndex, Color.white);
     }
 
     void OnEnable()
@@ -51,9 +51,9 @@ public class SettingsManager : MonoBehaviour
         qualityIndex = PlayerPrefs.GetInt("Quality", 3);
         fullscreenIndex = PlayerPrefs.GetInt("Fullscreen", 1);
 
-        resolutionNavButton.SetOption(resolutionIndex);
-        qualityNavButton.SetOption(qualityIndex);
-        fullscreenNavButton.SetOption(fullscreenIndex);
+        resolutionNavButton.SetOption(resolutionIndex, Color.white);
+        qualityNavButton.SetOption(qualityIndex, Color.white);
+        fullscreenNavButton.SetOption(fullscreenIndex, Color.white);
 
         float master = PlayerPrefs.GetFloat("MasterVolume", 100);
         masterSlider.value = master;
@@ -70,17 +70,10 @@ public class SettingsManager : MonoBehaviour
         QualitySettings.SetQualityLevel(qualityIndex);
     }
 
-    public void SetFullScreenMode(int fullscreenIndex)
-    {
-        FullScreenMode mode = fullscreenIndex == 1 ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
-
-        Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, mode);
-    }
-
-    public void SetResolution(int resolutionIndex)
+    public void SetResolutionAndFullscreen(int resolutionIndex, int fullscreenIndex)
     {
         Resolution resolution = resolutions[resolutionIndex];
-        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+        Screen.SetResolution(resolution.width, resolution.height, fullscreenIndex == 1 ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed);
     }
 
     public void SetMasterVolume(float volume)
@@ -104,8 +97,7 @@ public class SettingsManager : MonoBehaviour
     public void Cancel()
     {
         SetQuality(PlayerPrefs.GetInt("Quality", 3));
-        SetFullScreenMode(PlayerPrefs.GetInt("Fullscreen", 1));
-        SetResolution(PlayerPrefs.GetInt("Resolution", 0));
+        SetResolutionAndFullscreen(PlayerPrefs.GetInt("Resolution", 6), PlayerPrefs.GetInt("Fullscreen", 1));
 
         SetMasterVolume(PlayerPrefs.GetFloat("MasterVolume", 1));
         SetBGMVolume(PlayerPrefs.GetFloat("MusicVolume", 1));
@@ -115,12 +107,11 @@ public class SettingsManager : MonoBehaviour
     public void Apply()
     {           
         PlayerPrefs.SetInt("Quality", qualityNavButton.CurrentOptionIndex);
-        SetQuality(qualityNavButton.CurrentOptionIndex);
-        PlayerPrefs.SetInt("Fullscreen", fullscreenNavButton.CurrentOptionIndex);
-        SetFullScreenMode(fullscreenNavButton.CurrentOptionIndex);
-        Debug.Log("FullScreen" + fullscreenNavButton.CurrentOptionIndex);
         PlayerPrefs.SetInt("Resolution", resolutionNavButton.CurrentOptionIndex);
-        SetResolution(resolutionNavButton.CurrentOptionIndex);
+        PlayerPrefs.SetInt("Fullscreen", fullscreenNavButton.CurrentOptionIndex);
+
+        SetQuality(qualityNavButton.CurrentOptionIndex);
+        SetResolutionAndFullscreen(resolutionNavButton.CurrentOptionIndex, fullscreenNavButton.CurrentOptionIndex);
 
         PlayerPrefs.SetFloat("MasterVolume", masterSlider.value);
         PlayerPrefs.SetFloat("MusicVolume", musicSlider.value);

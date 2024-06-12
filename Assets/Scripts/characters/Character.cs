@@ -243,7 +243,7 @@ public class Character : MonoBehaviour {
     {
         foreach(Collider hitCollider in hitColliders)
         {
-            if (hitCollider.GetComponent<Character>() && hitCollider.GetComponent<Character>() != this)
+            if (hitCollider.GetComponent<Character>() && hitCollider.GetComponent<Character>() != this && !hitCollider.GetComponent<PlayableCharacter>())
             {
                 hitCollider.GetComponent<Character>().TakeDamage(damage, stunDuration, critical, knockbackDir, knockbackForce, knockbackDuration);
             }

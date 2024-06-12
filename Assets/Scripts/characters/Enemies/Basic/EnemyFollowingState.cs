@@ -20,10 +20,11 @@ public class EnemyFollowingState : StateMachineBehaviour
             enemy.LimitZ();
             enemy.FlipHandler();
 
-            if (enemy.PlayerOnAttackRange() && (enemy.CanLightAttack || enemy.CanHeavyAttack))
+            if (enemy.PlayerOnAttackRange())
             {
                 animator.SetBool("following", false);
                 animator.SetTrigger("attack");
+                animator.SetBool("combat", true);
             }
 
             else if (!enemy.PlayerOnAttackRange())

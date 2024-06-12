@@ -103,6 +103,7 @@ public class PlayableCharacter : Character {
         DownedHandler();
         StepAssist();
         StunHandler();
+        animator.SetFloat("speed", speed);
     }
 
     void FixedUpdate()
@@ -308,12 +309,12 @@ public class PlayableCharacter : Character {
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
         DealDamage(hitColliders, damage, lightAttackStunDuration, critical);
 
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.3f / speed);
 
         if (!isDowned) isMovingAllowed = true;
         isAttacking = false;
 
-        yield return new WaitForSeconds(lightAttackCD);
+        yield return new WaitForSeconds(lightAttackCD / speed);
 
         canLightAttack = true;
     }
@@ -368,12 +369,12 @@ public class PlayableCharacter : Character {
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
         DealDamage(hitColliders, damage, heavyAttackStunDuration, critical);
 
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.3f / speed);
 
         if (!isDowned) isMovingAllowed = true;
         isAttacking = false;
 
-        yield return new WaitForSeconds(heavyAttackCD);
+        yield return new WaitForSeconds(heavyAttackCD / speed);
 
         canHeavyAttack = true;
     }
@@ -491,7 +492,7 @@ public class PlayableCharacter : Character {
 
         SetRecievingComboOnTargets(true ,hitColliders);
 
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.3f / speed);
 
         if (!isDowned) isMovingAllowed = true;
         isAttacking = false;
@@ -500,7 +501,7 @@ public class PlayableCharacter : Character {
 
         SetRecievingComboOnTargets(false ,hitColliders);
 
-        yield return new WaitForSeconds(lightAttackCD);
+        yield return new WaitForSeconds(lightAttackCD / speed);
 
         canLightAttack = true;
 
@@ -527,13 +528,13 @@ public class PlayableCharacter : Character {
         
         Debug.Log("Deu o combo LLH");
 
-        yield return new WaitForSeconds(0.27f);
+        yield return new WaitForSeconds(0.27f / speed);
 
         Debug.Log("Terminou de girar");
 
         DealDamage(hitColliders, damage, heavyComboStunDuration, critical, new Vector3(0,1,1), 2.5f, 0.3f);
 
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.3f / speed);
 
         if (!isDowned) isMovingAllowed = true;
         isAttacking = false;
@@ -542,7 +543,7 @@ public class PlayableCharacter : Character {
 
         SetRecievingComboOnTargets(false ,hitColliders);
 
-        yield return new WaitForSeconds(heavyAttackCD);
+        yield return new WaitForSeconds(heavyAttackCD / speed);
 
         canHeavyAttack = true;
     }
@@ -568,13 +569,13 @@ public class PlayableCharacter : Character {
 
         Debug.Log("Deu o combo LLH");
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.5f / speed);
 
         Debug.Log("Terminou de girar");
 
         DealDamage(hitColliders, damage, heavyComboStunDuration, critical, new Vector3(0,1,-1), 4f, 0.4f);
 
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.3f / speed);
 
         if (!isDowned) isMovingAllowed = true;
         isAttacking = false;
@@ -583,7 +584,7 @@ public class PlayableCharacter : Character {
 
         SetRecievingComboOnTargets(false ,hitColliders);
 
-        yield return new WaitForSeconds(heavyAttackCD);
+        yield return new WaitForSeconds(heavyAttackCD / speed);
 
         canHeavyAttack = true;
     }
@@ -611,7 +612,7 @@ public class PlayableCharacter : Character {
 
         SetRecievingComboOnTargets(true ,hitColliders);
 
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.3f / speed);
 
         if (!isDowned) isMovingAllowed = true;
         isAttacking = false;
@@ -620,7 +621,7 @@ public class PlayableCharacter : Character {
 
         SetRecievingComboOnTargets(false ,hitColliders);
 
-        yield return new WaitForSeconds(heavyAttackCD);
+        yield return new WaitForSeconds(heavyAttackCD / speed);
 
         canHeavyAttack = true;
     }
@@ -708,7 +709,7 @@ void ApplyMovement()
         if (movementRestrictions.Contains("forward")) if (z > 0) z = 0;
         if (movementRestrictions.Contains("backward")) if (z < 0) z = 0;
 
-        rb.velocity = new Vector3(x * moveSpeed, y, z * moveSpeed);
+        rb.velocity = new Vector3(x * moveSpeed * speed, y, z * moveSpeed * speed);
 
         if (movementInput.x != 0)
         {
