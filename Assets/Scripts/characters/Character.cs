@@ -83,14 +83,10 @@ public class Character : MonoBehaviour {
     protected bool invincible;
     protected bool fallDamage;
     [SerializeField] protected bool fallDamageEnabled;
-    [SerializeField] float raycastDistance;
-    [SerializeField] private Vector3 raycastOffset;
-    [SerializeField] private LayerMask groundLayer;
-    protected bool isGrounded() {
-        RaycastHit hit;
-        bool hitGround = Physics.Raycast(transform.position + raycastOffset, Vector3.down, out hit, raycastDistance, groundLayer);
-        return hitGround;
-    }
+    [SerializeField] protected float raycastDistance;
+    [SerializeField] protected Vector3 raycastOffset;
+    [SerializeField] protected LayerMask groundLayer;
+    protected bool isGrounded;
     public int FacingDirection { get { return facingDirection; } }
     protected int facingDirection = 1;
     protected bool isMovingAllowed = true;
@@ -236,7 +232,7 @@ public class Character : MonoBehaviour {
             fallDamage = true;
         }
 
-        if (isGrounded() && fallDamage)
+        if (isGrounded && fallDamage)
         {
             TakeDamage(10, 0);
             fallDamage = false;
@@ -265,8 +261,8 @@ public class Character : MonoBehaviour {
             float damageTaken = damage - (damage * (resistance / 100)) - damageReduction;
             currentHealth -= damageTaken;
 
-            Vector3 damageTextPosition = transform.position + new Vector3(damageTextOffset.x * (damageTextFaceToDirection == true? facingDirection : 1), damageTextOffset.y, -1f);
-            Instantiate(damageTextPrefab, damageTextPosition, Quaternion.identity).GetComponent<damageText>().SetText(damageTaken.ToString(), critical);
+            Vector3 damageTextPosition = transform.position + new Vector3(damageTextOffset.x * (damageTextFaceToDirection == true? facingDirection : 1), damageTextOffset.y, -2f);
+            Instantiate(damageTextPrefab, damageTextPosition, Quaternion.identity).GetComponentInChildren<damageText>().SetText(damageTaken.ToString(), critical);
 
             if (stunDuration > 0)
             {

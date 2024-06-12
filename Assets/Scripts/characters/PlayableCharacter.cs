@@ -45,7 +45,7 @@ public class PlayableCharacter : Character {
     private List<string> validHeavyCombos = new List<string>() {"HHH", "LLH", "LLL"};
     public List<string> Combo { get { return combo; } }
     private float lastAttackTime;
-    [SerializeField] private bool recieveDamageFromFriends;
+    [SerializeField] private bool friendlyFire;
 
     [SerializeField] private float lightAttackCD;
     [SerializeField] private float lightAttackStunDuration;
@@ -261,7 +261,7 @@ public class PlayableCharacter : Character {
     {
         if(ctx.performed)
         {
-            if (canLightAttack && !isDowned)
+            if (canLightAttack && !isDowned && isGrounded)
             {
                 if(isGrabbing) // se estiver grebbando então faz o combo de grab
                 { 
@@ -322,7 +322,7 @@ public class PlayableCharacter : Character {
     {
         if(ctx.performed)
         {
-            if (canHeavyAttack && !isDowned)
+            if (canHeavyAttack && !isDowned && isGrounded)
             {
                 if(isGrabbing) // se estiver grebbando então faz o combo de grab
                 { 
@@ -484,6 +484,8 @@ public class PlayableCharacter : Character {
 
         animator.SetTrigger("LLLTrigger");  
 
+        CallScreenShake(0.15f, 0.25f, 0.25f);
+
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
         DealDamage(hitColliders, damage, lightComboStunDuration, critical, new Vector3(0.8f * facingDirection,1,0), 3f, 0.2f);
 
@@ -517,6 +519,8 @@ public class PlayableCharacter : Character {
         //logica para calcular dano que o hit vai dar.
         bool critical = Random.Range(0, 100) < criticalChance;
         float damage = attackDamage * 2.5f * (critical? 2f : 1f);
+
+        CallScreenShake(0.3f, 0.5f, 0.5f);
 
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
         SetRecievingComboOnTargets(true ,hitColliders);
@@ -556,6 +560,8 @@ public class PlayableCharacter : Character {
         //logica para calcular dano que o hit vai dar.
         bool critical = Random.Range(0, 100) < criticalChance;
         float damage = attackDamage * 2.5f * (critical? 2f : 1f);
+
+        CallScreenShake(0.3f, 0.5f, 0.5f);
 
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
         SetRecievingComboOnTargets(true ,hitColliders);
@@ -597,6 +603,8 @@ public class PlayableCharacter : Character {
         float damage = attackDamage * 2.5f * (critical? 2f : 1f);
 
         animator.SetTrigger("HHHTrigger");
+
+        CallScreenShake(0.3f, 0.5f, 0.5f);
 
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
         DealDamage(hitColliders, damage, heavyComboStunDuration, critical, new Vector3(1 * facingDirection,.5f,0), 4, 0.3f);
@@ -645,10 +653,12 @@ public class PlayableCharacter : Character {
 
 void DetectGround()
 {   
-    bool grounded = isGrounded();
-    animator.SetBool("grounded", grounded);
+    RaycastHit hit;
+    isGrounded = Physics.Raycast(transform.position + raycastOffset, Vector3.down, out hit, raycastDistance, groundLayer);
 
-    if (grounded)
+    animator.SetBool("grounded", isGrounded);
+
+    if (isGrounded)
     {
         jumps = maxJumps;
     }
@@ -713,7 +723,7 @@ void ApplyMovement()
     }
 
     // Define o estado "running" diretamente com base na condição, sem verificar o estado atual
-    animator.SetBool("running", isGrounded() && movementInput != Vector3.zero);
+    animator.SetBool("running", isGrounded && movementInput != Vector3.zero);
 
     // Atualiza a velocidade Y no animator
     animator.SetFloat("yVelocity", rb.velocity.y);
@@ -934,6 +944,12 @@ void ApplyMovement()
                 SetDowned(false);
             }
         }
+    }
+
+    private void CallScreenShake(float duration, float magnitude, float frequency)
+    {
+        CameraManager cameraManager = FindObjectOfType<CameraManager>();
+        cameraManager.ScreenShake(duration, magnitude, frequency);
     }
 
     protected override void OnDrawGizmos()

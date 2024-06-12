@@ -449,7 +449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 598e0a4c6a8e33743b48955ca2f37007, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTextPrefab: {fileID: 8396298817394685240, guid: 912ee59ec9288fb408dbd0d7e199cc81, type: 3}
+  damageTextPrefab: {fileID: 5679758337262909008, guid: e23a444383972764aaf7edcc24c96a60, type: 3}
   rb: {fileID: 0}
   animator: {fileID: 0}
   sr: {fileID: 0}

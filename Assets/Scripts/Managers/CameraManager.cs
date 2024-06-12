@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections;
 using Cinemachine;
 using UnityEngine;
 
@@ -164,10 +165,12 @@ public class CameraManager : MonoBehaviour
 
         if (cameraRightBound > cameraRightLimit)
         {
-            transform.position = new Vector3(cameraRightLimit - cameraHalfWidth, transform.position.y, transform.position.z);        }
+            transform.position = new Vector3(cameraRightLimit - cameraHalfWidth, transform.position.y, transform.position.z);        
+        }
         else if (cameraLeftBound < cameraLeftLimit)
         {
-            transform.position = new Vector3(cameraLeftLimit + cameraHalfWidth, transform.position.y, transform.position.z);        }
+            transform.position = new Vector3(cameraLeftLimit + cameraHalfWidth, transform.position.y, transform.position.z);        
+        }
     }
 
     public void SetCameraLimits(float left, float right, float top, float bottom)
@@ -176,5 +179,19 @@ public class CameraManager : MonoBehaviour
         cameraRightLimit = right;
         cameraTopLimit = top;
         cameraBottomLimit = bottom;
+    }
+
+    public void ScreenShake(float duration, float magnitude, float frequency)
+    {
+        StartCoroutine(Shake(duration, magnitude, frequency));
+    }
+
+    IEnumerator Shake(float duration, float magnitude, float frequency)
+    {
+        virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = magnitude;
+        virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = frequency;
+        yield return new WaitForSeconds(duration);
+        virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0;
+        virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 0;
     }
 }

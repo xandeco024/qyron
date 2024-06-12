@@ -2,10 +2,6 @@
 	"folders": [
 		{
 			"path": "."
-		},
-		{
-			"name": "FATEC TechLab TESTES",
-			"path": "../../Arduino/FATEC TechLab TESTES"
 		}
 	],
 	"settings": {

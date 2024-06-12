@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2c27646585f551478edf273cf9a06b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTextPrefab: {fileID: 8396298817394685240, guid: 912ee59ec9288fb408dbd0d7e199cc81, type: 3}
+  damageTextPrefab: {fileID: 5679758337262909008, guid: e23a444383972764aaf7edcc24c96a60, type: 3}
   rb: {fileID: 0}
   animator: {fileID: 0}
   sr: {fileID: 0}
@@ -186,10 +186,10 @@ MonoBehaviour:
   stunParticles: {fileID: 1511485841948778553}
   targetSearchBoxSize: {x: 10, y: 5, z: 10}
   loseTargetAtRange: 10
-  lightAttackDelay: 0
-  lightAttackCD: 0.5
+  lightAttackDelay: 0.1
+  lightAttackCD: 0.75
   canHeavyAttack: 1
-  heavyAttackDelay: 0.6
+  heavyAttackDelay: 0.4
   heavyAttackCD: 5
   combatBoxSize: {x: 1.4, y: 1.5, z: 1}
   combatBoxOffset: {x: 0.5, y: -0.5, z: 0}
