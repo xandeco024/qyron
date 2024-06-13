@@ -110,8 +110,6 @@ public class Character : MonoBehaviour {
     protected float stunRemainingTime;
     [SerializeField] protected ParticleSystem stunParticles;
 
-
-
     [Header("Animation")]
     protected bool isTakingDamage;
     public bool IsTakingDamage { get { return isTakingDamage; } }
@@ -121,6 +119,9 @@ public class Character : MonoBehaviour {
     protected bool isAttacking;
     protected bool isLightAttacking;
     protected bool isHeavyAttacking;
+
+    [SerializeField] protected Vector3 combatBoxOffset;
+    [SerializeField] protected Vector3 combatBoxSize;
 
     #region Movement
     public void LimitZ()
@@ -225,30 +226,28 @@ public class Character : MonoBehaviour {
 
     #endregion
 
-    protected void FallDetect()
+    protected void Attack(float damage, float stunDuration, bool critical = false, Vector3 knockbackDir = default, float knockbackForce = 0, float knockbackDuration = .2f)
     {
-        if (rb.velocity.y < -10)
-        {
-            fallDamage = true;
-        }
+        Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.z), combatBoxSize / 2, transform.rotation);
 
-        if (isGrounded && fallDamage)
-        {
-            TakeDamage(10, 0);
-            fallDamage = false;
-        }
-    }
+        bool isEnemy = GetComponent<Enemy>() != null;
+        bool isPlayer = GetComponent<PlayableCharacter>() != null;
 
-    protected void DealDamage(Collider[] hitColliders, float damage, float stunDuration, bool critical = false, Vector3 knockbackDir = default, float knockbackForce = 0, float knockbackDuration = .2f)
-    {
-        foreach(Collider hitCollider in hitColliders)
+        foreach (Collider hitCollider in hitColliders)
         {
-            if (hitCollider.GetComponent<Character>() && hitCollider.GetComponent<Character>() != this && !hitCollider.GetComponent<PlayableCharacter>())
+            Character targetCharacter = hitCollider.GetComponent<Character>();
+            if (targetCharacter == null || targetCharacter == this || targetCharacter.IsDead) continue;
+
+            bool isTargetEnemy = targetCharacter.GetComponent<Enemy>() != null;
+            bool isTargetPlayer = targetCharacter.GetComponent<PlayableCharacter>() != null;
+
+            if ((isEnemy && !isTargetEnemy) || (isPlayer && !isTargetPlayer))
             {
-                hitCollider.GetComponent<Character>().TakeDamage(damage, stunDuration, critical, knockbackDir, knockbackForce, knockbackDuration);
+                targetCharacter.TakeDamage(damage, stunDuration, critical, knockbackDir, knockbackForce, knockbackDuration);
             }
         }
     }
+
 
     public virtual void TakeDamage(float damage, float stunDuration, bool critical = false, Vector3 knockbackDir = default, float knockbackForce = 0, float knockbackDuration = .2f)
     {

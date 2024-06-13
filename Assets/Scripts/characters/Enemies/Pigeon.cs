@@ -78,6 +78,8 @@ public class Pigeon : Enemy
             }
         }
 
+        
+
         yield return new WaitForSeconds(heavyAttackDelay);
 
         colliders = Physics.OverlapBox(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.y), combatBoxSize / 2, transform.rotation);

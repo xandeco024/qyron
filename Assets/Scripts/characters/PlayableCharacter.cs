@@ -62,9 +62,6 @@ public class PlayableCharacter : Character {
     [SerializeField] private float lightComboStunDuration;
     [SerializeField] private float heavyComboStunDuration;
     [SerializeField] private float grabComboStunDuration;
-
-    [SerializeField] private Vector3 CombatBoxOffset;
-    [SerializeField] private Vector3 CombatRaycastSize;
     [SerializeField] private Vector3 grabbedCharacterOffset;
     private bool isGrabbing;
     private Character grabbedCharacter;
@@ -258,6 +255,11 @@ public class PlayableCharacter : Character {
         }
     }
 
+    void Attack()
+    {
+
+    }
+
     public void LightAttack(InputAction.CallbackContext ctx)
     {
         if(ctx.performed)
@@ -306,8 +308,7 @@ public class PlayableCharacter : Character {
         animator.SetTrigger("lightAttackTrigger");
         animator.SetInteger("attackAnimationIndex", attackAnimationIndex);
 
-        Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
-        DealDamage(hitColliders, damage, lightAttackStunDuration, critical);
+        Attack(damage, lightAttackStunDuration, critical);
 
         yield return new WaitForSeconds(0.3f / speed);
 
@@ -366,8 +367,7 @@ public class PlayableCharacter : Character {
         animator.SetTrigger("heavyAttackTrigger");
         animator.SetInteger("attackAnimationIndex", attackAnimationIndex);
 
-        Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
-        DealDamage(hitColliders, damage, heavyAttackStunDuration, critical);
+        Attack(damage, heavyAttackStunDuration, critical);
 
         yield return new WaitForSeconds(0.3f / speed);
 
@@ -423,7 +423,7 @@ public class PlayableCharacter : Character {
         animator.SetTrigger("grabAttackTrigger");
         animator.SetBool("grabbing", true);
 
-        Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
+        Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.z), combatBoxSize / 2, transform.rotation);
 
         foreach (Collider collider in hitColliders)
         {
@@ -487,8 +487,8 @@ public class PlayableCharacter : Character {
 
         CallScreenShake(0.15f, 0.25f, 0.25f);
 
-        Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
-        DealDamage(hitColliders, damage, lightComboStunDuration, critical, new Vector3(0.8f * facingDirection,1,0), 3f, 0.2f);
+        Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.z), combatBoxSize / 2, transform.rotation);
+        Attack(damage, lightComboStunDuration, critical, new Vector3(0.8f * facingDirection,1,0), 3f, 0.2f);
 
         SetRecievingComboOnTargets(true ,hitColliders);
 
@@ -523,7 +523,7 @@ public class PlayableCharacter : Character {
 
         CallScreenShake(0.3f, 0.5f, 0.5f);
 
-        Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
+        Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.z), combatBoxSize / 2, transform.rotation);
         SetRecievingComboOnTargets(true ,hitColliders);
         
         Debug.Log("Deu o combo LLH");
@@ -532,7 +532,7 @@ public class PlayableCharacter : Character {
 
         Debug.Log("Terminou de girar");
 
-        DealDamage(hitColliders, damage, heavyComboStunDuration, critical, new Vector3(0,1,1), 2.5f, 0.3f);
+        Attack(damage, heavyComboStunDuration, critical, new Vector3(0,1,1), 2.5f, 0.3f);
 
         yield return new WaitForSeconds(0.3f / speed);
 
@@ -564,7 +564,7 @@ public class PlayableCharacter : Character {
 
         CallScreenShake(0.3f, 0.5f, 0.5f);
 
-        Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
+        Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.z), combatBoxSize / 2, transform.rotation);
         SetRecievingComboOnTargets(true ,hitColliders);
 
         Debug.Log("Deu o combo LLH");
@@ -573,7 +573,7 @@ public class PlayableCharacter : Character {
 
         Debug.Log("Terminou de girar");
 
-        DealDamage(hitColliders, damage, heavyComboStunDuration, critical, new Vector3(0,1,-1), 4f, 0.4f);
+        Attack(damage, heavyComboStunDuration, critical, new Vector3(0,1,-1), 4f, 0.4f);
 
         yield return new WaitForSeconds(0.3f / speed);
 
@@ -607,8 +607,9 @@ public class PlayableCharacter : Character {
 
         CallScreenShake(0.3f, 0.5f, 0.5f);
 
-        Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize / 2, transform.rotation);
-        DealDamage(hitColliders, damage, heavyComboStunDuration, critical, new Vector3(1 * facingDirection,.5f,0), 4, 0.3f);
+        Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.z), combatBoxSize / 2, transform.rotation);
+
+        Attack(damage, heavyComboStunDuration, critical, new Vector3(1 * facingDirection,.5f,0), 4, 0.3f);
 
         SetRecievingComboOnTargets(true ,hitColliders);
 
@@ -652,83 +653,83 @@ public class PlayableCharacter : Character {
 
     #region Movement
 
-void DetectGround()
-{   
-    RaycastHit hit;
-    isGrounded = Physics.Raycast(transform.position + raycastOffset, Vector3.down, out hit, raycastDistance, groundLayer);
+    void DetectGround()
+    {   
+        RaycastHit hit;
+        isGrounded = Physics.Raycast(transform.position + raycastOffset, Vector3.down, out hit, raycastDistance, groundLayer);
 
-    animator.SetBool("grounded", isGrounded);
+        animator.SetBool("grounded", isGrounded);
 
-    if (isGrounded)
-    {
-        jumps = maxJumps;
-    }
-}
-
-public void OnMove(InputAction.CallbackContext ctx)
-{
-    movementInput = ctx.ReadValue<Vector2>();
-}
-
-public void SetMovementRestrictions(List<string> restrictions)
-{
-    movementRestrictions = restrictions;
-}
-
-public void ResetMovementRestrictions()
-{
-    movementRestrictions.Clear();
-}
-
-public void RemoveMovementRestriction(string restriction)
-{
-    movementRestrictions.Remove(restriction);
-}
-
-public void AddMovementRestriction(string restriction)
-{
-    movementRestrictions.Add(restriction);
-}
-
-void ApplyMovement()
-{
-    if (isMovingAllowed)
-    {
-        float x = movementInput.x;
-
-        if (movementRestrictions.Contains("left")) if (x < 0) x = 0;
-        if (movementRestrictions.Contains("right")) if (x > 0) x = 0;
-
-        float y = rb.velocity.y;
-
-        if (movementRestrictions.Contains("up")) if (y > 0) y = 0;
-        if (movementRestrictions.Contains("down")) if (y < 0) y = 0;
-
-        float z = movementInput.y;
-
-        if (movementRestrictions.Contains("forward")) if (z > 0) z = 0;
-        if (movementRestrictions.Contains("backward")) if (z < 0) z = 0;
-
-        rb.velocity = new Vector3(x * moveSpeed * speed, y, z * moveSpeed * speed);
-
-        if (movementInput.x != 0)
+        if (isGrounded)
         {
-            facingDirection = movementInput.x > 0 ? 1 : -1;
-            transform.rotation = Quaternion.Euler(0, facingDirection == 1 ? 0 : 180, 0);
+            jumps = maxJumps;
         }
     }
 
-    if (limitZ)
+    public void OnMove(InputAction.CallbackContext ctx)
     {
-        LimitZ();
+        movementInput = ctx.ReadValue<Vector2>();
     }
 
-    // Define o estado "running" diretamente com base na condição, sem verificar o estado atual
-    animator.SetBool("running", isGrounded && movementInput != Vector3.zero);
+    public void SetMovementRestrictions(List<string> restrictions)
+    {
+        movementRestrictions = restrictions;
+    }
 
-    // Atualiza a velocidade Y no animator
-    animator.SetFloat("yVelocity", rb.velocity.y);
-}
+    public void ResetMovementRestrictions()
+    {
+        movementRestrictions.Clear();
+    }
+
+    public void RemoveMovementRestriction(string restriction)
+    {
+        movementRestrictions.Remove(restriction);
+    }
+
+    public void AddMovementRestriction(string restriction)
+    {
+        movementRestrictions.Add(restriction);
+    }
+
+    void ApplyMovement()
+    {
+        if (isMovingAllowed)
+        {
+            float x = movementInput.x;
+
+            if (movementRestrictions.Contains("left")) if (x < 0) x = 0;
+            if (movementRestrictions.Contains("right")) if (x > 0) x = 0;
+
+            float y = rb.velocity.y;
+
+            if (movementRestrictions.Contains("up")) if (y > 0) y = 0;
+            if (movementRestrictions.Contains("down")) if (y < 0) y = 0;
+
+            float z = movementInput.y;
+
+            if (movementRestrictions.Contains("forward")) if (z > 0) z = 0;
+            if (movementRestrictions.Contains("backward")) if (z < 0) z = 0;
+
+            rb.velocity = new Vector3(x * moveSpeed * speed, y, z * moveSpeed * speed);
+
+            if (movementInput.x != 0)
+            {
+                facingDirection = movementInput.x > 0 ? 1 : -1;
+                transform.rotation = Quaternion.Euler(0, facingDirection == 1 ? 0 : 180, 0);
+            }
+        }
+
+        if (limitZ)
+        {
+            LimitZ();
+        }
+
+        // Define o estado "running" diretamente com base na condição, sem verificar o estado atual
+        animator.SetBool("running", isGrounded && movementInput != Vector3.zero);
+
+        // Atualiza a velocidade Y no animator
+        animator.SetFloat("yVelocity", rb.velocity.y);
+    }
 
 
     public void Jump(InputAction.CallbackContext ctx)
@@ -959,13 +960,13 @@ void ApplyMovement()
         {
             base.OnDrawGizmos();
 
-            Collider[] hitColliders = Physics.OverlapBox(transform.position + CombatBoxOffset * facingDirection, CombatRaycastSize / 2, transform.rotation);
+            Collider[] hitColliders = Physics.OverlapBox(transform.position + combatBoxOffset * facingDirection, combatBoxSize / 2, transform.rotation);
 
             if (hitColliders.Length > 0)
             {
                 Gizmos.color = Color.red;
 
-            Gizmos.DrawWireCube(transform.position + new Vector3(CombatBoxOffset.x * facingDirection, CombatBoxOffset.y, CombatBoxOffset.z), CombatRaycastSize);
+            Gizmos.DrawWireCube(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.z), combatBoxSize);
             }
 
             Gizmos.DrawSphere(transform.position + new Vector3(grabbedCharacterOffset.x * facingDirection, grabbedCharacterOffset.y, grabbedCharacterOffset.z), 0.1f);
