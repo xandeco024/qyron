@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Pigeon : Enemy
@@ -11,7 +10,7 @@ public class Pigeon : Enemy
 
     void Start()
     {
-        SetStats();
+        ApplyCharacterData();
     }
 
     void Update()
@@ -78,7 +77,7 @@ public class Pigeon : Enemy
             }
         }
 
-        
+
 
         yield return new WaitForSeconds(heavyAttackDelay);
 

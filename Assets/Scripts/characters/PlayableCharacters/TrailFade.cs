@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class dashTrail : MonoBehaviour
+public class TrailFade : MonoBehaviour
 {
     private SpriteRenderer dashTrailSR;
     private float duration = 0.5f;
@@ -10,7 +10,6 @@ public class dashTrail : MonoBehaviour
 
     void Start()
     {
-        Invoke("DestroyTrail", 0.5f);
         dashTrailSR = GetComponent<SpriteRenderer>();
     }
 
@@ -22,10 +21,5 @@ public class dashTrail : MonoBehaviour
         Color color = dashTrailSR.color;
         color.a = alpha;
         dashTrailSR.color = color;
-    }
-
-    private void DestroyTrail()
-    {
-        Destroy(gameObject);
     }
 }

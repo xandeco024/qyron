@@ -21,52 +21,61 @@ public class Character : MonoBehaviour {
 
     [Header("Character Stats")]
     [SerializeField] protected bool debug;
-    [SerializeField] protected float baseMaxHealth;
     protected float maxHealth;
     public float MaxHealth { get { return maxHealth; } }
     protected float currentHealth;
     public float CurrentHealth { get { return currentHealth; } }
-    [SerializeField] protected float baseResistance;
     protected float resistance;
     public float Resistance { get { return resistance; } }
-    [SerializeField] protected float baseDamageReduction;
     protected float damageReduction;
     public float DamageReduction { get { return damageReduction; } }
-    [SerializeField] protected float baseAttackDamage;
     protected float attackDamage;
     public float AttackDamage { get { return attackDamage; } }
-    [SerializeField] protected float baseCriticalChance;
     protected float criticalChance;
     public float CriticalChance { get { return criticalChance; } }
-    [SerializeField] protected float baseSpeed;
     protected float speed;
     public float Speed { get { return speed; } }
-    [SerializeField] protected float baseDodgeChance;
     protected float dodgeChance;
     public float DodgeChance { get { return dodgeChance; } }
-    [SerializeField] protected float baseMoveSpeed;
     protected float moveSpeed;
     public float MoveSpeed { get { return moveSpeed; } }
-    [SerializeField] protected float baseJumpForce;
+    protected float currentMoveSpeed;
+    public float CurrentMoveSpeed { get { return currentMoveSpeed; } }
     protected float jumpForce;
     public float JumpForce { get { return jumpForce; } }
-    [SerializeField] protected float baseRespect;
     protected float respect;
     public float Respect { get { return respect; } }
 
-    protected void SetStats()
+    [Header("Character Data")]
+    [SerializeField] protected CharacterData characterData;
+    protected string characterName;
+    public string CharacterName { get { return characterName; } }
+    protected Color color;
+    public Color Color { get { return color; } }
+    public void SetCharacterData(CharacterData data)
     {
-        resistance = baseResistance;
-        damageReduction = baseDamageReduction;
-        speed = baseSpeed;
-        dodgeChance = baseDodgeChance + speed / 2;
-        respect = baseRespect;
-        maxHealth = baseMaxHealth;
+        characterData = data;
+        ApplyCharacterData();
+    }
+
+    protected void ApplyCharacterData()
+    {
+        characterName = characterData.name;
+        color = characterData.color;
+        maxHealth = characterData.maxHealth;
+        resistance = characterData.resistance;
+        damageReduction = characterData.damageReduction;
+        attackDamage = characterData.attackDamage;
+        criticalChance = characterData.criticalChance;
+        speed = characterData.speed;
+        dodgeChance = characterData.dodgeChance + speed/2 ;
+        moveSpeed = characterData.moveSpeed;
+        jumpForce = characterData.jumpForce;
+        respect = characterData.respect;
+
+        //runtime changes
         currentHealth = maxHealth;
-        attackDamage = baseAttackDamage;
-        criticalChance = baseCriticalChance;
-        moveSpeed = baseMoveSpeed;
-        jumpForce = baseJumpForce;
+        currentMoveSpeed = moveSpeed;
     }
 
     [Header("Step Assist")]
@@ -104,11 +113,15 @@ public class Character : MonoBehaviour {
     [SerializeField] protected Vector2 damageTextOffset = new Vector2(0.5f, 0.5f);
     [SerializeField] protected bool damageTextFaceToDirection;
 
+
+
     [Header("Stun")]
     protected bool stunned = false;
     public bool Stunned { get { return stunned; } }
     protected float stunRemainingTime;
     [SerializeField] protected ParticleSystem stunParticles;
+
+
 
     [Header("Animation")]
     protected bool isTakingDamage;
@@ -120,8 +133,12 @@ public class Character : MonoBehaviour {
     protected bool isLightAttacking;
     protected bool isHeavyAttacking;
 
+
+
     [SerializeField] protected Vector3 combatBoxOffset;
+    public Vector3 CombatBoxOffset { get { return combatBoxOffset; } }
     [SerializeField] protected Vector3 combatBoxSize;
+    public Vector3 CombatBoxSize { get { return combatBoxSize; } }
 
     #region Movement
     public void LimitZ()
@@ -352,7 +369,6 @@ public class Character : MonoBehaviour {
     protected virtual void OnDrawGizmos()
     {
         //Step Assist Gizmos
-        //x ray
         if (debug && rb != null)
         {
             Gizmos.color = Color.red;
@@ -370,6 +386,9 @@ public class Character : MonoBehaviour {
             Gizmos.color = Color.cyan;
             Gizmos.DrawRay(transform.position + new Vector3(stepAssistRay.x, stepAssistRay.y, stepAssistRay.z * zDirection), new Vector3(0, 0, stepAssistDistance.z * zDirection));
         }
-    
+
+        //Combat Box Gizmos
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.z), combatBoxSize);
     }
 }

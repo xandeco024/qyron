@@ -3575,6 +3575,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65af94c47a72dd440bcae051eeb1aabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterData:
+  - {fileID: 11400000, guid: 95dade2902e480b41be77d59e5e12395, type: 2}
+  - {fileID: 11400000, guid: cb71fcbfe7911964e89af4698338f809, type: 2}
+  - {fileID: 11400000, guid: 494de56f5f8ca0c498f9e73af2380325, type: 2}
+  - {fileID: 11400000, guid: 117e03169a1fba44ca5730a1d967dd08, type: 2}
   loadSceneManager: {fileID: 1524893029}
   readyPlayersAnimator: {fileID: 1498269961}
 --- !u!1 &571084467

@@ -31,10 +31,6 @@ public class Enemy : Character
     public float HeavyAttackDelay { get => heavyAttackDelay; }
     [SerializeField] protected float heavyAttackCD;
     public float HeavyAttackCD { get => heavyAttackCD; }
-    [SerializeField] protected Vector3 combatBoxSize;
-    public Vector3 CombatBoxSize { get => combatBoxSize; }
-    [SerializeField] protected Vector3 combatBoxOffset;
-    public Vector3 CombatBoxOffset { get => combatBoxOffset; }
     protected bool firstAttackOnTarget = true;
     public bool FirstAttackOnTarget { get => firstAttackOnTarget; }
 

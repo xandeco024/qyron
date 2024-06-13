@@ -33,8 +33,8 @@ public class PlayableCharacter : Character {
     [SerializeField] private GameObject dashCloneTrailPrefab;
     [SerializeField] private int dashCloneAmount;
 
-    [Header("Input")]
-    private InputMaster inputMaster;
+
+
 
     [Header("Animation")]
     private bool fighting;
@@ -65,10 +65,7 @@ public class PlayableCharacter : Character {
     [SerializeField] private Vector3 grabbedCharacterOffset;
     private bool isGrabbing;
     private Character grabbedCharacter;
-
-    [SerializeField] private string characterName;
-    public string CharacterName { get { return characterName; } }
-
+    
     private List<string> movementRestrictions = new List<string>();
     public List<string> MovementRestrictions { get { return movementRestrictions; } }
 
@@ -80,15 +77,10 @@ public class PlayableCharacter : Character {
     private bool beingCured;
     PlayableCharacter downedFriend = null;
 
-    public void SetupCharacter(string name)
-    {
-        characterName = name;
-    }
-
     void Start()
     {
         GetComponentsOnCharacter();
-        SetStats();
+        ApplyCharacterData();
         DontDestroyOnLoad(gameObject);
     }   
 
@@ -418,7 +410,7 @@ public class PlayableCharacter : Character {
 
         lastAttackTime = 0;
 
-        moveSpeed = baseMoveSpeed / 4;
+        currentMoveSpeed = moveSpeed / 4;
 
         animator.SetTrigger("grabAttackTrigger");
         animator.SetBool("grabbing", true);
@@ -464,7 +456,7 @@ public class PlayableCharacter : Character {
             grabbedCharacter.transform.SetParent(null);
             grabbedCharacter = null;
         }
-        moveSpeed = baseMoveSpeed;
+        currentMoveSpeed = moveSpeed;
     }
 
     #region Combos
@@ -785,6 +777,7 @@ public class PlayableCharacter : Character {
         {
             yield return new WaitForSeconds(dashDuration / cloneAmount);
             GameObject dashTrailIstance = GameObject.Instantiate(dashCloneTrailPrefab, transform.position, Quaternion.Euler(0, facingDirection == 1 ? 0 : 180, 0));
+            dashTrailIstance.GetComponent<SpriteRenderer>().color = color;
             Destroy(dashTrailIstance, cloneDuration);
         }
     }
@@ -799,69 +792,37 @@ public class PlayableCharacter : Character {
         if (currentHealth > maxHealth) currentHealth = maxHealth;
     }
 
-    public IEnumerator BuffMaxHealth(float amount, bool overrideStat = false, float time = 0)
+    private int CalculateNextLevelExp(int level)
     {
-        if (overrideStat) maxHealth = amount;
-        else maxHealth += amount;
-
-        yield return new WaitForSeconds(time);
-
-        if (overrideStat) maxHealth = baseMaxHealth;
-        else maxHealth -= amount;
+        if (level <= 1) return 100; // Valores base para os primeiros níveis
+        return Fibonacci(level) * 100; // Multiplique por 100 para ajustar a escala
     }
 
-    public IEnumerator BuffAttackDamage(float amount, bool overrideStat = false, float time = 0)
+    private int Fibonacci(int n)
     {
-        if (overrideStat) attackDamage = amount;
-        else attackDamage += amount;
-
-        yield return new WaitForSeconds(time);
-
-        if (overrideStat) attackDamage = baseAttackDamage;
-        else attackDamage -= amount;
-    }
-
-    public IEnumerator BuffCriticalChance(float amount, bool overrideStat = false, float time = 0)
-    {
-        if (overrideStat) criticalChance = amount;
-        else criticalChance += amount;
-
-        yield return new WaitForSeconds(time);
-
-        if (overrideStat) criticalChance = baseCriticalChance;
-        else criticalChance -= amount;
-    }
-
-    public IEnumerator BuffMoveSpeed(float amount, bool overrideStat = false, float time = 0)
-    {
-        if (overrideStat) moveSpeed = amount;
-        else moveSpeed += amount;
-
-        yield return new WaitForSeconds(time);
-
-        if (overrideStat) moveSpeed = baseMoveSpeed;
-        else moveSpeed -= amount;
-    }
-
-    public IEnumerator BuffJumpForce(float amount, bool overrideStat = false, float time = 0)
-    {
-        if (overrideStat) jumpForce = amount;
-        else jumpForce += amount;
-
-        yield return new WaitForSeconds(time);
-
-        if (overrideStat) jumpForce = baseJumpForce;
-        else jumpForce -= amount;
+        if (n <= 1) return n;
+        int a = 0;
+        int b = 1;
+        for (int i = 2; i <= n; i++)
+        {
+            int temp = a + b;
+            a = b;
+            b = temp;
+        }
+        return b;
     }
 
     private void HandleLevel()
     {
         if (exP >= nextLevelExP)
         {
-            if(debug) Debug.Log("Level Up");
+            if (debug) Debug.Log("Level Up");
+
+            // efeitos de level up
+
             level++;
             exP = 0;
-            nextLevelExP = 100 * level; //CHANGE THIS TO A FORMULA
+            nextLevelExP = CalculateNextLevelExp(level);
         }
     }
 
@@ -959,16 +920,6 @@ public class PlayableCharacter : Character {
         if(debug)
         {
             base.OnDrawGizmos();
-
-            Collider[] hitColliders = Physics.OverlapBox(transform.position + combatBoxOffset * facingDirection, combatBoxSize / 2, transform.rotation);
-
-            if (hitColliders.Length > 0)
-            {
-                Gizmos.color = Color.red;
-
-            Gizmos.DrawWireCube(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.z), combatBoxSize);
-            }
-
             Gizmos.DrawSphere(transform.position + new Vector3(grabbedCharacterOffset.x * facingDirection, grabbedCharacterOffset.y, grabbedCharacterOffset.z), 0.1f);
         }
     }

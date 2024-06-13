@@ -9,7 +9,8 @@ using UnityEngine.UI;
 
 public class LobbyManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private CharacterData[] characterData;
+    public CharacterData[] CharacterData => characterData;
 
     [SerializeField] private LoadSceneManager loadSceneManager;
     private List<LobbyPlayer> lobbyPlayersList = new List<LobbyPlayer>();
@@ -167,7 +168,7 @@ public class LobbyManager : MonoBehaviour
         foreach (LobbyPlayer lobbyPlayer in lobbyPlayersList)
         {
             lobbyPlayer.EnablePlayerActionMap();
-            lobbyPlayer.GetComponent<PlayableCharacter>().SetupCharacter(lobbyPlayer.SelectedCharacterName);
+            //lobbyPlayer.GetComponent<PlayableCharacter>().SetupCharacter(lobbyPlayer.SelectedCharacterName);
         }
         
         loadSceneManager.LoadScene(1);
@@ -176,6 +177,9 @@ public class LobbyManager : MonoBehaviour
     public void JoinPlayer(PlayerInput lobbyPlayerInput)
     {
         LobbyPlayer joinedPlayer = lobbyPlayerInput.GetComponent<LobbyPlayer>();
+
+        //apply character data on player
+
         mainInputManager.LockedObject = playerFrameObjects[0];
         int emptyIndex = lobbyPlayersList.FindIndex(player => player == null);
 
@@ -199,7 +203,7 @@ public class LobbyManager : MonoBehaviour
 
         if (leftPlayer.Ready)
         {
-            lockedCharacterNamesList.Remove(leftPlayer.SelectedCharacterName);
+            lockedCharacterNamesList.Remove(leftPlayer.CharacterData.name);
         }
 
         foreach (LobbyPlayer player in lobbyPlayersList)

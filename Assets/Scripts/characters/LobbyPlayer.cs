@@ -8,9 +8,8 @@ public class LobbyPlayer : MonoBehaviour
     private bool ready;
     public bool Ready => ready;
 
-    private string[] characterNames = { "Qyron", "Qyana", "Meowcello", "Gark" };
-    private string selectedCharacterName;
-    public string SelectedCharacterName => selectedCharacterName;
+    private CharacterData characterData;
+    public CharacterData CharacterData => characterData;
 
     private int selectedCharacterIndex;
 
@@ -20,10 +19,12 @@ public class LobbyPlayer : MonoBehaviour
     private Animator playerFrameAnimator;
     private Animator characterAnimator;
     private LobbyManager lobbyManager;
+    private PlayableCharacter playableCharacter;
 
     void Awake()
     {
         lobbyManager = FindObjectOfType<LobbyManager>();
+        playableCharacter = GetComponent<PlayableCharacter>();
 
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
@@ -50,7 +51,7 @@ public class LobbyPlayer : MonoBehaviour
     {
         if (playerFrameObject != null)
         {
-            bool isUnavailable = lobbyManager.LockedCharacterNamesList.Contains(selectedCharacterName) && !ready;
+            bool isUnavailable = lobbyManager.LockedCharacterNamesList.Contains(characterData.name) && !ready;
             playerFrameAnimator.SetBool("unavailable", isUnavailable);
             characterAnimator.GetComponent<Image>().color = isUnavailable ? Color.gray : Color.white;
 
@@ -63,7 +64,7 @@ public class LobbyPlayer : MonoBehaviour
     {
         ready = false;
         selectedCharacterIndex = 0;
-        selectedCharacterName = characterNames[selectedCharacterIndex];
+        characterData = lobbyManager.CharacterData[selectedCharacterIndex];
         playerFrameAnimator.SetBool("ready", false);
         playerFrameAnimator.SetBool("empty", false);
         playerFrameAnimator.SetBool("unavailable", false);
@@ -88,8 +89,10 @@ public class LobbyPlayer : MonoBehaviour
     {
         if (context.performed && !ready)
         {
-            selectedCharacterIndex = (selectedCharacterIndex + 1) % characterNames.Length;
-            selectedCharacterName = characterNames[selectedCharacterIndex];
+            selectedCharacterIndex = (selectedCharacterIndex + 1) % lobbyManager.CharacterData.Length;
+            //selectedCharacterName = characterNames[selectedCharacterIndex];
+            characterData = lobbyManager.CharacterData[selectedCharacterIndex];
+            playableCharacter.SetCharacterData(lobbyManager.CharacterData[selectedCharacterIndex]);
         }
     }
 
@@ -97,8 +100,10 @@ public class LobbyPlayer : MonoBehaviour
     {
         if (context.performed && !ready)
         {
-            selectedCharacterIndex = (selectedCharacterIndex - 1 + characterNames.Length) % characterNames.Length;
-            selectedCharacterName = characterNames[selectedCharacterIndex];
+            selectedCharacterIndex = (selectedCharacterIndex - 1 + lobbyManager.CharacterData.Length) % lobbyManager.CharacterData.Length;
+            //selectedCharacterName = characterNames[selectedCharacterIndex];
+            characterData = lobbyManager.CharacterData[selectedCharacterIndex];
+            playableCharacter.SetCharacterData(lobbyManager.CharacterData[selectedCharacterIndex]);
         }
     }
 
@@ -106,7 +111,7 @@ public class LobbyPlayer : MonoBehaviour
     {
         if (context.performed)
         {
-            if (!ready && !lobbyManager.LockedCharacterNamesList.Contains(selectedCharacterName))
+            if (!ready && !lobbyManager.LockedCharacterNamesList.Contains(characterData.name))
             {
                 SetReadyState(true);
             }
@@ -120,7 +125,7 @@ public class LobbyPlayer : MonoBehaviour
     private void SetReadyState(bool state)
     {
         ready = state;
-        lobbyManager.ToggleLockedCharacter(selectedCharacterName, ready);
+        lobbyManager.ToggleLockedCharacter(characterData.name, ready);
         playerFrameAnimator.SetBool("ready", ready);
     }
 

@@ -155,16 +155,8 @@ MonoBehaviour:
   sr: {fileID: 0}
   bc: {fileID: 0}
   debug: 1
-  baseMaxHealth: 40
-  baseResistance: 0
-  baseDamageReduction: 0
-  baseAttackDamage: 3
-  baseCriticalChance: 12
-  baseSpeed: 0
-  baseDodgeChance: 0
-  baseMoveSpeed: 3
-  baseJumpForce: 0
-  baseRespect: 0
+  characterData: {fileID: 11400000, guid: 1ec6d3f2eeb914245ad62e0925c9152a, type: 2}
+  characterName: 
   stepAssist: 1
   stepAssistRay: {x: 0, y: -1, z: 0}
   stepAssistLimit: {x: 0, y: -0.8, z: 0}
@@ -184,6 +176,8 @@ MonoBehaviour:
   damageTextOffset: {x: 0.5, y: 0}
   damageTextFaceToDirection: 0
   stunParticles: {fileID: 1511485841948778553}
+  combatBoxOffset: {x: 0.5, y: -0.5, z: 0}
+  combatBoxSize: {x: 1.4, y: 1.5, z: 1}
   targetSearchBoxSize: {x: 10, y: 5, z: 10}
   loseTargetAtRange: 10
   lightAttackDelay: 0.1
@@ -191,8 +185,6 @@ MonoBehaviour:
   canHeavyAttack: 1
   heavyAttackDelay: 0.4
   heavyAttackCD: 5
-  combatBoxSize: {x: 1.4, y: 1.5, z: 1}
-  combatBoxOffset: {x: 0.5, y: -0.5, z: 0}
   freeMovement: 1
   moveTimeRange: {x: 1, y: 6}
   idleTimeRange: {x: 2, y: 8}
