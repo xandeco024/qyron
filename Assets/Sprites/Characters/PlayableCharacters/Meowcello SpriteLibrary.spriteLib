@@ -1,0 +1,425 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library:
+  - m_Name: Idle 1
+    m_Hash: 244403810
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Meowcello_0
+      m_Hash: 872291200
+      m_Sprite: {fileID: 1951143598, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1951143598, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_1
+      m_Hash: 83438358
+      m_Sprite: {fileID: -468956843, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -468956843, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_2
+      m_Hash: 502299308
+      m_Sprite: {fileID: -139090818, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -139090818, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_3
+      m_Hash: 720849466
+      m_Sprite: {fileID: 1174806973, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1174806973, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_4
+      m_Hash: 882106265
+      m_Sprite: {fileID: -1495640005, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1495640005, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_5
+      m_Hash: 60092175
+      m_Sprite: {fileID: -1331776253, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1331776253, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_6
+      m_Hash: 446545589
+      m_Sprite: {fileID: -1273421963, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1273421963, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_7
+      m_Hash: 765103651
+      m_Sprite: {fileID: -730496965, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -730496965, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 0
+  - m_Name: Idle 2
+    m_Hash: 395845592
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Meowcello_8
+      m_Hash: 1025872818
+      m_Sprite: {fileID: -1376742415, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1376742415, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_9
+      m_Hash: 170042148
+      m_Sprite: {fileID: 1577155857, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1577155857, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_10
+      m_Hash: 9147227
+      m_Sprite: {fileID: -128639478, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -128639478, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_11
+      m_Hash: 931963853
+      m_Sprite: {fileID: -2084391830, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2084391830, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 0
+  - m_Name: Jumping
+    m_Hash: 63649830
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Meowcello_16
+      m_Hash: 703084142
+      m_Sprite: {fileID: 516175135, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 516175135, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_17
+      m_Hash: 518981368
+      m_Sprite: {fileID: 733675814, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 733675814, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 0
+  - m_Name: Falling
+    m_Hash: 998495048
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Meowcello_24
+      m_Hash: 751502465
+      m_Sprite: {fileID: -1718604969, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1718604969, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_25
+      m_Hash: 466367511
+      m_Sprite: {fileID: -1880689336, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1880689336, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 0
+  - m_Name: Running
+    m_Hash: 547139827
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Meowcello_32
+      m_Hash: 481530101
+      m_Sprite: {fileID: -1089393098, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1089393098, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_33
+      m_Hash: 733257827
+      m_Sprite: {fileID: 1721061513, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1721061513, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_34
+      m_Hash: 902837696
+      m_Sprite: {fileID: -1174057032, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1174057032, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_35
+      m_Hash: 47646038
+      m_Sprite: {fileID: 382459659, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 382459659, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_36
+      m_Hash: 467555564
+      m_Sprite: {fileID: 725835093, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 725835093, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_37
+      m_Hash: 752444538
+      m_Sprite: {fileID: 1708236171, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1708236171, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 0
+  - m_Name: Dashing
+    m_Hash: 30299493
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Meowcello_40
+      m_Hash: 1039951646
+      m_Sprite: {fileID: 1306163378, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1306163378, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 0
+  - m_Name: Attack Dashing
+    m_Hash: 6603366
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Meowcello_48
+      m_Hash: 858255148
+      m_Sprite: {fileID: 1210410312, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1210410312, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 0
+  - m_Name: Hurt
+    m_Hash: 666872612
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Meowcello_64
+      m_Hash: 145211781
+      m_Sprite: {fileID: -1627695458, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1627695458, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 0
+  - m_Name: Downed
+    m_Hash: 412962281
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Meowcello_72
+      m_Hash: 954160625
+      m_Sprite: {fileID: -1987262485, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1987262485, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 0
+  - m_Name: Light Attack 1
+    m_Hash: 413525443
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Meowcello_88
+      m_Hash: 529702944
+      m_Sprite: {fileID: 746349314, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 746349314, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_89
+      m_Hash: 680890550
+      m_Sprite: {fileID: -2090391645, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2090391645, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_90
+      m_Hash: 139598163
+      m_Sprite: {fileID: -926312025, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -926312025, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_91
+      m_Hash: 1062545861
+      m_Sprite: {fileID: -1291609813, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1291609813, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_92
+      m_Hash: 643594367
+      m_Sprite: {fileID: -1576485879, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1576485879, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_93
+      m_Hash: 291195113
+      m_Sprite: {fileID: -693966826, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -693966826, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 0
+  - m_Name: Light Attack 2
+    m_Hash: 28095609
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Meowcello_96
+      m_Hash: 556907622
+      m_Sprite: {fileID: -1416437137, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1416437137, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_97
+      m_Hash: 372673776
+      m_Sprite: {fileID: -319478606, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -319478606, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_98
+      m_Hash: 109678945
+      m_Sprite: {fileID: -1210565967, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1210565967, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_99
+      m_Hash: 831431159
+      m_Sprite: {fileID: -1720089798, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1720089798, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_100
+      m_Hash: 140696782
+      m_Sprite: {fileID: 862320694, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 862320694, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_101
+      m_Hash: 1063644248
+      m_Sprite: {fileID: 1796339408, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1796339408, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 0
+  - m_Name: LLLL Combo
+    m_Hash: 322984577
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Meowcello_104
+      m_Hash: 252647639
+      m_Sprite: {fileID: 768907985, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 768907985, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_105
+      m_Hash: 940058689
+      m_Sprite: {fileID: -2128535400, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2128535400, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_106
+      m_Hash: 553744891
+      m_Sprite: {fileID: 308635742, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 308635742, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_107
+      m_Hash: 369510765
+      m_Sprite: {fileID: -1071430953, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1071430953, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_108
+      m_Hash: 112809212
+      m_Sprite: {fileID: -204876951, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -204876951, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 0
+  - m_Name: Heavy Attack 1
+    m_Hash: 1039143614
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Meowcello_112
+      m_Hash: 1064799395
+      m_Sprite: {fileID: 1736778973, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1736778973, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_113
+      m_Hash: 141605941
+      m_Sprite: {fileID: -844435998, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -844435998, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_114
+      m_Hash: 370420118
+      m_Sprite: {fileID: -1405118072, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1405118072, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 0
+  - m_Name: Heavy Attack 2
+    m_Hash: 620315396
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Meowcello_120
+      m_Hash: 978632268
+      m_Sprite: {fileID: 1759321990, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1759321990, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_121
+      m_Hash: 223579866
+      m_Sprite: {fileID: -1509013611, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1509013611, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_122
+      m_Hash: 341499744
+      m_Sprite: {fileID: 1823759081, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1823759081, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 0
+  - m_Name: HHHH Combo
+    m_Hash: 927105310
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Meowcello_128
+      m_Hash: 881800830
+      m_Sprite: {fileID: -2066615215, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2066615215, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_129
+      m_Hash: 59246312
+      m_Sprite: {fileID: -1165935630, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1165935630, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_130
+      m_Hash: 592416525
+      m_Sprite: {fileID: 1004140542, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1004140542, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_131
+      m_Hash: 340311963
+      m_Sprite: {fileID: 1571920171, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1571920171, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 0
+  - m_Name: Grabbing Idle
+    m_Hash: 745120628
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Meowcello_136
+      m_Hash: 170666552
+      m_Sprite: {fileID: 2025982844, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2025982844, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_137
+      m_Hash: 1026235054
+      m_Sprite: {fileID: 410773445, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 410773445, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 0
+  - m_Name: Grabbing Walking
+    m_Hash: 899705994
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Meowcello_144
+      m_Hash: 727965139
+      m_Sprite: {fileID: 363024694, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 363024694, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_145
+      m_Hash: 476376389
+      m_Sprite: {fileID: -1585094427, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1585094427, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_146
+      m_Hash: 91077887
+      m_Sprite: {fileID: 234924678, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 234924678, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_147
+      m_Hash: 845843561
+      m_Sprite: {fileID: 1382467895, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1382467895, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_148
+      m_Hash: 584421880
+      m_Sprite: {fileID: -686279697, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -686279697, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    - m_Name: Meowcello_149
+      m_Hash: 366125422
+      m_Sprite: {fileID: 115316663, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 115316663, guid: 054f49c860e569e49b362fba55ae3e55, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 0
+  m_PrimaryLibraryGUID: 
+  m_ModificationHash: 638539789105628825
+  m_Version: 1

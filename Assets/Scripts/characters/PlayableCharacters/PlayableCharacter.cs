@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class PlayableCharacter : Character {
 
+    private PlayableCharacterData playableCharacterData;
+
     [Header("Character Stats")]
     private int level = 1;
     public int Level { get { return level; } }
@@ -65,7 +67,7 @@ public class PlayableCharacter : Character {
     [SerializeField] private Vector3 grabbedCharacterOffset;
     private bool isGrabbing;
     private Character grabbedCharacter;
-    
+
     private List<string> movementRestrictions = new List<string>();
     public List<string> MovementRestrictions { get { return movementRestrictions; } }
 
@@ -146,7 +148,6 @@ public class PlayableCharacter : Character {
             downedUIObject.transform.rotation = Quaternion.Euler(0, 0, 0);
             rb.velocity = Vector3.zero;
         }
-
     }
 
     public void RevivePlayer(InputAction.CallbackContext ctx)
@@ -247,9 +248,10 @@ public class PlayableCharacter : Character {
         }
     }
 
-    void Attack()
+    void Attack() //funcao para fazer o personagem atacar
     {
-
+        // faz tal coisa
+        // dps tal coisa
     }
 
     public void LightAttack(InputAction.CallbackContext ctx)
@@ -777,7 +779,7 @@ public class PlayableCharacter : Character {
         {
             yield return new WaitForSeconds(dashDuration / cloneAmount);
             GameObject dashTrailIstance = GameObject.Instantiate(dashCloneTrailPrefab, transform.position, Quaternion.Euler(0, facingDirection == 1 ? 0 : 180, 0));
-            dashTrailIstance.GetComponent<SpriteRenderer>().color = color;
+            //dashTrailIstance.GetComponent<SpriteRenderer>().color = characterData.;
             Destroy(dashTrailIstance, cloneDuration);
         }
     }

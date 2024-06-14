@@ -6,7 +6,6 @@ using UnityEngine;
 public class CharacterData : ScriptableObject
 {
     public new string name;
-    public Color color;
     public float maxHealth;
     public float resistance;
     public float damageReduction;
@@ -17,5 +16,4 @@ public class CharacterData : ScriptableObject
     public float moveSpeed;
     public float jumpForce;
     public float respect;
-    public Sprite sprite;
 }

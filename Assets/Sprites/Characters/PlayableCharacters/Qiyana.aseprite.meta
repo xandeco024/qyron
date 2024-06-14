@@ -1,0 +1,1928 @@
+fileFormatVersion: 2
+guid: a03edab5649925a42973a44fba3e16f0
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Qiyana_Frame_0
+    originalName: 
+    pivot: {x: 0.60465115, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 203
+      width: 43
+      height: 58
+    spriteID: 4ee7ae7aeb24ae34db1393918c4f1732
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 176, y: 203}
+  - name: Qiyana_Frame_1
+    originalName: 
+    pivot: {x: 0.50000006, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 228
+      y: 940
+      width: 34
+      height: 58
+    spriteID: 22a0ab031c2a9874980445d781fa997f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 228, y: 940}
+  - name: Qiyana_Frame_2
+    originalName: 
+    pivot: {x: 0.48571432, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 228
+      y: 810
+      width: 35
+      height: 57
+    spriteID: 25bdcb3c2dd9bd045b74ae12e4a2bf00
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 228, y: 810}
+  - name: Qiyana_Frame_3
+    originalName: 
+    pivot: {x: 0.48571432, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 282
+      y: 4
+      width: 35
+      height: 56
+    spriteID: d55658dd1ec39be4ab72a37ee8c03cc9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 282, y: 4}
+  - name: Qiyana_Frame_4
+    originalName: 
+    pivot: {x: 0.48571432, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 228
+      y: 678
+      width: 35
+      height: 58
+    spriteID: 85122a05e08f6b14aae334c5d7d4040b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 228, y: 678}
+  - name: Qiyana_Frame_5
+    originalName: 
+    pivot: {x: 0.48571432, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 228
+      y: 875
+      width: 35
+      height: 57
+    spriteID: 456f693984145714ab5cefd86fd7a033
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 228, y: 875}
+  - name: Qiyana_Frame_6
+    originalName: 
+    pivot: {x: 0.48571432, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 282
+      y: 68
+      width: 35
+      height: 56
+    spriteID: a692efa01b68c46429b1d65a7cab1618
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 282, y: 68}
+  - name: Qiyana_Frame_7
+    originalName: 
+    pivot: {x: 0.48571432, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 228
+      y: 744
+      width: 35
+      height: 58
+    spriteID: 2fff23898071e2f47a23c8f60f53c921
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 228, y: 744}
+  - name: Qiyana_Frame_8
+    originalName: 
+    pivot: {x: 0.50000006, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 473
+      width: 40
+      height: 58
+    spriteID: 910865a36de7a224d829f44795969391
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 176, y: 473}
+  - name: Qiyana_Frame_9
+    originalName: 
+    pivot: {x: 0.52500004, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 539
+      width: 40
+      height: 57
+    spriteID: d6dbc149852c1234aa39c33b561fa229
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 176, y: 539}
+  - name: Qiyana_Frame_10
+    originalName: 
+    pivot: {x: 0.52500004, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 228
+      y: 66
+      width: 40
+      height: 56
+    spriteID: 278e922004b2c3446ace3de87d1ea04e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 228, y: 66}
+  - name: Qiyana_Frame_11
+    originalName: 
+    pivot: {x: 0.50000006, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 604
+      width: 40
+      height: 57
+    spriteID: b9493437429eaa64384a0f50fffac6f6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 176, y: 604}
+  - name: Qiyana_Frame_12
+    originalName: 
+    pivot: {x: 0.44117647, y: -0.06666667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 228
+      y: 610
+      width: 34
+      height: 60
+    spriteID: 1562ced76b3ef9d42b00791299eaf271
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 228, y: 610}
+  - name: Qiyana_Frame_13
+    originalName: 
+    pivot: {x: 0.44117647, y: -0.04918033}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 228
+      y: 541
+      width: 34
+      height: 61
+    spriteID: 285ae3cc136d70b499c24b7042e2c8b7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 228, y: 541}
+  - name: Qiyana_Frame_14
+    originalName: 
+    pivot: {x: 0.40000004, y: -0.030769233}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 669
+      width: 35
+      height: 65
+    spriteID: 226c7608fedfe1649ad37840b1845a8c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 176, y: 669}
+  - name: Qiyana_Frame_15
+    originalName: 
+    pivot: {x: 0.38235292, y: -0.04761905}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 228
+      y: 470
+      width: 34
+      height: 63
+    spriteID: 8793a4728ed31a1419bc081be487e5e9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 228, y: 470}
+  - name: Qiyana_Frame_16
+    originalName: 
+    pivot: {x: 0.48275867, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 618
+      width: 58
+      height: 56
+    spriteID: ee3752e5622aad14a8bd29da6249f244
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 618}
+  - name: Qiyana_Frame_17
+    originalName: 
+    pivot: {x: 0.5272727, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 164
+      width: 55
+      height: 54
+    spriteID: 43009d5132b6b584e917cf3ba39794ee
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 164}
+  - name: Qiyana_Frame_18
+    originalName: 
+    pivot: {x: 0.5333333, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 481
+      width: 60
+      height: 58
+    spriteID: 04ab825a0d7feb645879f03ffdd54d5b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 481}
+  - name: Qiyana_Frame_19
+    originalName: 
+    pivot: {x: 0.5961539, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 292
+      width: 52
+      height: 56
+    spriteID: fa156db200e38ad40b176177ed95f330
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 292}
+  - name: Qiyana_Frame_20
+    originalName: 
+    pivot: {x: 0.63043475, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 228
+      y: 4
+      width: 46
+      height: 54
+    spriteID: 4d02cacfddb925c47b61aeb00b5c9d3a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 228, y: 4}
+  - name: Qiyana_Frame_21
+    originalName: 
+    pivot: {x: 0.49999997, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 211
+      width: 64
+      height: 58
+    spriteID: 705b18de49327fc4282415c5ab8231c2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 211}
+  - name: Qiyana_Frame_22
+    originalName: 
+    pivot: {x: 0.58181816, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 682
+      width: 55
+      height: 58
+    spriteID: d00e5fbb856f5c848b364ef00bca7f7d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 682}
+  - name: Qiyana_Frame_23
+    originalName: 
+    pivot: {x: 0.4074074, y: -0.34210527}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 4
+      width: 81
+      height: 38
+    spriteID: 9a48859c600781448bc57a8f3a0cb873
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 4}
+  - name: Qiyana_Frame_24
+    originalName: 
+    pivot: {x: 0.58181816, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 748
+      width: 55
+      height: 58
+    spriteID: 5d724ffcb1b9bec4581cd92720b2ddd5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 748}
+  - name: Qiyana_Frame_25
+    originalName: 
+    pivot: {x: 0.4, y: -0.34210527}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 50
+      width: 80
+      height: 38
+    spriteID: 5ede4c370354a2944b573b67c53d5da5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 50}
+  - name: Qiyana_Frame_26
+    originalName: 
+    pivot: {x: 0.46, y: -0.071428575}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 620
+      width: 50
+      height: 56
+    spriteID: b14bb649781872449aab7027474b948b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 620}
+  - name: Qiyana_Frame_27
+    originalName: 
+    pivot: {x: 0.586207, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 325
+      y: 4
+      width: 58
+      height: 31
+    spriteID: 5d2df9dc72cbdd84db1623914b15b1f6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 325, y: 4}
+  - name: Qiyana_Frame_28
+    originalName: 
+    pivot: {x: 0.5333333, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 75
+      height: 57
+    spriteID: 91763644f54d03f4c9d3dba7feb866e2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Qiyana_Frame_29
+    originalName: 
+    pivot: {x: 0.42857143, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 486
+      width: 49
+      height: 58
+    spriteID: 044c129937342bf4bb7ab131debcb2c1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 486}
+  - name: Qiyana_Frame_30
+    originalName: 
+    pivot: {x: 0.3962264, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 814
+      width: 53
+      height: 57
+    spriteID: f9c66181630df514ab2c6d9efed44eab
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 814}
+  - name: Qiyana_Frame_31
+    originalName: 
+    pivot: {x: 0.4117647, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 356
+      width: 51
+      height: 57
+    spriteID: 91166e853b5a22e498c1b0468362d443
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 356}
+  - name: Qiyana_Frame_32
+    originalName: 
+    pivot: {x: 0.48837212, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 269
+      width: 43
+      height: 58
+    spriteID: 3290c0a11d64529418bdd57b077e7676
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 176, y: 269}
+  - name: Qiyana_Frame_33
+    originalName: 
+    pivot: {x: 0.4871795, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 884
+      width: 39
+      height: 58
+    spriteID: d16e47af02b5dfc48afc5506b9630bf7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 176, y: 884}
+  - name: Qiyana_Frame_34
+    originalName: 
+    pivot: {x: 0.49999994, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 228
+      y: 200
+      width: 38
+      height: 58
+    spriteID: 67938c29cde55024b9cdc87e0d1a1f18
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 228, y: 200}
+  - name: Qiyana_Frame_35
+    originalName: 
+    pivot: {x: 0.4117647, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 226
+      width: 51
+      height: 58
+    spriteID: 4432228fa6fa8774fbb4591585310cb3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 226}
+  - name: Qiyana_Frame_36
+    originalName: 
+    pivot: {x: 0.3962264, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 879
+      width: 53
+      height: 57
+    spriteID: 52f9c4d13a9def0418f1d03a523d6aca
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 879}
+  - name: Qiyana_Frame_37
+    originalName: 
+    pivot: {x: 0.4117647, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 421
+      width: 51
+      height: 57
+    spriteID: 92a41dce83242a74b9f0f2e91c2951f7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 421}
+  - name: Qiyana_Frame_38
+    originalName: 
+    pivot: {x: 0.47727275, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 4
+      width: 44
+      height: 58
+    spriteID: 6856513da89aeef4da968abe2fb6a6e2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 176, y: 4}
+  - name: Qiyana_Frame_39
+    originalName: 
+    pivot: {x: 0.4871795, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 950
+      width: 39
+      height: 58
+    spriteID: 2691bebea6822774e874efef3001f8c5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 176, y: 950}
+  - name: Qiyana_Frame_40
+    originalName: 
+    pivot: {x: 0.49999994, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 228
+      y: 266
+      width: 38
+      height: 58
+    spriteID: 65974a48063811649ad5160d92b21d67
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 228, y: 266}
+  - name: Qiyana_Frame_41
+    originalName: 
+    pivot: {x: 0.6428572, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 70
+      width: 42
+      height: 60
+    spriteID: 60b9baaa1359a9149aa9dfce83f83a06
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 176, y: 70}
+  - name: Qiyana_Frame_42
+    originalName: 
+    pivot: {x: 0.6428572, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 335
+      width: 42
+      height: 58
+    spriteID: 38cccf7a40affae47b430ada47d7df92
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 176, y: 335}
+  - name: Qiyana_Frame_43
+    originalName: 
+    pivot: {x: 0.45762712, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 69
+      width: 59
+      height: 63
+    spriteID: bb4d6c57d04752549b77ea79d459f222
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 69}
+  - name: Qiyana_Frame_44
+    originalName: 
+    pivot: {x: 0.45762712, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 140
+      width: 59
+      height: 63
+    spriteID: 8259c5a2df2993046b060c6b45a28e19
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 140}
+  - name: Qiyana_Frame_45
+    originalName: 
+    pivot: {x: 0.509434, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 547
+      width: 53
+      height: 63
+    spriteID: bd3d326b76c28be4cacb7e21b1faa7ed
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 547}
+  - name: Qiyana_Frame_46
+    originalName: 
+    pivot: {x: 0.5434783, y: -0.03508772}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 822
+      width: 46
+      height: 57
+    spriteID: 450dee87963a00a4db05880d30b6351e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 822}
+  - name: Qiyana_Frame_47
+    originalName: 
+    pivot: {x: 0.55555564, y: -0.03508772}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 955
+      width: 45
+      height: 57
+    spriteID: 80822c3fb45ead344a77b21b3cf8b8b4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 955}
+  - name: Qiyana_Frame_48
+    originalName: 
+    pivot: {x: 0.54545456, y: -0.03508772}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 138
+      width: 44
+      height: 57
+    spriteID: 0533685d89d1e484cb9f5910e64ed3b3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 176, y: 138}
+  - name: Qiyana_Frame_49
+    originalName: 
+    pivot: {x: 0.56, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 944
+      width: 50
+      height: 60
+    spriteID: a95cef7f353c7b34abcc4f6bc78d3055
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 944}
+  - name: Qiyana_Frame_50
+    originalName: 
+    pivot: {x: 0.56, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 96
+      width: 50
+      height: 60
+    spriteID: f84fd4e597b18c545a6dc73f83c5b7e3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 96}
+  - name: Qiyana_Frame_51
+    originalName: 
+    pivot: {x: 0.5957447, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 552
+      width: 47
+      height: 60
+    spriteID: 21a46e43ed71d074aa0423125cdcd04c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 552}
+  - name: Qiyana_Frame_52
+    originalName: 
+    pivot: {x: 0.65116286, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 887
+      width: 43
+      height: 60
+    spriteID: 8537e480286a5bf4db5447669f400812
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 887}
+  - name: Qiyana_Frame_53
+    originalName: 
+    pivot: {x: 0.4666667, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 277
+      width: 60
+      height: 60
+    spriteID: 51ad5c30b89b1eb438e8bcf8b435d40f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 277}
+  - name: Qiyana_Frame_54
+    originalName: 
+    pivot: {x: 0.4666667, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 345
+      width: 60
+      height: 60
+    spriteID: 2c639979c2b1f254c805c0aec72deedb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 345}
+  - name: Qiyana_Frame_55
+    originalName: 
+    pivot: {x: 0.4666667, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 413
+      width: 60
+      height: 60
+    spriteID: 1b7bd7dfe74db01419e79742a8e57e63
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 413}
+  - name: Qiyana_Frame_56
+    originalName: 
+    pivot: {x: 0.6363637, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 684
+      width: 44
+      height: 62
+    spriteID: 5306b6af82f360b4e955b0e360031b6a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 684}
+  - name: Qiyana_Frame_57
+    originalName: 
+    pivot: {x: 0.6363637, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 754
+      width: 44
+      height: 60
+    spriteID: cea5c990162567749bf831d9e8536a24
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 754}
+  - name: Qiyana_Frame_58
+    originalName: 
+    pivot: {x: 0.5277778, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 742
+      width: 36
+      height: 63
+    spriteID: 90534a17f91e40f44aee151fab15c136
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 176, y: 742}
+  - name: Qiyana_Frame_59
+    originalName: 
+    pivot: {x: 0.5277778, y: -0.016393444}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 228
+      y: 332
+      width: 36
+      height: 61
+    spriteID: 1747672af4b419a498b94643a7264447
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 228, y: 332}
+  - name: Qiyana_Frame_60
+    originalName: 
+    pivot: {x: 0.5277778, y: -0.032786887}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 228
+      y: 401
+      width: 36
+      height: 61
+    spriteID: 75b212f527d530247a4034825cebc308
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 228, y: 401}
+  - name: Qiyana_Frame_61
+    originalName: 
+    pivot: {x: 0.5277778, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 228
+      y: 130
+      width: 36
+      height: 62
+    spriteID: a7a75abf1ff798f40b7cf8f701b2310d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 228, y: 130}
+  - name: Qiyana_Frame_62
+    originalName: 
+    pivot: {x: 0.5277778, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 813
+      width: 36
+      height: 63
+    spriteID: 9d220b71b2b83db478ad89ad301bcf2b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 176, y: 813}
+  - name: Qiyana_Frame_63
+    originalName: 
+    pivot: {x: 0.49999994, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 401
+      width: 38
+      height: 64
+    spriteID: a6485f4e6ca1cc3448ee72088a56bbb2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 176, y: 401}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -1427291245
+    name: Qiyana
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Qiyana_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 22
+        y: 0
+        width: 43
+        height: 58
+      spriteId: 4ee7ae7aeb24ae34db1393918c4f1732
+    - name: Qiyana_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 31
+        y: 0
+        width: 34
+        height: 58
+      spriteId: 22a0ab031c2a9874980445d781fa997f
+    - name: Qiyana_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 31
+        y: 0
+        width: 35
+        height: 57
+      spriteId: 25bdcb3c2dd9bd045b74ae12e4a2bf00
+    - name: Qiyana_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 31
+        y: 0
+        width: 35
+        height: 56
+      spriteId: d55658dd1ec39be4ab72a37ee8c03cc9
+    - name: Qiyana_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 31
+        y: 0
+        width: 35
+        height: 58
+      spriteId: 85122a05e08f6b14aae334c5d7d4040b
+    - name: Qiyana_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 31
+        y: 0
+        width: 35
+        height: 57
+      spriteId: 456f693984145714ab5cefd86fd7a033
+    - name: Qiyana_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 31
+        y: 0
+        width: 35
+        height: 56
+      spriteId: a692efa01b68c46429b1d65a7cab1618
+    - name: Qiyana_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 31
+        y: 0
+        width: 35
+        height: 58
+      spriteId: 2fff23898071e2f47a23c8f60f53c921
+    - name: Qiyana_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 28
+        y: 0
+        width: 40
+        height: 58
+      spriteId: 910865a36de7a224d829f44795969391
+    - name: Qiyana_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 27
+        y: 0
+        width: 40
+        height: 57
+      spriteId: d6dbc149852c1234aa39c33b561fa229
+    - name: Qiyana_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 27
+        y: 0
+        width: 40
+        height: 56
+      spriteId: 278e922004b2c3446ace3de87d1ea04e
+    - name: Qiyana_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 28
+        y: 0
+        width: 40
+        height: 57
+      spriteId: b9493437429eaa64384a0f50fffac6f6
+    - name: Qiyana_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 33
+        y: 4
+        width: 34
+        height: 60
+      spriteId: 1562ced76b3ef9d42b00791299eaf271
+    - name: Qiyana_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 33
+        y: 3
+        width: 34
+        height: 61
+      spriteId: 285ae3cc136d70b499c24b7042e2c8b7
+    - name: Qiyana_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 34
+        y: 2
+        width: 35
+        height: 65
+      spriteId: 226c7608fedfe1649ad37840b1845a8c
+    - name: Qiyana_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 35
+        y: 3
+        width: 34
+        height: 63
+      spriteId: 8793a4728ed31a1419bc081be487e5e9
+    - name: Qiyana_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 20
+        y: 0
+        width: 58
+        height: 56
+      spriteId: ee3752e5622aad14a8bd29da6249f244
+    - name: Qiyana_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 19
+        y: 0
+        width: 55
+        height: 54
+      spriteId: 43009d5132b6b584e917cf3ba39794ee
+    - name: Qiyana_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 16
+        y: 0
+        width: 60
+        height: 58
+      spriteId: 04ab825a0d7feb645879f03ffdd54d5b
+    - name: Qiyana_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 17
+        y: 0
+        width: 52
+        height: 56
+      spriteId: fa156db200e38ad40b176177ed95f330
+    - name: Qiyana_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 19
+        y: 0
+        width: 46
+        height: 54
+      spriteId: 4d02cacfddb925c47b61aeb00b5c9d3a
+    - name: Qiyana_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 16
+        y: 0
+        width: 64
+        height: 58
+      spriteId: 705b18de49327fc4282415c5ab8231c2
+    - name: Qiyana_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 16
+        y: 0
+        width: 55
+        height: 58
+      spriteId: d00e5fbb856f5c848b364ef00bca7f7d
+    - name: Qiyana_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 15
+        y: 13
+        width: 81
+        height: 38
+      spriteId: 9a48859c600781448bc57a8f3a0cb873
+    - name: Qiyana_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: 16
+        y: 0
+        width: 55
+        height: 58
+      spriteId: 5d724ffcb1b9bec4581cd92720b2ddd5
+    - name: Qiyana_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: 16
+        y: 13
+        width: 80
+        height: 38
+      spriteId: 5ede4c370354a2944b573b67c53d5da5
+    - name: Qiyana_Frame_26
+      frameIndex: 26
+      cellRect:
+        x: 25
+        y: 4
+        width: 50
+        height: 56
+      spriteId: b14bb649781872449aab7027474b948b
+    - name: Qiyana_Frame_27
+      frameIndex: 27
+      cellRect:
+        x: 14
+        y: 0
+        width: 58
+        height: 31
+      spriteId: 5d2df9dc72cbdd84db1623914b15b1f6
+    - name: Qiyana_Frame_28
+      frameIndex: 28
+      cellRect:
+        x: 8
+        y: 0
+        width: 75
+        height: 57
+      spriteId: 91763644f54d03f4c9d3dba7feb866e2
+    - name: Qiyana_Frame_29
+      frameIndex: 29
+      cellRect:
+        x: 27
+        y: 0
+        width: 49
+        height: 58
+      spriteId: 044c129937342bf4bb7ab131debcb2c1
+    - name: Qiyana_Frame_30
+      frameIndex: 30
+      cellRect:
+        x: 27
+        y: 0
+        width: 53
+        height: 57
+      spriteId: f9c66181630df514ab2c6d9efed44eab
+    - name: Qiyana_Frame_31
+      frameIndex: 31
+      cellRect:
+        x: 27
+        y: 0
+        width: 51
+        height: 57
+      spriteId: 91166e853b5a22e498c1b0468362d443
+    - name: Qiyana_Frame_32
+      frameIndex: 32
+      cellRect:
+        x: 27
+        y: 0
+        width: 43
+        height: 58
+      spriteId: 3290c0a11d64529418bdd57b077e7676
+    - name: Qiyana_Frame_33
+      frameIndex: 33
+      cellRect:
+        x: 29
+        y: 0
+        width: 39
+        height: 58
+      spriteId: d16e47af02b5dfc48afc5506b9630bf7
+    - name: Qiyana_Frame_34
+      frameIndex: 34
+      cellRect:
+        x: 29
+        y: 0
+        width: 38
+        height: 58
+      spriteId: 67938c29cde55024b9cdc87e0d1a1f18
+    - name: Qiyana_Frame_35
+      frameIndex: 35
+      cellRect:
+        x: 27
+        y: 0
+        width: 51
+        height: 58
+      spriteId: 4432228fa6fa8774fbb4591585310cb3
+    - name: Qiyana_Frame_36
+      frameIndex: 36
+      cellRect:
+        x: 27
+        y: 0
+        width: 53
+        height: 57
+      spriteId: 52f9c4d13a9def0418f1d03a523d6aca
+    - name: Qiyana_Frame_37
+      frameIndex: 37
+      cellRect:
+        x: 27
+        y: 0
+        width: 51
+        height: 57
+      spriteId: 92a41dce83242a74b9f0f2e91c2951f7
+    - name: Qiyana_Frame_38
+      frameIndex: 38
+      cellRect:
+        x: 27
+        y: 0
+        width: 44
+        height: 58
+      spriteId: 6856513da89aeef4da968abe2fb6a6e2
+    - name: Qiyana_Frame_39
+      frameIndex: 39
+      cellRect:
+        x: 29
+        y: 0
+        width: 39
+        height: 58
+      spriteId: 2691bebea6822774e874efef3001f8c5
+    - name: Qiyana_Frame_40
+      frameIndex: 40
+      cellRect:
+        x: 29
+        y: 0
+        width: 38
+        height: 58
+      spriteId: 65974a48063811649ad5160d92b21d67
+    - name: Qiyana_Frame_41
+      frameIndex: 41
+      cellRect:
+        x: 21
+        y: 0
+        width: 42
+        height: 60
+      spriteId: 60b9baaa1359a9149aa9dfce83f83a06
+    - name: Qiyana_Frame_42
+      frameIndex: 42
+      cellRect:
+        x: 21
+        y: 0
+        width: 42
+        height: 58
+      spriteId: 38cccf7a40affae47b430ada47d7df92
+    - name: Qiyana_Frame_43
+      frameIndex: 43
+      cellRect:
+        x: 21
+        y: 0
+        width: 59
+        height: 63
+      spriteId: bb4d6c57d04752549b77ea79d459f222
+    - name: Qiyana_Frame_44
+      frameIndex: 44
+      cellRect:
+        x: 21
+        y: 0
+        width: 59
+        height: 63
+      spriteId: 8259c5a2df2993046b060c6b45a28e19
+    - name: Qiyana_Frame_45
+      frameIndex: 45
+      cellRect:
+        x: 21
+        y: 0
+        width: 53
+        height: 63
+      spriteId: bd3d326b76c28be4cacb7e21b1faa7ed
+    - name: Qiyana_Frame_46
+      frameIndex: 46
+      cellRect:
+        x: 23
+        y: 2
+        width: 46
+        height: 57
+      spriteId: 450dee87963a00a4db05880d30b6351e
+    - name: Qiyana_Frame_47
+      frameIndex: 47
+      cellRect:
+        x: 23
+        y: 2
+        width: 45
+        height: 57
+      spriteId: 80822c3fb45ead344a77b21b3cf8b8b4
+    - name: Qiyana_Frame_48
+      frameIndex: 48
+      cellRect:
+        x: 24
+        y: 2
+        width: 44
+        height: 57
+      spriteId: 0533685d89d1e484cb9f5910e64ed3b3
+    - name: Qiyana_Frame_49
+      frameIndex: 49
+      cellRect:
+        x: 20
+        y: 0
+        width: 50
+        height: 60
+      spriteId: a95cef7f353c7b34abcc4f6bc78d3055
+    - name: Qiyana_Frame_50
+      frameIndex: 50
+      cellRect:
+        x: 20
+        y: 0
+        width: 50
+        height: 60
+      spriteId: f84fd4e597b18c545a6dc73f83c5b7e3
+    - name: Qiyana_Frame_51
+      frameIndex: 51
+      cellRect:
+        x: 20
+        y: 0
+        width: 47
+        height: 60
+      spriteId: 21a46e43ed71d074aa0423125cdcd04c
+    - name: Qiyana_Frame_52
+      frameIndex: 52
+      cellRect:
+        x: 20
+        y: 0
+        width: 43
+        height: 60
+      spriteId: 8537e480286a5bf4db5447669f400812
+    - name: Qiyana_Frame_53
+      frameIndex: 53
+      cellRect:
+        x: 20
+        y: 0
+        width: 60
+        height: 60
+      spriteId: 51ad5c30b89b1eb438e8bcf8b435d40f
+    - name: Qiyana_Frame_54
+      frameIndex: 54
+      cellRect:
+        x: 20
+        y: 0
+        width: 60
+        height: 60
+      spriteId: 2c639979c2b1f254c805c0aec72deedb
+    - name: Qiyana_Frame_55
+      frameIndex: 55
+      cellRect:
+        x: 20
+        y: 0
+        width: 60
+        height: 60
+      spriteId: 1b7bd7dfe74db01419e79742a8e57e63
+    - name: Qiyana_Frame_56
+      frameIndex: 56
+      cellRect:
+        x: 20
+        y: 0
+        width: 44
+        height: 62
+      spriteId: 5306b6af82f360b4e955b0e360031b6a
+    - name: Qiyana_Frame_57
+      frameIndex: 57
+      cellRect:
+        x: 20
+        y: 0
+        width: 44
+        height: 60
+      spriteId: cea5c990162567749bf831d9e8536a24
+    - name: Qiyana_Frame_58
+      frameIndex: 58
+      cellRect:
+        x: 29
+        y: 0
+        width: 36
+        height: 63
+      spriteId: 90534a17f91e40f44aee151fab15c136
+    - name: Qiyana_Frame_59
+      frameIndex: 59
+      cellRect:
+        x: 29
+        y: 1
+        width: 36
+        height: 61
+      spriteId: 1747672af4b419a498b94643a7264447
+    - name: Qiyana_Frame_60
+      frameIndex: 60
+      cellRect:
+        x: 29
+        y: 2
+        width: 36
+        height: 61
+      spriteId: 75b212f527d530247a4034825cebc308
+    - name: Qiyana_Frame_61
+      frameIndex: 61
+      cellRect:
+        x: 29
+        y: 0
+        width: 36
+        height: 62
+      spriteId: a7a75abf1ff798f40b7cf8f701b2310d
+    - name: Qiyana_Frame_62
+      frameIndex: 62
+      cellRect:
+        x: 29
+        y: 0
+        width: 36
+        height: 63
+      spriteId: 9d220b71b2b83db478ad89ad301bcf2b
+    - name: Qiyana_Frame_63
+      frameIndex: 63
+      cellRect:
+        x: 29
+        y: 0
+        width: 38
+        height: 64
+      spriteId: a6485f4e6ca1cc3448ee72088a56bbb2
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 96, y: 96}

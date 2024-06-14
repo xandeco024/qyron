@@ -1,0 +1,1928 @@
+fileFormatVersion: 2
+guid: 2aa22371830a2ce468b5754884990242
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Gark_Frame_0
+    originalName: 
+    pivot: {x: 0.48571432, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 227
+      y: 618
+      width: 35
+      height: 58
+    spriteID: 971a2cccc8d308a4b8c1f4a385530f28
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 227, y: 618}
+  - name: Gark_Frame_1
+    originalName: 
+    pivot: {x: 0.48571432, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 227
+      y: 750
+      width: 35
+      height: 57
+    spriteID: cd7ede09afbaaa34e8a25e57199e89bc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 227, y: 750}
+  - name: Gark_Frame_2
+    originalName: 
+    pivot: {x: 0.48571432, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 273
+      y: 4
+      width: 35
+      height: 56
+    spriteID: e9437a9750d9bd24ca0abe30703c9e1a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 273, y: 4}
+  - name: Gark_Frame_3
+    originalName: 
+    pivot: {x: 0.48571432, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 227
+      y: 815
+      width: 35
+      height: 57
+    spriteID: e2ac8b3678e30bc4598cd62dfe11eee4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 227, y: 815}
+  - name: Gark_Frame_4
+    originalName: 
+    pivot: {x: 0.48571432, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 227
+      y: 684
+      width: 35
+      height: 58
+    spriteID: b8c446b3ec10ee74a93efe484b5e4a4a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 227, y: 684}
+  - name: Gark_Frame_5
+    originalName: 
+    pivot: {x: 0.48571432, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 227
+      y: 880
+      width: 35
+      height: 57
+    spriteID: d4f40c8200b3b884d848441383719118
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 227, y: 880}
+  - name: Gark_Frame_6
+    originalName: 
+    pivot: {x: 0.48571432, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 273
+      y: 68
+      width: 35
+      height: 56
+    spriteID: 0978fb62df856ed4ca3b750594b4dc3a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 273, y: 68}
+  - name: Gark_Frame_7
+    originalName: 
+    pivot: {x: 0.48571432, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 227
+      y: 945
+      width: 35
+      height: 57
+    spriteID: 8ccdd0d69fd16d141848dcbce691c54b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 227, y: 945}
+  - name: Gark_Frame_8
+    originalName: 
+    pivot: {x: 0.50000006, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 175
+      y: 397
+      width: 40
+      height: 58
+    spriteID: 6c286708d61599a4b8e02f9492f5b418
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 175, y: 397}
+  - name: Gark_Frame_9
+    originalName: 
+    pivot: {x: 0.52500004, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 175
+      y: 535
+      width: 40
+      height: 57
+    spriteID: b758b58d2549e7a48b96daeb07694165
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 175, y: 535}
+  - name: Gark_Frame_10
+    originalName: 
+    pivot: {x: 0.52500004, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 175
+      y: 738
+      width: 40
+      height: 56
+    spriteID: 1f608b17d803d3f48adba92dee0f648c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 175, y: 738}
+  - name: Gark_Frame_11
+    originalName: 
+    pivot: {x: 0.50000006, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 175
+      y: 600
+      width: 40
+      height: 57
+    spriteID: aafd64b041a8a384b848bc61ff4b117c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 175, y: 600}
+  - name: Gark_Frame_12
+    originalName: 
+    pivot: {x: 0.44117647, y: -0.06666667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 227
+      y: 550
+      width: 34
+      height: 60
+    spriteID: e0d4f9a89530fa74284a20f28459dc18
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 227, y: 550}
+  - name: Gark_Frame_13
+    originalName: 
+    pivot: {x: 0.44117647, y: -0.04918033}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 227
+      y: 481
+      width: 34
+      height: 61
+    spriteID: 5af873a2d98a3454bb7c8d1a1e5aa3d6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 227, y: 481}
+  - name: Gark_Frame_14
+    originalName: 
+    pivot: {x: 0.40000004, y: -0.030769233}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 175
+      y: 665
+      width: 35
+      height: 65
+    spriteID: 2b6175b6a977c3248bb77de7ff33f24f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 175, y: 665}
+  - name: Gark_Frame_15
+    originalName: 
+    pivot: {x: 0.38235292, y: -0.04761905}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 227
+      y: 272
+      width: 34
+      height: 63
+    spriteID: 100e0e953b9c80b4a9389de08e85f897
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 227, y: 272}
+  - name: Gark_Frame_16
+    originalName: 
+    pivot: {x: 0.48275867, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 618
+      width: 58
+      height: 56
+    spriteID: 536f6128c977f964a9ecb31566340e08
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 618}
+  - name: Gark_Frame_17
+    originalName: 
+    pivot: {x: 0.5272727, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 814
+      width: 55
+      height: 54
+    spriteID: 06fe2437ce9b5194e92771906c266529
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 814}
+  - name: Gark_Frame_18
+    originalName: 
+    pivot: {x: 0.5333333, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 481
+      width: 60
+      height: 58
+    spriteID: 80e145ea3414ff7479e296eddb32a247
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 481}
+  - name: Gark_Frame_19
+    originalName: 
+    pivot: {x: 0.5961539, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 232
+      width: 52
+      height: 56
+    spriteID: b2e9313d4df5459418f56f7e95c06c94
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 232}
+  - name: Gark_Frame_20
+    originalName: 
+    pivot: {x: 0.63043475, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 964
+      width: 46
+      height: 54
+    spriteID: 8d8542c2cf2c0db4aae74f7933fda26d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 964}
+  - name: Gark_Frame_21
+    originalName: 
+    pivot: {x: 0.49999997, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 211
+      width: 64
+      height: 58
+    spriteID: 847cba0d9bf78194ab11a5e280f9d222
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 211}
+  - name: Gark_Frame_22
+    originalName: 
+    pivot: {x: 0.58181816, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 682
+      width: 55
+      height: 58
+    spriteID: 09761a360ab0d5b49b5d850b7cbcdbef
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 682}
+  - name: Gark_Frame_23
+    originalName: 
+    pivot: {x: 0.4, y: -0.34210527}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 4
+      width: 80
+      height: 38
+    spriteID: 9371f8b3b63cbb04fa92224a43f6c1d0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 4}
+  - name: Gark_Frame_24
+    originalName: 
+    pivot: {x: 0.58181816, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 748
+      width: 55
+      height: 58
+    spriteID: 1d72baddf7f74e14688924678e40dfb5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 748}
+  - name: Gark_Frame_25
+    originalName: 
+    pivot: {x: 0.4, y: -0.34210527}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 50
+      width: 80
+      height: 38
+    spriteID: add0ec47cdebdb74d94ce308e46c6d40
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 50}
+  - name: Gark_Frame_26
+    originalName: 
+    pivot: {x: 0.46, y: -0.071428575}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 492
+      width: 50
+      height: 56
+    spriteID: ff21c9a753ad5104f8d3b23ad1a9d536
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 492}
+  - name: Gark_Frame_27
+    originalName: 
+    pivot: {x: 0.586207, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 316
+      y: 4
+      width: 58
+      height: 31
+    spriteID: 22888aced0809d343a4d134ff743ccc8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 316, y: 4}
+  - name: Gark_Frame_28
+    originalName: 
+    pivot: {x: 0.5333333, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 75
+      height: 57
+    spriteID: 9893f68bfc5a48c4d8d1a27408b68604
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Gark_Frame_29
+    originalName: 
+    pivot: {x: 0.4166667, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 556
+      width: 48
+      height: 58
+    spriteID: 97203bc8263f72444ab8eeefc9668eee
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 556}
+  - name: Gark_Frame_30
+    originalName: 
+    pivot: {x: 0.3846154, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 876
+      width: 52
+      height: 57
+    spriteID: f581cd2eee7a1334fb5c3c789a9060a2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 876}
+  - name: Gark_Frame_31
+    originalName: 
+    pivot: {x: 0.4, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 362
+      width: 50
+      height: 57
+    spriteID: e951d577783759d458e901592acbe8e3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 362}
+  - name: Gark_Frame_32
+    originalName: 
+    pivot: {x: 0.4761905, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 175
+      y: 265
+      width: 42
+      height: 58
+    spriteID: 15c811f4a351cd941ace96ac762047ef
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 175, y: 265}
+  - name: Gark_Frame_33
+    originalName: 
+    pivot: {x: 0.4736842, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 175
+      y: 944
+      width: 38
+      height: 58
+    spriteID: c5fd8bda9f0b76f4ca0d3892989ab724
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 175, y: 944}
+  - name: Gark_Frame_34
+    originalName: 
+    pivot: {x: 0.48648646, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 227
+      y: 140
+      width: 37
+      height: 58
+    spriteID: 27131ddc67335044186fdc0082f491bd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 227, y: 140}
+  - name: Gark_Frame_35
+    originalName: 
+    pivot: {x: 0.4, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 296
+      width: 50
+      height: 58
+    spriteID: 84072309ae5ede444b0fed5f13306ce6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 296}
+  - name: Gark_Frame_36
+    originalName: 
+    pivot: {x: 0.3846154, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 941
+      width: 52
+      height: 57
+    spriteID: 59ff2ec7dd9a4d642975cc2738a19efc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 941}
+  - name: Gark_Frame_37
+    originalName: 
+    pivot: {x: 0.4, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 427
+      width: 50
+      height: 57
+    spriteID: c76791adeda5d1a4e96c38e619215c2a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 427}
+  - name: Gark_Frame_38
+    originalName: 
+    pivot: {x: 0.46511632, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 175
+      y: 69
+      width: 43
+      height: 58
+    spriteID: f7439b73911a21543a05734a4852df04
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 175, y: 69}
+  - name: Gark_Frame_39
+    originalName: 
+    pivot: {x: 0.4736842, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 227
+      y: 4
+      width: 38
+      height: 58
+    spriteID: e5f62b81e82b2d142840ba63c11c778a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 227, y: 4}
+  - name: Gark_Frame_40
+    originalName: 
+    pivot: {x: 0.48648646, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 227
+      y: 206
+      width: 37
+      height: 58
+    spriteID: 8305323a09d06ba479c0ab2395ce8bb7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 227, y: 206}
+  - name: Gark_Frame_41
+    originalName: 
+    pivot: {x: 0.6428572, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 760
+      width: 42
+      height: 60
+    spriteID: 60a5f95417597db4eb4563c351bebcf8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 760}
+  - name: Gark_Frame_42
+    originalName: 
+    pivot: {x: 0.6428572, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 175
+      y: 331
+      width: 42
+      height: 58
+    spriteID: 24e13cea42181ad4f9668ecb89469a79
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 175, y: 331}
+  - name: Gark_Frame_43
+    originalName: 
+    pivot: {x: 0.45762712, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 69
+      width: 59
+      height: 63
+    spriteID: 95d3b708f0c4de14b867a7f292873d0c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 69}
+  - name: Gark_Frame_44
+    originalName: 
+    pivot: {x: 0.45762712, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 140
+      width: 59
+      height: 63
+    spriteID: 283eb0fb12bfb664ba4fff686f986248
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 140}
+  - name: Gark_Frame_45
+    originalName: 
+    pivot: {x: 0.509434, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 547
+      width: 53
+      height: 63
+    spriteID: 1ace97b395fe680469c9b3fe3cb14b97
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 547}
+  - name: Gark_Frame_46
+    originalName: 
+    pivot: {x: 0.5227273, y: -0.03508772}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 175
+      y: 4
+      width: 44
+      height: 57
+    spriteID: 7b70dfbcddf45e54490defb788a72f85
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 175, y: 4}
+  - name: Gark_Frame_47
+    originalName: 
+    pivot: {x: 0.5348838, y: -0.03508772}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 175
+      y: 135
+      width: 43
+      height: 57
+    spriteID: dd1a866220f626c4e99c1485871de4f3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 175, y: 135}
+  - name: Gark_Frame_48
+    originalName: 
+    pivot: {x: 0.5348838, y: -0.03508772}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 175
+      y: 200
+      width: 43
+      height: 57
+    spriteID: 98474604b190dc84a8cd73626f052849
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 175, y: 200}
+  - name: Gark_Frame_49
+    originalName: 
+    pivot: {x: 0.5510204, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 96
+      width: 49
+      height: 60
+    spriteID: 878ccb1dcd2845e4fa7c12f4be2b01b2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 96}
+  - name: Gark_Frame_50
+    originalName: 
+    pivot: {x: 0.5510204, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 164
+      width: 49
+      height: 60
+    spriteID: d88a9e47bf570b04591e3dc1d4bdeb44
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 164}
+  - name: Gark_Frame_51
+    originalName: 
+    pivot: {x: 0.5869565, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 622
+      width: 46
+      height: 60
+    spriteID: 6b9be9275fe39524ba7d2e607614fad4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 622}
+  - name: Gark_Frame_52
+    originalName: 
+    pivot: {x: 0.6428572, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 828
+      width: 42
+      height: 60
+    spriteID: 7f27786aeb4bb5d4e929d7cbec86c52e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 828}
+  - name: Gark_Frame_53
+    originalName: 
+    pivot: {x: 0.4666667, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 277
+      width: 60
+      height: 60
+    spriteID: 7e57a80f2aac9f9468a3af0bd516a84f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 277}
+  - name: Gark_Frame_54
+    originalName: 
+    pivot: {x: 0.45762712, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 345
+      width: 59
+      height: 60
+    spriteID: da6473004a413fb49925c633c6d20202
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 345}
+  - name: Gark_Frame_55
+    originalName: 
+    pivot: {x: 0.45762712, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 413
+      width: 59
+      height: 60
+    spriteID: 7cf86556fe307e04bbca53805fd79910
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 413}
+  - name: Gark_Frame_56
+    originalName: 
+    pivot: {x: 0.62790704, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 690
+      width: 43
+      height: 62
+    spriteID: bc6f5422cd4078a439a47a1667962a14
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 690}
+  - name: Gark_Frame_57
+    originalName: 
+    pivot: {x: 0.6190476, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 896
+      width: 42
+      height: 60
+    spriteID: f678bc4a65764684ca3b0e4185b9afbb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 896}
+  - name: Gark_Frame_58
+    originalName: 
+    pivot: {x: 0.51428574, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 175
+      y: 802
+      width: 35
+      height: 63
+    spriteID: d55c015b97bd8b94d847887d50d189af
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 175, y: 802}
+  - name: Gark_Frame_59
+    originalName: 
+    pivot: {x: 0.51428574, y: -0.016393444}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 227
+      y: 343
+      width: 35
+      height: 61
+    spriteID: 4fdc55c4ea744394bbb4e2af3148a717
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 227, y: 343}
+  - name: Gark_Frame_60
+    originalName: 
+    pivot: {x: 0.51428574, y: -0.032786887}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 227
+      y: 412
+      width: 35
+      height: 61
+    spriteID: aa4db42649b4ac34e8dcbf849fbae10b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 227, y: 412}
+  - name: Gark_Frame_61
+    originalName: 
+    pivot: {x: 0.51428574, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 227
+      y: 70
+      width: 35
+      height: 62
+    spriteID: 080ecf9fadb6729419ae2b251e8021d8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 227, y: 70}
+  - name: Gark_Frame_62
+    originalName: 
+    pivot: {x: 0.51428574, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 175
+      y: 873
+      width: 35
+      height: 63
+    spriteID: 5c6b24c43de7b384eb45610eca846432
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 175, y: 873}
+  - name: Gark_Frame_63
+    originalName: 
+    pivot: {x: 0.47222227, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 175
+      y: 463
+      width: 36
+      height: 64
+    spriteID: b02ab67108aea71459906c27144af6d7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 175, y: 463}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -718899553
+    name: Gark
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Gark_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 31
+        y: 0
+        width: 35
+        height: 58
+      spriteId: 971a2cccc8d308a4b8c1f4a385530f28
+    - name: Gark_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 31
+        y: 0
+        width: 35
+        height: 57
+      spriteId: cd7ede09afbaaa34e8a25e57199e89bc
+    - name: Gark_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 31
+        y: 0
+        width: 35
+        height: 56
+      spriteId: e9437a9750d9bd24ca0abe30703c9e1a
+    - name: Gark_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 31
+        y: 0
+        width: 35
+        height: 57
+      spriteId: e2ac8b3678e30bc4598cd62dfe11eee4
+    - name: Gark_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 31
+        y: 0
+        width: 35
+        height: 58
+      spriteId: b8c446b3ec10ee74a93efe484b5e4a4a
+    - name: Gark_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 31
+        y: 0
+        width: 35
+        height: 57
+      spriteId: d4f40c8200b3b884d848441383719118
+    - name: Gark_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 31
+        y: 0
+        width: 35
+        height: 56
+      spriteId: 0978fb62df856ed4ca3b750594b4dc3a
+    - name: Gark_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 31
+        y: 0
+        width: 35
+        height: 57
+      spriteId: 8ccdd0d69fd16d141848dcbce691c54b
+    - name: Gark_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 28
+        y: 0
+        width: 40
+        height: 58
+      spriteId: 6c286708d61599a4b8e02f9492f5b418
+    - name: Gark_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 27
+        y: 0
+        width: 40
+        height: 57
+      spriteId: b758b58d2549e7a48b96daeb07694165
+    - name: Gark_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 27
+        y: 0
+        width: 40
+        height: 56
+      spriteId: 1f608b17d803d3f48adba92dee0f648c
+    - name: Gark_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 28
+        y: 0
+        width: 40
+        height: 57
+      spriteId: aafd64b041a8a384b848bc61ff4b117c
+    - name: Gark_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 33
+        y: 4
+        width: 34
+        height: 60
+      spriteId: e0d4f9a89530fa74284a20f28459dc18
+    - name: Gark_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 33
+        y: 3
+        width: 34
+        height: 61
+      spriteId: 5af873a2d98a3454bb7c8d1a1e5aa3d6
+    - name: Gark_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 34
+        y: 2
+        width: 35
+        height: 65
+      spriteId: 2b6175b6a977c3248bb77de7ff33f24f
+    - name: Gark_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 35
+        y: 3
+        width: 34
+        height: 63
+      spriteId: 100e0e953b9c80b4a9389de08e85f897
+    - name: Gark_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 20
+        y: 0
+        width: 58
+        height: 56
+      spriteId: 536f6128c977f964a9ecb31566340e08
+    - name: Gark_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 19
+        y: 0
+        width: 55
+        height: 54
+      spriteId: 06fe2437ce9b5194e92771906c266529
+    - name: Gark_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 16
+        y: 0
+        width: 60
+        height: 58
+      spriteId: 80e145ea3414ff7479e296eddb32a247
+    - name: Gark_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 17
+        y: 0
+        width: 52
+        height: 56
+      spriteId: b2e9313d4df5459418f56f7e95c06c94
+    - name: Gark_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 19
+        y: 0
+        width: 46
+        height: 54
+      spriteId: 8d8542c2cf2c0db4aae74f7933fda26d
+    - name: Gark_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 16
+        y: 0
+        width: 64
+        height: 58
+      spriteId: 847cba0d9bf78194ab11a5e280f9d222
+    - name: Gark_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 16
+        y: 0
+        width: 55
+        height: 58
+      spriteId: 09761a360ab0d5b49b5d850b7cbcdbef
+    - name: Gark_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 16
+        y: 13
+        width: 80
+        height: 38
+      spriteId: 9371f8b3b63cbb04fa92224a43f6c1d0
+    - name: Gark_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: 16
+        y: 0
+        width: 55
+        height: 58
+      spriteId: 1d72baddf7f74e14688924678e40dfb5
+    - name: Gark_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: 16
+        y: 13
+        width: 80
+        height: 38
+      spriteId: add0ec47cdebdb74d94ce308e46c6d40
+    - name: Gark_Frame_26
+      frameIndex: 26
+      cellRect:
+        x: 25
+        y: 4
+        width: 50
+        height: 56
+      spriteId: ff21c9a753ad5104f8d3b23ad1a9d536
+    - name: Gark_Frame_27
+      frameIndex: 27
+      cellRect:
+        x: 14
+        y: 0
+        width: 58
+        height: 31
+      spriteId: 22888aced0809d343a4d134ff743ccc8
+    - name: Gark_Frame_28
+      frameIndex: 28
+      cellRect:
+        x: 8
+        y: 0
+        width: 75
+        height: 57
+      spriteId: 9893f68bfc5a48c4d8d1a27408b68604
+    - name: Gark_Frame_29
+      frameIndex: 29
+      cellRect:
+        x: 28
+        y: 0
+        width: 48
+        height: 58
+      spriteId: 97203bc8263f72444ab8eeefc9668eee
+    - name: Gark_Frame_30
+      frameIndex: 30
+      cellRect:
+        x: 28
+        y: 0
+        width: 52
+        height: 57
+      spriteId: f581cd2eee7a1334fb5c3c789a9060a2
+    - name: Gark_Frame_31
+      frameIndex: 31
+      cellRect:
+        x: 28
+        y: 0
+        width: 50
+        height: 57
+      spriteId: e951d577783759d458e901592acbe8e3
+    - name: Gark_Frame_32
+      frameIndex: 32
+      cellRect:
+        x: 28
+        y: 0
+        width: 42
+        height: 58
+      spriteId: 15c811f4a351cd941ace96ac762047ef
+    - name: Gark_Frame_33
+      frameIndex: 33
+      cellRect:
+        x: 30
+        y: 0
+        width: 38
+        height: 58
+      spriteId: c5fd8bda9f0b76f4ca0d3892989ab724
+    - name: Gark_Frame_34
+      frameIndex: 34
+      cellRect:
+        x: 30
+        y: 0
+        width: 37
+        height: 58
+      spriteId: 27131ddc67335044186fdc0082f491bd
+    - name: Gark_Frame_35
+      frameIndex: 35
+      cellRect:
+        x: 28
+        y: 0
+        width: 50
+        height: 58
+      spriteId: 84072309ae5ede444b0fed5f13306ce6
+    - name: Gark_Frame_36
+      frameIndex: 36
+      cellRect:
+        x: 28
+        y: 0
+        width: 52
+        height: 57
+      spriteId: 59ff2ec7dd9a4d642975cc2738a19efc
+    - name: Gark_Frame_37
+      frameIndex: 37
+      cellRect:
+        x: 28
+        y: 0
+        width: 50
+        height: 57
+      spriteId: c76791adeda5d1a4e96c38e619215c2a
+    - name: Gark_Frame_38
+      frameIndex: 38
+      cellRect:
+        x: 28
+        y: 0
+        width: 43
+        height: 58
+      spriteId: f7439b73911a21543a05734a4852df04
+    - name: Gark_Frame_39
+      frameIndex: 39
+      cellRect:
+        x: 30
+        y: 0
+        width: 38
+        height: 58
+      spriteId: e5f62b81e82b2d142840ba63c11c778a
+    - name: Gark_Frame_40
+      frameIndex: 40
+      cellRect:
+        x: 30
+        y: 0
+        width: 37
+        height: 58
+      spriteId: 8305323a09d06ba479c0ab2395ce8bb7
+    - name: Gark_Frame_41
+      frameIndex: 41
+      cellRect:
+        x: 21
+        y: 0
+        width: 42
+        height: 60
+      spriteId: 60a5f95417597db4eb4563c351bebcf8
+    - name: Gark_Frame_42
+      frameIndex: 42
+      cellRect:
+        x: 21
+        y: 0
+        width: 42
+        height: 58
+      spriteId: 24e13cea42181ad4f9668ecb89469a79
+    - name: Gark_Frame_43
+      frameIndex: 43
+      cellRect:
+        x: 21
+        y: 0
+        width: 59
+        height: 63
+      spriteId: 95d3b708f0c4de14b867a7f292873d0c
+    - name: Gark_Frame_44
+      frameIndex: 44
+      cellRect:
+        x: 21
+        y: 0
+        width: 59
+        height: 63
+      spriteId: 283eb0fb12bfb664ba4fff686f986248
+    - name: Gark_Frame_45
+      frameIndex: 45
+      cellRect:
+        x: 21
+        y: 0
+        width: 53
+        height: 63
+      spriteId: 1ace97b395fe680469c9b3fe3cb14b97
+    - name: Gark_Frame_46
+      frameIndex: 46
+      cellRect:
+        x: 25
+        y: 2
+        width: 44
+        height: 57
+      spriteId: 7b70dfbcddf45e54490defb788a72f85
+    - name: Gark_Frame_47
+      frameIndex: 47
+      cellRect:
+        x: 25
+        y: 2
+        width: 43
+        height: 57
+      spriteId: dd1a866220f626c4e99c1485871de4f3
+    - name: Gark_Frame_48
+      frameIndex: 48
+      cellRect:
+        x: 25
+        y: 2
+        width: 43
+        height: 57
+      spriteId: 98474604b190dc84a8cd73626f052849
+    - name: Gark_Frame_49
+      frameIndex: 49
+      cellRect:
+        x: 21
+        y: 0
+        width: 49
+        height: 60
+      spriteId: 878ccb1dcd2845e4fa7c12f4be2b01b2
+    - name: Gark_Frame_50
+      frameIndex: 50
+      cellRect:
+        x: 21
+        y: 0
+        width: 49
+        height: 60
+      spriteId: d88a9e47bf570b04591e3dc1d4bdeb44
+    - name: Gark_Frame_51
+      frameIndex: 51
+      cellRect:
+        x: 21
+        y: 0
+        width: 46
+        height: 60
+      spriteId: 6b9be9275fe39524ba7d2e607614fad4
+    - name: Gark_Frame_52
+      frameIndex: 52
+      cellRect:
+        x: 21
+        y: 0
+        width: 42
+        height: 60
+      spriteId: 7f27786aeb4bb5d4e929d7cbec86c52e
+    - name: Gark_Frame_53
+      frameIndex: 53
+      cellRect:
+        x: 20
+        y: 0
+        width: 60
+        height: 60
+      spriteId: 7e57a80f2aac9f9468a3af0bd516a84f
+    - name: Gark_Frame_54
+      frameIndex: 54
+      cellRect:
+        x: 21
+        y: 0
+        width: 59
+        height: 60
+      spriteId: da6473004a413fb49925c633c6d20202
+    - name: Gark_Frame_55
+      frameIndex: 55
+      cellRect:
+        x: 21
+        y: 0
+        width: 59
+        height: 60
+      spriteId: 7cf86556fe307e04bbca53805fd79910
+    - name: Gark_Frame_56
+      frameIndex: 56
+      cellRect:
+        x: 21
+        y: 0
+        width: 43
+        height: 62
+      spriteId: bc6f5422cd4078a439a47a1667962a14
+    - name: Gark_Frame_57
+      frameIndex: 57
+      cellRect:
+        x: 22
+        y: 0
+        width: 42
+        height: 60
+      spriteId: f678bc4a65764684ca3b0e4185b9afbb
+    - name: Gark_Frame_58
+      frameIndex: 58
+      cellRect:
+        x: 30
+        y: 0
+        width: 35
+        height: 63
+      spriteId: d55c015b97bd8b94d847887d50d189af
+    - name: Gark_Frame_59
+      frameIndex: 59
+      cellRect:
+        x: 30
+        y: 1
+        width: 35
+        height: 61
+      spriteId: 4fdc55c4ea744394bbb4e2af3148a717
+    - name: Gark_Frame_60
+      frameIndex: 60
+      cellRect:
+        x: 30
+        y: 2
+        width: 35
+        height: 61
+      spriteId: aa4db42649b4ac34e8dcbf849fbae10b
+    - name: Gark_Frame_61
+      frameIndex: 61
+      cellRect:
+        x: 30
+        y: 0
+        width: 35
+        height: 62
+      spriteId: 080ecf9fadb6729419ae2b251e8021d8
+    - name: Gark_Frame_62
+      frameIndex: 62
+      cellRect:
+        x: 30
+        y: 0
+        width: 35
+        height: 63
+      spriteId: 5c6b24c43de7b384eb45610eca846432
+    - name: Gark_Frame_63
+      frameIndex: 63
+      cellRect:
+        x: 31
+        y: 0
+        width: 36
+        height: 64
+      spriteId: b02ab67108aea71459906c27144af6d7
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 96, y: 96}

@@ -50,8 +50,6 @@ public class Character : MonoBehaviour {
     [SerializeField] protected CharacterData characterData;
     protected string characterName;
     public string CharacterName { get { return characterName; } }
-    protected Color color;
-    public Color Color { get { return color; } }
     public void SetCharacterData(CharacterData data)
     {
         characterData = data;
@@ -61,7 +59,6 @@ public class Character : MonoBehaviour {
     protected void ApplyCharacterData()
     {
         characterName = characterData.name;
-        color = characterData.color;
         maxHealth = characterData.maxHealth;
         resistance = characterData.resistance;
         damageReduction = characterData.damageReduction;
