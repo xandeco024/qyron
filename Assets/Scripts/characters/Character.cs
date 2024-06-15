@@ -56,7 +56,7 @@ public class Character : MonoBehaviour {
         ApplyCharacterData();
     }
 
-    protected void ApplyCharacterData()
+    protected virtual void ApplyCharacterData()
     {
         characterName = characterData.name;
         maxHealth = characterData.maxHealth;

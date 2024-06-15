@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.U2D.Animation;
 using UnityEngine.UI;
 
 public class PlayableCharacter : Character {
-
-    private PlayableCharacterData playableCharacterData;
 
     [Header("Character Stats")]
     private int level = 1;
@@ -79,11 +78,38 @@ public class PlayableCharacter : Character {
     private bool beingCured;
     PlayableCharacter downedFriend = null;
 
-    void Start()
+    [Header("PlayableCharacterData")]
+    private SpriteLibrary spriteLibrary;
+    private SpriteLibraryAsset spriteLibraryAsset;
+    private PlayableCharacterData playableCharacterData;
+    private Color color;
+
+    void Awake()
     {
         GetComponentsOnCharacter();
         ApplyCharacterData();
         DontDestroyOnLoad(gameObject);
+    }
+
+    protected override void GetComponentsOnCharacter()
+    {
+        base.GetComponentsOnCharacter();
+        spriteLibrary = GetComponent<SpriteLibrary>();
+    }
+
+    protected override void ApplyCharacterData()
+    {
+        base.ApplyCharacterData();
+        playableCharacterData = (PlayableCharacterData)characterData;
+        spriteLibraryAsset = playableCharacterData.spriteLibraryAsset;
+        color = playableCharacterData.color;
+
+        spriteLibrary.spriteLibraryAsset = spriteLibraryAsset;
+    }
+
+    void Start()
+    {
+
     }   
 
     void Update()
@@ -779,7 +805,7 @@ public class PlayableCharacter : Character {
         {
             yield return new WaitForSeconds(dashDuration / cloneAmount);
             GameObject dashTrailIstance = GameObject.Instantiate(dashCloneTrailPrefab, transform.position, Quaternion.Euler(0, facingDirection == 1 ? 0 : 180, 0));
-            //dashTrailIstance.GetComponent<SpriteRenderer>().color = characterData.;
+            dashTrailIstance.GetComponent<SpriteRenderer>().color = color;
             Destroy(dashTrailIstance, cloneDuration);
         }
     }

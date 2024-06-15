@@ -1,0 +1,425 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library:
+  - m_Name: Idle 1
+    m_Hash: 244403810
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Qyron_0
+      m_Hash: 218604179
+      m_Sprite: {fileID: -1834138595, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -793692917, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_1
+      m_Hash: 973115909
+      m_Sprite: {fileID: -1549250000, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 355086723, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_2
+      m_Hash: 587842495
+      m_Sprite: {fileID: 1287495682, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -2110929098, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_3
+      m_Hash: 336524073
+      m_Sprite: {fileID: -1551951314, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 537917939, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_4
+      m_Hash: 174745226
+      m_Sprite: {fileID: -1977622932, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -332170565, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_5
+      m_Hash: 1030575644
+      m_Sprite: {fileID: 370076675, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 461731779, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_6
+      m_Hash: 610535334
+      m_Sprite: {fileID: -1534547959, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1349786205, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_7
+      m_Hash: 325269296
+      m_Sprite: {fileID: -1877126923, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1425871903, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 8
+  - m_Name: Idle 2
+    m_Hash: 395845592
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Qyron_8
+      m_Hash: 64760481
+      m_Sprite: {fileID: 1122744010, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 735156878, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_9
+      m_Hash: 886774327
+      m_Sprite: {fileID: -621420507, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1861665832, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_10
+      m_Hash: 72035132
+      m_Sprite: {fileID: -902062668, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 315168906, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_11
+      m_Hash: 860625834
+      m_Sprite: {fileID: 682795576, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -269740230, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 4
+  - m_Name: Jumping
+    m_Hash: 63649830
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Qyron_16
+      m_Hash: 757632521
+      m_Sprite: {fileID: -1757597308, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -529277502, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_17
+      m_Hash: 439336607
+      m_Sprite: {fileID: 414044195, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 385911357, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 2
+  - m_Name: Falling
+    m_Hash: 998495048
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Qyron_24
+      m_Hash: 671857894
+      m_Sprite: {fileID: 556200783, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 185416010, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_25
+      m_Hash: 520916080
+      m_Sprite: {fileID: 456641051, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 322470890, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 2
+  - m_Name: Running
+    m_Hash: 547139827
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Qyron_32
+      m_Hash: 410200210
+      m_Sprite: {fileID: -532936001, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -616390569, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_33
+      m_Hash: 796137476
+      m_Sprite: {fileID: 1209702391, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -559082128, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_34
+      m_Hash: 823168423
+      m_Sprite: {fileID: -987529068, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -269870066, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_35
+      m_Hash: 102219057
+      m_Sprite: {fileID: -810333211, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1216858802, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_36
+      m_Hash: 522120331
+      m_Sprite: {fileID: -1725093657, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1579300425, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_37
+      m_Hash: 672783389
+      m_Sprite: {fileID: -1031748504, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 909810151, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 6
+  - m_Name: Dashing
+    m_Hash: 30299493
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Qyron_40
+      m_Hash: 960290681
+      m_Sprite: {fileID: 684691117, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1807824438, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 1
+  - m_Name: Attack Dashing
+    m_Hash: 6603366
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Qyron_48
+      m_Hash: 937908043
+      m_Sprite: {fileID: 1756500493, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 2086428, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 1
+  - m_Name: Hurt
+    m_Hash: 666872612
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Qyron_64
+      m_Hash: 208108002
+      m_Sprite: {fileID: 188654012, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1840457521, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 1
+  - m_Name: Downed
+    m_Hash: 412962281
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Qyron_72
+      m_Hash: 1008725398
+      m_Sprite: {fileID: -927595389, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1333342516, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 1
+  - m_Name: Light Attack 1
+    m_Hash: 413525443
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Qyron_88
+      m_Hash: 458364999
+      m_Sprite: {fileID: -1639372221, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -77976565, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_89
+      m_Hash: 743778513
+      m_Sprite: {fileID: -1033408138, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -2085709127, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_90
+      m_Hash: 210936116
+      m_Sprite: {fileID: -2106822541, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1141921927, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_91
+      m_Hash: 999657890
+      m_Sprite: {fileID: 886880004, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 770161556, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_92
+      m_Hash: 580698136
+      m_Sprite: {fileID: 2052241788, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 519457267, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_93
+      m_Hash: 362541198
+      m_Sprite: {fileID: -1855282377, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1258421780, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 6
+  - m_Name: Light Attack 2
+    m_Hash: 28095609
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Qyron_96
+      m_Hash: 636552193
+      m_Sprite: {fileID: -924893205, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 28667661, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_97
+      m_Hash: 318125207
+      m_Sprite: {fileID: 1268859267, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -512978343, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_98
+      m_Hash: 38349062
+      m_Sprite: {fileID: -392967164, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 2114498940, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_99
+      m_Hash: 894310800
+      m_Sprite: {fileID: -151844353, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 409012453, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_100
+      m_Hash: 456190093
+      m_Sprite: {fileID: 1649075429, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1738981539, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_101
+      m_Hash: 741857307
+      m_Sprite: {fileID: 349245469, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -668824908, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 6
+  - m_Name: LLLL Combo
+    m_Hash: 322984577
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Qyron_104
+      m_Hash: 475868308
+      m_Sprite: {fileID: 1025846059, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 153792491, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_105
+      m_Hash: 727325698
+      m_Sprite: {fileID: -297268271, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1346115294, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_106
+      m_Hash: 844320184
+      m_Sprite: {fileID: 437669537, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1364303781, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_107
+      m_Hash: 89423150
+      m_Sprite: {fileID: -2129802070, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 150595073, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_108
+      m_Hash: 367747263
+      m_Sprite: {fileID: 1865014129, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -372450369, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 5
+  - m_Name: Heavy Attack 1
+    m_Hash: 1039143614
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Qyron_112
+      m_Hash: 740669664
+      m_Sprite: {fileID: 978888656, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 687071990, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_113
+      m_Hash: 455247990
+      m_Sprite: {fileID: 41588714, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1546384436, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_114
+      m_Hash: 88481237
+      m_Sprite: {fileID: -1594555590, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 691458407, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 3
+  - m_Name: Heavy Attack 2
+    m_Hash: 620315396
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Qyron_120
+      m_Hash: 688294415
+      m_Sprite: {fileID: 102202628, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1607092011, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_121
+      m_Hash: 503429785
+      m_Sprite: {fileID: 525302287, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1281772125, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_122
+      m_Hash: 118024995
+      m_Sprite: {fileID: 1047719352, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 959261700, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 3
+  - m_Name: HHHH Combo
+    m_Hash: 927105310
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Qyron_128
+      m_Hash: 668795453
+      m_Sprite: {fileID: 426735913, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 384229646, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_129
+      m_Hash: 282735275
+      m_Sprite: {fileID: 1913315384, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 891703513, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_130
+      m_Hash: 807254862
+      m_Sprite: {fileID: 915841640, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 2061045280, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_131
+      m_Hash: 119180248
+      m_Sprite: {fileID: -735965380, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -850486898, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 4
+  - m_Name: Grabbing Idle
+    m_Hash: 745120628
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Qyron_136
+      m_Hash: 427695739
+      m_Sprite: {fileID: -1482578692, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1713884816, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_137
+      m_Hash: 779693805
+      m_Sprite: {fileID: -930880441, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1406864863, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 2
+  - m_Name: Grabbing Walking
+    m_Hash: 899705994
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Qyron_144
+      m_Hash: 942795152
+      m_Sprite: {fileID: 1250428921, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1749905346, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_145
+      m_Hash: 255252742
+      m_Sprite: {fileID: -334533019, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 58818261, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_146
+      m_Hash: 373262524
+      m_Sprite: {fileID: -1630219588, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -752017229, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_147
+      m_Hash: 557365290
+      m_Sprite: {fileID: 377352653, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1787953125, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_148
+      m_Hash: 830973371
+      m_Sprite: {fileID: 2129996111, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1269931434, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    - m_Name: Qyron_149
+      m_Hash: 109090093
+      m_Sprite: {fileID: 895481273, guid: f65e8c04a90d7d04db7928dc12be3f89, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 857239588, guid: a7b4db32aca9f004f8c063c083458eba, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 6
+  m_PrimaryLibraryGUID: 90537cdfd4e0ece4e9cfa3c3cf5fcb48
+  m_ModificationHash: 638540072677484800
+  m_Version: 1

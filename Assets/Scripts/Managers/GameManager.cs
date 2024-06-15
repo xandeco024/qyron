@@ -4,12 +4,7 @@ using UnityEngine;
 using UnityEngine.Playables;
 
 public class GameManager : MonoBehaviour
-{
-    [SerializeField] private List<AudioClip> musicList;
-    private int currentMusicIndex = 0;
-
-    private AudioSource audioSource;
-
+{      
     private bool paused;
 
     private List<PlayableCharacter> playerList = new List<PlayableCharacter>();
@@ -69,32 +64,15 @@ public class GameManager : MonoBehaviour
         levelManager = FindObjectOfType<LevelManager>();
         levelManager.GoToSegment(levelManager.FirstSegmentIndex, false, false);
 
-        audioSource = GetComponent<AudioSource>();
-        PlayMusic();
-
         InvokeRepeating("HandleTime", 0, secondDuration);
     }
 
 
     void Update()
     {
-        if (!audioSource.isPlaying)
-        {
-            currentMusicIndex++;
-            if (currentMusicIndex >= musicList.Count)
-            {
-                currentMusicIndex = 0;
-            }
-            PlayMusic();
-        }
+
     }
     
-    void PlayMusic()
-    {
-        audioSource.clip = musicList[currentMusicIndex];
-        audioSource.Play();
-    }
-
     void HandleTime()
     {   
         minutes++;
