@@ -934,6 +934,13 @@ public class PlayableCharacter : Character {
                 Debug.Log("Reviveu");
                 SetDowned(false);
             }
+
+            if (Input.GetKeyDown(KeyCode.Alpha7))
+            {
+                ApplyCharacterData();
+                Reset();
+                Debug.Log("CharacterData Reaplicado e Resetado");   
+            }
         }
     }
 
