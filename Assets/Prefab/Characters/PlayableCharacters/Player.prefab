@@ -491,7 +491,13 @@ MonoBehaviour:
   dashCloneAmount: 8
   friendlyFire: 0
   lightAttackCD: 0.1
+<<<<<<< Updated upstream
   heavyAttackCD: 0.2
+=======
+  lightAttackStunDuration: 0.55
+  heavyAttackCD: 0.2
+  heavyAttackStunDuration: 0.8
+>>>>>>> Stashed changes
   grabAttackCD: 0.5
   CombatBoxOffset: {x: 0.5, y: -0.5, z: 0}
   CombatRaycastSize: {x: 1.5, y: 2, z: 1}
