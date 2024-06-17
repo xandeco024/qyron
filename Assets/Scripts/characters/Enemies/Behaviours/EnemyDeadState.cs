@@ -10,8 +10,6 @@ public class EnemyDeadState : StateMachineBehaviour
     {
         enemy = animator.GetComponent<Enemy>();
         enemy.StartCoroutine(enemy.Die(enemy.DeathTime));   
-        enemy.GiveCoins(enemy.CoinAmount);
-        enemy.GiveXP(enemy.XpAmount);
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

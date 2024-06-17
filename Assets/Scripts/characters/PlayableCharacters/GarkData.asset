@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: GarkData
   m_EditorClassIdentifier: 
   name: Gark
-  maxHealth: 60
-  resistance: 1.5
-  damageReduction: 0
+  maxHealth: 85
+  resistance: 2
+  damageReduction: 0.45
   attackDamage: 5
   criticalChance: 12
   speed: 1.15
-  dodgeChance: 0
-  moveSpeed: 10
+  dodgeChance: 1.18
+  moveSpeed: 8
   jumpForce: 8
-  respect: 5
+  respect: 6
   color: {r: 0.32941177, g: 0.18039216, b: 0.44313726, a: 1}
   spriteLibraryAsset: {fileID: 7108339969198208228, guid: b2f178b1e87ba604cb3f4e2381313909, type: 3}

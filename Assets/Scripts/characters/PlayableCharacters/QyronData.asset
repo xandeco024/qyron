@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: QyronData
   m_EditorClassIdentifier: 
   name: Qyron
-  maxHealth: 60
-  resistance: 2
-  damageReduction: 0
-  attackDamage: 6
+  maxHealth: 95
+  resistance: 3
+  damageReduction: 0.5
+  attackDamage: 7
   criticalChance: 12
   speed: 1
-  dodgeChance: 0
+  dodgeChance: 1
   moveSpeed: 10
   jumpForce: 8
   respect: 3

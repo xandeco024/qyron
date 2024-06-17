@@ -23,23 +23,18 @@ public class LobbyPlayer : MonoBehaviour
 
     void Awake()
     {
-        lobbyManager = FindObjectOfType<LobbyManager>();
-        playableCharacter = GetComponent<PlayableCharacter>();
-
-        if (SceneManager.GetActiveScene().buildIndex == 0)
+        if (SceneManager.GetActiveScene().buildIndex != 0)
         {
-            GetComponent<PlayerInput>().SwitchCurrentActionMap("Lobby");
-        }
-        else
-        {
-            //if enabled, switch to player action map
-            PlayerInput pi = GetComponent<PlayerInput>();
-            if (pi.currentActionMap.name == "Lobby")
-            {
-                pi.SwitchCurrentActionMap("Player");
-            }
             Destroy(this);
         }
+    
+        lobbyManager = FindObjectOfType<LobbyManager>();
+        playableCharacter = GetComponent<PlayableCharacter>();
+    }
+
+    void Start()
+    {
+        GetComponent<PlayerInput>().SwitchCurrentActionMap("Lobby");
     }
 
     void OnEnable()

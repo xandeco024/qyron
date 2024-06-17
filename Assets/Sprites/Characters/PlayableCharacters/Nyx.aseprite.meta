@@ -1,0 +1,1928 @@
+fileFormatVersion: 2
+guid: a03edab5649925a42973a44fba3e16f0
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Nyx_Frame_0
+    originalName: 
+    pivot: {x: 0.59090906, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 69
+      width: 44
+      height: 58
+    spriteID: 78f0c0ea1ad6822498b12e89ac942e91
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 176, y: 69}
+  - name: Nyx_Frame_4
+    originalName: 
+    pivot: {x: 0.48571432, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 283
+      y: 4
+      width: 35
+      height: 58
+    spriteID: e14f953e0d9a51549a6ca874981c562f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 283, y: 4}
+  - name: Nyx_Frame_1
+    originalName: 
+    pivot: {x: 0.6, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 955
+      width: 45
+      height: 57
+    spriteID: 4a5b8dc1dd4b9274cae44062bbdd77ce
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 955}
+  - name: Nyx_Frame_2
+    originalName: 
+    pivot: {x: 0.6, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 201
+      width: 45
+      height: 56
+    spriteID: 1b60e84842013724491313cc52a9dfa8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 176, y: 201}
+  - name: Nyx_Frame_3
+    originalName: 
+    pivot: {x: 0.5263158, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 229
+      y: 403
+      width: 38
+      height: 58
+    spriteID: 9d0b7b072fc6f5a4b8e0491d4817e00e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 229, y: 403}
+  - name: Nyx_Frame_5
+    originalName: 
+    pivot: {x: 0.48571432, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 283
+      y: 70
+      width: 35
+      height: 57
+    spriteID: e1f7d66ce327b044a91ea3da7d4468d2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 283, y: 70}
+  - name: Nyx_Frame_6
+    originalName: 
+    pivot: {x: 0.5263158, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 229
+      y: 810
+      width: 38
+      height: 56
+    spriteID: c5211490e1b6f0342b15647f70db6846
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 229, y: 810}
+  - name: Nyx_Frame_7
+    originalName: 
+    pivot: {x: 0.5714286, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 464
+      width: 42
+      height: 58
+    spriteID: cafacf46056f97b45bce6076d8035ae8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 176, y: 464}
+  - name: Nyx_Frame_8
+    originalName: 
+    pivot: {x: 0.50000006, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 668
+      width: 40
+      height: 58
+    spriteID: 4829f8e2e1ca6594d934a1d2e7b332f7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 176, y: 668}
+  - name: Nyx_Frame_9
+    originalName: 
+    pivot: {x: 0.52500004, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 734
+      width: 40
+      height: 57
+    spriteID: 3c6f0f1f152beb9419a142dd7d0caa44
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 176, y: 734}
+  - name: Nyx_Frame_10
+    originalName: 
+    pivot: {x: 0.52500004, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 229
+      y: 269
+      width: 40
+      height: 56
+    spriteID: 5211389ae3329c548a303d01f70e0a6d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 229, y: 269}
+  - name: Nyx_Frame_11
+    originalName: 
+    pivot: {x: 0.50000006, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 799
+      width: 40
+      height: 57
+    spriteID: 43c642f033ccab143b3fde9b06f71363
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 176, y: 799}
+  - name: Nyx_Frame_12
+    originalName: 
+    pivot: {x: 0.44117647, y: -0.06666667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 229
+      y: 943
+      width: 34
+      height: 60
+    spriteID: 040ba871d3bc2a54ab3d1e0d6fe9bcef
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 229, y: 943}
+  - name: Nyx_Frame_13
+    originalName: 
+    pivot: {x: 0.44117647, y: -0.04918033}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 229
+      y: 874
+      width: 34
+      height: 61
+    spriteID: 8f5df904b48243349b2b5184ca88a147
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 229, y: 874}
+  - name: Nyx_Frame_14
+    originalName: 
+    pivot: {x: 0.40000004, y: -0.030769233}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 864
+      width: 35
+      height: 65
+    spriteID: 9c4fbb7c30d3a404d9dd938cdc9d1a58
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 176, y: 864}
+  - name: Nyx_Frame_15
+    originalName: 
+    pivot: {x: 0.38235292, y: -0.04761905}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 229
+      y: 739
+      width: 34
+      height: 63
+    spriteID: dc51daa5cd57fb9428ed27c08f99e0b7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 229, y: 739}
+  - name: Nyx_Frame_16
+    originalName: 
+    pivot: {x: 0.48275867, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 618
+      width: 58
+      height: 56
+    spriteID: e8b6f89f87268a94e91796d17555af5b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 618}
+  - name: Nyx_Frame_17
+    originalName: 
+    pivot: {x: 0.5272727, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 164
+      width: 55
+      height: 54
+    spriteID: 0ff01c68866112b408ed007759c9cfa5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 164}
+  - name: Nyx_Frame_18
+    originalName: 
+    pivot: {x: 0.5333333, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 481
+      width: 60
+      height: 58
+    spriteID: 73bd0a95d9871f94b85982699f402ca0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 481}
+  - name: Nyx_Frame_19
+    originalName: 
+    pivot: {x: 0.5961539, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 292
+      width: 52
+      height: 56
+    spriteID: 3a792fe8cdfa302438bf519467b83603
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 292}
+  - name: Nyx_Frame_20
+    originalName: 
+    pivot: {x: 0.63043475, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 229
+      y: 4
+      width: 46
+      height: 54
+    spriteID: 35eb94db4e22eda42bc4cb0fe4483067
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 229, y: 4}
+  - name: Nyx_Frame_21
+    originalName: 
+    pivot: {x: 0.49999997, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 211
+      width: 64
+      height: 58
+    spriteID: 8e1201448ecb0d9489e1a17dbc7f2d3e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 211}
+  - name: Nyx_Frame_22
+    originalName: 
+    pivot: {x: 0.58181816, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 682
+      width: 55
+      height: 58
+    spriteID: 3615f24c596cb5c41948d10759a2813c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 682}
+  - name: Nyx_Frame_23
+    originalName: 
+    pivot: {x: 0.4074074, y: -0.34210527}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 4
+      width: 81
+      height: 38
+    spriteID: 628094acf19509347a5a6658ceadffb2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 4}
+  - name: Nyx_Frame_24
+    originalName: 
+    pivot: {x: 0.58181816, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 748
+      width: 55
+      height: 58
+    spriteID: 821d03dd721a2594bbb12a09e8093c55
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 748}
+  - name: Nyx_Frame_25
+    originalName: 
+    pivot: {x: 0.4, y: -0.34210527}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 50
+      width: 80
+      height: 38
+    spriteID: 38410f37e6952a74d86dd9bf648f2d9b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 50}
+  - name: Nyx_Frame_26
+    originalName: 
+    pivot: {x: 0.46, y: -0.071428575}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 620
+      width: 50
+      height: 56
+    spriteID: 81491f7450a9c884e9f9d2378e43c46d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 620}
+  - name: Nyx_Frame_27
+    originalName: 
+    pivot: {x: 0.586207, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 326
+      y: 4
+      width: 58
+      height: 31
+    spriteID: e8980f0d898bd8d4ab909b27079a62d8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 326, y: 4}
+  - name: Nyx_Frame_28
+    originalName: 
+    pivot: {x: 0.5333333, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 75
+      height: 57
+    spriteID: f72789f39d8434546870324cac95c2eb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Nyx_Frame_29
+    originalName: 
+    pivot: {x: 0.42857143, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 486
+      width: 49
+      height: 58
+    spriteID: 018e3725633cad1448133bc1591faaf2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 486}
+  - name: Nyx_Frame_30
+    originalName: 
+    pivot: {x: 0.3962264, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 814
+      width: 53
+      height: 57
+    spriteID: 61a2bba4bf367694091190f37fd26015
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 814}
+  - name: Nyx_Frame_31
+    originalName: 
+    pivot: {x: 0.4117647, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 356
+      width: 51
+      height: 57
+    spriteID: 2359b9f4af0c6df46af9a53a9c191683
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 356}
+  - name: Nyx_Frame_32
+    originalName: 
+    pivot: {x: 0.48837212, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 398
+      width: 43
+      height: 58
+    spriteID: 6ada54eeba3ed6b4db6d55ea6d50679b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 176, y: 398}
+  - name: Nyx_Frame_33
+    originalName: 
+    pivot: {x: 0.4871795, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 229
+      y: 137
+      width: 39
+      height: 58
+    spriteID: a564f85fbe7f90e4e82859aeeece4b16
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 229, y: 137}
+  - name: Nyx_Frame_34
+    originalName: 
+    pivot: {x: 0.49999994, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 229
+      y: 469
+      width: 38
+      height: 58
+    spriteID: 1dab773534450e04cbbad8afffd37a70
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 229, y: 469}
+  - name: Nyx_Frame_35
+    originalName: 
+    pivot: {x: 0.4117647, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 226
+      width: 51
+      height: 58
+    spriteID: e2640965d91573f4bb6a44c50de17185
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 226}
+  - name: Nyx_Frame_36
+    originalName: 
+    pivot: {x: 0.3962264, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 879
+      width: 53
+      height: 57
+    spriteID: cad7067f86a49ee41b7af0fa72af26ab
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 879}
+  - name: Nyx_Frame_37
+    originalName: 
+    pivot: {x: 0.4117647, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 421
+      width: 51
+      height: 57
+    spriteID: 7abe4e04fc59bde46bb81598c76b8c61
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 421}
+  - name: Nyx_Frame_38
+    originalName: 
+    pivot: {x: 0.47727275, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 135
+      width: 44
+      height: 58
+    spriteID: 70bac0c8943ffd84ca5b70cfbc92902d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 176, y: 135}
+  - name: Nyx_Frame_39
+    originalName: 
+    pivot: {x: 0.4871795, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 229
+      y: 203
+      width: 39
+      height: 58
+    spriteID: aa5eb380e17f0d945a664257549d3e30
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 229, y: 203}
+  - name: Nyx_Frame_40
+    originalName: 
+    pivot: {x: 0.49999994, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 229
+      y: 535
+      width: 38
+      height: 58
+    spriteID: 35086f392aaf07b40863157e2ee498fd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 229, y: 535}
+  - name: Nyx_Frame_41
+    originalName: 
+    pivot: {x: 0.6428572, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 265
+      width: 42
+      height: 60
+    spriteID: 7bd8ed51e5cacfc479b0e09fbd6bf348
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 176, y: 265}
+  - name: Nyx_Frame_42
+    originalName: 
+    pivot: {x: 0.6428572, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 530
+      width: 42
+      height: 58
+    spriteID: ec10c9136a1e4ed438adb15cf6164453
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 176, y: 530}
+  - name: Nyx_Frame_43
+    originalName: 
+    pivot: {x: 0.45762712, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 69
+      width: 59
+      height: 63
+    spriteID: 45ddf721be7c4be448cc05fd667a827b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 69}
+  - name: Nyx_Frame_44
+    originalName: 
+    pivot: {x: 0.45762712, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 140
+      width: 59
+      height: 63
+    spriteID: 52b15aedb93317349b74d0a316c16c4d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 140}
+  - name: Nyx_Frame_45
+    originalName: 
+    pivot: {x: 0.509434, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 547
+      width: 53
+      height: 63
+    spriteID: 1851028c75fabf24e8e0326fb1272898
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 547}
+  - name: Nyx_Frame_46
+    originalName: 
+    pivot: {x: 0.5434783, y: -0.03508772}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 822
+      width: 46
+      height: 57
+    spriteID: bce04001230da024383e0079966f3b7a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 822}
+  - name: Nyx_Frame_47
+    originalName: 
+    pivot: {x: 0.55555564, y: -0.03508772}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 4
+      width: 45
+      height: 57
+    spriteID: c364c8198bc168a439e927959b3dcfad
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 176, y: 4}
+  - name: Nyx_Frame_48
+    originalName: 
+    pivot: {x: 0.54545456, y: -0.03508772}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 333
+      width: 44
+      height: 57
+    spriteID: 37a80fc4bf1e5184a8362267e164dc66
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 176, y: 333}
+  - name: Nyx_Frame_49
+    originalName: 
+    pivot: {x: 0.56, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 944
+      width: 50
+      height: 60
+    spriteID: 02245064a40693045a6faa3632736eb0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 944}
+  - name: Nyx_Frame_50
+    originalName: 
+    pivot: {x: 0.56, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 96
+      width: 50
+      height: 60
+    spriteID: b8843b7c1b4370e49a16618c960ffdbf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 96}
+  - name: Nyx_Frame_51
+    originalName: 
+    pivot: {x: 0.5957447, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 552
+      width: 47
+      height: 60
+    spriteID: a1173d896299ea04a84f2f47058d3d0a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 552}
+  - name: Nyx_Frame_52
+    originalName: 
+    pivot: {x: 0.65116286, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 887
+      width: 43
+      height: 60
+    spriteID: 4400122ed4752f94bb1e6f3eacfb6e4a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 887}
+  - name: Nyx_Frame_53
+    originalName: 
+    pivot: {x: 0.4666667, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 277
+      width: 60
+      height: 60
+    spriteID: a46a63ef39a88ab4694687bd17646505
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 277}
+  - name: Nyx_Frame_54
+    originalName: 
+    pivot: {x: 0.4666667, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 345
+      width: 60
+      height: 60
+    spriteID: 935f538469712f4488825aee740cd091
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 345}
+  - name: Nyx_Frame_55
+    originalName: 
+    pivot: {x: 0.4666667, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 413
+      width: 60
+      height: 60
+    spriteID: 52f83486c02574240a721ca05ccee634
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 413}
+  - name: Nyx_Frame_56
+    originalName: 
+    pivot: {x: 0.6363637, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 684
+      width: 44
+      height: 62
+    spriteID: 5dae6c2cd7a375040a31c368acfb1fd5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 684}
+  - name: Nyx_Frame_57
+    originalName: 
+    pivot: {x: 0.6363637, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 754
+      width: 44
+      height: 60
+    spriteID: 685495f7df376fb44b2da35cd4c4b0fc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 754}
+  - name: Nyx_Frame_58
+    originalName: 
+    pivot: {x: 0.5277778, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 937
+      width: 36
+      height: 63
+    spriteID: 672ba80f1f0693c45a908a8e60241cf1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 176, y: 937}
+  - name: Nyx_Frame_59
+    originalName: 
+    pivot: {x: 0.5277778, y: -0.016393444}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 229
+      y: 601
+      width: 36
+      height: 61
+    spriteID: af5eee274365a214e84fb283311da42f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 229, y: 601}
+  - name: Nyx_Frame_60
+    originalName: 
+    pivot: {x: 0.5277778, y: -0.032786887}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 229
+      y: 670
+      width: 36
+      height: 61
+    spriteID: 1c4732be6f8c89c45bc700f34543407d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 229, y: 670}
+  - name: Nyx_Frame_61
+    originalName: 
+    pivot: {x: 0.5277778, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 229
+      y: 333
+      width: 36
+      height: 62
+    spriteID: 6fbb19a7014b2d248b98a7aba0153390
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 229, y: 333}
+  - name: Nyx_Frame_62
+    originalName: 
+    pivot: {x: 0.5277778, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 229
+      y: 66
+      width: 36
+      height: 63
+    spriteID: 3cd587ff882134e49b438a808ef2fdc9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 229, y: 66}
+  - name: Nyx_Frame_63
+    originalName: 
+    pivot: {x: 0.49999994, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 176
+      y: 596
+      width: 38
+      height: 64
+    spriteID: 13e1c0e344ab7f143a25a716c8db7344
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 176, y: 596}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -1917322893
+    name: Nyx
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Nyx_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 22
+        y: 0
+        width: 44
+        height: 58
+      spriteId: 78f0c0ea1ad6822498b12e89ac942e91
+    - name: Nyx_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 31
+        y: 0
+        width: 35
+        height: 58
+      spriteId: e14f953e0d9a51549a6ca874981c562f
+    - name: Nyx_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 21
+        y: 0
+        width: 45
+        height: 57
+      spriteId: 4a5b8dc1dd4b9274cae44062bbdd77ce
+    - name: Nyx_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 21
+        y: 0
+        width: 45
+        height: 56
+      spriteId: 1b60e84842013724491313cc52a9dfa8
+    - name: Nyx_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 28
+        y: 0
+        width: 38
+        height: 58
+      spriteId: 9d0b7b072fc6f5a4b8e0491d4817e00e
+    - name: Nyx_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 31
+        y: 0
+        width: 35
+        height: 57
+      spriteId: e1f7d66ce327b044a91ea3da7d4468d2
+    - name: Nyx_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 28
+        y: 0
+        width: 38
+        height: 56
+      spriteId: c5211490e1b6f0342b15647f70db6846
+    - name: Nyx_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 24
+        y: 0
+        width: 42
+        height: 58
+      spriteId: cafacf46056f97b45bce6076d8035ae8
+    - name: Nyx_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 28
+        y: 0
+        width: 40
+        height: 58
+      spriteId: 4829f8e2e1ca6594d934a1d2e7b332f7
+    - name: Nyx_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 27
+        y: 0
+        width: 40
+        height: 57
+      spriteId: 3c6f0f1f152beb9419a142dd7d0caa44
+    - name: Nyx_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 27
+        y: 0
+        width: 40
+        height: 56
+      spriteId: 5211389ae3329c548a303d01f70e0a6d
+    - name: Nyx_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 28
+        y: 0
+        width: 40
+        height: 57
+      spriteId: 43c642f033ccab143b3fde9b06f71363
+    - name: Nyx_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 33
+        y: 4
+        width: 34
+        height: 60
+      spriteId: 040ba871d3bc2a54ab3d1e0d6fe9bcef
+    - name: Nyx_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 33
+        y: 3
+        width: 34
+        height: 61
+      spriteId: 8f5df904b48243349b2b5184ca88a147
+    - name: Nyx_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 34
+        y: 2
+        width: 35
+        height: 65
+      spriteId: 9c4fbb7c30d3a404d9dd938cdc9d1a58
+    - name: Nyx_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 35
+        y: 3
+        width: 34
+        height: 63
+      spriteId: dc51daa5cd57fb9428ed27c08f99e0b7
+    - name: Nyx_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 20
+        y: 0
+        width: 58
+        height: 56
+      spriteId: e8b6f89f87268a94e91796d17555af5b
+    - name: Nyx_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 19
+        y: 0
+        width: 55
+        height: 54
+      spriteId: 0ff01c68866112b408ed007759c9cfa5
+    - name: Nyx_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 16
+        y: 0
+        width: 60
+        height: 58
+      spriteId: 73bd0a95d9871f94b85982699f402ca0
+    - name: Nyx_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 17
+        y: 0
+        width: 52
+        height: 56
+      spriteId: 3a792fe8cdfa302438bf519467b83603
+    - name: Nyx_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 19
+        y: 0
+        width: 46
+        height: 54
+      spriteId: 35eb94db4e22eda42bc4cb0fe4483067
+    - name: Nyx_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 16
+        y: 0
+        width: 64
+        height: 58
+      spriteId: 8e1201448ecb0d9489e1a17dbc7f2d3e
+    - name: Nyx_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 16
+        y: 0
+        width: 55
+        height: 58
+      spriteId: 3615f24c596cb5c41948d10759a2813c
+    - name: Nyx_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 15
+        y: 13
+        width: 81
+        height: 38
+      spriteId: 628094acf19509347a5a6658ceadffb2
+    - name: Nyx_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: 16
+        y: 0
+        width: 55
+        height: 58
+      spriteId: 821d03dd721a2594bbb12a09e8093c55
+    - name: Nyx_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: 16
+        y: 13
+        width: 80
+        height: 38
+      spriteId: 38410f37e6952a74d86dd9bf648f2d9b
+    - name: Nyx_Frame_26
+      frameIndex: 26
+      cellRect:
+        x: 25
+        y: 4
+        width: 50
+        height: 56
+      spriteId: 81491f7450a9c884e9f9d2378e43c46d
+    - name: Nyx_Frame_27
+      frameIndex: 27
+      cellRect:
+        x: 14
+        y: 0
+        width: 58
+        height: 31
+      spriteId: e8980f0d898bd8d4ab909b27079a62d8
+    - name: Nyx_Frame_28
+      frameIndex: 28
+      cellRect:
+        x: 8
+        y: 0
+        width: 75
+        height: 57
+      spriteId: f72789f39d8434546870324cac95c2eb
+    - name: Nyx_Frame_29
+      frameIndex: 29
+      cellRect:
+        x: 27
+        y: 0
+        width: 49
+        height: 58
+      spriteId: 018e3725633cad1448133bc1591faaf2
+    - name: Nyx_Frame_30
+      frameIndex: 30
+      cellRect:
+        x: 27
+        y: 0
+        width: 53
+        height: 57
+      spriteId: 61a2bba4bf367694091190f37fd26015
+    - name: Nyx_Frame_31
+      frameIndex: 31
+      cellRect:
+        x: 27
+        y: 0
+        width: 51
+        height: 57
+      spriteId: 2359b9f4af0c6df46af9a53a9c191683
+    - name: Nyx_Frame_32
+      frameIndex: 32
+      cellRect:
+        x: 27
+        y: 0
+        width: 43
+        height: 58
+      spriteId: 6ada54eeba3ed6b4db6d55ea6d50679b
+    - name: Nyx_Frame_33
+      frameIndex: 33
+      cellRect:
+        x: 29
+        y: 0
+        width: 39
+        height: 58
+      spriteId: a564f85fbe7f90e4e82859aeeece4b16
+    - name: Nyx_Frame_34
+      frameIndex: 34
+      cellRect:
+        x: 29
+        y: 0
+        width: 38
+        height: 58
+      spriteId: 1dab773534450e04cbbad8afffd37a70
+    - name: Nyx_Frame_35
+      frameIndex: 35
+      cellRect:
+        x: 27
+        y: 0
+        width: 51
+        height: 58
+      spriteId: e2640965d91573f4bb6a44c50de17185
+    - name: Nyx_Frame_36
+      frameIndex: 36
+      cellRect:
+        x: 27
+        y: 0
+        width: 53
+        height: 57
+      spriteId: cad7067f86a49ee41b7af0fa72af26ab
+    - name: Nyx_Frame_37
+      frameIndex: 37
+      cellRect:
+        x: 27
+        y: 0
+        width: 51
+        height: 57
+      spriteId: 7abe4e04fc59bde46bb81598c76b8c61
+    - name: Nyx_Frame_38
+      frameIndex: 38
+      cellRect:
+        x: 27
+        y: 0
+        width: 44
+        height: 58
+      spriteId: 70bac0c8943ffd84ca5b70cfbc92902d
+    - name: Nyx_Frame_39
+      frameIndex: 39
+      cellRect:
+        x: 29
+        y: 0
+        width: 39
+        height: 58
+      spriteId: aa5eb380e17f0d945a664257549d3e30
+    - name: Nyx_Frame_40
+      frameIndex: 40
+      cellRect:
+        x: 29
+        y: 0
+        width: 38
+        height: 58
+      spriteId: 35086f392aaf07b40863157e2ee498fd
+    - name: Nyx_Frame_41
+      frameIndex: 41
+      cellRect:
+        x: 21
+        y: 0
+        width: 42
+        height: 60
+      spriteId: 7bd8ed51e5cacfc479b0e09fbd6bf348
+    - name: Nyx_Frame_42
+      frameIndex: 42
+      cellRect:
+        x: 21
+        y: 0
+        width: 42
+        height: 58
+      spriteId: ec10c9136a1e4ed438adb15cf6164453
+    - name: Nyx_Frame_43
+      frameIndex: 43
+      cellRect:
+        x: 21
+        y: 0
+        width: 59
+        height: 63
+      spriteId: 45ddf721be7c4be448cc05fd667a827b
+    - name: Nyx_Frame_44
+      frameIndex: 44
+      cellRect:
+        x: 21
+        y: 0
+        width: 59
+        height: 63
+      spriteId: 52b15aedb93317349b74d0a316c16c4d
+    - name: Nyx_Frame_45
+      frameIndex: 45
+      cellRect:
+        x: 21
+        y: 0
+        width: 53
+        height: 63
+      spriteId: 1851028c75fabf24e8e0326fb1272898
+    - name: Nyx_Frame_46
+      frameIndex: 46
+      cellRect:
+        x: 23
+        y: 2
+        width: 46
+        height: 57
+      spriteId: bce04001230da024383e0079966f3b7a
+    - name: Nyx_Frame_47
+      frameIndex: 47
+      cellRect:
+        x: 23
+        y: 2
+        width: 45
+        height: 57
+      spriteId: c364c8198bc168a439e927959b3dcfad
+    - name: Nyx_Frame_48
+      frameIndex: 48
+      cellRect:
+        x: 24
+        y: 2
+        width: 44
+        height: 57
+      spriteId: 37a80fc4bf1e5184a8362267e164dc66
+    - name: Nyx_Frame_49
+      frameIndex: 49
+      cellRect:
+        x: 20
+        y: 0
+        width: 50
+        height: 60
+      spriteId: 02245064a40693045a6faa3632736eb0
+    - name: Nyx_Frame_50
+      frameIndex: 50
+      cellRect:
+        x: 20
+        y: 0
+        width: 50
+        height: 60
+      spriteId: b8843b7c1b4370e49a16618c960ffdbf
+    - name: Nyx_Frame_51
+      frameIndex: 51
+      cellRect:
+        x: 20
+        y: 0
+        width: 47
+        height: 60
+      spriteId: a1173d896299ea04a84f2f47058d3d0a
+    - name: Nyx_Frame_52
+      frameIndex: 52
+      cellRect:
+        x: 20
+        y: 0
+        width: 43
+        height: 60
+      spriteId: 4400122ed4752f94bb1e6f3eacfb6e4a
+    - name: Nyx_Frame_53
+      frameIndex: 53
+      cellRect:
+        x: 20
+        y: 0
+        width: 60
+        height: 60
+      spriteId: a46a63ef39a88ab4694687bd17646505
+    - name: Nyx_Frame_54
+      frameIndex: 54
+      cellRect:
+        x: 20
+        y: 0
+        width: 60
+        height: 60
+      spriteId: 935f538469712f4488825aee740cd091
+    - name: Nyx_Frame_55
+      frameIndex: 55
+      cellRect:
+        x: 20
+        y: 0
+        width: 60
+        height: 60
+      spriteId: 52f83486c02574240a721ca05ccee634
+    - name: Nyx_Frame_56
+      frameIndex: 56
+      cellRect:
+        x: 20
+        y: 0
+        width: 44
+        height: 62
+      spriteId: 5dae6c2cd7a375040a31c368acfb1fd5
+    - name: Nyx_Frame_57
+      frameIndex: 57
+      cellRect:
+        x: 20
+        y: 0
+        width: 44
+        height: 60
+      spriteId: 685495f7df376fb44b2da35cd4c4b0fc
+    - name: Nyx_Frame_58
+      frameIndex: 58
+      cellRect:
+        x: 29
+        y: 0
+        width: 36
+        height: 63
+      spriteId: 672ba80f1f0693c45a908a8e60241cf1
+    - name: Nyx_Frame_59
+      frameIndex: 59
+      cellRect:
+        x: 29
+        y: 1
+        width: 36
+        height: 61
+      spriteId: af5eee274365a214e84fb283311da42f
+    - name: Nyx_Frame_60
+      frameIndex: 60
+      cellRect:
+        x: 29
+        y: 2
+        width: 36
+        height: 61
+      spriteId: 1c4732be6f8c89c45bc700f34543407d
+    - name: Nyx_Frame_61
+      frameIndex: 61
+      cellRect:
+        x: 29
+        y: 0
+        width: 36
+        height: 62
+      spriteId: 6fbb19a7014b2d248b98a7aba0153390
+    - name: Nyx_Frame_62
+      frameIndex: 62
+      cellRect:
+        x: 29
+        y: 0
+        width: 36
+        height: 63
+      spriteId: 3cd587ff882134e49b438a808ef2fdc9
+    - name: Nyx_Frame_63
+      frameIndex: 63
+      cellRect:
+        x: 29
+        y: 0
+        width: 38
+        height: 64
+      spriteId: 13e1c0e344ab7f143a25a716c8db7344
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 96, y: 96}

@@ -1,6 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+[System.Serializable]
+public class Drop
+{
+    public GameObject item;
+    public float dropChance;
+}
+
 public class Enemy : Character
 {
     protected List<PlayableCharacter> players;
@@ -55,6 +63,8 @@ public class Enemy : Character
     public int XpAmount { get => xpAmount; }
     [SerializeField] protected Vector3 lootBoxSize;
     public Vector3 LootBoxSize { get => lootBoxSize; }
+    [SerializeField] List<Drop> drops = new List<Drop>();
+    public List<Drop> Drops { get => drops; }
 
     public override void TakeDamage(float damage, float stunDuration, bool critical = false, Vector3 knockbackDir = default, float knockbackForce = 0, float knockbackDuration = 0.2f)
     {
@@ -235,7 +245,10 @@ public class Enemy : Character
             yield return new WaitForSeconds(deathTime);
         }
 
-        //StopAllCoroutines();
+        DropLoot();
+        GiveCoins(coinAmount);
+        GiveXP(xpAmount);
+
         Destroy(gameObject);
     }
 
@@ -273,13 +286,27 @@ public class Enemy : Character
             }
         }
 
-        foreach (PlayableCharacter player in playersOnRange)
+        if (playersOnRange.Count > 0)
         {
-            player.AddExP(Mathf.RoundToInt(xpAmount / playersOnRange.Count));
+            foreach (PlayableCharacter player in playersOnRange)
+            {
+                player.AddExP(Mathf.RoundToInt(xpAmount / playersOnRange.Count));
+            }
         }
 
         if(debug) Debug.Log("Gave " + Mathf.RoundToInt(xpAmount / playersOnRange.Count) + " xp to " + playersOnRange.Count + " players");
     } 
+
+    public void DropLoot()
+    {
+        foreach (Drop drop in drops)
+        {
+            if (Random.Range(0, 100) < drop.dropChance)
+            {
+                Instantiate(drop.item, transform.position, Quaternion.identity);
+            }
+        }
+    }
 
     public void SetJoin(bool join, Vector3 destination)
     {

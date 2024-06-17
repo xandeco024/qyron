@@ -60,7 +60,6 @@ public class Segment : MonoBehaviour
 
     [SerializeField] private bool complete;
     public bool Complete { get { return complete; } set { complete = value; }}
-
     private bool activated = false;
     public bool Activated { get { return activated; } set { activated = value; }}
 
@@ -107,7 +106,7 @@ public class Segment : MonoBehaviour
         {
             if (enemy != null)
             {
-                RestrictCharacterToSegment(enemy, true);
+                RestrictCharacterToSegment(enemy);
             }
         }
     }
@@ -158,16 +157,36 @@ public class Segment : MonoBehaviour
     {
         if (!totalRestriction)
         {
-            // só vai limitar no segmento que não está completo
-            if (!complete && character.transform.position.x > transform.position.x + size.x / 2 - 1)
+            if (character.GetComponent<PlayableCharacter>())
             {
-                character.transform.position = new Vector3(transform.position.x + size.x / 2 - 1, character.transform.position.y, character.transform.position.z);
+                // só vai limitar no segmento que não está completo
+                if (!complete && character.transform.position.x > transform.position.x + size.x / 2 - 1)
+                {
+                    character.transform.position = new Vector3(transform.position.x + size.x / 2 - 1, character.transform.position.y, character.transform.position.z);
+                }
+                
+                //só limita para voltar no segmento 0 pra ele não ir pro segmento -1 (inexistente.)
+                if (index == 0 && character.transform.position.x < transform.position.x - size.x / 2 + 1)
+                {
+                    character.transform.position = new Vector3(transform.position.x - size.x / 2 + 1, character.transform.position.y, character.transform.position.z);
+                }
             }
-            
-            //só limita para voltar no segmento 0 pra ele não ir pro segmento -1 (inexistente.)
-            if (index == 0 && character.transform.position.x < transform.position.x - size.x / 2 + 1)
+
+            else if (character.GetComponent<Enemy>())
             {
-                character.transform.position = new Vector3(transform.position.x - size.x / 2 + 1, character.transform.position.y, character.transform.position.z);
+                if (character.transform.position.x > transform.position.x + size.x / 2 - 1)
+                {
+                    character.transform.position = new Vector3(transform.position.x + size.x / 2 - 1, character.transform.position.y, character.transform.position.z);
+                }
+                else if (!activated && character.transform.position.x < transform.position.x - size.x / 2 + 1)
+                {
+                    character.transform.position = new Vector3(transform.position.x - size.x / 2 + 1, character.transform.position.y, character.transform.position.z);
+                }
+            }
+
+            else
+            {
+                Debug.Log("Não é um inimigo nem um player. wtf");
             }
         }
 

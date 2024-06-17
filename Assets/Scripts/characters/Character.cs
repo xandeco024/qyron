@@ -275,7 +275,7 @@ public class Character : MonoBehaviour {
             currentHealth -= damageTaken;
 
             Vector3 damageTextPosition = transform.position + new Vector3(damageTextOffset.x * (damageTextFaceToDirection == true? facingDirection : 1), damageTextOffset.y, -2f);
-            Instantiate(damageTextPrefab, damageTextPosition, Quaternion.identity).GetComponentInChildren<damageText>().SetText(damageTaken.ToString(), critical);
+            Instantiate(damageTextPrefab, damageTextPosition, Quaternion.identity).GetComponentInChildren<Text>().SetDamage(damageTaken.ToString(), critical);
 
             if (stunDuration > 0)
             {
@@ -291,7 +291,7 @@ public class Character : MonoBehaviour {
         else
 
         {
-            Instantiate(damageTextPrefab, transform.position + new Vector3(damageTextOffset.x * (damageTextFaceToDirection == true? facingDirection : 1), damageTextOffset.y, -1f), Quaternion.identity).GetComponent<damageText>().SetText("ESQUIVOU!", false);
+            Instantiate(damageTextPrefab, transform.position + new Vector3(damageTextOffset.x * (damageTextFaceToDirection == true? facingDirection : 1), damageTextOffset.y, -1f), Quaternion.identity).GetComponent<Text>().SetDamage("ESQUIVOU!", false);
         }
     }
 

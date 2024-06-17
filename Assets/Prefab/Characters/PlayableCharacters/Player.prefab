@@ -478,9 +478,9 @@ MonoBehaviour:
   debug: 1
   characterData: {fileID: 11400000, guid: 95dade2902e480b41be77d59e5e12395, type: 2}
   stepAssist: 1
-  stepAssistRay: {x: 0, y: -1.4, z: 0}
-  stepAssistLimit: {x: 0, y: -1.2, z: 0}
-  stepAssistForce: 0.25
+  stepAssistRay: {x: 0, y: -1.3, z: 0}
+  stepAssistLimit: {x: 0, y: -1.6, z: 0}
+  stepAssistForce: 0.5
   stepAssistDistance: {x: 0.5, y: 0, z: 0.5}
   stepAssistLayer:
     serializedVersion: 2

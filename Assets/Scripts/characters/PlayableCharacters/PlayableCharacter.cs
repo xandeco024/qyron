@@ -654,6 +654,11 @@ public class PlayableCharacter : Character {
         float lastHealth = currentHealth;
         base.TakeDamage(damage, stunDuration, critical, knockbackDir, knockbackForce);
 
+        //se cancelar o seu ataque ele nao reseta mais
+        canLightAttack = true;
+        canHeavyAttack = true;
+        canGrab = true;
+
         if (currentHealth < lastHealth)
         {
             animator.SetTrigger("damageTrigger");
