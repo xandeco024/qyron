@@ -95,6 +95,8 @@ public class Character : MonoBehaviour {
     protected bool isGrounded;
     public int FacingDirection { get { return facingDirection; } }
     protected int facingDirection = 1;
+    [SerializeField] protected float flipCooldown = 0.25f;
+    protected float flipCooldownTimer = 0f;
     protected bool isMovingAllowed = true;
     public bool IsMovingAllowed { get { return isMovingAllowed; } }
     [SerializeField] protected bool Grabbable;
@@ -189,13 +191,27 @@ public class Character : MonoBehaviour {
 
     public void FlipHandler()
     {
-        if (rb.linearVelocity.x > 0.1f) 
+        if (flipCooldownTimer > 0)
         {
-            Flip(true);
+            flipCooldownTimer -= Time.deltaTime;
+            return;
         }
-        else if (rb.linearVelocity.x < -0.1f) 
+
+        int newDirection = facingDirection;
+
+        if (rb.linearVelocity.x > 0.1f)
         {
-            Flip(false);
+            newDirection = 1;
+        }
+        else if (rb.linearVelocity.x < -0.1f)
+        {
+            newDirection = -1;
+        }
+
+        if (newDirection != facingDirection)
+        {
+            Flip(newDirection == 1);
+            flipCooldownTimer = flipCooldown;
         }
     }
 

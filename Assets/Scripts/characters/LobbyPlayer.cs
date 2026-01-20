@@ -27,8 +27,8 @@ public class LobbyPlayer : MonoBehaviour
         {
             Destroy(this);
         }
-    
-        lobbyManager = FindObjectOfType<LobbyManager>();
+
+        lobbyManager = LobbyManager.Instance;
         playableCharacter = GetComponent<PlayableCharacter>();
     }
 

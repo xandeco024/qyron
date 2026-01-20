@@ -23,7 +23,7 @@ public class UINavButton : MonoBehaviour,  IPointerEnterHandler, IPointerExitHan
 
     void Start()
     {
-        mainInputManager = FindObjectOfType<MainInputManager>();
+        mainInputManager = MainInputManager.Instance;
 
         mainInputManager.InputMaster.UI.Navigate.performed += ctx => Navigate(ctx.ReadValue<Vector2>());
 

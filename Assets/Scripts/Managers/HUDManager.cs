@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class HUDManager : MonoBehaviour
 {
+    // Singleton
+    public static HUDManager Instance { get; private set; }
+
     [SerializeField] private bool debug;
 
     [Header("HUD")]
@@ -26,14 +29,23 @@ public class HUDManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI lifesText;
     [SerializeField] TextMeshProUGUI clockText;
     private GameManager gameManager;
-    private GameOverManager gameOverManager;
 
     private List<PlayableCharacter> playerList = new List<PlayableCharacter>();
 
+    void Awake()
+    {
+        // Singleton setup
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
+
     void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
-        gameOverManager = FindObjectOfType<GameOverManager>();
+        gameManager = GameManager.Instance;
 
         playerList = gameManager.PlayerList;
 
@@ -49,7 +61,7 @@ public class HUDManager : MonoBehaviour
         {
             HudHandler(i);
             clockText.text = gameManager.Hours.ToString("00") + ":" + gameManager.Minutes.ToString("00");
-            lifesText.text = "x " + gameOverManager.Lifes.ToString();
+            lifesText.text = "x " + gameManager.Lifes.ToString();
         }
     }
 
@@ -111,15 +123,7 @@ public class HUDManager : MonoBehaviour
         {
             damageBar[hudIndex].fillAmount = Mathf.Lerp(damageBar[hudIndex].fillAmount, (playerList[hudIndex].CurrentHealth / playerList[hudIndex].MaxHealth), 2.5f * Time.deltaTime);
             healthBar[hudIndex].fillAmount = playerList[hudIndex].CurrentHealth / playerList[hudIndex].MaxHealth;
-            //integer, but if decimal, only show 1 decimal
-            if (playerList[hudIndex].CurrentHealth % 1 != 0)
-            {
-                healthText[hudIndex].text = playerList[hudIndex].CurrentHealth.ToString("F1");
-            }
-            else
-            {
-                healthText[hudIndex].text = playerList[hudIndex].CurrentHealth.ToString();
-            }
+            healthText[hudIndex].text = Mathf.RoundToInt(playerList[hudIndex].CurrentHealth).ToString();
 
             //xpBar[hudIndex].fillAmount = Mathf.Lerp(xpBar[hudIndex].fillAmount, (players[hudIndex].ExP / players[hudIndex].NextLevelExP), 3 * Time.deltaTime);
             xpBar[hudIndex].fillAmount = Mathf.Lerp(xpBar[hudIndex].fillAmount, ((float)playerList[hudIndex].ExP / (float)playerList[hudIndex].NextLevelExP), 3 * Time.deltaTime);

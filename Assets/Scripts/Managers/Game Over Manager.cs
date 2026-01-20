@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class GameOverManager : MonoBehaviour
 {
+    public static GameOverManager Instance { get; private set; }
+
     private bool gameOver = false;
     public bool GameOver { get => gameOver; }
     bool restarting = false;
@@ -20,11 +22,21 @@ public class GameOverManager : MonoBehaviour
     [SerializeField] private int lifes;
     public int Lifes { get => lifes; set => lifes = value; }
 
+    void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
+
     void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
-        levelManager = FindObjectOfType<LevelManager>();
-        sceneLoader = FindObjectOfType<LoadSceneManager>();
+        gameManager = GameManager.Instance;
+        levelManager = LevelManager.Instance;
+        sceneLoader = LoadSceneManager.Instance;
         playerList = gameManager.PlayerList;
         gameOverPanel.SetActive(false);
     }

@@ -34,7 +34,7 @@ public class MenuManager : MonoBehaviour
 
     void Start()
     {
-        mainInputManager = FindObjectOfType<MainInputManager>();
+        mainInputManager = MainInputManager.Instance;
 
         mainInputManager.InputMaster.UI.Cancel.performed += ctx => BackToMainMenu(settingsPanelObject);
         mainInputManager.InputMaster.UI.Cancel.performed += ctx => BackToMainMenu(creditsPanelObject);

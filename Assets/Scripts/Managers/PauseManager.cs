@@ -16,10 +16,10 @@ public class PauseManager : MonoBehaviour
 
     void Start()
     {
-        mainInputManager = FindObjectOfType<MainInputManager>();
+        mainInputManager = MainInputManager.Instance;
         mainInputManager.InputMaster.UI.PauseResume.performed += ctx => TogglePauseAction(ctx);
-        gameManager = FindObjectOfType<GameManager>();
-        gameOverManager = FindObjectOfType<GameOverManager>();
+        gameManager = GameManager.Instance;
+        gameOverManager = GameOverManager.Instance;
         SetPause(false);
     }
 

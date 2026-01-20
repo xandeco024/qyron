@@ -18,6 +18,6 @@ public class CutsceneEnder : MonoBehaviour
 
     public void EndCutscene()
     {
-        FindObjectOfType<CutsceneManager>().EndCutscene();
+        CutsceneManager.Instance.EndCutscene();
     }
 }

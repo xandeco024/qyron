@@ -293,15 +293,19 @@ public class Enemy : Character
             }
         }
 
-        if (playersOnRange.Count > 0)
+        if (playersOnRange.Count == 0)
         {
-            foreach (PlayableCharacter player in playersOnRange)
-            {
-                player.AddExP(Mathf.RoundToInt(xpAmount / playersOnRange.Count));
-            }
+            if(debug) Debug.Log("No players in range to receive XP");
+            return;
         }
 
-        if(debug) Debug.Log("Gave " + Mathf.RoundToInt(xpAmount / playersOnRange.Count) + " xp to " + playersOnRange.Count + " players");
+        int xpPerPlayer = Mathf.RoundToInt(xpAmount / playersOnRange.Count);
+        foreach (PlayableCharacter player in playersOnRange)
+        {
+            player.AddExP(xpPerPlayer);
+        }
+
+        if(debug) Debug.Log("Gave " + xpPerPlayer + " xp to " + playersOnRange.Count + " players");
     } 
 
     public void DropLoot()

@@ -951,8 +951,7 @@ public class PlayableCharacter : Character {
 
     private void CallScreenShake(float duration, float magnitude, float frequency)
     {
-        CameraManager cameraManager = FindObjectOfType<CameraManager>();
-        cameraManager.ScreenShake(duration, magnitude, frequency);
+        CameraManager.Instance.ScreenShake(duration, magnitude, frequency);
     }
 
     protected override void OnDrawGizmos()

@@ -6,6 +6,9 @@ using UnityEngine.U2D;
 
 public class LevelManager : MonoBehaviour
 {
+    // Singleton
+    public static LevelManager Instance { get; private set; }
+
     [SerializeField] private List<Segment> segments;
     private Segment currentSegment;
     public Segment CurrentSegment { get { return currentSegment; } }
@@ -21,12 +24,23 @@ public class LevelManager : MonoBehaviour
     private GameManager gameManager;
     private List<PlayableCharacter> playerList;
 
+    void Awake()
+    {
+        // Singleton setup
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
+
     void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        gameManager = GameManager.Instance;
         playerList = gameManager.PlayerList;
 
-        cameraManager = FindObjectOfType<CameraManager>();
+        cameraManager = CameraManager.Instance;
 
         segments = new List<Segment>(FindObjectsOfType<Segment>());
         //order the segments by their index
@@ -64,7 +78,7 @@ public class LevelManager : MonoBehaviour
         startHours = gameManager.Hours;
         startMinutes = gameManager.Minutes;
 
-        HUDManager hudManager = FindObjectOfType<HUDManager>();
+        HUDManager hudManager = HUDManager.Instance;
         hudManager.SetPoitingRightPaw(true);
         currentSegment = segments[nextIndex];
         cameraManager.SetCameraLimits(segments[0].transform.position.x - currentSegment.Size.x / 2 + segmentBorderCamOffset, currentSegment.transform.position.x + currentSegment.Size.x / 2 - segmentBorderCamOffset, currentSegment.transform.position.z - currentSegment.Size.z / 2, currentSegment.transform.position.z + currentSegment.Size.z / 2);

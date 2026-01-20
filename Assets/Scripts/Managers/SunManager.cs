@@ -9,7 +9,7 @@ public class SunController : MonoBehaviour
 
     void Start()
     {
-        gameManager = FindObjectOfType<GameManager>(); // Encontra o GameManager
+        gameManager = GameManager.Instance; // Usa o Singleton
         sunLight = GetComponent<Light>(); // Encontra a luz direcional
     }
 

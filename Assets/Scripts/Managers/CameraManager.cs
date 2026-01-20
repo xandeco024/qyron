@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
+    // Singleton
+    public static CameraManager Instance { get; private set; }
+
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
     [SerializeField] private Camera mainCamera;
     [SerializeField] private float minFov, maxFov;
@@ -32,9 +35,20 @@ public class CameraManager : MonoBehaviour
     [SerializeField] Vector3 singlePlayerOffset;
     [SerializeField] Vector3 multiplePlayersOffset;
 
+    void Awake()
+    {
+        // Singleton setup
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
+
     void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        gameManager = GameManager.Instance;
         playerList = gameManager.PlayerList;
 
         mainCamera = Camera.main;

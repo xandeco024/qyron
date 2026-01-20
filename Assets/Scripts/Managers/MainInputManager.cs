@@ -5,6 +5,9 @@ using UnityEngine.EventSystems;
 
 public class MainInputManager : MonoBehaviour
 {
+    // Singleton
+    public static MainInputManager Instance { get; private set; }
+
     private InputMaster inputMaster;
     public InputMaster InputMaster { get => inputMaster; }
     private GameObject lockedObject;
@@ -14,6 +17,14 @@ public class MainInputManager : MonoBehaviour
 
     void Awake()
     {
+        // Singleton setup
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+
         inputMaster = new InputMaster();
         eventSystem = EventSystem.current;
     }

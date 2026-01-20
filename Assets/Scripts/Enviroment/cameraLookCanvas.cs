@@ -9,7 +9,7 @@ public class cameraLookCanvas : MonoBehaviour
 
     void Start()
     {
-        cameraManager = FindObjectOfType<CameraManager>();
+        cameraManager = CameraManager.Instance;
         canvas = GetComponent<Canvas>();
 
         if (cameraManager == null)

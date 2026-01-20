@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 using Unity.Mathematics;
 public class LoadSceneManager : MonoBehaviour
 {
+    public static LoadSceneManager Instance { get; private set; }
+
     [Header("UI Elements")]
     [SerializeField] GameObject loadingScreen;
     [SerializeField] Image miniQyronImage;
@@ -112,6 +114,16 @@ public class LoadSceneManager : MonoBehaviour
         "pombas nao sao muito amigaveis",
         "nao esqueca do seu dash",
     };
+
+    void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
 
     void Start()
     {

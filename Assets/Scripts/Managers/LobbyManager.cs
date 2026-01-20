@@ -9,6 +9,8 @@ using UnityEngine.UI;
 
 public class LobbyManager : MonoBehaviour
 {
+    public static LobbyManager Instance { get; private set; }
+
     [SerializeField] private CharacterData[] characterData;
     public CharacterData[] CharacterData => characterData;
 
@@ -29,6 +31,14 @@ public class LobbyManager : MonoBehaviour
 
     void Awake()
     {
+        // Singleton setup
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+
         //menuManager = FindObjectOfType<MenuManager>();
         //inputMaster = new InputMaster();
         //inputMaster.UI.Cancel.performed += ctx => BackToMainMenu();
@@ -54,7 +64,7 @@ public class LobbyManager : MonoBehaviour
 
     void Start()
     {
-        mainInputManager = FindObjectOfType<MainInputManager>();
+        mainInputManager = MainInputManager.Instance;
 
         //mainInputManager.InputMaster.UI.Cancel.performed += ctx => ResetLobby();
     }

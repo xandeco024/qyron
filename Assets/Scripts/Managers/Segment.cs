@@ -72,8 +72,8 @@ public class Segment : MonoBehaviour
     {
         boxCollider = GetComponent<BoxCollider>();
         boxCollider.size = size;
-        levelManager = FindObjectOfType<LevelManager>();
-        gameManager = FindObjectOfType<GameManager>();
+        levelManager = LevelManager.Instance;
+        gameManager = GameManager.Instance;
     }
 
     void Update()
