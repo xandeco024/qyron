@@ -67,28 +67,27 @@ public class Pigeon : Enemy
         float damage = attackDamage * 2 * (critical? 2f : 1f);
 
 
-        Collider[] colliders = Physics.OverlapBox(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.y), combatBoxSize / 2, transform.rotation);
-        
+        Collider[] colliders = Physics.OverlapBox(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.z), combatBoxSize / 2, transform.rotation);
+
         foreach (Collider collider in colliders)
         {
-            if (collider.GetComponent<PlayableCharacter>() != null)
+            PlayableCharacter player = collider.GetComponent<PlayableCharacter>();
+            if (player != null)
             {
-                collider.GetComponent<PlayableCharacter>().TakeDamage(damage / 2, 0.2f);
+                player.TakeDamage(damage / 2, 0.2f);
             }
         }
 
-
-
         yield return new WaitForSeconds(heavyAttackDelay);
 
-        colliders = Physics.OverlapBox(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.y), combatBoxSize / 2, transform.rotation);
-        
+        colliders = Physics.OverlapBox(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.z), combatBoxSize / 2, transform.rotation);
 
         foreach (Collider collider in colliders)
         {
-            if (collider.GetComponent<PlayableCharacter>() != null)
+            PlayableCharacter player = collider.GetComponent<PlayableCharacter>();
+            if (player != null)
             {
-                collider.GetComponent<PlayableCharacter>().TakeDamage(damage / 2, 0.2f);
+                player.TakeDamage(damage / 2, 0.2f);
             }
         }
 

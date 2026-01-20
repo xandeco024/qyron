@@ -97,16 +97,15 @@ public class Enemy : Character
         yield return new WaitForSeconds(lightAttackDelay);
 
         bool critical = Random.Range(0, 100) < criticalChance;
-        //Debug.Log(critical);
-        float damage = attackDamage * (critical? 2f : 1f);
+        float damage = attackDamage * (critical ? 2f : 1f);
 
-
-        Collider[] colliders = Physics.OverlapBox(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.y), combatBoxSize / 2, transform.rotation);
+        Collider[] colliders = Physics.OverlapBox(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.z), combatBoxSize / 2, transform.rotation);
         foreach (Collider collider in colliders)
         {
-            if (collider.GetComponent<PlayableCharacter>() != null)
+            PlayableCharacter player = collider.GetComponent<PlayableCharacter>();
+            if (player != null)
             {
-                collider.GetComponent<PlayableCharacter>().TakeDamage(damage, 0.1f);
+                player.TakeDamage(damage, 0.1f);
             }
         }
 
@@ -130,16 +129,15 @@ public class Enemy : Character
         yield return new WaitForSeconds(heavyAttackDelay);
 
         bool critical = Random.Range(0, 100) < criticalChance;
-        //Debug.Log(critical);
-        float damage = attackDamage * 2 * (critical? 2f : 1f);
+        float damage = attackDamage * 2 * (critical ? 2f : 1f);
 
-
-        Collider[] colliders = Physics.OverlapBox(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.y), combatBoxSize / 2, transform.rotation);
+        Collider[] colliders = Physics.OverlapBox(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.z), combatBoxSize / 2, transform.rotation);
         foreach (Collider collider in colliders)
         {
-            if (collider.GetComponent<PlayableCharacter>() != null)
+            PlayableCharacter player = collider.GetComponent<PlayableCharacter>();
+            if (player != null)
             {
-                collider.GetComponent<PlayableCharacter>().TakeDamage(damage, 0.2f);
+                player.TakeDamage(damage, 0.2f);
             }
         }
 
@@ -158,41 +156,38 @@ public class Enemy : Character
 
     public bool PlayerOnAttackRange()
     {
-        bool range = false;
-        Collider[] colliders = Physics.OverlapBox(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.y), combatBoxSize / 2, transform.rotation);
+        Collider[] colliders = Physics.OverlapBox(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.z), combatBoxSize / 2, transform.rotation);
         foreach (Collider collider in colliders)
         {
-            if (collider.GetComponent<PlayableCharacter>() != null && collider.GetComponent<PlayableCharacter>() == target)
+            PlayableCharacter player = collider.GetComponent<PlayableCharacter>();
+            if (player != null && player == target)
             {
-                range = true;
-                break;
+                return true;
             }
         }
-        return range;
+        return false;
     }
 
     protected PlayableCharacter FindTargetOnRange()
     {
-        PlayableCharacter target = null;
-
         Collider[] colliders = Physics.OverlapBox(transform.position, targetSearchBoxSize / 2, transform.rotation);
-
         List<PlayableCharacter> playersOnRange = new List<PlayableCharacter>();
 
         foreach (Collider collider in colliders)
         {
-            if (collider.GetComponent<PlayableCharacter>() != null && !collider.GetComponent<PlayableCharacter>().IsDowned)
+            PlayableCharacter player = collider.GetComponent<PlayableCharacter>();
+            if (player != null && !player.IsDowned)
             {
-                playersOnRange.Add(collider.GetComponent<PlayableCharacter>());
+                playersOnRange.Add(player);
             }
         }
 
         if (playersOnRange.Count > 0)
         {
-            target = playersOnRange[Random.Range(0, playersOnRange.Count)];
+            return playersOnRange[Random.Range(0, playersOnRange.Count)];
         }
 
-        return target;
+        return null;
     }
 
     protected override void OnDrawGizmos()
@@ -254,20 +249,11 @@ public class Enemy : Character
 
     public void GiveCoins(int coinAmount)
     {
-        Collider[] colliders = Physics.OverlapBox(transform.position, lootBoxSize / 2, transform.rotation);
-        List<PlayableCharacter> playersOnRange = new List<PlayableCharacter>();
-
-        foreach (Collider collider in colliders)
-        {
-            if (collider.GetComponent<PlayableCharacter>() != null)
-            {
-                playersOnRange.Add(collider.GetComponent<PlayableCharacter>());
-            }
-        }
+        List<PlayableCharacter> playersOnRange = GetPlayersInLootRange();
 
         if (playersOnRange.Count == 0)
         {
-            if(debug) Debug.Log("No players in range to receive coins");
+            if (debug) Debug.Log("No players in range to receive coins");
             return;
         }
 
@@ -277,25 +263,16 @@ public class Enemy : Character
             player.AddCoins(coinsPerPlayer);
         }
 
-        if(debug) Debug.Log("Gave " + coinsPerPlayer + " coins to " + playersOnRange.Count + " players");
+        if (debug) Debug.Log("Gave " + coinsPerPlayer + " coins to " + playersOnRange.Count + " players");
     }
 
     public void GiveXP(int xpAmount)
     {
-        Collider[] colliders = Physics.OverlapBox(transform.position, lootBoxSize / 2, transform.rotation);
-        List<PlayableCharacter> playersOnRange = new List<PlayableCharacter>();
-
-        foreach (Collider collider in colliders)
-        {
-            if (collider.GetComponent<PlayableCharacter>() != null)
-            {
-                playersOnRange.Add(collider.GetComponent<PlayableCharacter>());
-            }
-        }
+        List<PlayableCharacter> playersOnRange = GetPlayersInLootRange();
 
         if (playersOnRange.Count == 0)
         {
-            if(debug) Debug.Log("No players in range to receive XP");
+            if (debug) Debug.Log("No players in range to receive XP");
             return;
         }
 
@@ -305,7 +282,24 @@ public class Enemy : Character
             player.AddExP(xpPerPlayer);
         }
 
-        if(debug) Debug.Log("Gave " + xpPerPlayer + " xp to " + playersOnRange.Count + " players");
+        if (debug) Debug.Log("Gave " + xpPerPlayer + " xp to " + playersOnRange.Count + " players");
+    }
+
+    private List<PlayableCharacter> GetPlayersInLootRange()
+    {
+        Collider[] colliders = Physics.OverlapBox(transform.position, lootBoxSize / 2, transform.rotation);
+        List<PlayableCharacter> playersOnRange = new List<PlayableCharacter>();
+
+        foreach (Collider collider in colliders)
+        {
+            PlayableCharacter player = collider.GetComponent<PlayableCharacter>();
+            if (player != null)
+            {
+                playersOnRange.Add(player);
+            }
+        }
+
+        return playersOnRange;
     } 
 
     public void DropLoot()

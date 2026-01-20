@@ -129,6 +129,7 @@ public class Character : MonoBehaviour {
     public float DamageTime { get { return damageTime; } }
     protected int attackAnimationIndex = 1;
     protected bool isAttacking;
+    public bool IsAttacking { get { return isAttacking; } }
     protected bool isLightAttacking;
     protected bool isHeavyAttacking;
 

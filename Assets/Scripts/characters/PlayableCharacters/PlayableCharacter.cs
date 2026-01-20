@@ -60,6 +60,18 @@ public class PlayableCharacter : Character {
     [SerializeField] private float grabAttackStunDuration;
     private bool canGrab = true;
 
+    [Header("Throw (Light + Grab)")]
+    [SerializeField] private float throwDamage = 15f;
+    [SerializeField] private float throwForce = 12f;
+    [SerializeField] private float throwStunDuration = 0.5f;
+    [SerializeField] private Vector3 throwDirection = new Vector3(1f, 0.3f, 0f);
+
+    [Header("Slam (Heavy + Grab)")]
+    [SerializeField] private float slamDamage = 25f;
+    [SerializeField] private float slamStunDuration = 1f;
+    [SerializeField] private float slamRadius = 2f;
+    [SerializeField] private float slamAOEDamage = 10f;
+
     [SerializeField] private float lightComboStunDuration;
     [SerializeField] private float heavyComboStunDuration;
     [SerializeField] private float grabComboStunDuration;
@@ -286,11 +298,10 @@ public class PlayableCharacter : Character {
         {
             if (canLightAttack && !isDowned && isGrounded)
             {
-                if(isGrabbing) // se estiver grebbando então faz o combo de grab
-                { 
-                    CancelGrab();
-                    Debug.Log("Light Grab Attack " + combo);
-                    combo.Clear();
+                if(isGrabbing && grabbedCharacter != null)
+                {
+                    StartCoroutine(ThrowAttack());
+                    return;
                 }
 
                 else if (combo.Count == 3 && !isAttacking && validLightCombos.Contains(string.Join("", combo.GetRange(combo.Count - 3, 3)))) // se o combo for valido e tiver 3 ataques
@@ -346,11 +357,10 @@ public class PlayableCharacter : Character {
         {
             if (canHeavyAttack && !isDowned && isGrounded)
             {
-                if(isGrabbing) // se estiver grebbando então faz o combo de grab
-                { 
-                    CancelGrab();
-                    //uDebug.Log("Heavy Grab Attack " + combo);
-                    combo.Clear();
+                if(isGrabbing && grabbedCharacter != null)
+                {
+                    StartCoroutine(SlamAttack());
+                    return;
                 }
 
                 else if (combo.Count == 3 && !isAttacking && validHeavyCombos.Contains(string.Join("", combo.GetRange(combo.Count - 3, 3)))) // se o combo for valido e tiver 3 ataques
@@ -431,13 +441,11 @@ public class PlayableCharacter : Character {
 
     IEnumerator GrabAttackCoroutine()
     {
-        if (canGrab) canGrab = false;
-        if (!isGrabbing) isGrabbing = true;
-        if (!isAttacking) isAttacking = true;
-        if (!fighting) fighting = true;
-
+        canGrab = false;
+        isGrabbing = true;
+        isAttacking = true;
+        fighting = true;
         lastAttackTime = 0;
-
         currentMoveSpeed = moveSpeed / 4;
 
         animator.SetTrigger("grabAttackTrigger");
@@ -445,31 +453,50 @@ public class PlayableCharacter : Character {
 
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.z), combatBoxSize / 2, transform.rotation);
 
-        foreach (Collider collider in hitColliders)
+        // Procura o primeiro personagem que pode ser agarrado
+        foreach (Collider col in hitColliders)
         {
-            if (collider.GetComponent<Character>() && collider.GetComponent<Character>() != this && collider.GetComponent<Character>().IsGrabbable)
+            Character target = col.GetComponent<Character>();
+            if (target != null && target != this && target.IsGrabbable && !target.IsDead)
             {
                 combo.Add("G");
+                grabbedCharacter = target;
 
-                grabbedCharacter = collider.GetComponent<Character>();
-
-                //set grabbedCharacter grabbedPoint to to the grabbedCharacterOffset
-
+                // Posiciona o personagem agarrado
                 grabbedCharacter.transform.position = transform.position + new Vector3(grabbedCharacterOffset.x * facingDirection, grabbedCharacterOffset.y, grabbedCharacterOffset.z);
-                
                 grabbedCharacter.transform.SetParent(transform);
                 grabbedCharacter.SetGrabbed(true);
                 grabbedCharacter.Flip(facingDirection == 1 ? false : true);
 
-                yield return new WaitForSeconds(3);
+                // Aplica dano leve ao agarrar
+                grabbedCharacter.TakeDamage(attackDamage * 0.25f, grabAttackStunDuration, false);
 
-                continue;
+                // Espera o jogador fazer algo (Light=Throw, Heavy=Slam, G=Soltar)
+                // Timeout de 3 segundos se não fizer nada
+                float grabTimer = 0f;
+                float maxGrabTime = 3f;
+
+                while (isGrabbing && grabTimer < maxGrabTime)
+                {
+                    grabTimer += Time.deltaTime;
+                    yield return null;
+                }
+
+                // Se ainda está agarrando após o timeout, solta
+                if (isGrabbing)
+                {
+                    CancelGrab();
+                }
+
+                yield return new WaitForSeconds(grabAttackCD);
+                canGrab = true;
+                yield break;
             }
         }
 
+        // Não encontrou ninguém para agarrar
         CancelGrab();
-
-        yield return new WaitForSeconds(grabAttackCD);
+        yield return new WaitForSeconds(grabAttackCD * 0.5f); // CD menor se errou o grab
         canGrab = true;
     }
 
@@ -485,6 +512,93 @@ public class PlayableCharacter : Character {
             grabbedCharacter = null;
         }
         currentMoveSpeed = moveSpeed;
+    }
+
+    /// <summary>
+    /// Throw: Joga o inimigo agarrado para frente (Light + Grab)
+    /// </summary>
+    IEnumerator ThrowAttack()
+    {
+        if (grabbedCharacter == null) yield break;
+
+        Character thrownCharacter = grabbedCharacter;
+
+        // Solta o inimigo
+        thrownCharacter.SetGrabbed(false);
+        thrownCharacter.transform.SetParent(null);
+
+        // Aplica dano e knockback
+        Vector3 throwDir = new Vector3(throwDirection.x * facingDirection, throwDirection.y, throwDirection.z).normalized;
+        thrownCharacter.TakeDamage(throwDamage, throwStunDuration, false, throwDir, throwForce, 0.4f);
+
+        // Trigger de animação
+        animator.SetTrigger("throwTrigger");
+
+        // Limpa estado
+        grabbedCharacter = null;
+        isGrabbing = false;
+        isAttacking = false;
+        animator.SetBool("grabbing", false);
+        currentMoveSpeed = moveSpeed;
+        combo.Clear();
+
+        yield return new WaitForSeconds(0.3f);
+
+        yield return new WaitForSeconds(grabAttackCD);
+        canGrab = true;
+    }
+
+    /// <summary>
+    /// Slam: Bate o inimigo no chão causando dano em área (Heavy + Grab)
+    /// </summary>
+    IEnumerator SlamAttack()
+    {
+        if (grabbedCharacter == null) yield break;
+
+        Character slammedCharacter = grabbedCharacter;
+
+        // Solta o inimigo
+        slammedCharacter.SetGrabbed(false);
+        slammedCharacter.transform.SetParent(null);
+
+        // Posiciona o inimigo no chão à frente
+        Vector3 slamPosition = transform.position + new Vector3(1.5f * facingDirection, 0, 0);
+        slammedCharacter.transform.position = slamPosition;
+
+        // Aplica dano principal no inimigo agarrado
+        Vector3 downDir = new Vector3(0, -1f, 0);
+        slammedCharacter.TakeDamage(slamDamage, slamStunDuration, false, downDir, 5f, 0.3f);
+
+        // Trigger de animação
+        animator.SetTrigger("slamTrigger");
+
+        // Dano em área (outros inimigos próximos)
+        Collider[] aoeTargets = Physics.OverlapSphere(slamPosition, slamRadius);
+        foreach (Collider col in aoeTargets)
+        {
+            Character target = col.GetComponent<Character>();
+            if (target != null && target != this && target != slammedCharacter && !target.IsDead)
+            {
+                // Verifica se é inimigo (não é PlayableCharacter)
+                if (target.GetComponent<PlayableCharacter>() == null)
+                {
+                    target.TakeDamage(slamAOEDamage, slamStunDuration * 0.5f, false);
+                }
+            }
+        }
+
+        // Limpa estado
+        grabbedCharacter = null;
+        isGrabbing = false;
+        isAttacking = false;
+        animator.SetBool("grabbing", false);
+        currentMoveSpeed = moveSpeed;
+        combo.Clear();
+
+        yield return new WaitForSeconds(0.5f);
+
+        yield return new WaitForSeconds(grabAttackCD);
+        canGrab = true;
     }
 
     #region Combos
