@@ -14,7 +14,7 @@ public class EnemyIdleState : StateMachineBehaviour
         enemy = animator.GetComponent<Enemy>();
 
         target = enemy.Target;
-        enemy.rb.velocity = Vector3.zero;
+        enemy.rb.linearVelocity = Vector3.zero;
         idleTime = Random.Range(enemy.IdleTimeRange.x, enemy.IdleTimeRange.y);
 
         //start idle animation on random frame

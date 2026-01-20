@@ -77,6 +77,7 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
@@ -89,6 +90,7 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
@@ -103,6 +105,7 @@ ScriptedImporter:
     pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 0
@@ -124,6 +127,7 @@ ScriptedImporter:
     pivot: {x: 0.48571432, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 227
@@ -144,6 +148,7 @@ ScriptedImporter:
     pivot: {x: 0.48571432, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 227
@@ -164,6 +169,7 @@ ScriptedImporter:
     pivot: {x: 0.48571432, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 273
@@ -184,6 +190,7 @@ ScriptedImporter:
     pivot: {x: 0.48571432, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 227
@@ -204,6 +211,7 @@ ScriptedImporter:
     pivot: {x: 0.48571432, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 227
@@ -224,6 +232,7 @@ ScriptedImporter:
     pivot: {x: 0.48571432, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 227
@@ -244,6 +253,7 @@ ScriptedImporter:
     pivot: {x: 0.48571432, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 273
@@ -264,6 +274,7 @@ ScriptedImporter:
     pivot: {x: 0.48571432, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 227
@@ -284,6 +295,7 @@ ScriptedImporter:
     pivot: {x: 0.50000006, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 175
@@ -304,6 +316,7 @@ ScriptedImporter:
     pivot: {x: 0.52500004, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 175
@@ -324,6 +337,7 @@ ScriptedImporter:
     pivot: {x: 0.52500004, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 175
@@ -344,6 +358,7 @@ ScriptedImporter:
     pivot: {x: 0.50000006, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 175
@@ -364,6 +379,7 @@ ScriptedImporter:
     pivot: {x: 0.44117647, y: -0.06666667}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 227
@@ -384,6 +400,7 @@ ScriptedImporter:
     pivot: {x: 0.44117647, y: -0.04918033}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 227
@@ -404,6 +421,7 @@ ScriptedImporter:
     pivot: {x: 0.40000004, y: -0.030769233}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 175
@@ -424,6 +442,7 @@ ScriptedImporter:
     pivot: {x: 0.38235292, y: -0.04761905}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 227
@@ -444,6 +463,7 @@ ScriptedImporter:
     pivot: {x: 0.48275867, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -464,6 +484,7 @@ ScriptedImporter:
     pivot: {x: 0.5272727, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -484,6 +505,7 @@ ScriptedImporter:
     pivot: {x: 0.5333333, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -504,6 +526,7 @@ ScriptedImporter:
     pivot: {x: 0.5961539, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 87
@@ -524,6 +547,7 @@ ScriptedImporter:
     pivot: {x: 0.63043475, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 87
@@ -544,6 +568,7 @@ ScriptedImporter:
     pivot: {x: 0.49999997, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -564,6 +589,7 @@ ScriptedImporter:
     pivot: {x: 0.58181816, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -584,6 +610,7 @@ ScriptedImporter:
     pivot: {x: 0.4, y: -0.34210527}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 87
@@ -604,6 +631,7 @@ ScriptedImporter:
     pivot: {x: 0.58181816, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -624,6 +652,7 @@ ScriptedImporter:
     pivot: {x: 0.4, y: -0.34210527}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 87
@@ -644,6 +673,7 @@ ScriptedImporter:
     pivot: {x: 0.46, y: -0.071428575}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 87
@@ -664,6 +694,7 @@ ScriptedImporter:
     pivot: {x: 0.586207, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 316
@@ -684,6 +715,7 @@ ScriptedImporter:
     pivot: {x: 0.5333333, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -704,6 +736,7 @@ ScriptedImporter:
     pivot: {x: 0.4166667, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 87
@@ -724,6 +757,7 @@ ScriptedImporter:
     pivot: {x: 0.3846154, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -744,6 +778,7 @@ ScriptedImporter:
     pivot: {x: 0.4, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 87
@@ -764,6 +799,7 @@ ScriptedImporter:
     pivot: {x: 0.4761905, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 175
@@ -784,6 +820,7 @@ ScriptedImporter:
     pivot: {x: 0.4736842, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 175
@@ -804,6 +841,7 @@ ScriptedImporter:
     pivot: {x: 0.48648646, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 227
@@ -824,6 +862,7 @@ ScriptedImporter:
     pivot: {x: 0.4, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 87
@@ -844,6 +883,7 @@ ScriptedImporter:
     pivot: {x: 0.3846154, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -864,6 +904,7 @@ ScriptedImporter:
     pivot: {x: 0.4, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 87
@@ -884,6 +925,7 @@ ScriptedImporter:
     pivot: {x: 0.46511632, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 175
@@ -904,6 +946,7 @@ ScriptedImporter:
     pivot: {x: 0.4736842, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 227
@@ -924,6 +967,7 @@ ScriptedImporter:
     pivot: {x: 0.48648646, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 227
@@ -944,6 +988,7 @@ ScriptedImporter:
     pivot: {x: 0.6428572, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 87
@@ -964,6 +1009,7 @@ ScriptedImporter:
     pivot: {x: 0.6428572, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 175
@@ -984,6 +1030,7 @@ ScriptedImporter:
     pivot: {x: 0.45762712, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -1004,6 +1051,7 @@ ScriptedImporter:
     pivot: {x: 0.45762712, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -1024,6 +1072,7 @@ ScriptedImporter:
     pivot: {x: 0.509434, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -1044,6 +1093,7 @@ ScriptedImporter:
     pivot: {x: 0.5227273, y: -0.03508772}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 175
@@ -1064,6 +1114,7 @@ ScriptedImporter:
     pivot: {x: 0.5348838, y: -0.03508772}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 175
@@ -1084,6 +1135,7 @@ ScriptedImporter:
     pivot: {x: 0.5348838, y: -0.03508772}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 175
@@ -1104,6 +1156,7 @@ ScriptedImporter:
     pivot: {x: 0.5510204, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 87
@@ -1124,6 +1177,7 @@ ScriptedImporter:
     pivot: {x: 0.5510204, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 87
@@ -1144,6 +1198,7 @@ ScriptedImporter:
     pivot: {x: 0.5869565, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 87
@@ -1164,6 +1219,7 @@ ScriptedImporter:
     pivot: {x: 0.6428572, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 87
@@ -1184,6 +1240,7 @@ ScriptedImporter:
     pivot: {x: 0.4666667, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -1204,6 +1261,7 @@ ScriptedImporter:
     pivot: {x: 0.45762712, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -1224,6 +1282,7 @@ ScriptedImporter:
     pivot: {x: 0.45762712, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -1244,6 +1303,7 @@ ScriptedImporter:
     pivot: {x: 0.62790704, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 87
@@ -1264,6 +1324,7 @@ ScriptedImporter:
     pivot: {x: 0.6190476, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 87
@@ -1284,6 +1345,7 @@ ScriptedImporter:
     pivot: {x: 0.51428574, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 175
@@ -1304,6 +1366,7 @@ ScriptedImporter:
     pivot: {x: 0.51428574, y: -0.016393444}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 227
@@ -1324,6 +1387,7 @@ ScriptedImporter:
     pivot: {x: 0.51428574, y: -0.032786887}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 227
@@ -1344,6 +1408,7 @@ ScriptedImporter:
     pivot: {x: 0.51428574, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 227
@@ -1364,6 +1429,7 @@ ScriptedImporter:
     pivot: {x: 0.51428574, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 175
@@ -1384,6 +1450,7 @@ ScriptedImporter:
     pivot: {x: 0.47222227, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 175
@@ -1408,512 +1475,576 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: Meowcello_Frame_0
+    - name: Frame_0
       frameIndex: 0
+      additiveSortOrder: 0
       cellRect:
         x: 31
         y: 0
         width: 35
         height: 58
       spriteId: 5a9541807d90a014fb2c1028af536494
-    - name: Meowcello_Frame_1
+    - name: Frame_1
       frameIndex: 1
+      additiveSortOrder: 0
       cellRect:
         x: 31
         y: 0
         width: 35
         height: 57
       spriteId: 5ad1b40bf5f7ae6499eefc64cbb5f7dc
-    - name: Meowcello_Frame_2
+    - name: Frame_2
       frameIndex: 2
+      additiveSortOrder: 0
       cellRect:
         x: 31
         y: 0
         width: 35
         height: 56
       spriteId: 9bc0efcba084a774cae1a4cc6ce92de3
-    - name: Meowcello_Frame_3
+    - name: Frame_3
       frameIndex: 3
+      additiveSortOrder: 0
       cellRect:
         x: 31
         y: 0
         width: 35
         height: 57
       spriteId: 3dcc54777527e304a84fc36e3d722c18
-    - name: Meowcello_Frame_4
+    - name: Frame_4
       frameIndex: 4
+      additiveSortOrder: 0
       cellRect:
         x: 31
         y: 0
         width: 35
         height: 58
       spriteId: a0772ad1fa91c3e4c929026d10cf5fed
-    - name: Meowcello_Frame_5
+    - name: Frame_5
       frameIndex: 5
+      additiveSortOrder: 0
       cellRect:
         x: 31
         y: 0
         width: 35
         height: 57
       spriteId: e8d3a93dc7f200c48b5aeadd0ec75c74
-    - name: Meowcello_Frame_6
+    - name: Frame_6
       frameIndex: 6
+      additiveSortOrder: 0
       cellRect:
         x: 31
         y: 0
         width: 35
         height: 56
       spriteId: eab4808d4e6e1a94582d29cd63cb2466
-    - name: Meowcello_Frame_7
+    - name: Frame_7
       frameIndex: 7
+      additiveSortOrder: 0
       cellRect:
         x: 31
         y: 0
         width: 35
         height: 57
       spriteId: 1c9b871a47ccb464695c15ffee344623
-    - name: Meowcello_Frame_8
+    - name: Frame_8
       frameIndex: 8
+      additiveSortOrder: 0
       cellRect:
         x: 28
         y: 0
         width: 40
         height: 58
       spriteId: f66610e47f04b74449957844c5e9cc12
-    - name: Meowcello_Frame_9
+    - name: Frame_9
       frameIndex: 9
+      additiveSortOrder: 0
       cellRect:
         x: 27
         y: 0
         width: 40
         height: 57
       spriteId: 8733499e30d690c4aa42c20c0385c86c
-    - name: Meowcello_Frame_10
+    - name: Frame_10
       frameIndex: 10
+      additiveSortOrder: 0
       cellRect:
         x: 27
         y: 0
         width: 40
         height: 56
       spriteId: 714d0e7fc84f28d468086e74b145005b
-    - name: Meowcello_Frame_11
+    - name: Frame_11
       frameIndex: 11
+      additiveSortOrder: 0
       cellRect:
         x: 28
         y: 0
         width: 40
         height: 57
       spriteId: cae81b19ef63fb440aa68c4aa3a40b9c
-    - name: Meowcello_Frame_12
+    - name: Frame_12
       frameIndex: 12
+      additiveSortOrder: 0
       cellRect:
         x: 33
         y: 4
         width: 34
         height: 60
       spriteId: 08433e06db46a2d48a3f1047bf982d87
-    - name: Meowcello_Frame_13
+    - name: Frame_13
       frameIndex: 13
+      additiveSortOrder: 0
       cellRect:
         x: 33
         y: 3
         width: 34
         height: 61
       spriteId: 46f66445c68ec1149ad6f799af714b55
-    - name: Meowcello_Frame_14
+    - name: Frame_14
       frameIndex: 14
+      additiveSortOrder: 0
       cellRect:
         x: 34
         y: 2
         width: 35
         height: 65
       spriteId: f5c05e8c30d959a41a5ebd18dc884f33
-    - name: Meowcello_Frame_15
+    - name: Frame_15
       frameIndex: 15
+      additiveSortOrder: 0
       cellRect:
         x: 35
         y: 3
         width: 34
         height: 63
       spriteId: 2827131c76365304fb2d420ec63d7147
-    - name: Meowcello_Frame_16
+    - name: Frame_16
       frameIndex: 16
+      additiveSortOrder: 0
       cellRect:
         x: 20
         y: 0
         width: 58
         height: 56
       spriteId: 3283a60008a6cd947a076f4b36a6a7bd
-    - name: Meowcello_Frame_17
+    - name: Frame_17
       frameIndex: 17
+      additiveSortOrder: 0
       cellRect:
         x: 19
         y: 0
         width: 55
         height: 54
       spriteId: ddb41b912224bb3418e1c68382f6ec66
-    - name: Meowcello_Frame_18
+    - name: Frame_18
       frameIndex: 18
+      additiveSortOrder: 0
       cellRect:
         x: 16
         y: 0
         width: 60
         height: 58
       spriteId: 7c309f4caca90cd488344c3019a85fa3
-    - name: Meowcello_Frame_19
+    - name: Frame_19
       frameIndex: 19
+      additiveSortOrder: 0
       cellRect:
         x: 17
         y: 0
         width: 52
         height: 56
       spriteId: b922a303d7846d1419cadc72ff56941d
-    - name: Meowcello_Frame_20
+    - name: Frame_20
       frameIndex: 20
+      additiveSortOrder: 0
       cellRect:
         x: 19
         y: 0
         width: 46
         height: 54
       spriteId: 35fdccd99e365924f9ada25b813beaa0
-    - name: Meowcello_Frame_21
+    - name: Frame_21
       frameIndex: 21
+      additiveSortOrder: 0
       cellRect:
         x: 16
         y: 0
         width: 64
         height: 58
       spriteId: 7c3719af00f34134ba35279a091cbd42
-    - name: Meowcello_Frame_22
+    - name: Frame_22
       frameIndex: 22
+      additiveSortOrder: 0
       cellRect:
         x: 16
         y: 0
         width: 55
         height: 58
       spriteId: eaf2d3f7f2dbdbd4c9c89b20336c97b3
-    - name: Meowcello_Frame_23
+    - name: Frame_23
       frameIndex: 23
+      additiveSortOrder: 0
       cellRect:
         x: 16
         y: 13
         width: 80
         height: 38
       spriteId: 86484818ad4891a4a9373760780499ae
-    - name: Meowcello_Frame_24
+    - name: Frame_24
       frameIndex: 24
+      additiveSortOrder: 0
       cellRect:
         x: 16
         y: 0
         width: 55
         height: 58
       spriteId: a95a29b8650d92a4db14bf9373ffd646
-    - name: Meowcello_Frame_25
+    - name: Frame_25
       frameIndex: 25
+      additiveSortOrder: 0
       cellRect:
         x: 16
         y: 13
         width: 80
         height: 38
       spriteId: b9ee81e4ce8e67646870a25ceab87134
-    - name: Meowcello_Frame_26
+    - name: Frame_26
       frameIndex: 26
+      additiveSortOrder: 0
       cellRect:
         x: 25
         y: 4
         width: 50
         height: 56
       spriteId: ebeb71aeb6e65884282dee15ec1a1767
-    - name: Meowcello_Frame_27
+    - name: Frame_27
       frameIndex: 27
+      additiveSortOrder: 0
       cellRect:
         x: 14
         y: 0
         width: 58
         height: 31
       spriteId: 9f5b30a54dc30c9468168058be8b6158
-    - name: Meowcello_Frame_28
+    - name: Frame_28
       frameIndex: 28
+      additiveSortOrder: 0
       cellRect:
         x: 8
         y: 0
         width: 75
         height: 57
       spriteId: c12921bb4c3095644bac9df2adc6536d
-    - name: Meowcello_Frame_29
+    - name: Frame_29
       frameIndex: 29
+      additiveSortOrder: 0
       cellRect:
         x: 28
         y: 0
         width: 48
         height: 58
       spriteId: 3558ccc700c4e01449a359d131de137b
-    - name: Meowcello_Frame_30
+    - name: Frame_30
       frameIndex: 30
+      additiveSortOrder: 0
       cellRect:
         x: 28
         y: 0
         width: 52
         height: 57
       spriteId: 408ad60934cbb3a4bbc6483a7ede5e48
-    - name: Meowcello_Frame_31
+    - name: Frame_31
       frameIndex: 31
+      additiveSortOrder: 0
       cellRect:
         x: 28
         y: 0
         width: 50
         height: 57
       spriteId: 35d1a8ee330c59946ba35166d21c8685
-    - name: Meowcello_Frame_32
+    - name: Frame_32
       frameIndex: 32
+      additiveSortOrder: 0
       cellRect:
         x: 28
         y: 0
         width: 42
         height: 58
       spriteId: 2f6307467d159b0469633f087cea3b57
-    - name: Meowcello_Frame_33
+    - name: Frame_33
       frameIndex: 33
+      additiveSortOrder: 0
       cellRect:
         x: 30
         y: 0
         width: 38
         height: 58
       spriteId: 7de896b84388ead419e8a0b2244ea4c8
-    - name: Meowcello_Frame_34
+    - name: Frame_34
       frameIndex: 34
+      additiveSortOrder: 0
       cellRect:
         x: 30
         y: 0
         width: 37
         height: 58
       spriteId: 35bce7a75eacfa147b259f11496520d7
-    - name: Meowcello_Frame_35
+    - name: Frame_35
       frameIndex: 35
+      additiveSortOrder: 0
       cellRect:
         x: 28
         y: 0
         width: 50
         height: 58
       spriteId: 8c25b9f383ff8ae439bdea8fdf1f8f03
-    - name: Meowcello_Frame_36
+    - name: Frame_36
       frameIndex: 36
+      additiveSortOrder: 0
       cellRect:
         x: 28
         y: 0
         width: 52
         height: 57
       spriteId: 3c6369efb39a707409c0b015314e507f
-    - name: Meowcello_Frame_37
+    - name: Frame_37
       frameIndex: 37
+      additiveSortOrder: 0
       cellRect:
         x: 28
         y: 0
         width: 50
         height: 57
       spriteId: 9ab800851208c9e4f89e779ba73a4375
-    - name: Meowcello_Frame_38
+    - name: Frame_38
       frameIndex: 38
+      additiveSortOrder: 0
       cellRect:
         x: 28
         y: 0
         width: 43
         height: 58
       spriteId: 8b35cceca13c16f4b9147e9a7e151959
-    - name: Meowcello_Frame_39
+    - name: Frame_39
       frameIndex: 39
+      additiveSortOrder: 0
       cellRect:
         x: 30
         y: 0
         width: 38
         height: 58
       spriteId: 30d9b7912b19cc747a3ec98ad59c57dd
-    - name: Meowcello_Frame_40
+    - name: Frame_40
       frameIndex: 40
+      additiveSortOrder: 0
       cellRect:
         x: 30
         y: 0
         width: 37
         height: 58
       spriteId: 3a7bdb64b66a89b48a0ebb242f4f6dfd
-    - name: Meowcello_Frame_41
+    - name: Frame_41
       frameIndex: 41
+      additiveSortOrder: 0
       cellRect:
         x: 21
         y: 0
         width: 42
         height: 60
       spriteId: 029707f370eca34469e8a85c22f8fe2f
-    - name: Meowcello_Frame_42
+    - name: Frame_42
       frameIndex: 42
+      additiveSortOrder: 0
       cellRect:
         x: 21
         y: 0
         width: 42
         height: 58
       spriteId: 0479a716a3338f6479b82a25b3da3100
-    - name: Meowcello_Frame_43
+    - name: Frame_43
       frameIndex: 43
+      additiveSortOrder: 0
       cellRect:
         x: 21
         y: 0
         width: 59
         height: 63
       spriteId: 0f9dd302369ed4644bfb93245080f66b
-    - name: Meowcello_Frame_44
+    - name: Frame_44
       frameIndex: 44
+      additiveSortOrder: 0
       cellRect:
         x: 21
         y: 0
         width: 59
         height: 63
       spriteId: 0d9ada33b0d9ec54ebb55bb15e64cd8e
-    - name: Meowcello_Frame_45
+    - name: Frame_45
       frameIndex: 45
+      additiveSortOrder: 0
       cellRect:
         x: 21
         y: 0
         width: 53
         height: 63
       spriteId: 400a6b496b2b0d84c8cee61a8dcf5d9c
-    - name: Meowcello_Frame_46
+    - name: Frame_46
       frameIndex: 46
+      additiveSortOrder: 0
       cellRect:
         x: 25
         y: 2
         width: 44
         height: 57
       spriteId: 4655c58a264a6bb4fa7b3c0848b30083
-    - name: Meowcello_Frame_47
+    - name: Frame_47
       frameIndex: 47
+      additiveSortOrder: 0
       cellRect:
         x: 25
         y: 2
         width: 43
         height: 57
       spriteId: 2111830d5910ef741a9a7396703550d3
-    - name: Meowcello_Frame_48
+    - name: Frame_48
       frameIndex: 48
+      additiveSortOrder: 0
       cellRect:
         x: 25
         y: 2
         width: 43
         height: 57
       spriteId: debce02f64f04764fb7d226c8f8e0d30
-    - name: Meowcello_Frame_49
+    - name: Frame_49
       frameIndex: 49
+      additiveSortOrder: 0
       cellRect:
         x: 21
         y: 0
         width: 49
         height: 60
       spriteId: 9b8da396f737dcb47b055178f7695f29
-    - name: Meowcello_Frame_50
+    - name: Frame_50
       frameIndex: 50
+      additiveSortOrder: 0
       cellRect:
         x: 21
         y: 0
         width: 49
         height: 60
       spriteId: 7d082e2238c84f04a8d1a80f4bc71005
-    - name: Meowcello_Frame_51
+    - name: Frame_51
       frameIndex: 51
+      additiveSortOrder: 0
       cellRect:
         x: 21
         y: 0
         width: 46
         height: 60
       spriteId: a9fff560071fd364bae3f30adaba8964
-    - name: Meowcello_Frame_52
+    - name: Frame_52
       frameIndex: 52
+      additiveSortOrder: 0
       cellRect:
         x: 21
         y: 0
         width: 42
         height: 60
       spriteId: f53c562b3d8445044beeef0b14ae663e
-    - name: Meowcello_Frame_53
+    - name: Frame_53
       frameIndex: 53
+      additiveSortOrder: 0
       cellRect:
         x: 20
         y: 0
         width: 60
         height: 60
       spriteId: db70538da5032274486c6e6f5420e2c5
-    - name: Meowcello_Frame_54
+    - name: Frame_54
       frameIndex: 54
+      additiveSortOrder: 0
       cellRect:
         x: 21
         y: 0
         width: 59
         height: 60
       spriteId: 99365eafc9d98ad43bb81ec3bf5a28d2
-    - name: Meowcello_Frame_55
+    - name: Frame_55
       frameIndex: 55
+      additiveSortOrder: 0
       cellRect:
         x: 21
         y: 0
         width: 59
         height: 60
       spriteId: 8004ecfcdcbe921478766fba93cf0316
-    - name: Meowcello_Frame_56
+    - name: Frame_56
       frameIndex: 56
+      additiveSortOrder: 0
       cellRect:
         x: 21
         y: 0
         width: 43
         height: 62
       spriteId: a5c8c413958587e4eb26896de0d61d1c
-    - name: Meowcello_Frame_57
+    - name: Frame_57
       frameIndex: 57
+      additiveSortOrder: 0
       cellRect:
         x: 22
         y: 0
         width: 42
         height: 60
       spriteId: c38dd0b81e184104eb8d92fa231cd971
-    - name: Meowcello_Frame_58
+    - name: Frame_58
       frameIndex: 58
+      additiveSortOrder: 0
       cellRect:
         x: 30
         y: 0
         width: 35
         height: 63
       spriteId: b1ce39a75fe606848ae878db7747fc03
-    - name: Meowcello_Frame_59
+    - name: Frame_59
       frameIndex: 59
+      additiveSortOrder: 0
       cellRect:
         x: 30
         y: 1
         width: 35
         height: 61
       spriteId: 67c513999dd16c84cadac27b0c2f6e08
-    - name: Meowcello_Frame_60
+    - name: Frame_60
       frameIndex: 60
+      additiveSortOrder: 0
       cellRect:
         x: 30
         y: 2
         width: 35
         height: 61
       spriteId: c21097a50ce8fe54887ae5c97df7b7e7
-    - name: Meowcello_Frame_61
+    - name: Frame_61
       frameIndex: 61
+      additiveSortOrder: 0
       cellRect:
         x: 30
         y: 0
         width: 35
         height: 62
       spriteId: 8279176eeefeac349aadbb265edbba51
-    - name: Meowcello_Frame_62
+    - name: Frame_62
       frameIndex: 62
+      additiveSortOrder: 0
       cellRect:
         x: 30
         y: 0
         width: 35
         height: 63
       spriteId: 260174f55d85171498f40a41e39999b0
-    - name: Meowcello_Frame_63
+    - name: Frame_63
       frameIndex: 63
+      additiveSortOrder: 0
       cellRect:
         x: 31
         y: 0
@@ -1923,6 +2054,7 @@ ScriptedImporter:
     linkedCells: []
     parentIndex: -1
   platformSettings: []
+  generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 96, y: 96}

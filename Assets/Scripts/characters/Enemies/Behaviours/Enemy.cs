@@ -265,12 +265,19 @@ public class Enemy : Character
             }
         }
 
-        foreach (PlayableCharacter player in playersOnRange)
+        if (playersOnRange.Count == 0)
         {
-            player.AddCoins(Mathf.RoundToInt(coinAmount / playersOnRange.Count));
+            if(debug) Debug.Log("No players in range to receive coins");
+            return;
         }
 
-        if(debug) Debug.Log("Gave " + Mathf.RoundToInt(coinAmount / playersOnRange.Count) + " coins to " + playersOnRange.Count + " players");
+        int coinsPerPlayer = Mathf.RoundToInt(coinAmount / playersOnRange.Count);
+        foreach (PlayableCharacter player in playersOnRange)
+        {
+            player.AddCoins(coinsPerPlayer);
+        }
+
+        if(debug) Debug.Log("Gave " + coinsPerPlayer + " coins to " + playersOnRange.Count + " players");
     }
 
     public void GiveXP(int xpAmount)

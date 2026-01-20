@@ -30,7 +30,7 @@ public class EnemyFollowingState : StateMachineBehaviour
             else if (!enemy.PlayerOnAttackRange())
             {
                 Vector3 targetDirection = (new Vector3(target.transform.position.x - enemy.FacingDirection, target.transform.position.y, target.transform.position.z) - enemy.transform.position).normalized;
-                enemy.rb.velocity = new Vector3(targetDirection.x * enemy.MoveSpeed, enemy.rb.velocity.y, targetDirection.z * enemy.MoveSpeed);
+                enemy.rb.linearVelocity = new Vector3(targetDirection.x * enemy.MoveSpeed, enemy.rb.linearVelocity.y, targetDirection.z * enemy.MoveSpeed);
             }
 
         }

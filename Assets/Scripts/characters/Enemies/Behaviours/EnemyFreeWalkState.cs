@@ -30,7 +30,7 @@ public class EnemyFreeWalkState : StateMachineBehaviour
         }
         else
         {
-            enemy.rb.velocity = new Vector3(moveDirection.x * enemy.MoveSpeed, enemy.rb.velocity.y, moveDirection.z * enemy.MoveSpeed);
+            enemy.rb.linearVelocity = new Vector3(moveDirection.x * enemy.MoveSpeed, enemy.rb.linearVelocity.y, moveDirection.z * enemy.MoveSpeed);
         }
 
         if (target != null)

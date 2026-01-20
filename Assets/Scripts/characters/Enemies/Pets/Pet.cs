@@ -61,11 +61,11 @@ public class Pet : MonoBehaviour
         if (Vector3.Distance(transform.position, qyron.transform.position + offset) > distance)
         {
             Vector3 direction = (qyron.transform.position + offset - transform.position).normalized;
-            rb.velocity = new Vector3(direction.x * speed, direction.y * speed, direction.z * speed);
+            rb.linearVelocity = new Vector3(direction.x * speed, direction.y * speed, direction.z * speed);
         }
         else
         {
-            rb.velocity = Vector3.zero;
+            rb.linearVelocity = Vector3.zero;
         }
     }
 

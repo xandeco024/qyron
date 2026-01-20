@@ -172,7 +172,7 @@ public class PlayableCharacter : Character {
         if (value) 
         {
             downedUIObject.transform.rotation = Quaternion.Euler(0, 0, 0);
-            rb.velocity = Vector3.zero;
+            rb.linearVelocity = Vector3.zero;
         }
     }
 
@@ -309,7 +309,7 @@ public class PlayableCharacter : Character {
     {
         canLightAttack = false;
         isMovingAllowed = false;
-        rb.velocity = new Vector3(0, rb.velocity.y, 0);
+        rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
         if (!isAttacking) isAttacking = true;
         if (!fighting) fighting = true;
 
@@ -370,7 +370,7 @@ public class PlayableCharacter : Character {
     {
         canHeavyAttack = false;
         isMovingAllowed = false;
-        rb.velocity = new Vector3(0, rb.velocity.y, 0);
+        rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
         if (!isAttacking) isAttacking = true;
         if (!fighting) fighting = true;
 
@@ -493,7 +493,7 @@ public class PlayableCharacter : Character {
     {
         canLightAttack = false;
         isMovingAllowed = false;
-        rb.velocity = new Vector3(0, rb.velocity.y, 0);
+        rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
         if (!isAttacking) isAttacking = true;
         if (!fighting) fighting = true;
 
@@ -531,7 +531,7 @@ public class PlayableCharacter : Character {
     {
         canHeavyAttack = false;
         isMovingAllowed = false;
-        rb.velocity = new Vector3(0, rb.velocity.y, 0);
+        rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
         if (!isAttacking) isAttacking = true;
         if (!fighting) fighting = true;
 
@@ -572,7 +572,7 @@ public class PlayableCharacter : Character {
     {
         canHeavyAttack = false;
         isMovingAllowed = false;
-        rb.velocity = new Vector3(0, rb.velocity.y, 0);
+        rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
         if (!isAttacking) isAttacking = true;
         if (!fighting) fighting = true;
 
@@ -613,7 +613,7 @@ public class PlayableCharacter : Character {
     {
         canHeavyAttack = false;
         isMovingAllowed = false;
-        rb.velocity = new Vector3(0, rb.velocity.y, 0);
+        rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
         if (!isAttacking) isAttacking = true;
         if (!fighting) fighting = true;
 
@@ -725,7 +725,7 @@ public class PlayableCharacter : Character {
             if (movementRestrictions.Contains("left")) if (x < 0) x = 0;
             if (movementRestrictions.Contains("right")) if (x > 0) x = 0;
 
-            float y = rb.velocity.y;
+            float y = rb.linearVelocity.y;
 
             if (movementRestrictions.Contains("up")) if (y > 0) y = 0;
             if (movementRestrictions.Contains("down")) if (y < 0) y = 0;
@@ -735,7 +735,7 @@ public class PlayableCharacter : Character {
             if (movementRestrictions.Contains("forward")) if (z > 0) z = 0;
             if (movementRestrictions.Contains("backward")) if (z < 0) z = 0;
 
-            rb.velocity = new Vector3(x * moveSpeed * speed, y, z * moveSpeed * speed);
+            rb.linearVelocity = new Vector3(x * moveSpeed * speed, y, z * moveSpeed * speed);
 
             if (movementInput.x != 0)
             {
@@ -753,7 +753,7 @@ public class PlayableCharacter : Character {
         animator.SetBool("running", isGrounded && movementInput != Vector3.zero);
 
         // Atualiza a velocidade Y no animator
-        animator.SetFloat("yVelocity", rb.velocity.y);
+        animator.SetFloat("yVelocity", rb.linearVelocity.y);
     }
 
 
@@ -765,7 +765,7 @@ public class PlayableCharacter : Character {
 
             {
                 animator.SetTrigger("jumpTrigger");
-                rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+                rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z);
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 jumps--;
             }
@@ -789,13 +789,13 @@ public class PlayableCharacter : Character {
         canDash = false;
         isMovingAllowed = false;
         rb.useGravity = false;
-        rb.velocity = new Vector3(dashForce * facingDirection, 0, rb.velocity.z);
+        rb.linearVelocity = new Vector3(dashForce * facingDirection, 0, rb.linearVelocity.z);
         StartCoroutine(DashCloneTrail(dashDuration, dashCloneAmount, 0.5f));
 
         yield return new WaitForSeconds(dashDuration);
         
         rb.useGravity = true;
-        rb.velocity = new Vector3(0, 0, 0);
+        rb.linearVelocity = new Vector3(0, 0, 0);
         isMovingAllowed = true;
         animator.SetBool("dashing", false);
 

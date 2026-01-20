@@ -114,7 +114,7 @@ public class Pigeon : Enemy
             //z ray
             float zDirection = 1;
             
-            if (rb.velocity.z < 0) zDirection = -1;
+            if (rb.linearVelocity.z < 0) zDirection = -1;
 
             Gizmos.color = Color.red;
             Gizmos.DrawRay(transform.position + new Vector3(stepAssistLimit.x, stepAssistLimit.y, stepAssistLimit.z * zDirection), new Vector3(0, 0, stepAssistDistance.z * zDirection));

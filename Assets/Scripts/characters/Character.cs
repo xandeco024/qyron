@@ -161,8 +161,8 @@ public class Character : MonoBehaviour {
 
         float zDirection = 1;
 
-        if (rb.velocity.z > 0) zDirection = 1;
-        if (rb.velocity.z < 0) zDirection = -1;
+        if (rb.linearVelocity.z > 0) zDirection = 1;
+        if (rb.linearVelocity.z < 0) zDirection = -1;
 
         if (Physics.Raycast(transform.position + stepAssistRay, new Vector3(0, 0, stepAssistDistance.z * zDirection), stepAssistDistance.z, stepAssistLayer))
         {
@@ -189,11 +189,11 @@ public class Character : MonoBehaviour {
 
     public void FlipHandler()
     {
-        if (rb.velocity.x > 0.1f) 
+        if (rb.linearVelocity.x > 0.1f) 
         {
             Flip(true);
         }
-        else if (rb.velocity.x < -0.1f) 
+        else if (rb.linearVelocity.x < -0.1f) 
         {
             Flip(false);
         }
@@ -219,7 +219,7 @@ public class Character : MonoBehaviour {
             }
 
             isMovingAllowed = false;
-            rb.velocity = new Vector3(0, 0, 0);
+            rb.linearVelocity = new Vector3(0, 0, 0);
 
             if (stunRemainingTime <= 0)
             {
@@ -299,10 +299,10 @@ public class Character : MonoBehaviour {
     protected IEnumerator TakeKnockback(Vector3 knockbackDir, float knockbackForce, float duration)
     {
         isMovingAllowed = false;
-        rb.velocity = new Vector3(0, 0, 0);
+        rb.linearVelocity = new Vector3(0, 0, 0);
         rb.AddForce(knockbackDir * knockbackForce, ForceMode.Impulse);
         yield return new WaitForSeconds(duration);
-        rb.velocity = new Vector3(0, 0, 0);
+        rb.linearVelocity = new Vector3(0, 0, 0);
         isMovingAllowed = true;
     }
 
@@ -376,7 +376,7 @@ public class Character : MonoBehaviour {
             //z ray
             float zDirection = 1;
             
-            if (rb.velocity.z < 0) zDirection = -1;
+            if (rb.linearVelocity.z < 0) zDirection = -1;
 
             Gizmos.color = Color.red;
             Gizmos.DrawRay(transform.position + new Vector3(stepAssistLimit.x, stepAssistLimit.y, stepAssistLimit.z * zDirection), new Vector3(0, 0, stepAssistDistance.z * zDirection));
