@@ -54,19 +54,41 @@ public class Enemy : Character
 
 
 
-    [Header("Other")]
+    [Header("Damage Tracking")]
+    // Dictionary para rastrear quanto dano cada player causou
+    private Dictionary<PlayableCharacter, float> damageDealt = new Dictionary<PlayableCharacter, float>();
+    public Dictionary<PlayableCharacter, float> DamageDealt { get => damageDealt; }
+
+    [Header("Rewards")]
     [SerializeField] protected int deathTime;
     public int DeathTime { get => deathTime; }
     [SerializeField] protected int coinAmount;
     public int CoinAmount { get => coinAmount; }
     [SerializeField] protected int xpAmount;
     public int XpAmount { get => xpAmount; }
+
+    [Header("Cooperative Multiplier")]
+    [SerializeField] protected float coopMultiplierPerPlayer = 0.1f; // 10% por player adicional
+
+    [Header("Loot")]
     [SerializeField] protected Vector3 lootBoxSize;
     public Vector3 LootBoxSize { get => lootBoxSize; }
     [SerializeField] List<Drop> drops = new List<Drop>();
     public List<Drop> Drops { get => drops; }
 
+    // TODO: Sistema de healers - quando implementado, trackear também cura recebida
+    // e distribuir XP para healers proporcionalmente
+
     public override void TakeDamage(float damage, float stunDuration, bool critical = false, Vector3 knockbackDir = default, float knockbackForce = 0, float knockbackDuration = 0.2f)
+    {
+        // Mantém compatibilidade com código antigo - tenta encontrar o attacker pelo contexto
+        TakeDamage(damage, stunDuration, critical, knockbackDir, knockbackForce, knockbackDuration, null);
+    }
+
+    /// <summary>
+    /// Versão com tracking de quem causou o dano
+    /// </summary>
+    public void TakeDamage(float damage, float stunDuration, bool critical, Vector3 knockbackDir, float knockbackForce, float knockbackDuration, PlayableCharacter attacker)
     {
         if (!isDead)
         {
@@ -78,6 +100,19 @@ public class Enemy : Character
             if (isHeavyAttacking)
             {
                 StartCoroutine(CancelHeavyAttack());
+            }
+
+            // Registra o dano causado por este player
+            if (attacker != null)
+            {
+                if (damageDealt.ContainsKey(attacker))
+                {
+                    damageDealt[attacker] += damage;
+                }
+                else
+                {
+                    damageDealt[attacker] = damage;
+                }
             }
 
             base.TakeDamage(damage, stunDuration, critical, knockbackDir, knockbackForce, knockbackDuration);
@@ -247,42 +282,79 @@ public class Enemy : Character
         Destroy(gameObject);
     }
 
+    /// <summary>
+    /// Distribui coins igualmente entre todos que participaram do combate
+    /// </summary>
     public void GiveCoins(int coinAmount)
     {
-        List<PlayableCharacter> playersOnRange = GetPlayersInLootRange();
-
-        if (playersOnRange.Count == 0)
+        // Filtra apenas jogadores que deram pelo menos 1 hit (threshold de participação)
+        List<PlayableCharacter> participants = new List<PlayableCharacter>();
+        foreach (var kvp in damageDealt)
         {
-            if (debug) Debug.Log("No players in range to receive coins");
+            if (kvp.Value > 0 && kvp.Key != null)
+            {
+                participants.Add(kvp.Key);
+            }
+        }
+
+        if (participants.Count == 0)
+        {
+            if (debug) Debug.Log("No players participated in combat to receive coins");
             return;
         }
 
-        int coinsPerPlayer = Mathf.RoundToInt(coinAmount / playersOnRange.Count);
-        foreach (PlayableCharacter player in playersOnRange)
+        // Divide coins igualmente entre participantes
+        int coinsPerPlayer = Mathf.RoundToInt(coinAmount / (float)participants.Count);
+
+        foreach (PlayableCharacter player in participants)
         {
             player.AddCoins(coinsPerPlayer);
         }
 
-        if (debug) Debug.Log("Gave " + coinsPerPlayer + " coins to " + playersOnRange.Count + " players");
+        if (debug) Debug.Log($"Gave {coinsPerPlayer} coins to {participants.Count} participating players");
     }
 
+    /// <summary>
+    /// Distribui XP proporcionalmente ao dano causado + multiplicador cooperativo
+    /// </summary>
     public void GiveXP(int xpAmount)
     {
-        List<PlayableCharacter> playersOnRange = GetPlayersInLootRange();
+        // Filtra apenas jogadores que deram pelo menos 1 hit
+        List<PlayableCharacter> participants = new List<PlayableCharacter>();
+        float totalDamage = 0f;
 
-        if (playersOnRange.Count == 0)
+        foreach (var kvp in damageDealt)
         {
-            if (debug) Debug.Log("No players in range to receive XP");
+            if (kvp.Value > 0 && kvp.Key != null)
+            {
+                participants.Add(kvp.Key);
+                totalDamage += kvp.Value;
+            }
+        }
+
+        if (participants.Count == 0)
+        {
+            if (debug) Debug.Log("No players participated in combat to receive XP");
             return;
         }
 
-        int xpPerPlayer = Mathf.RoundToInt(xpAmount / playersOnRange.Count);
-        foreach (PlayableCharacter player in playersOnRange)
-        {
-            player.AddExP(xpPerPlayer);
-        }
+        // Calcula multiplicador cooperativo: 1.0x + (0.1x por player adicional)
+        // 1 player = 1.0x, 2 players = 1.1x, 3 players = 1.2x, 4 players = 1.3x
+        float coopMultiplier = 1.0f + (coopMultiplierPerPlayer * (participants.Count - 1));
+        float totalXP = xpAmount * coopMultiplier;
 
-        if (debug) Debug.Log("Gave " + xpPerPlayer + " xp to " + playersOnRange.Count + " players");
+        if (debug) Debug.Log($"Total XP: {totalXP} (base: {xpAmount}, multiplier: {coopMultiplier}x for {participants.Count} players)");
+
+        // Distribui XP proporcionalmente ao dano causado
+        foreach (PlayableCharacter player in participants)
+        {
+            float damagePercent = damageDealt[player] / totalDamage;
+            int playerXP = Mathf.RoundToInt(totalXP * damagePercent);
+
+            player.AddExP(playerXP);
+
+            if (debug) Debug.Log($"{player.name}: {playerXP} XP ({damagePercent:P1} damage share - {damageDealt[player]}/{totalDamage} dmg)");
+        }
     }
 
     private List<PlayableCharacter> GetPlayersInLootRange()

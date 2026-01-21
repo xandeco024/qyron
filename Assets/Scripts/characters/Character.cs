@@ -263,6 +263,7 @@ public class Character : MonoBehaviour {
 
         bool isEnemy = GetComponent<Enemy>() != null;
         bool isPlayer = GetComponent<PlayableCharacter>() != null;
+        PlayableCharacter attackerPlayer = isPlayer ? GetComponent<PlayableCharacter>() : null;
 
         foreach (Collider hitCollider in hitColliders)
         {
@@ -274,7 +275,16 @@ public class Character : MonoBehaviour {
 
             if ((isEnemy && !isTargetEnemy) || (isPlayer && !isTargetPlayer))
             {
-                targetCharacter.TakeDamage(damage, stunDuration, critical, knockbackDir, knockbackForce, knockbackDuration);
+                // Se o alvo é um inimigo e o atacante é um player, usa o método com tracking
+                if (isTargetEnemy && attackerPlayer != null)
+                {
+                    Enemy targetEnemy = targetCharacter.GetComponent<Enemy>();
+                    targetEnemy.TakeDamage(damage, stunDuration, critical, knockbackDir, knockbackForce, knockbackDuration, attackerPlayer);
+                }
+                else
+                {
+                    targetCharacter.TakeDamage(damage, stunDuration, critical, knockbackDir, knockbackForce, knockbackDuration);
+                }
             }
         }
     }
