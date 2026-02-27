@@ -15,11 +15,14 @@ public class Pigeon : Enemy
 
     void Update()
     {
+        UpdateAggroLock();
+
         if (target == null) target = FindTargetOnRange();
 
         if (target != null)
         {
-            if (Vector3.Distance(transform.position, target.transform.position) > loseTargetAtRange || target.IsDowned)
+            // Só perde o target se NÃO estiver com aggro travado (após levar dano)
+            if (!IsAggroLocked && (Vector3.Distance(transform.position, target.transform.position) > loseTargetAtRange || target.IsDowned))
             {
                 target = null;
             }

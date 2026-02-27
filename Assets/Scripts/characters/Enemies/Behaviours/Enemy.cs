@@ -20,6 +20,11 @@ public class Enemy : Character
     [SerializeField] protected float loseTargetAtRange;
     public float LoseTargetRange { get => loseTargetAtRange; }
 
+    [Header("Aggro Lock")]
+    [SerializeField] protected float aggroLockDuration = 3f; // Tempo que mantém o target após levar dano
+    protected float aggroLockTimer = 0f;
+    public bool IsAggroLocked => aggroLockTimer > 0f;
+
     private bool join;
     public bool Join { get => join; }
 
@@ -117,6 +122,10 @@ public class Enemy : Character
 
             base.TakeDamage(damage, stunDuration, critical, knockbackDir, knockbackForce, knockbackDuration);
             damageTime = knockbackDuration;
+
+            // Trava o aggro no target atual por um tempo após levar dano
+            aggroLockTimer = aggroLockDuration;
+
             animator.SetTrigger("damageTrigger");
             animator.SetBool("takingDamage", true);
             animator.SetFloat("knockbackY", Mathf.Abs(knockbackDir.y));
@@ -389,5 +398,16 @@ public class Enemy : Character
     {
         this.join = join;
         joinDestination = destination;
+    }
+
+    /// <summary>
+    /// Atualiza o timer de aggro lock. Chamar no Update dos inimigos filhos.
+    /// </summary>
+    protected void UpdateAggroLock()
+    {
+        if (aggroLockTimer > 0f)
+        {
+            aggroLockTimer -= Time.deltaTime;
+        }
     }
 }
