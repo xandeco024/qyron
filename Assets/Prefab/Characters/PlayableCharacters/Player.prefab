@@ -492,6 +492,7 @@ MonoBehaviour:
   friendlyFire: 0
   lightAttackCD: 0.1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   heavyAttackCD: 0.2
 =======
   lightAttackStunDuration: 0.55
@@ -501,6 +502,16 @@ MonoBehaviour:
   grabAttackCD: 0.5
   CombatBoxOffset: {x: 0.5, y: -0.5, z: 0}
   CombatRaycastSize: {x: 1.5, y: 2, z: 1}
+=======
+  lightAttackStunDuration: 0.3
+  heavyAttackCD: 0.2
+  heavyAttackStunDuration: 0.5
+  grabAttackCD: 0.7
+  grabAttackStunDuration: 1
+  lightComboStunDuration: 1
+  heavyComboStunDuration: 2
+  grabComboStunDuration: 3
+>>>>>>> Stashed changes
   grabbedCharacterOffset: {x: 1, y: 0, z: 0}
   downedFiller: {fileID: 3647198117987679897}
   downedUIObject: {fileID: 4307346253183062333}

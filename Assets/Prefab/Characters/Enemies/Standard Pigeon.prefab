@@ -178,7 +178,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  Grabbable: 0
+  Grabbable: 1
   grabPoint: {x: 0, y: 0, z: 0}
   damageTextOffset: {x: 0.5, y: 0.5}
   damageTextFaceToDirection: 0
