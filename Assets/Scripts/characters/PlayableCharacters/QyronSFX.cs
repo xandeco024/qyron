@@ -12,53 +12,53 @@ public class qyronSFX : MonoBehaviour
 
     private void Awake()
     {
-
+        // Movido para o Awake para garantir que exista antes de qualquer chamada
+        qyronAudioSource = GetComponent<AudioSource>();
     }
 
     void Start()
     {
-        qyronAudioSource = GetComponent<AudioSource>();
     }
-
 
     void Update()
     {
-        
+
     }
 
-    public void PlayAttackSFX(string attackSFXIndex)
+    // Agora todas as funções aceitam o float volume = 1.0f (padrão)
+    public void PlayAttackSFX(string attackSFXIndex, float volume = 1.0f)
     {
         foreach (AudioClip sfx in qyronSFXClips)
         {
             if (sfx.name == attackSFXIndex)
             {
-                qyronAudioSource.PlayOneShot(sfx);
+                qyronAudioSource.PlayOneShot(sfx, volume);
                 return;
             }
         }
         Debug.LogWarning("AudioClip " + attackSFXIndex + " not found in the audio list.");
     }
 
-    public void PlayMissSFX(string missSFXIndex)
+    public void PlayMissSFX(string missSFXIndex, float volume = 1.0f)
     {
         foreach (AudioClip sfx in qyronSFXClips)
         {
             if (sfx.name == missSFXIndex)
             {
-                qyronAudioSource.PlayOneShot(sfx);
+                qyronAudioSource.PlayOneShot(sfx, volume);
                 return;
             }
         }
         Debug.LogWarning("AudioClip " + missSFXIndex + " not found in the audio list.");
     }
 
-    public void PlayMovementSFX(string movementSFXIndex) 
+    public void PlayMovementSFX(string movementSFXIndex, float volume = 1.0f)
     {
         foreach (AudioClip sfx in qyronSFXClips)
         {
             if (sfx.name == movementSFXIndex)
             {
-                qyronAudioSource.PlayOneShot(sfx);
+                qyronAudioSource.PlayOneShot(sfx, volume);
                 return;
             }
         }

@@ -5,7 +5,8 @@ using UnityEngine.InputSystem;
 using UnityEngine.U2D.Animation;
 using UnityEngine.UI;
 
-public class PlayableCharacter : Character {
+public class PlayableCharacter : Character
+{
 
     [Header("Character Stats")]
     private int level = 1;
@@ -34,16 +35,13 @@ public class PlayableCharacter : Character {
     [SerializeField] private GameObject dashCloneTrailPrefab;
     [SerializeField] private int dashCloneAmount;
 
-
-
-
     [Header("Animation")]
     private bool fighting;
 
     [Header("Combat")]
     private List<string> combo = new List<string>();
-    private List<string> validLightCombos = new List<string>() {"LLL"};
-    private List<string> validHeavyCombos = new List<string>() {"HHH", "LLH", "LLL"};
+    private List<string> validLightCombos = new List<string>() { "LLL" };
+    private List<string> validHeavyCombos = new List<string>() { "HHH", "LLH", "LLL" };
     public List<string> Combo { get { return combo; } }
     private float lastAttackTime;
     [SerializeField] private bool friendlyFire;
@@ -84,6 +82,11 @@ public class PlayableCharacter : Character {
     private PlayableCharacterData playableCharacterData;
     private Color color;
 
+    // --- VARIÁVEIS DE SOM ---
+    private qyronSFX sfxHandler;
+    private float footstepTimer;
+    [SerializeField] private float footstepInterval = 0.35f;
+
     void Awake()
     {
         GetComponentsOnCharacter();
@@ -95,6 +98,7 @@ public class PlayableCharacter : Character {
     {
         base.GetComponentsOnCharacter();
         spriteLibrary = GetComponent<SpriteLibrary>();
+        sfxHandler = GetComponent<qyronSFX>();
     }
 
     protected override void ApplyCharacterData()
@@ -110,17 +114,36 @@ public class PlayableCharacter : Character {
     void Start()
     {
 
-    }   
+    }
 
     void Update()
     {
         DetectGround();
-        DebugHandler(); 
+        DebugHandler();
         CombatHandler();
         DownedHandler();
         StepAssist();
         StunHandler();
         animator.SetFloat("speed", speed);
+
+        HandleFootsteps();
+    }
+
+    void HandleFootsteps()
+    {
+        if (isGrounded && movementInput != Vector3.zero)
+        {
+            footstepTimer -= Time.deltaTime;
+            if (footstepTimer <= 0)
+            {
+                if (sfxHandler != null) sfxHandler.PlayMovementSFX("andando 1", 0.3f);
+                footstepTimer = footstepInterval;
+            }
+        }
+        else
+        {
+            footstepTimer = 0f;
+        }
     }
 
     void FixedUpdate()
@@ -165,11 +188,11 @@ public class PlayableCharacter : Character {
         canGrab = !value;
 
         downedFiller.fillAmount = 0;
-        currentHealth = value ? 0 : maxHealth/4;
+        currentHealth = value ? 0 : maxHealth / 4;
         animator.SetBool("downed", value);
         downedUIObject.SetActive(value);
 
-        if (value) 
+        if (value)
         {
             downedUIObject.transform.rotation = Quaternion.Euler(0, 0, 0);
             rb.velocity = Vector3.zero;
@@ -182,7 +205,7 @@ public class PlayableCharacter : Character {
         {
             //beingCured = true;
 
-            Collider[] hitColliders = Physics.OverlapBox(transform.position, new Vector3(2,2,2), transform.rotation);
+            Collider[] hitColliders = Physics.OverlapBox(transform.position, new Vector3(2, 2, 2), transform.rotation);
             foreach (Collider hitCollider in hitColliders)
             {
                 if (hitCollider.GetComponent<PlayableCharacter>() && hitCollider.GetComponent<PlayableCharacter>().IsDowned && hitCollider.GetComponent<PlayableCharacter>() != this)
@@ -215,7 +238,7 @@ public class PlayableCharacter : Character {
     {
         beingCured = value;
     }
-    
+
 
     void CombatHandler()
     {
@@ -229,7 +252,7 @@ public class PlayableCharacter : Character {
 
         if (combo.Count > 3)
         {
-            combo.Clear();  
+            combo.Clear();
         }
 
         animator.SetBool("fighting", fighting);
@@ -241,6 +264,7 @@ public class PlayableCharacter : Character {
         {
             case "LLL":
                 Debug.Log("Combo LLLL Realizado");
+                if (sfxHandler != null) sfxHandler.PlayAttackSFX("combo 1", 1.2f);
                 StartCoroutine(LLLLCombo());
                 break;
             default:
@@ -282,12 +306,12 @@ public class PlayableCharacter : Character {
 
     public void LightAttack(InputAction.CallbackContext ctx)
     {
-        if(ctx.performed)
+        if (ctx.performed)
         {
             if (canLightAttack && !isDowned && isGrounded)
             {
-                if(isGrabbing) // se estiver grebbando então faz o combo de grab
-                { 
+                if (isGrabbing) // se estiver grebbando então faz o combo de grab
+                {
                     CancelGrab();
                     Debug.Log("Light Grab Attack " + combo);
                     combo.Clear();
@@ -317,16 +341,15 @@ public class PlayableCharacter : Character {
 
         combo.Add("L");
 
-        //logica para calcular dano que o hit vai dar.
-        //calcula se vai dar critico ou não
         bool critical = Random.Range(0, 100) < criticalChance;
-        //Debug.Log(critical);
-        float damage = attackDamage * (critical? 2f : 1f);
+        float damage = attackDamage * (critical ? 2f : 1f);
 
         attackAnimationIndex = (attackAnimationIndex == 1) ? 2 : 1;
 
         animator.SetTrigger("lightAttackTrigger");
         animator.SetInteger("attackAnimationIndex", attackAnimationIndex);
+
+        if (sfxHandler != null) sfxHandler.PlayAttackSFX("combo 4", 0.7f);
 
         Attack(damage, lightAttackStunDuration, critical);
 
@@ -342,14 +365,13 @@ public class PlayableCharacter : Character {
 
     public void HeavyAttack(InputAction.CallbackContext ctx)
     {
-        if(ctx.performed)
+        if (ctx.performed)
         {
             if (canHeavyAttack && !isDowned && isGrounded)
             {
-                if(isGrabbing) // se estiver grebbando então faz o combo de grab
-                { 
+                if (isGrabbing) // se estiver grebbando então faz o combo de grab
+                {
                     CancelGrab();
-                    //uDebug.Log("Heavy Grab Attack " + combo);
                     combo.Clear();
                 }
 
@@ -378,9 +400,8 @@ public class PlayableCharacter : Character {
 
         combo.Add("H");
 
-        //logica para calcular dano que o hit vai dar.
         bool critical = Random.Range(0, 100) < criticalChance;
-        float damage = attackDamage * 1.25f * (critical? 2f : 1f);
+        float damage = attackDamage * 1.25f * (critical ? 2f : 1f);
 
         attackAnimationIndex = (attackAnimationIndex == 1) ? 2 : 1;
 
@@ -401,13 +422,12 @@ public class PlayableCharacter : Character {
 
     public void GrabAttack(InputAction.CallbackContext ctx)
     {
-        if(ctx.performed)
+        if (ctx.performed)
         {
             if (canGrab && !isAttacking && !isGrabbing && !isDowned)
             {
                 if (combo.Count > 0)
                 {
-                    // só vai grabar se no combo não houver um outro grab
                     if (combo.Contains("G")) return;
                     else
                     {
@@ -453,10 +473,8 @@ public class PlayableCharacter : Character {
 
                 grabbedCharacter = collider.GetComponent<Character>();
 
-                //set grabbedCharacter grabbedPoint to to the grabbedCharacterOffset
-
                 grabbedCharacter.transform.position = transform.position + new Vector3(grabbedCharacterOffset.x * facingDirection, grabbedCharacterOffset.y, grabbedCharacterOffset.z);
-                
+
                 grabbedCharacter.transform.SetParent(transform);
                 grabbedCharacter.SetGrabbed(true);
                 grabbedCharacter.Flip(facingDirection == 1 ? false : true);
@@ -499,18 +517,17 @@ public class PlayableCharacter : Character {
 
         lastAttackTime = 0;
 
-        //logica para calcular dano que o hit vai dar.
         bool critical = Random.Range(0, 100) < criticalChance;
-        float damage = attackDamage * 2 * (critical? 2f : 1f);
+        float damage = attackDamage * 2 * (critical ? 2f : 1f);
 
-        animator.SetTrigger("LLLTrigger");  
+        animator.SetTrigger("LLLTrigger");
 
         CallScreenShake(0.15f, 0.25f, 0.25f);
 
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.z), combatBoxSize / 2, transform.rotation);
-        Attack(damage, lightComboStunDuration, critical, new Vector3(0.8f * facingDirection,1,0), 3f, 0.2f);
+        Attack(damage, lightComboStunDuration, critical, new Vector3(0.8f * facingDirection, 1, 0), 3f, 0.2f);
 
-        SetRecievingComboOnTargets(true ,hitColliders);
+        SetRecievingComboOnTargets(true, hitColliders);
 
         yield return new WaitForSeconds(0.3f / speed);
 
@@ -519,7 +536,7 @@ public class PlayableCharacter : Character {
 
         combo.Clear();
 
-        SetRecievingComboOnTargets(false ,hitColliders);
+        SetRecievingComboOnTargets(false, hitColliders);
 
         yield return new WaitForSeconds(lightAttackCD / speed);
 
@@ -537,22 +554,21 @@ public class PlayableCharacter : Character {
 
         lastAttackTime = 0;
 
-        //logica para calcular dano que o hit vai dar.
         bool critical = Random.Range(0, 100) < criticalChance;
-        float damage = attackDamage * 2.5f * (critical? 2f : 1f);
+        float damage = attackDamage * 2.5f * (critical ? 2f : 1f);
 
         CallScreenShake(0.3f, 0.5f, 0.5f);
 
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.z), combatBoxSize / 2, transform.rotation);
-        SetRecievingComboOnTargets(true ,hitColliders);
-        
+        SetRecievingComboOnTargets(true, hitColliders);
+
         Debug.Log("Deu o combo LLH");
 
         yield return new WaitForSeconds(0.27f / speed);
 
         Debug.Log("Terminou de girar");
 
-        Attack(damage, heavyComboStunDuration, critical, new Vector3(0,1,1), 2.5f, 0.3f);
+        Attack(damage, heavyComboStunDuration, critical, new Vector3(0, 1, 1), 2.5f, 0.3f);
 
         yield return new WaitForSeconds(0.3f / speed);
 
@@ -561,7 +577,7 @@ public class PlayableCharacter : Character {
 
         combo.Clear();
 
-        SetRecievingComboOnTargets(false ,hitColliders);
+        SetRecievingComboOnTargets(false, hitColliders);
 
         yield return new WaitForSeconds(heavyAttackCD / speed);
 
@@ -578,14 +594,13 @@ public class PlayableCharacter : Character {
 
         lastAttackTime = 0;
 
-        //logica para calcular dano que o hit vai dar.
         bool critical = Random.Range(0, 100) < criticalChance;
-        float damage = attackDamage * 2.5f * (critical? 2f : 1f);
+        float damage = attackDamage * 2.5f * (critical ? 2f : 1f);
 
         CallScreenShake(0.3f, 0.5f, 0.5f);
 
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.z), combatBoxSize / 2, transform.rotation);
-        SetRecievingComboOnTargets(true ,hitColliders);
+        SetRecievingComboOnTargets(true, hitColliders);
 
         Debug.Log("Deu o combo LLH");
 
@@ -593,7 +608,7 @@ public class PlayableCharacter : Character {
 
         Debug.Log("Terminou de girar");
 
-        Attack(damage, heavyComboStunDuration, critical, new Vector3(0,1,-1), 4f, 0.4f);
+        Attack(damage, heavyComboStunDuration, critical, new Vector3(0, 1, -1), 4f, 0.4f);
 
         yield return new WaitForSeconds(0.3f / speed);
 
@@ -602,7 +617,7 @@ public class PlayableCharacter : Character {
 
         combo.Clear();
 
-        SetRecievingComboOnTargets(false ,hitColliders);
+        SetRecievingComboOnTargets(false, hitColliders);
 
         yield return new WaitForSeconds(heavyAttackCD / speed);
 
@@ -619,9 +634,8 @@ public class PlayableCharacter : Character {
 
         lastAttackTime = 0;
 
-        //logica para calcular dano que o hit vai dar.
         bool critical = Random.Range(0, 100) < criticalChance;
-        float damage = attackDamage * 2.5f * (critical? 2f : 1f);
+        float damage = attackDamage * 2.5f * (critical ? 2f : 1f);
 
         animator.SetTrigger("HHHTrigger");
 
@@ -629,9 +643,9 @@ public class PlayableCharacter : Character {
 
         Collider[] hitColliders = Physics.OverlapBox(transform.position + new Vector3(combatBoxOffset.x * facingDirection, combatBoxOffset.y, combatBoxOffset.z), combatBoxSize / 2, transform.rotation);
 
-        Attack(damage, heavyComboStunDuration, critical, new Vector3(1 * facingDirection,.5f,0), 4, 0.3f);
+        Attack(damage, heavyComboStunDuration, critical, new Vector3(1 * facingDirection, .5f, 0), 4, 0.3f);
 
-        SetRecievingComboOnTargets(true ,hitColliders);
+        SetRecievingComboOnTargets(true, hitColliders);
 
         yield return new WaitForSeconds(0.3f / speed);
 
@@ -640,7 +654,7 @@ public class PlayableCharacter : Character {
 
         combo.Clear();
 
-        SetRecievingComboOnTargets(false ,hitColliders);
+        SetRecievingComboOnTargets(false, hitColliders);
 
         yield return new WaitForSeconds(heavyAttackCD / speed);
 
@@ -654,7 +668,6 @@ public class PlayableCharacter : Character {
         float lastHealth = currentHealth;
         base.TakeDamage(damage, stunDuration, critical, knockbackDir, knockbackForce);
 
-        //se cancelar o seu ataque ele nao reseta mais
         canLightAttack = true;
         canHeavyAttack = true;
         canGrab = true;
@@ -663,6 +676,8 @@ public class PlayableCharacter : Character {
         {
             animator.SetTrigger("damageTrigger");
 
+            if (sfxHandler != null) sfxHandler.PlayAttackSFX("damage 1", 1.0f);
+
             if (isGrabbing)
             {
                 CancelGrab();
@@ -670,7 +685,7 @@ public class PlayableCharacter : Character {
         }
         else
         {
-            //dodjou!
+            if (sfxHandler != null) sfxHandler.PlayMissSFX("miss 2", 1.2f);
         }
     }
 
@@ -679,7 +694,7 @@ public class PlayableCharacter : Character {
     #region Movement
 
     void DetectGround()
-    {   
+    {
         RaycastHit hit;
         isGrounded = Physics.Raycast(transform.position + raycastOffset, Vector3.down, out hit, raycastDistance, groundLayer);
 
@@ -749,10 +764,7 @@ public class PlayableCharacter : Character {
             LimitZ();
         }
 
-        // Define o estado "running" diretamente com base na condição, sem verificar o estado atual
         animator.SetBool("running", isGrounded && movementInput != Vector3.zero);
-
-        // Atualiza a velocidade Y no animator
         animator.SetFloat("yVelocity", rb.velocity.y);
     }
 
@@ -788,12 +800,15 @@ public class PlayableCharacter : Character {
         animator.SetBool("dashing", true);
         canDash = false;
         isMovingAllowed = false;
+
+        if (sfxHandler != null) sfxHandler.PlayAttackSFX("dash 1", 0.2f);
+
         rb.useGravity = false;
         rb.velocity = new Vector3(dashForce * facingDirection, 0, rb.velocity.z);
         StartCoroutine(DashCloneTrail(dashDuration, dashCloneAmount, 0.5f));
 
         yield return new WaitForSeconds(dashDuration);
-        
+
         rb.useGravity = true;
         rb.velocity = new Vector3(0, 0, 0);
         isMovingAllowed = true;
@@ -882,8 +897,6 @@ public class PlayableCharacter : Character {
             SetDowned(false);
         }
 
-
-
         currentHealth = maxHealth;
         coins = 0;
         exP = 0;
@@ -944,7 +957,7 @@ public class PlayableCharacter : Character {
             {
                 ApplyCharacterData();
                 Reset();
-                Debug.Log("CharacterData Reaplicado e Resetado");   
+                Debug.Log("CharacterData Reaplicado e Resetado");
             }
         }
     }
@@ -957,7 +970,7 @@ public class PlayableCharacter : Character {
 
     protected override void OnDrawGizmos()
     {
-        if(debug)
+        if (debug)
         {
             base.OnDrawGizmos();
             Gizmos.DrawSphere(transform.position + new Vector3(grabbedCharacterOffset.x * facingDirection, grabbedCharacterOffset.y, grabbedCharacterOffset.z), 0.1f);
